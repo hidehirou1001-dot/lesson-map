@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>おすすめ特集一覧 - LessonMap</title>
+    <meta name="description" content="松山市のダンススタジオやプログラミング教室など、ジャンル別のおすすめ特集記事をまとめています。スクール選びの参考に。">
+    <link rel="stylesheet" href="./css/style.css?v=3">
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container" style="display: flex; justify-content: space-between; align-items: center;">
+            <a href="./index.html" class="logo "
+                style="font-size: 1.5rem; font-weight: 900; letter-spacing: -0.02em;">LessonMap</a>
+            <nav style="display: flex; gap: 1rem; align-items: center;">
+                <a href="./contact.html" class="btn btn-text" style="font-size: 0.875rem;">お問い合わせ</a>
+                <a href="./recommendations.html" class="btn btn-outline active"
+                    style="border-radius: var(--radius-full); padding: 0.5rem 1rem; font-size: 0.875rem;">おすすめ特集を見る</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container" style="padding-top: 120px; padding-bottom: 80px; max-width: 900px;">
+
+        <div class="text-center" style="margin-bottom: var(--space-xl);">
+            <h1 class="h2">ジャンル別 おすすめ特集まとめ</h1>
+            <p>LessonMap編集部が独自に調査した、ジャンル別のおすすめ教室ランキングや選び方のコツをご紹介します。</p>
+        </div>
+
+        <div class="grid-3" style="grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));">
+
+            <!-- Article 1: Dance -->
+            <a href="./recommendations/matsuyama-dance.html" class="card"
+                style="text-decoration: none; color: inherit;">
+                <div class="card-img-wrap" style="height: 180px;">
+                    <span class="badge">💃 ダンス</span>
+                    <img src="https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                        alt="ダンススタジオ特集" class="card-img">
+                </div>
+                <div style="flex: 1; display: flex; flex-direction: column;">
+                    <h3 class="h3" style="font-size: 1.1rem; flex: 1;">松山のダンススタジオおすすめ5選！初心者・大人・キッズ向けを徹底比較</h3>
+                    <p style="font-size: 0.875rem; color: var(--clr-text-muted); margin-top: 0.5rem;">
+                        料金の安さ、駅からの近さ、初心者・キッズ歓迎などで比較。HIPHOPからK-POPまで。</p>
+                </div>
+            </a>
+
+            <!-- Article 2: Programming -->
+            <a href="./recommendations/matsuyama-programming.html" class="card"
+                style="text-decoration: none; color: inherit;">
+                <div class="card-img-wrap" style="height: 180px;">
+                    <span class="badge">💻 プログラミング</span>
+                    <img src="https://images.unsplash.com/photo-1515879218367-8466d910aaa4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                        alt="プログラミング特集" class="card-img">
+                </div>
+                <div style="flex: 1; display: flex; flex-direction: column;">
+                    <h3 class="h3" style="font-size: 1.1rem; flex: 1;">松山のプログラミング教室おすすめ3選！マイクラやロボットで楽しく学ぶ</h3>
+                    <p style="font-size: 0.875rem; color: var(--clr-text-muted); margin-top: 0.5rem;">
+                        小学生・中学生向けの人気プログラミング教室を厳選。月謝や学べる言語（Scratch/Python）で比較。</p>
+                </div>
+            </a>
+
+            <!-- Article 3: Coming Soon -->
+            <div class="card" style="opacity: 0.6; pointer-events: none;">
+                <div class="card-img-wrap"
+                    style="height: 180px; background: var(--clr-border); display: flex; align-items: center; justify-content: center;">
+                    <span style="font-weight: bold; color: var(--clr-text-muted);">Coming Soon</span>
+                </div>
+                <div style="flex: 1; display: flex; flex-direction: column;">
+                    <h3 class="h3" style="font-size: 1.1rem; flex: 1;">🎹 ピアノ教室特集はこちら（準備中）</h3>
+                    <p style="font-size: 0.875rem; color: var(--clr-text-muted); margin-top: 0.5rem;">新しい特集記事を随時追加予定です。
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+      <footer class="footer">
+    <div class="container">
+      <a href="./index.html" class="logo " style="font-size: 1.25rem;">LessonMap</a>
+      <div style="margin-top: var(--space-md); display: flex; gap: var(--space-md); justify-content: center;">
+        <a href="./about.html" style="font-size: 0.875rem; text-decoration: underline;">運営者情報</a>
+        <a href="./privacy.html" style="font-size: 0.875rem; text-decoration: underline;">プライバシーポリシー</a>
+        <a href="./contact.html" style="font-size: 0.875rem; text-decoration: underline;">お問い合わせ</a>
+      </div>
+      <p style="margin-top: var(--space-lg); font-size: 0.875rem;">&copy; 2026 LessonMap All rights reserved.</p>
+    </div>
+  </footer>
+
+</body>
+
+</html>
