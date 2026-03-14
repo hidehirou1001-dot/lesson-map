@@ -188,142 +188,143 @@ const studios = [
   // ================= 今治市（実在するスタジオ） =================
   {
     id: 'studio-imb-real-001',
-    name: 'しまなみブレイクダンススタジオ 今治校',
-    description: '今治で本格的にブレイクダンスを学べるスタジオ。アクロバティックな動きから基礎まで幅広くサポートします。',
+    name: 'EXPG STUDIO IMABARI',
+    description: '今治市でLDHが運営する本格的なダンススクール。アーティストを目指す本格的な環境でHIPHOPを学べます。',
     category: "Dance",
     city: '今治市',
     area: '今治市内',
-    access: '詳細は公式情報を確認',
-    genres: ['Break', 'HIPHOP'],
+    access: '詳細は公式サイトを確認',
+    genres: ['HIPHOP', 'Artist'],
     pricing: {
       system: '不明',
       minPrice: 0,
       note: '詳細は公式サイトへ'
     },
     features: {
-      parking: true,
-      beginnerFriendly: '〇',
+      parking: false,
+      beginnerFriendly: '△',
       kidsClass: true,
       adultClass: true
     },
     imageUrl: 'https://images.unsplash.com/photo-1547153760-18fc86324498?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-    link: 'https://search.yahoo.co.jp/search?p=しまなみブレイクダンススタジオ今治'
+    link: 'https://expg.jp/school/imabari/'
   },
   {
     id: 'studio-imb-real-002',
-    name: 'ヒロ徳永ダンス教室',
-    description: '今治市内で開催されている実績のあるダンス教室。幅広いジャンルと年齢層に対応しています。',
-    category: "Dance",
-    city: '今治市',
-    area: '松本教室など',
-    access: '今治市松本町周辺',
-    genres: ['Social Dance', 'Basic'],
-    pricing: {
-      system: '不明',
-      minPrice: 0,
-      note: '詳細は公式サイトへ'
-    },
-    features: {
-      parking: true,
-      beginnerFriendly: '◎',
-      kidsClass: false,
-      adultClass: true
-    },
-    imageUrl: 'https://images.unsplash.com/photo-1524594152303-9fd13543fe6e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-    link: 'https://search.yahoo.co.jp/search?p=ヒロ徳永ダンス教室'
-  },
-  {
-    id: 'studio-imb-real-003',
-    name: 'IIP英語でダンス',
-    description: 'ダンスを楽しみながら英語にも触れられる、幼児〜小学生に人気の新しいスタイルの教室です。',
+    name: 'EXPG STUDIO IMABARI',
+    description: '今治市でLDHが運営する本格的なダンススクール。アーティストを目指す本格的な環境でHIPHOPを学べます。',
     category: "Dance",
     city: '今治市',
     area: '今治市内',
-    access: '詳細は公式情報を確認',
-    genres: ['Kids', 'English'],
+    access: '詳細は公式サイトを確認',
+    genres: ['HIPHOP', 'Artist'],
     pricing: {
       system: '不明',
       minPrice: 0,
       note: '詳細は公式サイトへ'
     },
     features: {
-      parking: true,
-      beginnerFriendly: '◎',
+      parking: false,
+      beginnerFriendly: '△',
       kidsClass: true,
-      adultClass: false
+      adultClass: true
     },
     imageUrl: 'https://images.unsplash.com/photo-1547153760-18fc86324498?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-    link: 'https://search.yahoo.co.jp/search?p=IIP英語でダンス'
+    link: 'https://expg.jp/school/imabari/'
+  },
+  {
+    id: 'studio-imb-real-003',
+    name: 'EXPG STUDIO IMABARI',
+    description: '今治市でLDHが運営する本格的なダンススクール。アーティストを目指す本格的な環境でHIPHOPを学べます。',
+    category: "Dance",
+    city: '今治市',
+    area: '今治市内',
+    access: '詳細は公式サイトを確認',
+    genres: ['HIPHOP', 'Artist'],
+    pricing: {
+      system: '不明',
+      minPrice: 0,
+      note: '詳細は公式サイトへ'
+    },
+    features: {
+      parking: false,
+      beginnerFriendly: '△',
+      kidsClass: true,
+      adultClass: true
+    },
+    imageUrl: 'https://images.unsplash.com/photo-1547153760-18fc86324498?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+    link: 'https://expg.jp/school/imabari/'
   },
 
   // ================= 新居浜市（実在するスタジオ） =================
   {
     id: 'studio-nii-real-001',
-    name: 'Glisten DANCE STUDIO（グリッスンダンススタジオ）',
-    description: '新居浜市宮西町。ダンス未経験者でも安心の入門クラスから、強化コンテストチームまで本格対応！',
+    name: 'EXPG STUDIO NIIHAMA',
+    description: '新居浜市でLDHが運営する本格的なダンススクール。アーティストを目指す本格的な環境でHIPHOPを学べます。',
     category: "Dance",
     city: '新居浜市',
-    area: '宮西町周辺',
-    access: '新居浜市宮西町',
-    genres: ['HIPHOP', 'Jazz', 'Kids'],
+    area: '新居浜市内',
+    access: '詳細は公式サイトを確認',
+    genres: ['HIPHOP', 'Artist'],
     pricing: {
       system: '不明',
       minPrice: 0,
       note: '詳細は公式サイトへ'
     },
     features: {
-      parking: true,
-      beginnerFriendly: '◎',
+      parking: false,
+      beginnerFriendly: '△',
       kidsClass: true,
       adultClass: true
     },
     imageUrl: 'https://images.unsplash.com/photo-1547153760-18fc86324498?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-    link: 'https://glisten-dance.com/'
+    link: 'https://expg.jp/school/niihama/'
   },
   {
     id: 'studio-nii-real-002',
-    name: 'クールスダンススタジオ',
-    description: '1986年設立の歴史あるスタジオ。新居浜市星越町にあり、初心者・子供たちの目線に立った温かいサポートが魅力。',
+    name: 'EXPG STUDIO NIIHAMA',
+    description: '新居浜市でLDHが運営する本格的なダンススクール。アーティストを目指す本格的な環境でHIPHOPを学べます。',
     category: "Dance",
     city: '新居浜市',
-    area: '星越町周辺',
-    access: '新居浜市星越町',
-    genres: ['HIPHOP', 'Lock', 'Jazz'],
+    area: '新居浜市内',
+    access: '詳細は公式サイトを確認',
+    genres: ['HIPHOP', 'Artist'],
     pricing: {
       system: '不明',
       minPrice: 0,
       note: '詳細は公式サイトへ'
     },
     features: {
-      parking: true,
-      beginnerFriendly: '◎',
+      parking: false,
+      beginnerFriendly: '△',
       kidsClass: true,
       adultClass: true
     },
     imageUrl: 'https://images.unsplash.com/photo-1518834107812-67b0b7c58434?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-    link: 'https://search.yahoo.co.jp/search?p=クールスダンススタジオ新居浜'
+    link: 'https://expg.jp/school/niihama/'
   },
   {
     id: 'studio-nii-real-003',
-    name: '石水ダンススタジオ',
-    description: '美しい姿勢や運動不足解消に。新居浜で社交ダンスを基礎からしっかり学べる歴史ある教室です。',
+    name: 'EXPG STUDIO NIIHAMA',
+    description: '新居浜市でLDHが運営する本格的なダンススクール。アーティストを目指す本格的な環境でHIPHOPを学べます。',
+    category: "Dance",
     city: '新居浜市',
     area: '新居浜市内',
-    access: '詳細は公式情報を確認',
-    genres: ['Social Dance'],
+    access: '詳細は公式サイトを確認',
+    genres: ['HIPHOP', 'Artist'],
     pricing: {
       system: '不明',
       minPrice: 0,
       note: '詳細は公式サイトへ'
     },
     features: {
-      parking: true,
-      beginnerFriendly: '◎',
-      kidsClass: false,
+      parking: false,
+      beginnerFriendly: '△',
+      kidsClass: true,
       adultClass: true
     },
     imageUrl: 'https://images.unsplash.com/photo-1547153760-18fc86324498?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-    link: 'https://ishimizu-dancestudio.com/'
+    link: 'https://expg.jp/school/niihama/'
   },
 
   // ================= ピアノ教室（松山市） =================
