@@ -14,6 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
         initSearch();
         initFilters();
         initModal();
+        applyFilters(); // Apply initial filters
     }
 });
 
@@ -143,29 +144,67 @@ function renderStudios(data) {
 function initSearch() {
     const searchInput = document.getElementById('search-input');
     const searchBtn = document.getElementById('search-btn');
+    const searchLabel = document.querySelector('.search-label');
 
     if (!searchInput || !searchBtn) return;
 
+    // placeholder is kept empty because we now show an explicit label above
+    searchInput.placeholder = '';
+
+    // Function to toggle label visibility
+    const toggleLabel = () => {
+        if (searchLabel) {
+            searchLabel.style.display = searchInput.value.trim() || searchInput === document.activeElement ? 'none' : 'flex';
+        }
+    };
+
+    // Initial toggle
+    toggleLabel();
+
     const performSearch = () => {
         const query = searchInput.value.toLowerCase().trim();
-        if (!query) {
-            renderStudios(window.studiosData);
-            return;
-        }
-
-        const filtered = window.studiosData.filter(s => {
-            // Search in name, description, area, and genres
-            const text = `${s.name} ${s.description} ${s.area} ${s.genres.join(' ')}`.toLowerCase();
-            return text.includes(query);
-        });
-
-        renderStudios(filtered);
+        currentFilterState.searchQuery = query;
+        applyFilters();
+        searchInput.value = ''; // Clear the search input after search
+        toggleLabel(); // Show label again after clearing
     };
 
     searchBtn.addEventListener('click', performSearch);
     searchInput.addEventListener('keyup', (e) => {
         if (e.key === 'Enter') performSearch();
     });
+
+    // Toggle label on focus and blur
+    searchInput.addEventListener('focus', toggleLabel);
+    searchInput.addEventListener('blur', toggleLabel);
+
+    // voice search using Web Speech API
+    const voiceBtn = document.getElementById('voice-btn');
+    if (voiceBtn && ('SpeechRecognition' in window || 'webkitSpeechRecognition' in window)) {
+        const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+        const recognizer = new SpeechRecognition();
+        recognizer.lang = 'ja-JP';
+        recognizer.interimResults = false;
+        recognizer.maxAlternatives = 1;
+
+        voiceBtn.addEventListener('click', () => {
+            recognizer.start();
+            voiceBtn.textContent = '🎙️';
+        });
+
+        recognizer.addEventListener('result', (event) => {
+            const transcript = event.results[0][0].transcript.trim();
+            searchInput.value = transcript;
+            performSearch();
+        });
+
+        recognizer.addEventListener('end', () => {
+            voiceBtn.textContent = '🎤';
+        });
+    } else if (document.getElementById('voice-btn')) {
+        // hide button if API unavailable
+        document.getElementById('voice-btn').style.display = 'none';
+    }
 }
 
 /**
@@ -174,7 +213,8 @@ function initSearch() {
 let currentFilterState = {
     category: 'Dance',  // 'Dance', 'Piano', etc. (Removed 'all')
     subFilter: 'all', // 'all', 'HIPHOP', 'K-POP', 'Kids', 'parking'
-    city: 'all'       // 'all', '松山市', '今治市', '新居浜市'
+    city: 'all',       // 'all', '松山市', '今治市', '新居浜市'
+    searchQuery: ''    // Search query string
 };
 
 function initFilters() {
@@ -255,6 +295,16 @@ function initFilters() {
  */
 function applyFilters() {
     let filtered = window.studiosData;
+
+    // Apply Search Filter
+    if (currentFilterState.searchQuery) {
+        const query = currentFilterState.searchQuery;
+        filtered = filtered.filter(s => {
+            // Search in name, description, area, and genres
+            const text = `${s.name} ${s.description} ${s.area} ${s.genres.join(' ')}`.toLowerCase();
+            return text.includes(query);
+        });
+    }
 
     // Apply Category Filter
     if (currentFilterState.category !== 'all') {
