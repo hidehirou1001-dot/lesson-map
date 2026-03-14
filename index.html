@@ -25,12 +25,22 @@
 
   <!-- Hero Section -->
   <section class="hero container reveal">
-    <h1 class="h1">愛媛県の習い事・教室、<br><span style="color: var(--clr-primary);">ぴったりの場所を見つけよう</span></h1>
-    <p>完全未経験の社会人から、プロを目指すキッズまで。エリアやジャンルで条件を絞り込み、あなたに最適なレッスン（ダンス・ピアノ等）を探せます。</p>
+    <h1 class="h1">愛媛県の習い事・教室<br><span style="color: var(--clr-primary);">ぴったりの場所を見つけよう</span></h1>
+    <p>完全未経験の社会人から、プロを目指すキッズまで。エリアやジャンルで<br>条件を絞り込み、あなたに最適なレッスン（ダンス・ピアノ等）を探せます。</p>
 
     <!-- Search Bar -->
     <div class="search-container">
-      <input type="text" id="search-input" class="search-input" placeholder="「大街道」「K-POP」「初心者」などキーワードで検索...">
+      <!-- visible label with icon replaces long placeholder text -->
+      <label for="search-input" class="search-label">
+        <span class="search-icon">🔍</span>
+        キーワードで検索
+      </label>
+      <input type="text" id="search-input" class="search-input" placeholder="">
+      <!-- microphone button for voice input; includes label text for clarity -->
+      <button id="voice-btn" class="btn voice-btn" type="button"
+        style="margin-left: 0.5rem; padding:0.5rem;" aria-label="音声検索を開始">
+        🎤<span class="visually-hidden">音声検索</span>
+      </button>
       <button id="search-btn" class="search-btn">検索する</button>
     </div>
 
@@ -124,6 +134,7 @@
       <div style="margin-top: var(--space-md); display: flex; gap: var(--space-md); justify-content: center;">
         <a href="./about.html" style="font-size: 0.875rem; text-decoration: underline;">運営者情報</a>
         <a href="./privacy.html" style="font-size: 0.875rem; text-decoration: underline;">プライバシーポリシー</a>
+        <a href="./terms.html" style="font-size: 0.875rem; text-decoration: underline;">利用規約</a>
         <a href="./contact.html" style="font-size: 0.875rem; text-decoration: underline;">お問い合わせ</a>
       </div>
       <p style="margin-top: var(--space-lg); font-size: 0.875rem;">&copy; 2026 LessonMap All rights reserved.</p>
