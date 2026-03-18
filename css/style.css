@@ -97,6 +97,12 @@ a {
   transition: color var(--transition-fast);
 }
 
+.studio-card a,
+.comparison-table a {
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
 /* ==========================================================================
    Typography Classes
    ========================================================================== */
@@ -624,6 +630,13 @@ p {
 
   .grid-3 {
     grid-template-columns: 1fr;
+  }
+
+  .comparison-table th,
+  .comparison-table td {
+    padding: 0.75rem 0.5rem;
+    font-size: 0.85rem;
+    vertical-align: top;
   }
 }
 
