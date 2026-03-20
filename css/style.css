@@ -506,6 +506,43 @@ p {
   border-color: rgba(201, 42, 42, 0.2);
 }
 
+.site-summary-block {
+  margin-top: var(--space-lg);
+  padding: 1.15rem 1.3rem;
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.84);
+  border: 1px solid rgba(34, 34, 34, 0.08);
+  box-shadow: var(--shadow-sm);
+}
+
+.site-summary-block-centered {
+  max-width: 760px;
+  margin-inline: auto;
+}
+
+.site-summary-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 0.8rem;
+  color: var(--clr-primary-dark);
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.site-summary-list {
+  margin: 0;
+  padding-left: 1.2rem;
+  color: var(--clr-text-main);
+  line-height: 1.8;
+}
+
+.site-summary-list li + li {
+  margin-top: 0.45rem;
+}
+
 .featured-strip {
   margin-top: calc(var(--space-lg) * -0.25);
   margin-bottom: var(--space-xl);
@@ -1106,6 +1143,48 @@ p {
   margin-bottom: var(--space-xl);
 }
 
+.article-summary {
+  margin: 0 0 var(--space-xl);
+  padding: 1.25rem 1.5rem;
+  border-radius: 24px;
+  background: linear-gradient(180deg, rgba(201, 42, 42, 0.06), rgba(255, 255, 255, 0.96));
+  border: 1px solid rgba(201, 42, 42, 0.14);
+  box-shadow: 0 12px 28px rgba(34, 34, 34, 0.05);
+}
+
+.article-summary-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin: 0 0 0.875rem;
+  color: var(--clr-primary-dark);
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.article-summary-list {
+  margin: 0;
+  padding-left: 1.25rem;
+  color: var(--clr-text-main);
+}
+
+.article-summary-list li + li {
+  margin-top: 0.6rem;
+}
+
+.comparison-table-intro {
+  margin: 0 0 0.9rem;
+  color: var(--clr-text-muted);
+  font-size: 0.95rem;
+  line-height: 1.7;
+}
+
+.comparison-table-intro strong {
+  color: var(--clr-text-main);
+}
+
 .article-heading-accent {
   border-left: 4px solid var(--clr-primary);
   padding-left: 1rem;
@@ -1228,7 +1307,7 @@ p {
 
 .recommendations-hero {
   text-align: center;
-  margin-bottom: var(--space-xl);
+  margin-bottom: 1.1rem;
 }
 
 .recommendations-stats {
@@ -1240,7 +1319,7 @@ p {
   justify-content: space-between;
   align-items: flex-end;
   gap: 1rem;
-  margin-bottom: var(--space-lg);
+  margin-bottom: 0.85rem;
 }
 
 .recommendations-grid {
@@ -1251,7 +1330,7 @@ p {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 1rem;
-  margin-bottom: var(--space-xl);
+  margin-bottom: 1.4rem;
 }
 
 .recommendation-index-panel {

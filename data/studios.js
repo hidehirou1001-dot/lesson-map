@@ -684,6 +684,77 @@ const studios = [
     link: 'https://www.messaswimmingclubuwajima.com/'
   },
 
+  // ================= 松前町（実在する教室） =================
+  {
+    id: 'studio-mas-001',
+    name: 'ABC Cooking Studio エミフルMASAKIスタジオ',
+    description: 'エミフルMASAKI内にある大手料理教室。料理、パン、ケーキまで幅広いコースを公式サイトで確認できます。',
+    category: 'Cooking',
+    city: '松前町',
+    area: '筒井周辺',
+    access: '伊予郡松前町筒井850（エミフルMASAKI内）',
+    genres: ['Cooking', 'Baking', 'Cake'],
+    pricing: {
+      system: '不明',
+      minPrice: 0,
+      note: '詳細は公式サイトへ'
+    },
+    features: {
+      parking: true,
+      beginnerFriendly: '◎',
+      kidsClass: false,
+      adultClass: true
+    },
+    imageUrl: 'https://images.unsplash.com/photo-1556910103-1c02745aae4d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+    link: 'https://emifull.jp/shop/abc_cooking/'
+  },
+  {
+    id: 'studio-mas-002',
+    name: 'セイハ英語学院 エミフルMASAKI教室',
+    description: 'エミフルMASAKI内で案内されている子ども向け英会話教室。買い物ついでにも通いやすい立地です。',
+    category: 'English',
+    city: '松前町',
+    area: '筒井周辺',
+    access: '伊予郡松前町筒井850（エミフルMASAKI内）',
+    genres: ['English', 'Kids'],
+    pricing: {
+      system: '不明',
+      minPrice: 0,
+      note: '詳細は公式サイトへ'
+    },
+    features: {
+      parking: true,
+      beginnerFriendly: '◎',
+      kidsClass: true,
+      adultClass: false
+    },
+    imageUrl: 'https://images.unsplash.com/photo-1513258496099-48168024aec0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+    link: 'https://emifull.jp/shop/seiha/'
+  },
+  {
+    id: 'studio-mas-003',
+    name: '毎日個別塾5-Days 松前校',
+    description: '松前町で案内されている個別指導塾。小学生から高校生まで通いやすい地域密着型の学習塾として公式サイトで確認できます。',
+    category: 'CramSchool',
+    city: '松前町',
+    area: '筒井周辺',
+    access: '伊予郡松前町筒井356-1',
+    genres: ['CramSchool', 'Individual', 'Kids'],
+    pricing: {
+      system: '不明',
+      minPrice: 0,
+      note: '詳細は公式サイトへ'
+    },
+    features: {
+      parking: true,
+      beginnerFriendly: '◎',
+      kidsClass: true,
+      adultClass: false
+    },
+    imageUrl: 'https://images.unsplash.com/photo-1509062522246-3755977927d7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+    link: 'https://5-days.jp/school/masaki/'
+  },
+
   // ================= 料理教室（松山市） =================
   {
     id: 'studio-cooking-001',
