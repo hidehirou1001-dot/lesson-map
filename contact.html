@@ -6,7 +6,44 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>お問い合わせ - LessonMap</title>
   <meta name="description" content="LessonMapへのお問い合わせをお受けしております。愛媛県の習い事・教室掲載依頼やご質問はこちらから。">
-  <link rel="stylesheet" href="./css/style.css?v=2">
+  <link rel="canonical" href="https://www.lesson-map.com/contact.html">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="お問い合わせ - LessonMap">
+  <meta property="og:description" content="LessonMapへのお問い合わせをお受けしております。愛媛県の習い事・教室掲載依頼やご質問はこちらから。">
+  <meta property="og:url" content="https://www.lesson-map.com/contact.html">
+  <meta property="og:site_name" content="LessonMap">
+  <meta property="og:locale" content="ja_JP">
+  <meta name="twitter:card" content="summary">
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ContactPage",
+      "name": "お問い合わせ - LessonMap",
+      "url": "https://www.lesson-map.com/contact.html",
+      "description": "LessonMapへのお問い合わせページ",
+      "inLanguage": "ja"
+    }
+  </script>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "LessonMap",
+          "item": "https://www.lesson-map.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "お問い合わせ"
+        }
+      ]
+    }
+  </script>
+  <link rel="stylesheet" href="./css/style.css?v=3">
 </head>
 
 <body>
@@ -22,36 +59,29 @@
     </div>
   </header>
 
-  <main class="container" style="padding-top: 120px; padding-bottom: 80px; max-width: 600px;">
-    <h1 class="h2 text-center" style="margin-bottom: var(--space-md);">お問い合わせ</h1>
-    <p class="text-center" style="margin-bottom: var(--space-xl); color: var(--clr-text-muted);">
+  <main class="container fixed-page fixed-page-narrow">
+    <h1 class="h2 text-center fixed-page-title">お問い合わせ</h1>
+    <p class="text-center fixed-page-lead">
       掲載のご依頼や情報修正、その他ご不明な点がございましたら以下のフォームよりお気軽にご連絡ください。
     </p>
 
-    <form class="card" style="display: flex; flex-direction: column; gap: var(--space-md);"
+    <form class="card fixed-form"
       action="https://formspree.io/f/xnjgpykb" method="POST">
-      <!-- 氏名 -->
-      <div style="display: flex; flex-direction: column; gap: 0.5rem;">
-        <label for="name" style="font-weight: 500; font-size: 0.9rem;">お名前 <span
-            style="color: var(--clr-primary);">*</span></label>
+      <div class="fixed-form-field">
+        <label for="name" class="fixed-form-label">お名前 <span class="fixed-form-required">*</span></label>
         <input type="text" id="name" name="name" required placeholder="例: 松山 太郎"
-          style="padding: 0.75rem; border: 1px solid var(--clr-border); border-radius: var(--radius-md); font-family: inherit; font-size: 1rem;">
+          class="fixed-form-control">
       </div>
 
-      <!-- メールアドレス -->
-      <div style="display: flex; flex-direction: column; gap: 0.5rem;">
-        <label for="email" style="font-weight: 500; font-size: 0.9rem;">メールアドレス <span
-            style="color: var(--clr-primary);">*</span></label>
+      <div class="fixed-form-field">
+        <label for="email" class="fixed-form-label">メールアドレス <span class="fixed-form-required">*</span></label>
         <input type="email" id="email" name="email" required placeholder="例: info@example.com"
-          style="padding: 0.75rem; border: 1px solid var(--clr-border); border-radius: var(--radius-md); font-family: inherit; font-size: 1rem;">
+          class="fixed-form-control">
       </div>
 
-      <!-- 種別 -->
-      <div style="display: flex; flex-direction: column; gap: 0.5rem;">
-        <label for="type" style="font-weight: 500; font-size: 0.9rem;">お問い合わせ種別 <span
-            style="color: var(--clr-primary);">*</span></label>
-        <select id="type" name="type" required
-          style="padding: 0.75rem; border: 1px solid var(--clr-border); border-radius: var(--radius-md); font-family: inherit; font-size: 1rem; background-color: var(--clr-surface);">
+      <div class="fixed-form-field">
+        <label for="type" class="fixed-form-label">お問い合わせ種別 <span class="fixed-form-required">*</span></label>
+        <select id="type" name="type" required class="fixed-form-control">
           <option value="">選択してください</option>
           <option value="掲載依頼">教室の掲載依頼</option>
           <option value="情報修正">掲載情報の修正</option>
@@ -59,15 +89,12 @@
         </select>
       </div>
 
-      <!-- 内容 -->
-      <div style="display: flex; flex-direction: column; gap: 0.5rem;">
-        <label for="message" style="font-weight: 500; font-size: 0.9rem;">お問い合わせ内容 <span
-            style="color: var(--clr-primary);">*</span></label>
+      <div class="fixed-form-field">
+        <label for="message" class="fixed-form-label">お問い合わせ内容 <span class="fixed-form-required">*</span></label>
         <textarea id="message" name="message" required rows="6" placeholder="内容をご記入ください..."
-          style="padding: 0.75rem; border: 1px solid var(--clr-border); border-radius: var(--radius-md); font-family: inherit; font-size: 1rem; resize: vertical;"></textarea>
+          class="fixed-form-control"></textarea>
       </div>
 
-      <!-- 送信完了後のリダイレクト先 -->
       <input type="hidden" name="_next" value="/thanks.html">
 
       <button type="submit" class="btn btn-primary"

@@ -10,6 +10,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // Render studios if a container exists (e.g., on index.html)
     const studiosGrid = document.getElementById('studios-grid');
     if (studiosGrid && window.studiosData) {
+        initHeroStats(window.studiosData);
+        initCategoryCounts(window.studiosData);
         renderStudios(window.studiosData);
         initSearch();
         initFilters();
@@ -75,11 +77,15 @@ function renderStudios(data) {
     grid.innerHTML = ''; // Clear existing
 
     if (data.length === 0) {
-        grid.innerHTML = '<p class="text-center" style="grid-column: 1/-1;">条件に一致するスタジオが見つかりませんでした。</p>';
+        grid.innerHTML = '<div class="empty-state" style="grid-column: 1/-1;"><strong>条件に一致する教室が見つかりませんでした。</strong><p>カテゴリやエリアを広げるか、キーワードを短くして再検索してください。</p></div>';
         return;
     }
 
     data.forEach((studio, index) => {
+        const pricingSummary = formatPricingSummary(studio.pricing);
+        const featureSummary = getCardFeatureSummary(studio);
+        const categoryLabel = getCategoryLabel(studio.category);
+
         // Add staggered delay for rendering
         const delay = index * 100;
 
@@ -98,17 +104,26 @@ function renderStudios(data) {
           画像引用元: ${studio.imageSource || 'フリー素材(Unsplash)'}
         </div>
       </div>
-      <div class="card-content" style="display: flex; flex-direction: column; flex: 1;">
-        <div class="tags">${genreTags}</div>
-        <h3 class="h3">${studio.name}</h3>
-        <p style="font-size: 0.875rem; margin-bottom: 1rem; flex: 1;">${studio.description}</p>
-        
-        <div style="font-size: 0.8rem; margin-bottom: 1rem; color: var(--clr-text-main);">
-          <div><strong style="color: var(--clr-primary);">💵 料金:</strong> ${studio.pricing.system} / 最安 ${studio.pricing.minPrice.toLocaleString()}円〜</div>
-          <div style="margin-top: 4px;"><strong style="color: var(--clr-success);">🚃 アクセス:</strong> ${studio.access}</div>
+        <div class="card-content">
+        <div class="card-heading-block">
+          <span class="card-eyebrow">${categoryLabel}</span>
+          <h3 class="h3">${studio.name}</h3>
+          <p class="card-location">${studio.access}</p>
         </div>
-        
-        <button class="btn btn-outline detail-btn" style="width: 100%; border-radius: var(--radius-md);">詳細を見る</button>
+        <div class="tags">${genreTags}</div>
+        <div class="card-meta-chips">${featureSummary}</div>
+        <div class="card-stat-grid">
+          <div class="card-stat">
+            <span class="card-stat-label">料金</span>
+            <strong>${pricingSummary}</strong>
+          </div>
+          <div class="card-stat">
+            <span class="card-stat-label">対象</span>
+            <strong>${getAudienceSummary(studio.features)}</strong>
+          </div>
+        </div>
+        <p class="card-description">${studio.description}</p>
+        <button class="btn btn-outline detail-btn card-detail-btn">詳細を見る</button>
       </div>
     `;
 
@@ -138,45 +153,68 @@ function renderStudios(data) {
     setTimeout(initAnimations, 50);
 }
 
+function formatPricingSummary(pricing) {
+    if (!pricing) return '料金は要確認';
+    if (pricing.minPrice > 0) {
+        return `${pricing.system} / 最安 ${pricing.minPrice.toLocaleString()}円〜`;
+    }
+    return pricing.note ? `${pricing.system} / ${pricing.note}` : `${pricing.system} / 料金は要確認`;
+}
+
+function getCardFeatureSummary(studio) {
+    const chips = [];
+    if (studio.features.beginnerFriendly) chips.push(`初心者 ${studio.features.beginnerFriendly}`);
+    if (studio.features.kidsClass) chips.push('キッズ対応');
+    if (studio.features.parking) chips.push('駐車場あり');
+    return chips.map(chip => `<span class="card-meta-chip">${chip}</span>`).join('');
+}
+
+function getCategoryLabel(category) {
+    const labels = {
+        Dance: 'ダンス',
+        Piano: 'ピアノ',
+        Programming: 'プログラミング',
+        Gymnastics: '体操',
+        Swimming: '水泳',
+        Fitness: 'スポーツジム',
+        Yoga: 'ヨガ・ピラティス',
+        Cooking: '料理教室',
+        English: '英会話',
+        CramSchool: '学習塾',
+        Calligraphy: '書道',
+        Soroban: 'そろばん',
+        Art: 'アート・絵画'
+    };
+    return labels[category] || category;
+}
+
+function getAudienceSummary(features) {
+    if (!features) return '要確認';
+    if (features.kidsClass && features.adultClass) return '子ども・大人';
+    if (features.kidsClass) return '子ども中心';
+    if (features.adultClass) return '大人中心';
+    return '要確認';
+}
+
 /**
  * Search Functionality
  */
 function initSearch() {
     const searchInput = document.getElementById('search-input');
     const searchBtn = document.getElementById('search-btn');
-    const searchLabel = document.querySelector('.search-label');
 
     if (!searchInput || !searchBtn) return;
-
-    // placeholder is kept empty because we now show an explicit label above
-    searchInput.placeholder = '';
-
-    // Function to toggle label visibility
-    const toggleLabel = () => {
-        if (searchLabel) {
-            searchLabel.style.display = searchInput.value.trim() || searchInput === document.activeElement ? 'none' : 'flex';
-        }
-    };
-
-    // Initial toggle
-    toggleLabel();
 
     const performSearch = () => {
         const query = searchInput.value.toLowerCase().trim();
         currentFilterState.searchQuery = query;
         applyFilters();
-        searchInput.value = ''; // Clear the search input after search
-        toggleLabel(); // Show label again after clearing
     };
 
     searchBtn.addEventListener('click', performSearch);
     searchInput.addEventListener('keyup', (e) => {
         if (e.key === 'Enter') performSearch();
     });
-
-    // Toggle label on focus and blur
-    searchInput.addEventListener('focus', toggleLabel);
-    searchInput.addEventListener('blur', toggleLabel);
 
     // voice search using Web Speech API
     const voiceBtn = document.getElementById('voice-btn');
@@ -217,12 +255,63 @@ let currentFilterState = {
     searchQuery: ''    // Search query string
 };
 
+const filterLabelMap = {
+    Dance: 'ダンス',
+    Piano: 'ピアノ',
+    Programming: 'プログラミング',
+    Gymnastics: '体操',
+    Swimming: '水泳',
+    Fitness: 'スポーツジム',
+    Yoga: 'ヨガ・ピラティス',
+    Cooking: '料理教室',
+    English: '英会話',
+    CramSchool: '学習塾',
+    Calligraphy: '書道',
+    Soroban: 'そろばん',
+    Art: 'アート・絵画',
+    Kids: 'キッズ対応',
+    parking: '駐車場あり',
+    Minecraft: 'マイクラ',
+    Robot: 'ロボット・工作',
+    Acrobat: 'アクロバット',
+    Baby: 'ベビー対応',
+    HIPHOP: 'HIPHOP',
+    'K-POP': 'K-POP',
+    all: 'すべて'
+};
+
+function initHeroStats(data) {
+    const totalCount = document.getElementById('hero-total-count');
+    const categoryCount = document.getElementById('hero-category-count');
+    const cityCount = document.getElementById('hero-city-count');
+
+    if (totalCount) totalCount.textContent = `${data.length}件`;
+    if (categoryCount) categoryCount.textContent = `${new Set(data.map(studio => studio.category)).size}カテゴリ`;
+    if (cityCount) cityCount.textContent = `${new Set(data.map(studio => studio.city)).size}エリア`;
+}
+
+function initCategoryCounts(data) {
+    const counts = data.reduce((acc, studio) => {
+        acc[studio.category] = (acc[studio.category] || 0) + 1;
+        return acc;
+    }, {});
+
+    document.querySelectorAll('.category-btn').forEach(button => {
+        const category = button.getAttribute('data-category');
+        const count = counts[category] || 0;
+        const label = button.textContent.trim();
+        button.innerHTML = `${label}<span class="filter-count">${count}</span>`;
+    });
+}
+
 function initFilters() {
     const categoryBtns = document.querySelectorAll('.category-btn');
     const subBtns = document.querySelectorAll('.sub-btn');
     const cityBtns = document.querySelectorAll('.city-btn');
     const danceFilters = document.getElementById('sub-filters');
     const progFilters = document.getElementById('sub-filters-prog');
+    const clearFiltersBtn = document.getElementById('clear-filters-btn');
+    const subFilterGroups = [danceFilters, progFilters, document.getElementById('sub-filters-gym'), document.getElementById('sub-filters-swim')].filter(Boolean);
 
     // 1. Category Buttons
     categoryBtns.forEach(btn => {
@@ -256,11 +345,13 @@ function initFilters() {
 
             // Reset sub-filter state
             currentFilterState.subFilter = 'all';
-            subBtns.forEach(b => {
-                b.classList.remove('active');
-                if (b.getAttribute('data-filter') === 'all') {
-                    b.classList.add('active');
-                }
+            subFilterGroups.forEach(group => {
+                group.querySelectorAll('.sub-btn').forEach(button => {
+                    button.classList.remove('active');
+                    if (button.getAttribute('data-filter') === 'all') {
+                        button.classList.add('active');
+                    }
+                });
             });
 
             applyFilters();
@@ -270,7 +361,10 @@ function initFilters() {
     // 2. Sub-category Buttons (HIPHOP, Kids, Parking)
     subBtns.forEach(btn => {
         btn.addEventListener('click', () => {
-            subBtns.forEach(b => b.classList.remove('active'));
+            const parent = btn.closest('.filters');
+            if (parent) {
+                parent.querySelectorAll('.sub-btn').forEach(button => button.classList.remove('active'));
+            }
             btn.classList.add('active');
 
             currentFilterState.subFilter = btn.getAttribute('data-filter');
@@ -288,6 +382,37 @@ function initFilters() {
             applyFilters();
         });
     });
+
+    if (clearFiltersBtn) {
+        clearFiltersBtn.addEventListener('click', () => {
+            currentFilterState = {
+                category: 'Dance',
+                subFilter: 'all',
+                city: 'all',
+                searchQuery: ''
+            };
+
+            const searchInput = document.getElementById('search-input');
+            if (searchInput) searchInput.value = '';
+
+            categoryBtns.forEach(button => {
+                button.classList.toggle('active', button.getAttribute('data-category') === 'Dance');
+            });
+
+            cityBtns.forEach(button => {
+                button.classList.toggle('active', button.getAttribute('data-city') === 'all');
+            });
+
+            subFilterGroups.forEach(group => {
+                group.style.display = group.id === 'sub-filters' ? 'flex' : 'none';
+                group.querySelectorAll('.sub-btn').forEach(button => {
+                    button.classList.toggle('active', button.getAttribute('data-filter') === 'all');
+                });
+            });
+
+            applyFilters();
+        });
+    }
 }
 
 /**
@@ -329,6 +454,33 @@ function applyFilters() {
     }
 
     renderStudios(filtered);
+    updateResultsMeta(filtered);
+}
+
+function updateResultsMeta(filtered) {
+    const summary = document.getElementById('results-summary');
+    const chipContainer = document.getElementById('active-filter-chips');
+    const filterBar = document.getElementById('active-filter-bar');
+    const clearFiltersBtn = document.getElementById('clear-filters-btn');
+    const activeChips = [];
+
+    if (currentFilterState.category !== 'all') activeChips.push(filterLabelMap[currentFilterState.category] || currentFilterState.category);
+    if (currentFilterState.subFilter !== 'all') activeChips.push(filterLabelMap[currentFilterState.subFilter] || currentFilterState.subFilter);
+    if (currentFilterState.city !== 'all') activeChips.push(currentFilterState.city);
+    if (currentFilterState.searchQuery) activeChips.push(`"${currentFilterState.searchQuery}"`);
+
+    if (summary) {
+        summary.textContent = `${filtered.length}件の教室を表示中。${currentFilterState.city === 'all' ? '愛媛県全域' : currentFilterState.city}の候補を比較できます。`;
+    }
+
+    if (chipContainer && filterBar) {
+        chipContainer.innerHTML = activeChips.map(chip => `<span class="active-filter-chip">${chip}</span>`).join('');
+        filterBar.hidden = activeChips.length === 0;
+    }
+
+    if (clearFiltersBtn) {
+        clearFiltersBtn.style.display = activeChips.length > 1 || currentFilterState.searchQuery ? 'inline-flex' : 'none';
+    }
 }
 
 /**
@@ -354,6 +506,9 @@ function initModal() {
         closeBtn.addEventListener('click', closeModal);
         overlay.addEventListener('click', (e) => {
             if (e.target === overlay) closeModal();
+        });
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeModal();
         });
     }
 }

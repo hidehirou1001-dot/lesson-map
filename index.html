@@ -4,9 +4,36 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>LessonMap - 愛媛県の習い事（ダンス・ピアノなど）検索メディア</title>
-  <meta name="description" content="愛媛県（松山市・今治市・新居浜市など）であなたにぴったりの習い事（ピアノ、ダンスなど）を見つけよう。料金やアクセスから簡単検索。">
-  <link rel="stylesheet" href="./css/style.css?v=3">
+  <title>愛媛県の習い事を検索・比較 | LessonMap【松山・今治・新居浜】</title>
+  <meta name="description" content="愛媛県の習い事、学習塾、スポーツジムを検索・比較。松山市、今治市、新居浜市を中心に、料金や通いやすさ、特徴から候補を絞れます。">
+  <link rel="canonical" href="https://www.lesson-map.com/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="愛媛県の習い事を検索・比較 | LessonMap【松山・今治・新居浜】">
+  <meta property="og:description" content="愛媛県の習い事、学習塾、スポーツジムを検索・比較。松山市、今治市、新居浜市を中心に、料金や通いやすさ、特徴から候補を絞れます。">
+  <meta property="og:url" content="https://www.lesson-map.com/">
+  <meta property="og:site_name" content="LessonMap">
+  <meta property="og:locale" content="ja_JP">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="愛媛県の習い事を検索・比較 | LessonMap【松山・今治・新居浜】">
+  <meta name="twitter:description" content="愛媛県の習い事、学習塾、スポーツジムを検索・比較。松山市、今治市、新居浜市を中心に、料金や通いやすさ、特徴から候補を絞れます。">
+  <meta name="twitter:image" content="https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80">
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "LessonMap",
+      "url": "https://www.lesson-map.com/",
+      "description": "愛媛県の習い事、学習塾、スポーツジムを比較検索できるローカルメディア",
+      "inLanguage": "ja",
+      "publisher": {
+        "@type": "Organization",
+        "name": "LessonMap",
+        "url": "https://www.lesson-map.com/"
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="./css/style.css?v=4">
 </head>
 
 <body>
@@ -25,88 +52,182 @@
 
   <!-- Hero Section -->
   <section class="hero container reveal">
-    <h1 class="h1">愛媛県の習い事・教室<br><span style="color: var(--clr-primary);">ぴったりの場所を見つけよう</span></h1>
-    <p>完全未経験の社会人から、プロを目指すキッズまで。エリアやジャンルで<br>条件を絞り込み、あなたに最適なレッスン（ダンス・ピアノ等）を探せます。</p>
+    <div class="hero-layout">
+      <div class="hero-main">
+        <div class="hero-eyebrow">EHIME LESSON DIRECTORY</div>
+        <h1 class="h1">愛媛県の習い事・教室を<br><span style="color: var(--clr-primary);">迷わず比較できるトップページ</span></h1>
+        <p>松山市・今治市・新居浜市を中心に、ジャンル、エリア、特徴から候補を整理。最初に特集で絞るか、そのまま条件検索するかを選べる構成にしています。</p>
+        <div class="hero-stats" id="hero-stats">
+          <div class="hero-stat">
+            <span class="hero-stat-label">掲載教室</span>
+            <strong id="hero-total-count">-</strong>
+          </div>
+          <div class="hero-stat">
+            <span class="hero-stat-label">掲載ジャンル</span>
+            <strong id="hero-category-count">-</strong>
+          </div>
+          <div class="hero-stat">
+            <span class="hero-stat-label">掲載エリア</span>
+            <strong id="hero-city-count">-</strong>
+          </div>
+        </div>
+        <div class="hero-quick-links">
+          <a href="./recommendations/matsuyama-dance.html">松山のダンス特集</a>
+          <a href="./recommendations/matsuyama-english.html">松山の英会話特集</a>
+          <a href="./recommendations.html">特集一覧を見る</a>
+        </div>
+      </div>
 
-    <!-- Search Bar -->
-    <div class="search-container">
-      <!-- visible label with icon replaces long placeholder text -->
-      <label for="search-input" class="search-label">
-        <span class="search-icon">🔍</span>
-        キーワードで検索
-      </label>
-      <input type="text" id="search-input" class="search-input" placeholder="">
-      <!-- microphone button for voice input; includes label text for clarity -->
-      <button id="voice-btn" class="btn voice-btn" type="button"
-        style="margin-left: 0.5rem; padding:0.5rem;" aria-label="音声検索を開始">
-        🎤<span class="visually-hidden">音声検索</span>
-      </button>
-      <button id="search-btn" class="search-btn">検索する</button>
+      <aside class="hero-side">
+        <div class="hero-side-card">
+          <span class="featured-strip-kicker">START HERE</span>
+          <h2 class="h3" style="font-size: 1.25rem; margin-bottom: 0.75rem;">まずはこの3つから探すと早いです</h2>
+          <div class="hero-side-steps">
+            <div class="hero-side-step">
+              <strong>1. 気になるジャンルを選ぶ</strong>
+              <span>ダンス、ピアノ、学習塾、スポーツジムまで横断できます。</span>
+            </div>
+            <div class="hero-side-step">
+              <strong>2. エリアで絞る</strong>
+              <span>松山市内だけ、今治市だけ、のようにすぐ切り替えられます。</span>
+            </div>
+            <div class="hero-side-step">
+              <strong>3. 特集で深掘りする</strong>
+              <span>候補が出たら、おすすめ記事で違いを確認できます。</span>
+            </div>
+          </div>
+        </div>
+      </aside>
     </div>
 
-    <!-- Main Category Filters -->
-    <div class="filters" style="margin-bottom: var(--space-sm);">
-      <button class="filter-btn category-btn active" data-category="Dance">💃 ダンス</button>
-      <button class="filter-btn category-btn" data-category="Piano">🎹 ピアノ</button>
-      <button class="filter-btn category-btn" data-category="Programming">💻 プログラミング</button>
-      <button class="filter-btn category-btn" data-category="Gymnastics">🤸‍♂️ 体操</button>
-      <button class="filter-btn category-btn" data-category="Swimming">🏊‍♂️ 水泳</button>
-      <button class="filter-btn category-btn" data-category="Yoga">🧘‍♀️ ヨガ・ピラティス</button>
-      <button class="filter-btn category-btn" data-category="Cooking">🍳 料理教室</button>
-      <button class="filter-btn category-btn" data-category="English">🗣️ 英会話</button>
-      <button class="filter-btn category-btn" data-category="Art">🎨 アート・絵画</button>
+    <div class="featured-strip">
+      <div class="featured-strip-copy">
+        <span class="featured-strip-kicker">NEW FEATURES</span>
+        <strong>英会話・幼児教室・サッカーの特集記事を追加しました</strong>
+        <p>まず特集で候補を絞ってから、一覧検索で条件比較すると探しやすいです。</p>
+      </div>
+      <div class="featured-strip-links">
+        <a href="./recommendations/matsuyama-english.html">🗣️ 英会話3選</a>
+        <a href="./recommendations/matsuyama-early-education.html">👶 幼児教室3選</a>
+        <a href="./recommendations/matsuyama-soccer.html">⚽ サッカー3選</a>
+      </div>
     </div>
 
-    <!-- Dance Sub-category Filters (Only visible when Dance is selected) -->
-    <div id="sub-filters" class="filters" style="margin-bottom: var(--space-sm);">
-      <button class="filter-btn sub-btn active" data-filter="all">すべて (ジャンル・特徴)</button>
-      <button class="filter-btn sub-btn" data-filter="HIPHOP">HIPHOP</button>
-      <button class="filter-btn sub-btn" data-filter="K-POP">K-POP</button>
-      <button class="filter-btn sub-btn" data-filter="Kids">👶 キッズクラスあり</button>
-      <button class="filter-btn sub-btn" data-filter="parking">🚗 駐車場あり</button>
-    </div>
+    <div class="finder-panel">
+      <div class="finder-panel-header">
+        <div>
+          <span class="featured-strip-kicker">FINDER</span>
+          <h2 class="h2" style="margin-bottom: 0.4rem;">条件で探す</h2>
+          <p class="results-summary">キーワード、ジャンル、エリアの順に選ぶと、候補をかなり絞りやすくなります。</p>
+        </div>
+        <div class="finder-tip-list">
+          <span>人気: キッズ対応</span>
+          <span>人気: 駐車場あり</span>
+          <span>人気: 松山市</span>
+        </div>
+      </div>
 
-    <!-- Programming Sub-category Filters -->
-    <div id="sub-filters-prog" class="filters" style="margin-bottom: var(--space-sm); display: none;">
-      <button class="filter-btn sub-btn active" data-filter="all">すべて (ジャンル・特徴)</button>
-      <button class="filter-btn sub-btn" data-filter="Programming">プログラミング基礎</button>
-      <button class="filter-btn sub-btn" data-filter="Minecraft">マイクラ</button>
-      <button class="filter-btn sub-btn" data-filter="Robot">ロボット・工作</button>
-    </div>
+      <div class="finder-section finder-section-primary">
+        <div class="finder-section-head">
+          <span class="finder-step">STEP 1</span>
+          <strong>キーワードで探す</strong>
+        </div>
+        <div class="search-container">
+          <label for="search-input" class="visually-hidden">
+            <span class="search-icon">🔍</span>
+            キーワードで検索
+          </label>
+          <input type="text" id="search-input" class="search-input" placeholder="🔍 教室名・ジャンル・エリアで検索" aria-label="教室名・ジャンル・エリアで検索">
+          <button id="voice-btn" class="btn voice-btn" type="button"
+            style="margin-left: 0.5rem; padding:0.5rem;" aria-label="音声検索を開始">
+            🎤<span class="visually-hidden">音声検索</span>
+          </button>
+          <button id="search-btn" class="search-btn">検索する</button>
+        </div>
+      </div>
 
-    <!-- Gymnastics Sub-category Filters -->
-    <div id="sub-filters-gym" class="filters" style="margin-bottom: var(--space-sm); display: none;">
-      <button class="filter-btn sub-btn active" data-filter="all">すべて (ジャンル・特徴)</button>
-      <button class="filter-btn sub-btn" data-filter="Kids">👶 キッズ専用</button>
-      <button class="filter-btn sub-btn" data-filter="Acrobat">アクロバット</button>
-      <button class="filter-btn sub-btn" data-filter="parking">🚗 駐車場あり</button>
-    </div>
+      <div class="finder-section">
+        <div class="finder-section-head">
+          <span class="finder-step">STEP 2</span>
+          <strong>ジャンルを選ぶ</strong>
+        </div>
+        <div class="filters" style="margin-bottom: var(--space-sm);">
+          <button class="filter-btn category-btn active" data-category="Dance">💃 ダンス</button>
+          <button class="filter-btn category-btn" data-category="Piano">🎹 ピアノ</button>
+          <button class="filter-btn category-btn" data-category="Programming">💻 プログラミング</button>
+          <button class="filter-btn category-btn" data-category="Gymnastics">🤸‍♂️ 体操</button>
+          <button class="filter-btn category-btn" data-category="Swimming">🏊‍♂️ 水泳</button>
+          <button class="filter-btn category-btn" data-category="Fitness">🏋️‍♀️ スポーツジム</button>
+          <button class="filter-btn category-btn" data-category="Yoga">🧘‍♀️ ヨガ・ピラティス</button>
+          <button class="filter-btn category-btn" data-category="Cooking">🍳 料理教室</button>
+          <button class="filter-btn category-btn" data-category="English">🗣️ 英会話</button>
+          <button class="filter-btn category-btn" data-category="CramSchool">📚 学習塾</button>
+          <button class="filter-btn category-btn" data-category="Calligraphy">🖌️ 書道</button>
+          <button class="filter-btn category-btn" data-category="Soroban">🧮 そろばん</button>
+          <button class="filter-btn category-btn" data-category="Art">🎨 アート・絵画</button>
+        </div>
 
-    <!-- Swimming Sub-category Filters -->
-    <div id="sub-filters-swim" class="filters" style="margin-bottom: var(--space-sm); display: none;">
-      <button class="filter-btn sub-btn active" data-filter="all">すべて (ジャンル・特徴)</button>
-      <button class="filter-btn sub-btn" data-filter="Baby">👶 ベビー対応</button>
-      <button class="filter-btn sub-btn" data-filter="Kids">👦 キッズ</button>
-      <button class="filter-btn sub-btn" data-filter="parking">🚗 駐車場あり</button>
-    </div>
+        <div id="sub-filters" class="filters" style="margin-bottom: var(--space-sm);">
+          <button class="filter-btn sub-btn active" data-filter="all">すべて (ジャンル・特徴)</button>
+          <button class="filter-btn sub-btn" data-filter="HIPHOP">HIPHOP</button>
+          <button class="filter-btn sub-btn" data-filter="K-POP">K-POP</button>
+          <button class="filter-btn sub-btn" data-filter="Kids">👶 キッズクラスあり</button>
+          <button class="filter-btn sub-btn" data-filter="parking">🚗 駐車場あり</button>
+        </div>
 
-    <!-- City Filters -->
-    <div class="filters" style="margin-bottom: var(--space-lg);">
-      <button class="filter-btn city-btn active" data-city="all">愛媛県 全域</button>
-      <button class="filter-btn city-btn" data-city="松山市">📍 松山市</button>
-      <button class="filter-btn city-btn" data-city="今治市">📍 今治市</button>
-      <button class="filter-btn city-btn" data-city="新居浜市">📍 新居浜市</button>
-      <button class="filter-btn city-btn" data-city="西条市">📍 西条市</button>
-      <button class="filter-btn city-btn" data-city="宇和島市">📍 宇和島市</button>
+        <div id="sub-filters-prog" class="filters" style="margin-bottom: var(--space-sm); display: none;">
+          <button class="filter-btn sub-btn active" data-filter="all">すべて (ジャンル・特徴)</button>
+          <button class="filter-btn sub-btn" data-filter="Programming">プログラミング基礎</button>
+          <button class="filter-btn sub-btn" data-filter="Minecraft">マイクラ</button>
+          <button class="filter-btn sub-btn" data-filter="Robot">ロボット・工作</button>
+        </div>
+
+        <div id="sub-filters-gym" class="filters" style="margin-bottom: var(--space-sm); display: none;">
+          <button class="filter-btn sub-btn active" data-filter="all">すべて (ジャンル・特徴)</button>
+          <button class="filter-btn sub-btn" data-filter="Kids">👶 キッズ専用</button>
+          <button class="filter-btn sub-btn" data-filter="Acrobat">アクロバット</button>
+          <button class="filter-btn sub-btn" data-filter="parking">🚗 駐車場あり</button>
+        </div>
+
+        <div id="sub-filters-swim" class="filters" style="margin-bottom: var(--space-sm); display: none;">
+          <button class="filter-btn sub-btn active" data-filter="all">すべて (ジャンル・特徴)</button>
+          <button class="filter-btn sub-btn" data-filter="Baby">👶 ベビー対応</button>
+          <button class="filter-btn sub-btn" data-filter="Kids">👦 キッズ</button>
+          <button class="filter-btn sub-btn" data-filter="parking">🚗 駐車場あり</button>
+        </div>
+      </div>
+
+      <div class="finder-section">
+        <div class="finder-section-head">
+          <span class="finder-step">STEP 3</span>
+          <strong>エリアで絞る</strong>
+        </div>
+        <div class="filters" style="margin-bottom: 0;">
+          <button class="filter-btn city-btn active" data-city="all">愛媛県 全域</button>
+          <button class="filter-btn city-btn" data-city="松山市">📍 松山市</button>
+          <button class="filter-btn city-btn" data-city="今治市">📍 今治市</button>
+          <button class="filter-btn city-btn" data-city="新居浜市">📍 新居浜市</button>
+          <button class="filter-btn city-btn" data-city="西条市">📍 西条市</button>
+          <button class="filter-btn city-btn" data-city="宇和島市">📍 宇和島市</button>
+        </div>
+      </div>
     </div>
   </section>
 
   <!-- Studio Results Grid -->
   <section class="section container">
-    <div class="section-header"
-      style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: var(--space-lg);">
-      <h2 class="h2" style="margin-bottom: 0;">検索結果</h2>
-      <span style="color: var(--clr-text-muted); font-weight: 600;">愛媛県エリア</span>
+    <div class="results-toolbar">
+      <div>
+        <div class="results-kicker">SEARCH RESULTS</div>
+        <h2 class="h2" style="margin-bottom: 0.25rem;">検索結果</h2>
+        <p class="results-summary" id="results-summary">条件に合う教室を読み込んでいます。</p>
+      </div>
+      <button id="clear-filters-btn" class="btn btn-outline results-clear-btn" type="button" style="display: none;">条件をリセット</button>
+    </div>
+
+    <div class="active-filter-bar" id="active-filter-bar" hidden>
+      <span class="active-filter-label">現在の条件</span>
+      <div class="active-filter-chips" id="active-filter-chips"></div>
     </div>
 
     <!-- Cards will be injected here by app.js -->
@@ -121,7 +242,13 @@
     <div
       style="background: var(--clr-gradient-surface); border: 1px solid var(--clr-border-glass); padding: var(--space-xl); border-radius: var(--radius-lg); backdrop-filter: var(--backdrop-blur);">
       <h2 class="h2">迷ったら、おすすめ特集をチェック</h2>
-      <p style="margin-bottom: var(--space-lg);">目的別やレベル別で、あなたにぴったりのスクールを徹底比較しています。</p>
+      <p style="margin-bottom: var(--space-md);">目的別やレベル別で、あなたにぴったりのスクールを徹底比較しています。</p>
+      <div class="hero-quick-links" style="justify-content: center; margin: 0 0 var(--space-lg);">
+        <a href="./recommendations/matsuyama-english.html">英会話3選</a>
+        <a href="./recommendations/matsuyama-early-education.html">幼児教室3選</a>
+        <a href="./recommendations/matsuyama-soccer.html">サッカー3選</a>
+        <a href="./recommendations/matsuyama-cram-school.html">学習塾3選</a>
+      </div>
       <a href="./recommendations.html" class="btn btn-primary"
         style="padding: 1rem 3rem; font-size: 1.125rem;">おすすめ特集一覧を見る ✨</a>
     </div>
@@ -142,8 +269,8 @@
   </footer>
 
   <!-- Scripts -->
-  <script src="./data/studios.js?v=11"></script>
-  <script src="./js/app.js?v=12"></script>
+  <script src="./data/studios.js?v=13"></script>
+  <script src="./js/app.js?v=18"></script>
 </body>
 
 </html>

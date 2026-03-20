@@ -20,7 +20,7 @@ const studios = [
       kidsClass: true,
       adultClass: true
     },
-    imageUrl: 'https://images.unsplash.com/photo-1547153760-18fc86324498?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+    imageUrl: 'https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
     link: 'https://dancestudiotheone.com/'
   },
   {
@@ -66,7 +66,7 @@ const studios = [
       kidsClass: true,
       adultClass: true
     },
-    imageUrl: 'https://images.unsplash.com/photo-1547153760-18fc86324498?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+    imageUrl: 'https://images.unsplash.com/photo-1524594152303-9fd13543fe6e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
     link: 'https://skoopdance.com/'
   },
   {
@@ -89,7 +89,7 @@ const studios = [
       kidsClass: true,
       adultClass: true
     },
-    imageUrl: 'https://images.unsplash.com/photo-1547153760-18fc86324498?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+    imageUrl: 'https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
     link: 'https://expg.jp/school/matsuyama/'
   },
   {
@@ -112,7 +112,7 @@ const studios = [
       kidsClass: true,
       adultClass: true
     },
-    imageUrl: 'https://images.unsplash.com/photo-1547153760-18fc86324498?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+    imageUrl: 'https://images.unsplash.com/photo-1518834107812-67b0b7c58434?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
     link: 'https://tsdancelabo.com/'
   },
   {
@@ -158,7 +158,7 @@ const studios = [
       kidsClass: false,
       adultClass: true
     },
-    imageUrl: 'https://images.unsplash.com/photo-1547153760-18fc86324498?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+    imageUrl: 'https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
     link: 'https://toshinodance.com/'
   },
   {
@@ -181,7 +181,7 @@ const studios = [
       kidsClass: true,
       adultClass: true
     },
-    imageUrl: 'https://images.unsplash.com/photo-1547153760-18fc86324498?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+    imageUrl: 'https://images.unsplash.com/photo-1518834107812-67b0b7c58434?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
     link: 'https://nanairos.com/'
   },
 
@@ -256,8 +256,8 @@ const studios = [
       kidsClass: true,
       adultClass: true
     },
-    imageUrl: 'https://images.unsplash.com/photo-1520523839897-bd0b52f945a0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-    link: 'https://www.yamahamusic.jp/shop/matsuyama'
+    imageUrl: 'https://images.unsplash.com/photo-1507838153414-b4b713384a76?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+    link: 'https://retailing.jp.yamaha.com/shop/matsuyama'
   },
   {
     id: 'studio-piano-002',
@@ -280,7 +280,7 @@ const studios = [
       adultClass: true
     },
     imageUrl: 'https://images.unsplash.com/photo-1552422535-c45813c61732?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-    link: 'https://music.kawai.jp/'
+    link: 'https://music.kawai.jp/search/detail/00E792'
   },
   {
     id: 'studio-piano-003',
@@ -302,17 +302,17 @@ const studios = [
       kidsClass: true,
       adultClass: false
     },
-    imageUrl: 'https://plus.unsplash.com/premium_photo-1683141114443-41bb7fb5d2fd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-    link: 'https://ochi-piano.crayonsite.net/'
+    imageUrl: 'https://images.unsplash.com/photo-1513364776144-60967b0f800f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+    link: 'https://ochimotomi.crayonsite.net/'
   },
   {
     id: 'studio-piano-004',
-    name: 'さやかピアノ音楽教室',
-    description: '松山市内に複数教室（荏原・素鵞・拓南地区など）。年齢やレベルに合わせた丁寧な個人レッスンが魅力です。',
+    name: '山本音楽教室',
+    description: '松山市持田町で、ピアノを中心に幼児からシニアまで幅広く対応している音楽教室です。年齢や経験に応じて無理なく続けやすいレッスンが魅力です。',
     category: 'Piano',
     city: '松山市',
-    area: '荏原・素鵞',
-    access: '各教室の情報を確認',
+    area: '持田町周辺',
+    access: '持田町周辺（詳細は公式サイトを確認）',
     genres: ['Piano'],
     pricing: {
       system: '不明',
@@ -326,7 +326,7 @@ const studios = [
       adultClass: true
     },
     imageUrl: 'https://images.unsplash.com/photo-1550100136-e092101726f4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-    link: 'https://sayakapiano.studio.site/'
+    link: 'https://www.yamamoto-musica.com/'
   },
 
   // ================= プログラミング教室（松山市） =================
@@ -421,7 +421,7 @@ const studios = [
       kidsClass: true,
       adultClass: false
     },
-    imageUrl: 'https://images.unsplash.com/photo-1547153760-18fc86324498?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+    imageUrl: 'https://images.unsplash.com/photo-1600965962361-9035dbfd1c50?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
     link: 'https://jpc-sports.com/'
   },
   {
@@ -516,7 +516,7 @@ const studios = [
       adultClass: true
     },
     imageUrl: 'https://images.unsplash.com/photo-1547153760-18fc86324498?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-    link: 'https://ishihara-sc.com/'
+    link: 'https://ishihara-s-c.jp/'
   },
   {
     id: 'studio-swim-002',
@@ -538,8 +538,8 @@ const studios = [
       kidsClass: true,
       adultClass: true
     },
-    imageUrl: 'https://images.unsplash.com/photo-1600965962361-9035dbfd1c50?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-    link: 'https://nankai-dolphin.com/'
+    imageUrl: 'https://images.unsplash.com/photo-1541534741688-6078c6bfb5c5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+    link: 'https://nankaidc.jp/asoda/'
   },
   {
     id: 'studio-swim-003',
@@ -561,7 +561,7 @@ const studios = [
       kidsClass: true,
       adultClass: false
     },
-    imageUrl: 'https://images.unsplash.com/photo-1547153760-18fc86324498?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+    imageUrl: 'https://images.unsplash.com/photo-1574680096145-d05b474e2155?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
     link: 'https://aqua-community.jp/'
   },
 
@@ -586,7 +586,7 @@ const studios = [
       kidsClass: false,
       adultClass: true
     },
-    imageUrl: 'https://images.unsplash.com/photo-1547153760-18fc86324498?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+    imageUrl: 'https://plus.unsplash.com/premium_photo-1663089688180-444ff0066e5d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
     link: 'https://yoga-lava.com/'
   },
   {
@@ -616,8 +616,8 @@ const studios = [
   // ================= 西条市・宇和島市のスタジオ =================
   {
     id: 'studio-saijo-001',
-    name: 'VIVO DANCE STUDIO 西条校',
-    description: '西条市で人気のダンススタジオ。元気なキッズから大人まで、ヒップホップを中心に楽しく汗を流しています。',
+    name: 'Dance Studio REVE',
+    description: '西条市で活動しているダンススタジオ。キッズから大人まで、ストリートダンスを中心に学べる教室として案内されています。',
     category: 'Dance',
     city: '西条市',
     area: '西条市内',
@@ -635,12 +635,12 @@ const studios = [
       adultClass: true
     },
     imageUrl: 'https://images.unsplash.com/photo-1547153760-18fc86324498?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-    link: 'https://search.yahoo.co.jp/search?p=VIVO+DANCE+STUDIO+西条'
+    link: 'https://www.instagram.com/dancestudioreve/'
   },
   {
     id: 'studio-uwa-001',
-    name: '宇和島スイミングクラブ',
-    description: '宇和島市内の老舗スイミングスクール。子供の体力づくりから大人の健康維持まで、地域に根差した指導を行います。',
+    name: 'メッサスイミングクラブ宇和島',
+    description: '宇和島市で運営されているスイミングクラブ。子ども向けから一般向けまで、水泳を継続しやすい地域密着型の教室として案内されています。',
     category: 'Swimming',
     city: '宇和島市',
     area: '宇和島市内',
@@ -658,7 +658,7 @@ const studios = [
       adultClass: true
     },
     imageUrl: 'https://images.unsplash.com/photo-1547153760-18fc86324498?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-    link: 'https://search.yahoo.co.jp/search?p=宇和島スイミングクラブ'
+    link: 'https://www.messaswimmingclubuwajima.com/'
   },
 
   // ================= 料理教室（松山市） =================
@@ -757,6 +757,359 @@ const studios = [
     link: 'https://trinityschoolinjapan.com/'
   },
 
+  // ================= 学習塾（松山市） =================
+  {
+    id: 'studio-cram-001',
+    name: '明光義塾 本町教室',
+    description: '松山市本町にある個別指導塾。学校の補習から受験対策まで幅広く対応し、自分のペースで学びやすい教室です。',
+    category: 'CramSchool',
+    city: '松山市',
+    area: '本町周辺',
+    access: '松山市本町周辺（詳細は公式サイトを確認）',
+    genres: ['Cram School', 'Individual', 'Exam Prep'],
+    pricing: {
+      system: '不明',
+      minPrice: 0,
+      note: '料金詳細は公式サイトを確認'
+    },
+    features: {
+      parking: false,
+      beginnerFriendly: '◎',
+      kidsClass: true,
+      adultClass: false
+    },
+    imageUrl: 'https://images.unsplash.com/photo-1515879218367-8466d910aaa4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+    link: 'https://www.meikogijuku.jp/school/ehime/matsuyama-shi/S1979/'
+  },
+  {
+    id: 'studio-cram-002',
+    name: '東進スクール 松山市駅教室',
+    description: '松山市駅エリアで小学生から高校生まで対応している学習塾。学年別の指導コースがあり、通学動線に乗せやすい教室です。',
+    category: 'CramSchool',
+    city: '松山市',
+    area: '千舟町周辺',
+    access: '松山市千舟町5-1-4 松山第二ビル1F・2F',
+    genres: ['Cram School', 'Exam Prep', 'Elementary'],
+    pricing: {
+      system: '不明',
+      minPrice: 0,
+      note: '料金詳細は公式サイトを確認'
+    },
+    features: {
+      parking: false,
+      beginnerFriendly: '◎',
+      kidsClass: true,
+      adultClass: false
+    },
+    imageUrl: 'https://images.unsplash.com/photo-1542831371-29b0f74f9713?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+    link: 'https://www.toshinshikoku.com/map/'
+  },
+  {
+    id: 'studio-cram-003',
+    name: '寺小屋グループ FLaT津田',
+    description: '松山市北斎院町にある寺小屋グループの学習塾。個別指導ベースで、基礎固めから進学対策まで進めやすい教室です。',
+    category: 'CramSchool',
+    city: '松山市',
+    area: '北斎院町周辺',
+    access: '松山市北斎院町1250-13',
+    genres: ['Cram School', 'Individual', 'Study Support'],
+    pricing: {
+      system: '不明',
+      minPrice: 0,
+      note: '料金詳細は公式サイトを確認'
+    },
+    features: {
+      parking: true,
+      beginnerFriendly: '◎',
+      kidsClass: true,
+      adultClass: false
+    },
+    imageUrl: 'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+    link: 'https://www.terakoyagroup.com/school/243'
+  },
+
+  // ================= 書道教室（松山市） =================
+  {
+    id: 'studio-calligraphy-001',
+    name: '松郷書道会',
+    description: '松山市で毛筆・ペン字・鉛筆・かな文字を学べる書道教室。幼児から大人まで幅広く見学や体験の案内があります。',
+    category: 'Calligraphy',
+    city: '松山市',
+    area: '東長戸周辺',
+    access: '松山市東長戸4-5-3',
+    genres: ['Calligraphy', 'Penmanship', 'Kids'],
+    pricing: {
+      system: '不明',
+      minPrice: 0,
+      note: '詳細は公式サイトへ'
+    },
+    features: {
+      parking: false,
+      beginnerFriendly: '◎',
+      kidsClass: true,
+      adultClass: true
+    },
+    imageUrl: 'https://images.unsplash.com/photo-1550100136-e092101726f4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+    link: 'https://matsugo.themedia.jp/'
+  },
+  {
+    id: 'studio-calligraphy-002',
+    name: '書道教室HAKU',
+    description: '愛媛県松山市で運営されている書道教室。習字を始めたい方にも入りやすい内容で、教室案内や開催情報を公式サイトで確認できます。',
+    category: 'Calligraphy',
+    city: '松山市',
+    area: '松山市内',
+    access: '詳細は公式サイトを確認',
+    genres: ['Calligraphy', 'Penmanship'],
+    pricing: {
+      system: '不明',
+      minPrice: 0,
+      note: '詳細は公式サイトへ'
+    },
+    features: {
+      parking: false,
+      beginnerFriendly: '◎',
+      kidsClass: true,
+      adultClass: true
+    },
+    imageUrl: 'https://images.unsplash.com/photo-1513364776144-60967b0f800f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+    link: 'https://matsu58.wixsite.com/haku'
+  },
+  {
+    id: 'studio-calligraphy-003',
+    name: '六六庵書道塾',
+    description: '松山市内で案内されている書道塾。毛筆や書に親しみたい方向けに、公式サイトで教室情報を確認できます。',
+    category: 'Calligraphy',
+    city: '松山市',
+    area: '松山市内',
+    access: '詳細は公式サイトを確認',
+    genres: ['Calligraphy', 'Brush'],
+    pricing: {
+      system: '不明',
+      minPrice: 0,
+      note: '詳細は公式サイトへ'
+    },
+    features: {
+      parking: false,
+      beginnerFriendly: '◎',
+      kidsClass: true,
+      adultClass: true
+    },
+    imageUrl: 'https://images.unsplash.com/photo-1547153760-18fc86324498?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+    link: 'https://tikugai.sakura.ne.jp/'
+  },
+
+  // ================= そろばん教室（松山市） =================
+  {
+    id: 'studio-soroban-001',
+    name: 'MAKI.そろばん教室',
+    description: '松山市で運営されているそろばん教室。基礎計算を身につけたい子ども向けに、教室情報を公式サイトで確認できます。',
+    category: 'Soroban',
+    city: '松山市',
+    area: '松山市内',
+    access: '詳細は公式サイトを確認',
+    genres: ['Soroban', 'Math', 'Kids'],
+    pricing: {
+      system: '不明',
+      minPrice: 0,
+      note: '詳細は公式サイトへ'
+    },
+    features: {
+      parking: false,
+      beginnerFriendly: '◎',
+      kidsClass: true,
+      adultClass: false
+    },
+    imageUrl: 'https://images.unsplash.com/photo-1600965962361-9035dbfd1c50?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+    link: 'https://g2jq9.crayonsite.com/'
+  },
+  {
+    id: 'studio-soroban-002',
+    name: '西垣生そろばん教室',
+    description: '松山市西垣生町にあるそろばん教室。計算力や集中力を伸ばしたい子どもの通塾先として検討しやすい教室です。',
+    category: 'Soroban',
+    city: '松山市',
+    area: '西垣生周辺',
+    access: '松山市西垣生町836-1',
+    genres: ['Soroban', 'Math', 'Flash Mental'],
+    pricing: {
+      system: '不明',
+      minPrice: 0,
+      note: '詳細は公式サイトへ'
+    },
+    features: {
+      parking: false,
+      beginnerFriendly: '◎',
+      kidsClass: true,
+      adultClass: false
+    },
+    imageUrl: 'https://images.unsplash.com/photo-1542831371-29b0f74f9713?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+    link: 'https://www.soroban.or.jp/school/%E8%A5%BF%E5%9E%A3%E7%94%9F%E3%81%9D%E3%82%8D%E3%81%B0%E3%82%93%E6%95%99%E5%AE%A4/'
+  },
+  {
+    id: 'studio-soroban-003',
+    name: '木原そろばん教室',
+    description: '松山市土居田町にあるそろばん教室。日々の計算練習を積みたい子ども向けに、公式ページで教室情報が確認できます。',
+    category: 'Soroban',
+    city: '松山市',
+    area: '土居田町周辺',
+    access: '松山市土居田町676-7',
+    genres: ['Soroban', 'Math', 'Kids'],
+    pricing: {
+      system: '不明',
+      minPrice: 0,
+      note: '詳細は公式サイトへ'
+    },
+    features: {
+      parking: false,
+      beginnerFriendly: '◎',
+      kidsClass: true,
+      adultClass: false
+    },
+    imageUrl: 'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+    link: 'https://www.soroban.or.jp/school/%E6%9C%A8%E5%8E%9F%E3%81%9D%E3%82%8D%E3%81%B0%E3%82%93%E6%95%99%E5%AE%A4/'
+  },
+
+  // ================= スポーツジム =================
+  {
+    id: 'studio-fitness-001',
+    name: 'スポーツクラブ フィッタ松山',
+    description: '松山市宮西にある総合フィットネスクラブ。ジムに加えてプールやスタジオも備え、運動習慣をつくりやすい大型施設です。',
+    category: 'Fitness',
+    city: '松山市',
+    area: '宮西周辺',
+    access: '松山市宮西一丁目5番10号',
+    genres: ['Gym', 'Pool', 'Studio'],
+    pricing: {
+      system: '不明',
+      minPrice: 0,
+      note: '料金詳細は公式サイトを確認'
+    },
+    features: {
+      parking: true,
+      beginnerFriendly: '◎',
+      kidsClass: false,
+      adultClass: true
+    },
+    imageUrl: 'https://images.unsplash.com/photo-1518611012118-696072aa579a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+    link: 'https://www.fitta.jp/matsuyama/'
+  },
+  {
+    id: 'studio-fitness-002',
+    name: 'スポーツクラブ フィッタ衣山',
+    description: '松山市衣山にあるフィットネスジム。マシン、ウエイトトレーニング、プールまで揃い、初心者から続けやすい環境です。',
+    category: 'Fitness',
+    city: '松山市',
+    area: '衣山周辺',
+    access: '松山市衣山1丁目216',
+    genres: ['Gym', 'Pool', 'Training'],
+    pricing: {
+      system: '不明',
+      minPrice: 0,
+      note: '料金詳細は公式サイトを確認'
+    },
+    features: {
+      parking: true,
+      beginnerFriendly: '◎',
+      kidsClass: false,
+      adultClass: true
+    },
+    imageUrl: 'https://images.unsplash.com/photo-1541534741688-6078c6bfb5c5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+    link: 'https://www.fitta.jp/kinuyama/'
+  },
+  {
+    id: 'studio-fitness-003',
+    name: 'P・SPO 松山空港通り店',
+    description: '松山市空港通にある24時間型フィットネスジム。通いやすい営業時間と駐車場付きで、仕事帰りにも使いやすい店舗です。',
+    category: 'Fitness',
+    city: '松山市',
+    area: '空港通周辺',
+    access: '松山市空港通1丁目15-1',
+    genres: ['Gym', '24h', 'Fitness'],
+    pricing: {
+      system: '不明',
+      minPrice: 0,
+      note: '料金詳細は公式サイトを確認'
+    },
+    features: {
+      parking: true,
+      beginnerFriendly: '◎',
+      kidsClass: false,
+      adultClass: true
+    },
+    imageUrl: 'https://images.unsplash.com/photo-1574680096145-d05b474e2155?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+    link: 'https://pspo.jp/kuukou/'
+  },
+  {
+    id: 'studio-fitness-004',
+    name: 'スポーツクラブ フィッタ新居浜',
+    description: '新居浜市新須賀町にある総合フィットネスクラブ。ジム、プール、スタジオを備え、幅広い運動ニーズに対応しています。',
+    category: 'Fitness',
+    city: '新居浜市',
+    area: '新須賀町周辺',
+    access: '新居浜市新須賀町一丁目8番21号',
+    genres: ['Gym', 'Pool', 'Studio'],
+    pricing: {
+      system: '不明',
+      minPrice: 0,
+      note: '料金詳細は公式サイトを確認'
+    },
+    features: {
+      parking: true,
+      beginnerFriendly: '◎',
+      kidsClass: false,
+      adultClass: true
+    },
+    imageUrl: 'https://images.unsplash.com/photo-1556910103-1c02745aae4d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+    link: 'https://www.fitta.jp/niihama/'
+  },
+  {
+    id: 'studio-fitness-005',
+    name: 'P・SPO マリエール今治店',
+    description: '今治市郷本町にある24時間利用可能なスポーツジム。駐車場があり、日常の運動を無理なく継続しやすい店舗です。',
+    category: 'Fitness',
+    city: '今治市',
+    area: '郷本町周辺',
+    access: '今治市郷本町1-1-35',
+    genres: ['Gym', '24h', 'Fitness'],
+    pricing: {
+      system: '不明',
+      minPrice: 0,
+      note: '料金詳細は公式サイトを確認'
+    },
+    features: {
+      parking: true,
+      beginnerFriendly: '◎',
+      kidsClass: false,
+      adultClass: true
+    },
+    imageUrl: 'https://images.unsplash.com/photo-1543269865-cbf427effbad?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+    link: 'https://pspo.jp/marriyell_imabari/'
+  },
+  {
+    id: 'studio-fitness-006',
+    name: 'P・SPO ワールドプラザ店',
+    description: '今治市東村のワールドプラザ内にあるフィットネスジム。買い物動線と合わせて利用しやすく、初めてでも始めやすい環境です。',
+    category: 'Fitness',
+    city: '今治市',
+    area: '東村周辺',
+    access: '今治市東村1丁目14-2 センターコート2F',
+    genres: ['Gym', '24h', 'Training'],
+    pricing: {
+      system: '不明',
+      minPrice: 0,
+      note: '料金詳細は公式サイトを確認'
+    },
+    features: {
+      parking: true,
+      beginnerFriendly: '◎',
+      kidsClass: false,
+      adultClass: true
+    },
+    imageUrl: 'https://images.unsplash.com/photo-1513364776144-60967b0f800f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+    link: 'https://pspo.jp/worldplaza/'
+  },
+
   // ================= アート・絵画教室（松山市） =================
   {
     id: 'studio-art-001',
@@ -779,7 +1132,7 @@ const studios = [
       adultClass: false
     },
     imageUrl: 'https://images.unsplash.com/photo-1547153760-18fc86324498?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-    link: 'https://irotoridori-art.crayonsite.com/'
+    link: 'https://iro.crayonsite.com/'
   },
   {
     id: 'studio-art-002',
