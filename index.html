@@ -50,10 +50,9 @@
   <header class="header">
     <div class="container">
       <a href="./index.html" class="logo">LessonMap</a>
-      <nav style="display: flex; gap: 1rem; align-items: center;">
-        <a href="./contact.html" class="btn btn-text" style="font-size: 0.875rem;">お問い合わせ</a>
-        <a href="./recommendations.html" class="btn btn-outline"
-          style="border-radius: var(--radius-full); padding: 0.5rem 1rem; font-size: 0.875rem;">おすすめ特集を見る</a>
+      <nav class="header-actions">
+        <a href="./contact.html" class="btn btn-text header-link-btn">お問い合わせ</a>
+        <a href="./recommendations.html" class="btn btn-outline header-outline-btn">おすすめ特集を見る</a>
       </nav>
     </div>
   </header>
@@ -63,8 +62,8 @@
     <div class="hero-layout">
       <div class="hero-main">
         <div class="hero-eyebrow">EHIME LESSON DIRECTORY</div>
-        <h1 class="h1">愛媛県の習い事・教室を<br><span style="color: var(--clr-primary);">迷わず比較できるトップページ</span></h1>
-        <p>松山市・今治市・新居浜市を中心に、ジャンル、エリア、特徴から候補を整理。最初に特集で絞るか、そのまま条件検索するかを選べる構成にしています。</p>
+        <h1 class="h1">習い事・教室を<br><span class="hero-emphasis">条件から比較して探せる</span></h1>
+        <p>現在は愛媛県を中心に、松山市・今治市・新居浜市の教室情報を掲載中です。ジャンル、エリア、特徴から候補を整理して、特集で深掘りするか、そのまま条件検索するかを選べます。</p>
         <div class="hero-stats" id="hero-stats">
           <div class="hero-stat">
             <span class="hero-stat-label">掲載教室</span>
@@ -89,7 +88,7 @@
       <aside class="hero-side">
         <div class="hero-side-card">
           <span class="featured-strip-kicker">START HERE</span>
-          <h2 class="h3" style="font-size: 1.25rem; margin-bottom: 0.75rem;">まずはこの3つから探すと早いです</h2>
+          <h2 class="h3 hero-side-title">まずはこの3つから探すと早いです</h2>
           <div class="hero-side-steps">
             <div class="hero-side-step">
               <strong>1. 気になるジャンルを選ぶ</strong>
@@ -125,7 +124,7 @@
       <div class="finder-panel-header">
         <div>
           <span class="featured-strip-kicker">FINDER</span>
-          <h2 class="h2" style="margin-bottom: 0.4rem;">条件で探す</h2>
+          <h2 class="h2 finder-title">条件で探す</h2>
           <p class="results-summary">キーワード、ジャンル、エリアの順に選ぶと、候補をかなり絞りやすくなります。</p>
         </div>
         <div class="finder-tip-list">
@@ -146,8 +145,7 @@
             キーワードで検索
           </label>
           <input type="text" id="search-input" class="search-input" placeholder="🔍 教室名・ジャンル・エリアで検索" aria-label="教室名・ジャンル・エリアで検索">
-          <button id="voice-btn" class="btn voice-btn" type="button"
-            style="margin-left: 0.5rem; padding:0.5rem;" aria-label="音声検索を開始">
+          <button id="voice-btn" class="btn voice-btn" type="button" aria-label="音声検索を開始">
             🎤<span class="visually-hidden">音声検索</span>
           </button>
           <button id="search-btn" class="search-btn">検索する</button>
@@ -159,7 +157,7 @@
           <span class="finder-step">STEP 2</span>
           <strong>ジャンルを選ぶ</strong>
         </div>
-        <div class="filters" style="margin-bottom: var(--space-sm);">
+        <div class="filters scrollable-filters category-filter-row">
           <button class="filter-btn category-btn active" data-category="Dance">💃 ダンス</button>
           <button class="filter-btn category-btn" data-category="Piano">🎹 ピアノ</button>
           <button class="filter-btn category-btn" data-category="Programming">💻 プログラミング</button>
@@ -175,7 +173,7 @@
           <button class="filter-btn category-btn" data-category="Art">🎨 アート・絵画</button>
         </div>
 
-        <div id="sub-filters" class="filters" style="margin-bottom: var(--space-sm);">
+        <div id="sub-filters" class="filters scrollable-filters sub-filter-row">
           <button class="filter-btn sub-btn active" data-filter="all">すべて (ジャンル・特徴)</button>
           <button class="filter-btn sub-btn" data-filter="HIPHOP">HIPHOP</button>
           <button class="filter-btn sub-btn" data-filter="K-POP">K-POP</button>
@@ -183,21 +181,21 @@
           <button class="filter-btn sub-btn" data-filter="parking">🚗 駐車場あり</button>
         </div>
 
-        <div id="sub-filters-prog" class="filters" style="margin-bottom: var(--space-sm); display: none;">
+        <div id="sub-filters-prog" class="filters scrollable-filters sub-filter-row" style="display: none;">
           <button class="filter-btn sub-btn active" data-filter="all">すべて (ジャンル・特徴)</button>
           <button class="filter-btn sub-btn" data-filter="Programming">プログラミング基礎</button>
           <button class="filter-btn sub-btn" data-filter="Minecraft">マイクラ</button>
           <button class="filter-btn sub-btn" data-filter="Robot">ロボット・工作</button>
         </div>
 
-        <div id="sub-filters-gym" class="filters" style="margin-bottom: var(--space-sm); display: none;">
+        <div id="sub-filters-gym" class="filters scrollable-filters sub-filter-row" style="display: none;">
           <button class="filter-btn sub-btn active" data-filter="all">すべて (ジャンル・特徴)</button>
           <button class="filter-btn sub-btn" data-filter="Kids">👶 キッズ専用</button>
           <button class="filter-btn sub-btn" data-filter="Acrobat">アクロバット</button>
           <button class="filter-btn sub-btn" data-filter="parking">🚗 駐車場あり</button>
         </div>
 
-        <div id="sub-filters-swim" class="filters" style="margin-bottom: var(--space-sm); display: none;">
+        <div id="sub-filters-swim" class="filters scrollable-filters sub-filter-row" style="display: none;">
           <button class="filter-btn sub-btn active" data-filter="all">すべて (ジャンル・特徴)</button>
           <button class="filter-btn sub-btn" data-filter="Baby">👶 ベビー対応</button>
           <button class="filter-btn sub-btn" data-filter="Kids">👦 キッズ</button>
@@ -210,7 +208,7 @@
           <span class="finder-step">STEP 3</span>
           <strong>エリアで絞る</strong>
         </div>
-        <div class="filters" style="margin-bottom: 0;">
+        <div class="filters scrollable-filters city-filter-row">
           <button class="filter-btn city-btn active" data-city="all">愛媛県 全域</button>
           <button class="filter-btn city-btn" data-city="松山市">📍 松山市</button>
           <button class="filter-btn city-btn" data-city="今治市">📍 今治市</button>
@@ -227,7 +225,7 @@
     <div class="results-toolbar">
       <div>
         <div class="results-kicker">SEARCH RESULTS</div>
-        <h2 class="h2" style="margin-bottom: 0.25rem;">検索結果</h2>
+        <h2 class="h2 section-title-tight">検索結果</h2>
         <p class="results-summary" id="results-summary">条件に合う教室を読み込んでいます。</p>
       </div>
       <button id="clear-filters-btn" class="btn btn-outline results-clear-btn" type="button" style="display: none;">条件をリセット</button>
@@ -246,12 +244,11 @@
   </section>
 
   <!-- CTA Section -->
-  <section class="section container reveal" style="text-align: center; margin-top: var(--space-xl);">
-    <div
-      style="background: var(--clr-gradient-surface); border: 1px solid var(--clr-border-glass); padding: var(--space-xl); border-radius: var(--radius-lg); backdrop-filter: var(--backdrop-blur);">
+  <section class="section container reveal cta-section">
+    <div class="cta-panel">
       <h2 class="h2">迷ったら、おすすめ特集をチェック</h2>
-      <p style="margin-bottom: var(--space-md);">目的別やレベル別で、あなたにぴったりのスクールを徹底比較しています。</p>
-      <div class="hero-quick-links" style="justify-content: center; margin: 0 0 var(--space-lg);">
+      <p class="cta-copy">目的別やレベル別で、あなたにぴったりのスクールを徹底比較しています。</p>
+      <div class="hero-quick-links cta-links">
         <a href="./recommendations/matsuyama-english.html">英会話3選</a>
         <a href="./recommendations/matsuyama-early-education.html">幼児教室3選</a>
         <a href="./recommendations/matsuyama-soccer.html">サッカー3選</a>
