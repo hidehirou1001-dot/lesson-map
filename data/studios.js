@@ -8,7 +8,7 @@ const studios = [
     city: '松山市',
     area: '朝生田周辺',
     access: '松山市朝生田町（詳細は公式サイトへ）',
-    genres: ['HIPHOP', 'Jazz', 'Kids'],
+    genres: ['HIPHOP', 'JAZZ', 'Kids'],
     pricing: {
       system: '不明',
       minPrice: 0,
@@ -31,7 +31,7 @@ const studios = [
     city: '松山市',
     area: '宮田町周辺',
     access: 'JR松山駅から徒歩圏内（宮田町）',
-    genres: ['HIPHOP', 'Kids', 'Jazz'],
+    genres: ['HIPHOP', 'Kids', 'JAZZ', 'LOCK', 'POP'],
     pricing: {
       system: '月謝制',
       minPrice: 5500,
@@ -54,7 +54,7 @@ const studios = [
     city: '松山市',
     area: '松山市内',
     access: '詳細は公式サイトを確認',
-    genres: ['HIPHOP', 'Lock', 'Pop'],
+    genres: ['HIPHOP', 'LOCK', 'POP'],
     pricing: {
       system: '不明',
       minPrice: 0,
@@ -75,8 +75,8 @@ const studios = [
     description: 'LDHが運営する本格的なダンススクール（千舟町）。アーティストを目指す本格的な環境でHIPHOPを学べます。',
     category: "Dance",
     city: '松山市',
-    area: '千舟町周辺',
-    access: '松山市駅徒歩圏内',
+    area: '湊町周辺',
+    access: '松山市湊町3丁目（銀天街・松山市駅エリア）',
     genres: ['HIPHOP', 'Artist'],
     pricing: {
       system: '不明',
@@ -123,7 +123,7 @@ const studios = [
     city: '松山市',
     area: '千舟町周辺',
     access: '千舟本校・堀江校など',
-    genres: ['Jazz', 'HIPHOP'],
+    genres: ['JAZZ', 'HIPHOP'],
     pricing: {
       system: '不明',
       minPrice: 0,
@@ -184,6 +184,29 @@ const studios = [
     imageUrl: 'https://images.unsplash.com/photo-1518834107812-67b0b7c58434?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
     link: 'https://nanairos.com/'
   },
+  {
+    id: 'studio-real-009',
+    name: 'DANCE STUDIO MOGA',
+    description: '松山市湊町にある老舗ダンススタジオ。HIPHOPだけでなく、JAZZ、LOCK、POP、コンテンポラリーまで幅広く学べる表現系スタジオです。',
+    category: "Dance",
+    city: '松山市',
+    area: '湊町周辺',
+    access: '松山市湊町3丁目（銀天街L字交差点から東へ20m）',
+    genres: ['HIPHOP', 'JAZZ', 'LOCK', 'POP', 'コンテンポラリー'],
+    pricing: {
+      system: '不明',
+      minPrice: 0,
+      note: '詳細は公式サイトへ'
+    },
+    features: {
+      parking: false,
+      beginnerFriendly: '〇',
+      kidsClass: true,
+      adultClass: true
+    },
+    imageUrl: 'https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+    link: 'https://www.moga-jp.com/'
+  },
 
   // ================= 今治市（実在するスタジオ） =================
   {
@@ -192,8 +215,8 @@ const studios = [
     description: '今治市でLDHが運営する本格的なダンススクール。アーティストを目指す本格的な環境でHIPHOPを学べます。',
     category: "Dance",
     city: '今治市',
-    area: '今治市内',
-    access: '詳細は公式サイトを確認',
+    area: '馬越町周辺',
+    access: '今治市馬越町エリア',
     genres: ['HIPHOP', 'Artist'],
     pricing: {
       system: '不明',
@@ -217,8 +240,8 @@ const studios = [
     description: '新居浜市でLDHが運営する本格的なダンススクール。アーティストを目指す本格的な環境でHIPHOPを学べます。',
     category: "Dance",
     city: '新居浜市',
-    area: '新居浜市内',
-    access: '詳細は公式サイトを確認',
+    area: '前田町周辺',
+    access: '新居浜市前田町エリア（イオンモール新居浜付近）',
     genres: ['HIPHOP', 'Artist'],
     pricing: {
       system: '不明',
@@ -265,8 +288,8 @@ const studios = [
     description: '松山センターをはじめ、市内に複数展開。本格的なピアノレッスンから幼児向けのリトミックまで幅広く対応。',
     category: 'Piano',
     city: '松山市',
-    area: '松山市内',
-    access: '詳細は各教室の情報を確認',
+    area: '二番町周辺',
+    access: '松山市二番町3丁目（三越横）',
     genres: ['Piano', 'Rythmique', 'Kids'],
     pricing: {
       system: '不明',
@@ -312,7 +335,7 @@ const studios = [
     category: 'Piano',
     city: '松山市',
     area: '持田町周辺',
-    access: '持田町周辺（詳細は公式サイトを確認）',
+    access: '松山市持田町3丁目（南町駅から徒歩圏内）',
     genres: ['Piano'],
     pricing: {
       system: '不明',
@@ -408,7 +431,7 @@ const studios = [
     category: 'Gymnastics',
     city: '松山市',
     area: '空港通周辺',
-    access: '空港通7丁目（ファミリーマート付近）',
+    access: '松山市空港通7丁目',
     genres: ['Gymnastics', 'Kids'],
     pricing: {
       system: '不明',
@@ -430,8 +453,8 @@ const studios = [
     description: '松山市内に複数展開（余戸、道後など）。幼児から専門的なアクロバットやバク転まで幅広いコースが魅力です。',
     category: 'Gymnastics',
     city: '松山市',
-    area: '余戸・道後など',
-    access: '詳細は各教室の情報を確認',
+    area: '余戸南・久万ノ台など',
+    access: '余戸南4丁目（本部）・久万ノ台など',
     genres: ['Gymnastics', 'Acrobat', 'Kids'],
     pricing: {
       system: '不明',
@@ -453,8 +476,8 @@ const studios = [
     description: '2歳〜12歳対象。国体の監督経験もある実績豊富な指導陣による、安全と楽しさを両立した体操教室です。',
     category: 'Gymnastics',
     city: '松山市',
-    area: '松山市内',
-    access: '詳細は公式情報を確認',
+    area: '湯の山・森松など',
+    access: '松山市湯の山東4丁目（本部）ほか',
     genres: ['Gymnastics', 'Kids'],
     pricing: {
       system: '不明',
@@ -477,7 +500,7 @@ const studios = [
     category: 'Gymnastics',
     city: '松山市',
     area: '宮西周辺',
-    access: 'フジグラン松山近く',
+    access: '松山市宮西1丁目（フジグラン松山隣接）',
     genres: ['Gymnastics', 'Kids'],
     pricing: {
       system: '不明',
@@ -525,7 +548,7 @@ const studios = [
     category: 'Swimming',
     city: '松山市',
     area: '朝生田周辺',
-    access: '南町駅 徒歩圏内',
+    access: '松山市朝生田町6丁目',
     genres: ['Swimming', 'Kids', 'Baby'],
     pricing: {
       system: '不明',
@@ -664,13 +687,13 @@ const studios = [
   // ================= 料理教室（松山市） =================
   {
     id: 'studio-cooking-001',
-    name: 'ABC Cooking Studio いよてつ高島屋スタジオ',
-    description: '松山市駅直結の高島屋内にある大手料理教室。初心者から本格的な料理、パン作り、ケーキ作りまで豊富なコースが魅力です。',
+    name: 'レストラン門田 お料理教室',
+    description: '松山市三番町にあるレストラン門田のお料理教室。開催日程にあわせて、レストラン品質の料理を学べる実在教室です。',
     category: 'Cooking',
     city: '松山市',
-    area: '松山市駅周辺',
-    access: '松山市駅 直結（いよてつ高島屋8F）',
-    genres: ['Cooking', 'Baking', 'Cake'],
+    area: '三番町周辺',
+    access: '松山市三番町3丁目（中央郵便局から徒歩5分）',
+    genres: ['Cooking', 'French', 'Home Cooking'],
     pricing: {
       system: '不明',
       minPrice: 0,
@@ -679,11 +702,11 @@ const studios = [
     features: {
       parking: true,
       beginnerFriendly: '◎',
-      kidsClass: true,
+      kidsClass: false,
       adultClass: true
     },
     imageUrl: 'https://images.unsplash.com/photo-1556910103-1c02745aae4d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-    link: 'https://www.abc-cooking.co.jp/'
+    link: 'https://kadota.co.jp/cooking-school.html'
   },
   {
     id: 'studio-cooking-002',
@@ -716,8 +739,8 @@ const studios = [
     description: 'イヨテツスポーツセンターから徒歩1分。幼児から大人まで少人数制で一人ひとりの個性を大切にする英語教室です。',
     category: 'English',
     city: '松山市',
-    area: '福音寺周辺',
-    access: '福音寺駅 徒歩圏内（イヨテツスポーツセンター付近）',
+    area: '福音寺町周辺',
+    access: '松山市福音寺町（イヨテツスポーツセンター徒歩1分）',
     genres: ['English', 'Kids'],
     pricing: {
       system: '不明',
@@ -740,7 +763,7 @@ const studios = [
     category: 'English',
     city: '松山市',
     area: '本町周辺',
-    access: '本町六丁目駅周辺',
+    access: '松山市本町3丁目（本町校）',
     genres: ['English', 'Conversation'],
     pricing: {
       system: '不明',
@@ -765,7 +788,7 @@ const studios = [
     category: 'CramSchool',
     city: '松山市',
     area: '本町周辺',
-    access: '松山市本町周辺（詳細は公式サイトを確認）',
+    access: '松山市本町5丁目（本町五丁目駅徒歩1分）',
     genres: ['Cram School', 'Individual', 'Exam Prep'],
     pricing: {
       system: '不明',
@@ -858,8 +881,8 @@ const studios = [
     description: '愛媛県松山市で運営されている書道教室。習字を始めたい方にも入りやすい内容で、教室案内や開催情報を公式サイトで確認できます。',
     category: 'Calligraphy',
     city: '松山市',
-    area: '松山市内',
-    access: '詳細は公式サイトを確認',
+    area: '桑原周辺',
+    access: '松山市桑原1丁目周辺',
     genres: ['Calligraphy', 'Penmanship'],
     pricing: {
       system: '不明',
@@ -881,8 +904,8 @@ const studios = [
     description: '松山市内で案内されている書道塾。毛筆や書に親しみたい方向けに、公式サイトで教室情報を確認できます。',
     category: 'Calligraphy',
     city: '松山市',
-    area: '松山市内',
-    access: '詳細は公式サイトを確認',
+    area: '勝山町周辺',
+    access: '松山市勝山町2丁目周辺',
     genres: ['Calligraphy', 'Brush'],
     pricing: {
       system: '不明',
@@ -906,8 +929,8 @@ const studios = [
     description: '松山市で運営されているそろばん教室。基礎計算を身につけたい子ども向けに、教室情報を公式サイトで確認できます。',
     category: 'Soroban',
     city: '松山市',
-    area: '松山市内',
-    access: '詳細は公式サイトを確認',
+    area: '持田・久米など',
+    access: 'テクノプラザ愛媛・持田生活文化センターなど',
     genres: ['Soroban', 'Math', 'Kids'],
     pricing: {
       system: '不明',
@@ -1113,13 +1136,13 @@ const studios = [
   // ================= アート・絵画教室（松山市） =================
   {
     id: 'studio-art-001',
-    name: '図工のひろば イロトリドリ',
-    description: '松山市のまちなかにある絵画造形教室。作品の完成度だけでなく、子どもたちのアイデアや制作過程を重視しています。',
+    name: 'artspace アテナルミエール',
+    description: '松山市柳井町にある子ども向けアート教室。絵画や造形を通して創造力や自己肯定感を育てる実在教室です。',
     category: 'Art',
     city: '松山市',
-    area: '松山市内',
-    access: '詳細は公式サイトを確認',
-    genres: ['Art', 'Painting', 'Kids'],
+    area: '柳井町周辺',
+    access: '松山市柳井町1丁目（やないまちアトリエ）',
+    genres: ['Art', 'Painting', 'Craft', 'Kids'],
     pricing: {
       system: '不明',
       minPrice: 0,
@@ -1132,7 +1155,7 @@ const studios = [
       adultClass: false
     },
     imageUrl: 'https://images.unsplash.com/photo-1547153760-18fc86324498?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-    link: 'https://iro.crayonsite.com/'
+    link: 'https://athena-lumiere.com/'
   },
   {
     id: 'studio-art-002',
@@ -1140,8 +1163,8 @@ const studios = [
     description: '1975年創立の実績ある教室。幼児から小学生を中心に、大人向けの教室も開講しており表現する楽しさを学べます。',
     category: 'Art',
     city: '松山市',
-    area: '松山市内',
-    access: '詳細は公式サイトを確認',
+    area: '西垣生・桑原・富久など',
+    access: '西垣生町・桑原公民館・富久集会所・ハトマート文化教室など',
     genres: ['Art', 'Painting'],
     pricing: {
       system: '不明',

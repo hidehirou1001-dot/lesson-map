@@ -257,7 +257,7 @@ function initSearch() {
  */
 let currentFilterState = {
     category: 'Dance',  // 'Dance', 'Piano', etc. (Removed 'all')
-    subFilter: 'all', // 'all', 'HIPHOP', 'K-POP', 'Kids', 'parking'
+    subFilter: 'all', // 'all', 'HIPHOP', 'K-POP', 'POP', 'JAZZ', 'LOCK', 'コンテンポラリー', 'Kids', 'parking'
     city: 'all',       // 'all', '松山市', '今治市', '新居浜市'
     searchQuery: '',   // Search query string
     sort: 'recommended'
@@ -285,6 +285,10 @@ const filterLabelMap = {
     Baby: 'ベビー対応',
     HIPHOP: 'HIPHOP',
     'K-POP': 'K-POP',
+    POP: 'POP',
+    JAZZ: 'JAZZ',
+    LOCK: 'LOCK',
+    コンテンポラリー: 'コンテンポラリー',
     all: 'すべて'
 };
 
