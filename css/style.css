@@ -1240,8 +1240,64 @@ p {
   grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
 }
 
+.recommendation-index-nav {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  margin-bottom: var(--space-xl);
+}
+
+.recommendation-index-panel {
+  display: grid;
+  gap: 0.5rem;
+  padding: 1.15rem 1.2rem;
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(34, 34, 34, 0.08);
+  box-shadow: var(--shadow-sm);
+}
+
+.recommendation-index-panel strong {
+  color: var(--clr-text-main);
+  font-size: 1rem;
+}
+
+.recommendation-index-panel p {
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+.recommendation-grid-label {
+  grid-column: 1 / -1;
+  display: grid;
+  gap: 0.35rem;
+  margin-top: 0.35rem;
+  margin-bottom: 0.15rem;
+}
+
+.recommendation-grid-label .h2 {
+  margin-bottom: 0;
+}
+
 .recommendation-entry .card-img-wrap {
   margin-bottom: 1rem;
+  position: relative;
+  overflow: hidden;
+  border-radius: 18px;
+}
+
+.recommendation-entry .card-img-wrap::after,
+.popular-guide-card .card-img-wrap::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(34, 34, 34, 0.02), rgba(34, 34, 34, 0.18));
+  pointer-events: none;
+}
+
+.recommendation-entry .badge,
+.popular-guide-card .badge {
+  z-index: 2;
 }
 
 .recommendation-entry-new {
@@ -1267,6 +1323,39 @@ p {
   font-weight: 800;
   letter-spacing: 0.08em;
   box-shadow: var(--shadow-sm);
+}
+
+.popular-guides-panel {
+  display: grid;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+.popular-guides-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 1rem;
+}
+
+.popular-guides-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.popular-guide-card {
+  border-color: rgba(34, 34, 34, 0.08);
+}
+
+.popular-guide-card .card-content {
+  display: grid;
+  gap: 0.55rem;
+}
+
+.popular-guide-card .card-content p {
+  margin: 0;
+  line-height: 1.7;
 }
 
 .fixed-page {
@@ -1640,6 +1729,19 @@ p {
     border-radius: 22px;
   }
 
+  .popular-guides-head {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .popular-guides-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .recommendation-index-nav {
+    grid-template-columns: 1fr;
+  }
+
   .finder-panel-header {
     display: grid;
     gap: 0.85rem;
@@ -1825,6 +1927,10 @@ p {
     grid-template-columns: 1fr;
   }
 
+  .popular-guides-grid {
+    grid-template-columns: 1fr;
+  }
+
   .recommendation-entry .card-img-wrap {
     height: 168px !important;
   }
@@ -1837,6 +1943,11 @@ p {
   .recommendation-entry .card-content p {
     margin-top: 0 !important;
     line-height: 1.7;
+  }
+
+  .recommendation-grid-label {
+    margin-top: 0.1rem;
+    margin-bottom: 0;
   }
 
   .card-meta-chips {
