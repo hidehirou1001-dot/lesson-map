@@ -228,7 +228,19 @@
         <h2 class="h2 section-title-tight">検索結果</h2>
         <p class="results-summary" id="results-summary">条件に合う教室を読み込んでいます。</p>
       </div>
-      <button id="clear-filters-btn" class="btn btn-outline results-clear-btn" type="button" style="display: none;">条件をリセット</button>
+      <div class="results-toolbar-actions">
+        <label class="sort-control" for="sort-select">
+          <span class="sort-label">並び替え</span>
+          <select id="sort-select" class="sort-select">
+            <option value="recommended">おすすめ順</option>
+            <option value="beginner">初心者向け順</option>
+            <option value="kids">キッズ対応順</option>
+            <option value="price">料金がわかる順</option>
+            <option value="area">エリア名順</option>
+          </select>
+        </label>
+        <button id="clear-filters-btn" class="btn btn-outline results-clear-btn" type="button" style="display: none;">条件をリセット</button>
+      </div>
     </div>
 
     <div class="active-filter-bar" id="active-filter-bar" hidden>

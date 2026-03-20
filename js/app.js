@@ -85,6 +85,7 @@ function renderStudios(data) {
         const pricingSummary = formatPricingSummary(studio.pricing);
         const featureSummary = getCardFeatureSummary(studio);
         const categoryLabel = getCategoryLabel(studio.category);
+        const descriptionSummary = getCardDescriptionSummary(studio.description);
 
         // Add staggered delay for rendering
         const delay = index * 100;
@@ -110,19 +111,19 @@ function renderStudios(data) {
           <h3 class="h3">${studio.name}</h3>
           <p class="card-location">${studio.access}</p>
         </div>
-        <div class="tags">${genreTags}</div>
-        <div class="card-meta-chips">${featureSummary}</div>
         <div class="card-stat-grid">
+          <div class="card-stat card-stat-primary">
+            <span class="card-stat-label">対象</span>
+            <strong>${getAudienceSummary(studio.features)}</strong>
+          </div>
           <div class="card-stat">
             <span class="card-stat-label">料金</span>
             <strong>${pricingSummary}</strong>
           </div>
-          <div class="card-stat">
-            <span class="card-stat-label">対象</span>
-            <strong>${getAudienceSummary(studio.features)}</strong>
-          </div>
         </div>
-        <p class="card-description">${studio.description}</p>
+        <div class="card-meta-chips">${featureSummary}</div>
+        <div class="tags">${genreTags}</div>
+        <p class="card-description">${descriptionSummary}</p>
         <button class="btn btn-outline detail-btn card-detail-btn">詳細を見る</button>
       </div>
     `;
@@ -196,6 +197,12 @@ function getAudienceSummary(features) {
     return '要確認';
 }
 
+function getCardDescriptionSummary(description) {
+    if (!description) return '';
+    if (description.length <= 72) return description;
+    return `${description.slice(0, 72).trim()}...`;
+}
+
 /**
  * Search Functionality
  */
@@ -252,7 +259,8 @@ let currentFilterState = {
     category: 'Dance',  // 'Dance', 'Piano', etc. (Removed 'all')
     subFilter: 'all', // 'all', 'HIPHOP', 'K-POP', 'Kids', 'parking'
     city: 'all',       // 'all', '松山市', '今治市', '新居浜市'
-    searchQuery: ''    // Search query string
+    searchQuery: '',   // Search query string
+    sort: 'recommended'
 };
 
 const filterLabelMap = {
@@ -311,6 +319,7 @@ function initFilters() {
     const danceFilters = document.getElementById('sub-filters');
     const progFilters = document.getElementById('sub-filters-prog');
     const clearFiltersBtn = document.getElementById('clear-filters-btn');
+    const sortSelect = document.getElementById('sort-select');
     const subFilterGroups = [danceFilters, progFilters, document.getElementById('sub-filters-gym'), document.getElementById('sub-filters-swim')].filter(Boolean);
 
     // 1. Category Buttons
@@ -383,17 +392,26 @@ function initFilters() {
         });
     });
 
+    if (sortSelect) {
+        sortSelect.addEventListener('change', () => {
+            currentFilterState.sort = sortSelect.value;
+            applyFilters();
+        });
+    }
+
     if (clearFiltersBtn) {
         clearFiltersBtn.addEventListener('click', () => {
             currentFilterState = {
                 category: 'Dance',
                 subFilter: 'all',
                 city: 'all',
-                searchQuery: ''
+                searchQuery: '',
+                sort: 'recommended'
             };
 
             const searchInput = document.getElementById('search-input');
             if (searchInput) searchInput.value = '';
+            if (sortSelect) sortSelect.value = 'recommended';
 
             categoryBtns.forEach(button => {
                 button.classList.toggle('active', button.getAttribute('data-category') === 'Dance');
@@ -453,8 +471,54 @@ function applyFilters() {
         filtered = filtered.filter(s => s.city === currentFilterState.city);
     }
 
+    filtered = sortStudios(filtered, currentFilterState.sort);
+
     renderStudios(filtered);
     updateResultsMeta(filtered);
+}
+
+function sortStudios(data, sortKey) {
+    const sorted = [...data];
+
+    const beginnerRank = { '◎': 3, '〇': 2, '△': 1 };
+    const recommendedScore = (studio) => {
+        let score = 0;
+        score += beginnerRank[studio.features?.beginnerFriendly] || 0;
+        if (studio.features?.kidsClass) score += 2;
+        if (studio.features?.parking) score += 1;
+        if (studio.pricing?.minPrice > 0) score += 1;
+        return score;
+    };
+
+    switch (sortKey) {
+        case 'beginner':
+            return sorted.sort((a, b) => {
+                const diff = (beginnerRank[b.features?.beginnerFriendly] || 0) - (beginnerRank[a.features?.beginnerFriendly] || 0);
+                return diff || recommendedScore(b) - recommendedScore(a);
+            });
+        case 'kids':
+            return sorted.sort((a, b) => {
+                const diff = Number(Boolean(b.features?.kidsClass)) - Number(Boolean(a.features?.kidsClass));
+                return diff || recommendedScore(b) - recommendedScore(a);
+            });
+        case 'price':
+            return sorted.sort((a, b) => {
+                const aKnown = a.pricing?.minPrice > 0;
+                const bKnown = b.pricing?.minPrice > 0;
+                if (aKnown !== bKnown) return Number(bKnown) - Number(aKnown);
+                if (aKnown && bKnown) return a.pricing.minPrice - b.pricing.minPrice;
+                return recommendedScore(b) - recommendedScore(a);
+            });
+        case 'area':
+            return sorted.sort((a, b) => {
+                const cityDiff = (a.city || '').localeCompare(b.city || '', 'ja');
+                if (cityDiff !== 0) return cityDiff;
+                return (a.area || '').localeCompare(b.area || '', 'ja');
+            });
+        case 'recommended':
+        default:
+            return sorted.sort((a, b) => recommendedScore(b) - recommendedScore(a));
+    }
 }
 
 function updateResultsMeta(filtered) {
@@ -529,6 +593,10 @@ function openModal(studioId) {
     if (studio.features.adultClass) features.push('🧑 大人対応');
     if (studio.features.beginnerFriendly) features.push(`🔰 初心者歓迎: ${studio.features.beginnerFriendly}`);
 
+    const pricingSummary = formatPricingSummary(studio.pricing);
+    const audienceSummary = getAudienceSummary(studio.features);
+    const featureSummary = getCardFeatureSummary(studio);
+
     modalBody.innerHTML = `
         <div style="position: relative;">
           <img src="${studio.imageUrl}" alt="${studio.name}" class="modal-img">
@@ -537,29 +605,50 @@ function openModal(studioId) {
           </div>
         </div>
         <div class="modal-body">
-            <div class="tags" style="margin-bottom: 0.5rem;">${genreTags}</div>
-            <h2 class="modal-title">${studio.name}</h2>
-            <div style="margin-bottom: 1rem;">
-                <span class="badge" style="position:static; display:inline-block; margin-right:0.5rem;">${studio.city} ${studio.area}</span>
+            <div class="modal-head">
+                <div class="tags modal-genre-tags">${genreTags}</div>
+                <h2 class="modal-title">${studio.name}</h2>
+                <div class="modal-location-badges">
+                    <span class="badge modal-location-badge">${studio.city} ${studio.area}</span>
+                    <span class="modal-access-text">${studio.access}</span>
+                </div>
             </div>
+
+            <div class="modal-summary-grid">
+                <div class="modal-summary-card modal-summary-card-primary">
+                    <span class="modal-summary-label">対象</span>
+                    <strong>${audienceSummary}</strong>
+                </div>
+                <div class="modal-summary-card">
+                    <span class="modal-summary-label">料金</span>
+                    <strong>${pricingSummary}</strong>
+                </div>
+                <div class="modal-summary-card">
+                    <span class="modal-summary-label">通学</span>
+                    <strong>${studio.access}</strong>
+                </div>
+            </div>
+
+            <div class="card-meta-chips modal-feature-chips">${featureSummary}</div>
+
+            <a href="${studio.link}" target="_blank" rel="noopener noreferrer" class="btn btn-primary modal-primary-btn">公式サイト・SNSを見る</a>
+
             <p class="modal-desc">${studio.description}</p>
             
             <ul class="modal-info-list">
-                <li>
-                    <span class="modal-info-label">料金:</span>
+                <li class="modal-info-item">
+                    <span class="modal-info-label">料金</span>
                     <span>${studio.pricing.system} ${studio.pricing.minPrice > 0 ? `/ 最安 ${studio.pricing.minPrice.toLocaleString()}円〜` : '(料金詳細は公式サイトにて)'} <br><small style="color:var(--clr-text-muted);">${studio.pricing.note}</small></span>
                 </li>
-                <li>
-                    <span class="modal-info-label">アクセス:</span>
+                <li class="modal-info-item">
+                    <span class="modal-info-label">アクセス</span>
                     <span>${studio.access}</span>
                 </li>
-                <li>
-                    <span class="modal-info-label">特徴:</span>
+                <li class="modal-info-item">
+                    <span class="modal-info-label">特徴</span>
                     <span>${features.join(' / ')}</span>
                 </li>
             </ul>
-
-            <a href="${studio.link}" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="width: 100%; border-radius: var(--radius-md); padding: 1rem; font-size:1.1rem; margin-top: 1rem;">公式サイト・SNSを見る</a>
         </div>
     `;
 

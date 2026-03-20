@@ -304,7 +304,7 @@ p {
 }
 
 .card-heading-block {
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.9rem;
 }
 
 .card-eyebrow {
@@ -317,16 +317,17 @@ p {
 }
 
 .card-location {
-  margin: 0.35rem 0 0;
+  margin: 0.4rem 0 0;
   font-size: 0.82rem;
   color: var(--clr-text-muted);
+  line-height: 1.6;
 }
 
 .tags {
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
-  margin-bottom: 0.6rem;
+  margin-bottom: 0.85rem;
 }
 
 .tag {
@@ -722,6 +723,13 @@ p {
   background: rgba(255, 255, 255, 0.9);
 }
 
+.results-toolbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
 .results-kicker {
   font-size: 0.75rem;
   font-weight: 800;
@@ -736,6 +744,37 @@ p {
 
 .results-clear-btn {
   border-radius: var(--radius-full);
+}
+
+.sort-control {
+  display: grid;
+  gap: 0.35rem;
+  min-width: 180px;
+}
+
+.sort-label {
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  color: var(--clr-text-muted);
+}
+
+.sort-select {
+  min-height: 44px;
+  border-radius: 14px;
+  border: 1px solid rgba(34, 34, 34, 0.12);
+  background: #fff;
+  color: var(--clr-text-main);
+  font: inherit;
+  font-size: 0.92rem;
+  font-weight: 600;
+  padding: 0.7rem 0.95rem;
+  outline: none;
+}
+
+.sort-select:focus {
+  border-color: var(--clr-text-main);
+  box-shadow: var(--shadow-focus);
 }
 
 .section-title-tight {
@@ -963,7 +1002,7 @@ p {
   display: flex;
   flex-wrap: wrap;
   gap: 0.45rem;
-  margin-bottom: 0.85rem;
+  margin-bottom: 0.7rem;
 }
 
 .card-meta-chip {
@@ -984,9 +1023,9 @@ p {
 
 .card-stat-grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: 1.05fr 1fr;
   gap: 0.65rem;
-  margin-bottom: 0.9rem;
+  margin-bottom: 0.75rem;
 }
 
 .card-stat {
@@ -996,6 +1035,11 @@ p {
   border-radius: 18px;
   background: rgba(34, 34, 34, 0.035);
   border: 1px solid rgba(34, 34, 34, 0.06);
+}
+
+.card-stat-primary {
+  background: rgba(201, 42, 42, 0.05);
+  border-color: rgba(201, 42, 42, 0.1);
 }
 
 .card-stat-label {
@@ -1015,6 +1059,7 @@ p {
   margin-bottom: 1rem;
   color: var(--clr-text-main);
   flex: 1;
+  line-height: 1.75;
 }
 
 .card-detail-btn {
@@ -1695,6 +1740,15 @@ p {
     padding: 0.9rem 1rem;
   }
 
+  .results-toolbar-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .sort-control {
+    width: 100%;
+  }
+
   .results-clear-btn {
     width: 100%;
   }
@@ -1975,11 +2029,124 @@ p {
   padding: var(--space-xl);
 }
 
+.modal-head {
+  margin-bottom: 1.2rem;
+}
+
+.modal-genre-tags {
+  margin-bottom: 0.65rem;
+}
+
 .modal-title {
   font-size: 2rem;
   font-weight: 700;
   margin-bottom: var(--space-xs);
 }
+
+.modal-location-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  align-items: center;
+}
+
+.modal-location-badge {
+  position: static;
+  display: inline-flex;
+  margin: 0;
+}
+
+.modal-access-text {
+  color: var(--clr-text-muted);
+  font-size: 0.9rem;
+}
+
+.modal-summary-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.75rem;
+  margin-bottom: 0.9rem;
+}
+
+.modal-summary-card {
+  display: grid;
+  gap: 0.3rem;
+  padding: 0.95rem 1rem;
+  border-radius: 18px;
+  background: rgba(34, 34, 34, 0.035);
+  border: 1px solid rgba(34, 34, 34, 0.06);
+}
+
+.modal-summary-card-primary {
+  background: rgba(201, 42, 42, 0.06);
+  border-color: rgba(201, 42, 42, 0.12);
+}
+
+.modal-summary-label {
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  color: var(--clr-text-muted);
+}
+
+.modal-summary-card strong {
+  font-size: 0.92rem;
+  line-height: 1.6;
+}
+
+.modal-feature-chips {
+  margin-bottom: 1rem;
+}
+
+.modal-primary-btn {
+  width: 100%;
+  border-radius: var(--radius-md);
+  padding: 1rem;
+  font-size: 1.05rem;
+  margin-bottom: 1.1rem;
+}
+
+.modal-desc {
+  margin-bottom: 1rem;
+  line-height: 1.8;
+}
+
+.modal-info-list {
+  list-style: none;
+  display: grid;
+  gap: 0.75rem;
+}
+
+.modal-info-item {
+  display: grid;
+  gap: 0.3rem;
+  padding: 0.95rem 1rem;
+  border-radius: 18px;
+  border: 1px solid rgba(34, 34, 34, 0.08);
+  background: rgba(255, 255, 255, 0.9);
+}
+
+.modal-info-label {
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  color: var(--clr-text-muted);
+}
+
+@media (max-width: 768px) {
+  .modal-summary-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .modal-body {
+    padding: 1.2rem 1rem 1.4rem;
+  }
+
+  .modal-title {
+    font-size: 1.55rem;
+  }
+}
+
 
 .modal-desc {
   color: var(--clr-text-muted);
