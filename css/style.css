@@ -179,8 +179,8 @@ p {
 
 .logo {
   display: inline-block;
-  width: 188px;
-  height: 62px;
+  width: 156px;
+  height: 52px;
   background: url('/logo.png') no-repeat left center / contain;
   color: transparent;
   font-size: 0;
@@ -1574,8 +1574,8 @@ p {
 }
 
 .footer .logo {
-  width: 156px;
-  height: 52px;
+  width: 136px;
+  height: 46px;
   margin-inline: auto;
 }
 
@@ -1991,13 +1991,13 @@ p {
 
 @media (max-width: 480px) {
   .logo {
-    width: 152px;
-    height: 50px;
+    width: 128px;
+    height: 42px;
   }
 
   .footer .logo {
-    width: 136px;
-    height: 45px;
+    width: 120px;
+    height: 40px;
   }
 
   .header .container {
