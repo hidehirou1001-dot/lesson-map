@@ -584,6 +584,32 @@ p {
   line-height: 1.7;
 }
 
+.trust-note-block {
+  display: grid;
+  gap: 0.7rem;
+  margin-top: 1rem;
+  padding: 1rem 1.1rem;
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(34, 34, 34, 0.06);
+  box-shadow: var(--shadow-sm);
+}
+
+.trust-note-block-wide {
+  margin-top: 0.9rem;
+}
+
+.trust-note-list {
+  margin: 0;
+  padding-left: 1.1rem;
+  color: var(--clr-text-main);
+  line-height: 1.75;
+}
+
+.trust-note-list li + li {
+  margin-top: 0.35rem;
+}
+
 .featured-strip {
   margin-top: calc(var(--space-lg) * -0.25);
   margin-bottom: var(--space-xl);
@@ -1422,7 +1448,7 @@ p {
 
 .recommendation-discovery-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 1rem;
   margin-bottom: 0.9rem;
 }
@@ -1451,6 +1477,10 @@ p {
 
 .recommendation-discovery-card[data-tone="theme"] {
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(243, 246, 248, 0.92));
+}
+
+.recommendation-discovery-card[data-tone="issue"] {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(248, 241, 244, 0.94));
 }
 
 .recommendation-discovery-card .h3 {

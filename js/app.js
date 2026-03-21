@@ -169,9 +169,28 @@ function formatPricingSummary(pricing) {
 function getCardFeatureSummary(studio) {
     const chips = [];
     if (studio.features.beginnerFriendly) chips.push(`初心者 ${studio.features.beginnerFriendly}`);
-    if (studio.features.kidsClass) chips.push('キッズ対応');
-    if (studio.features.parking) chips.push('駐車場あり');
+    chips.push(getCommuteSummary(studio));
+    chips.push(getPricingVisibility(studio.pricing));
     return chips.map(chip => `<span class="card-meta-chip">${chip}</span>`).join('');
+}
+
+function getCommuteSummary(studio) {
+    if (!studio) return '通学情報あり';
+
+    const access = studio.access || '';
+
+    if (studio.features?.parking) return '車で通いやすい';
+    if (/徒歩\d+分|駅徒歩|駅から徒歩|徒歩圏内|駅周辺/.test(access)) return '駅近・徒歩圏';
+    if (/イオンモール|エミフル|フジグラン|高島屋|商業施設/.test(access)) return '商業施設内';
+    if (/周辺|エリア|市内/.test(access)) return 'エリア情報あり';
+
+    return '通学情報あり';
+}
+
+function getPricingVisibility(pricing) {
+    if (!pricing) return '料金は要確認';
+    if (pricing.minPrice > 0) return '料金公開あり';
+    return '料金は要確認';
 }
 
 function getCategoryLabel(category) {
@@ -211,9 +230,10 @@ function getDecisionReason(studio) {
     if (!studio || !studio.features) return '公式サイトと特徴を見ながら比較しやすい教室です。';
 
     const { features, genres = [] } = studio;
+    const commuteSummary = getCommuteSummary(studio);
 
     if (features.beginnerFriendly === '◎') {
-        return '初心者でも始めやすい条件がそろっています。';
+        return `${commuteSummary}で、初心者でも始めやすい条件がそろっています。`;
     }
 
     if (features.kidsClass && features.adultClass) {
@@ -632,6 +652,7 @@ function openModal(studioId) {
     const pricingSummary = formatPricingSummary(studio.pricing);
     const audienceSummary = getAudienceSummary(studio.features);
     const featureSummary = getCardFeatureSummary(studio);
+    const commuteSummary = getCommuteSummary(studio);
 
     modalBody.innerHTML = `
         <div style="position: relative;">
@@ -661,7 +682,7 @@ function openModal(studioId) {
                 </div>
                 <div class="modal-summary-card">
                     <span class="modal-summary-label">通学</span>
-                    <strong>${studio.access}</strong>
+                    <strong>${commuteSummary}</strong>
                 </div>
             </div>
 
