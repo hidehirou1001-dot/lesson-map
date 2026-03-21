@@ -115,38 +115,50 @@
             <a href="/" class="btn btn-outline results-clear-btn">一覧検索へ戻る</a>
         </div>
 
-        <div class="hero-quick-links" style="justify-content: flex-start; margin: 0 0 var(--space-lg);">
-            <a href="/recommendations/imabari-lessons/">新着: 今治の習い事3選</a>
-            <a href="/recommendations/imabari-english/">新着: 今治の英会話3選</a>
-            <a href="/recommendations/niihama-lessons/">新着: 新居浜の習い事3選</a>
-            <a href="/recommendations/niihama-english/">新着: 新居浜の英会話3選</a>
-            <a href="/recommendations/matsuyama-adult-piano/">新着: 大人向けピアノ3選</a>
-            <a href="/recommendations/matsuyama-ballet/">新着: バレエ3選</a>
-            <a href="/recommendations/matsuyama-english/">新着: 英会話3選</a>
-        </div>
-
-        <section class="recommendation-index-nav">
-            <a href="#popular-zone" class="recommendation-index-panel">
-                <span class="results-kicker">POPULAR</span>
-                <strong>まず見ておきたい人気特集</strong>
-                <p>比較軸が分かりやすく、最初の1本として見やすい特集をまとめています。</p>
-            </a>
-            <a href="#area-zone" class="recommendation-index-panel">
+        <section class="recommendation-discovery-grid reveal">
+            <article class="recommendation-discovery-card" data-tone="new">
+                <span class="results-kicker">NEW THIS MONTH</span>
+                <h2 class="h3">まずは新着から見る</h2>
+                <p>最近追加した特集から見たい方向けです。比較軸が整理された記事を先にまとめています。</p>
+                <div class="recommendation-discovery-links">
+                    <a href="/recommendations/matsuyama-adult-piano/">松山の大人向けピアノ3選</a>
+                    <a href="/recommendations/matsuyama-ballet/">松山のバレエ3選</a>
+                    <a href="/recommendations/niihama-english/">新居浜の英会話3選</a>
+                    <a href="/recommendations/imabari-english/">今治の英会話3選</a>
+                </div>
+            </article>
+            <article class="recommendation-discovery-card" data-tone="area">
                 <span class="results-kicker">BY AREA</span>
-                <strong>地域から探す</strong>
-                <p>松山・今治・新居浜のように、住んでいるエリアから候補を絞れます。</p>
-            </a>
-            <a href="#genre-zone" class="recommendation-index-panel">
+                <h2 class="h3">地域から入口記事を選ぶ</h2>
+                <p>まずは住んでいるエリアに近い特集から候補を絞り、そのあとジャンル特集で深掘りできます。</p>
+                <div class="recommendation-discovery-links">
+                    <a href="/recommendations/imabari-lessons/">今治の習い事3選</a>
+                    <a href="/recommendations/niihama-lessons/">新居浜の習い事3選</a>
+                    <a href="/recommendations/imabari-english/">今治の英会話3選</a>
+                    <a href="/recommendations/niihama-english/">新居浜の英会話3選</a>
+                </div>
+            </article>
+            <article class="recommendation-discovery-card" data-tone="theme">
                 <span class="results-kicker">BY THEME</span>
-                <strong>ジャンルから探す</strong>
-                <p>英会話、ピアノ、ダンス、学習塾など、目的別に見比べられます。</p>
-            </a>
+                <h2 class="h3">人気ジャンルから探す</h2>
+                <p>やりたいことが決まっているなら、定番ジャンルの比較記事から入ると迷いにくいです。</p>
+                <div class="recommendation-discovery-links">
+                    <a href="/recommendations/matsuyama-english/">松山の英会話3選</a>
+                    <a href="/recommendations/matsuyama-programming/">松山のプログラミング5選</a>
+                    <a href="/recommendations/matsuyama-dance/">松山のダンス5選</a>
+                    <a href="/recommendations/matsuyama-piano/">松山のピアノ5選</a>
+                </div>
+            </article>
         </section>
 
         <div class="grid-3 recommendations-grid">
             <div class="recommendation-grid-label" id="popular-zone">
                 <span class="results-kicker">POPULAR GUIDES</span>
                 <h2 class="h2">まず見ておきたい人気特集</h2>
+                <div class="recommendation-grid-meta">
+                    <span>最初の1本に向く記事を厳選</span>
+                    <span>4本</span>
+                </div>
                 <p class="results-summary">比較しやすさと回遊しやすさを重視して、最初の1本に向いている特集を先にまとめています。</p>
             </div>
 
@@ -229,6 +241,10 @@
             <div class="recommendation-grid-label" id="area-zone">
                 <span class="results-kicker">AREA GUIDES</span>
                 <h2 class="h2">地域から探す</h2>
+                <div class="recommendation-grid-meta">
+                    <span>入口記事からエリアを絞る</span>
+                    <span>2本</span>
+                </div>
                 <p class="results-summary">まずはエリア全体の入口記事を見てから、気になったジャンル特集へ進む流れが使いやすいです。</p>
             </div>
 
@@ -273,6 +289,10 @@
             <div class="recommendation-grid-label" id="genre-zone">
                 <span class="results-kicker">THEME GUIDES</span>
                 <h2 class="h2">ジャンルから探す</h2>
+                <div class="recommendation-grid-meta">
+                    <span>目的が決まっている人向け</span>
+                    <span>9本</span>
+                </div>
                 <p class="results-summary">目的が決まっている人向けに、英会話やピアノ、学習塾などのテーマ別記事をまとめています。</p>
             </div>
 
@@ -448,8 +468,10 @@
 
         </div>
 
-        <section class="article-related" style="margin-top: var(--space-2xl);">
-            <h2 class="h2 article-heading-accent">ダンスのテーマ別ガイド</h2>
+        <section class="article-related recommendation-deepdive" style="margin-top: var(--space-2xl);">
+            <span class="results-kicker">DEEP DIVE</span>
+            <h2 class="h2 article-heading-accent">ダンスをテーマ別に深掘りする</h2>
+            <p class="results-summary">ダンスは派生記事が揃っているので、キッズ・初心者・K-POP・体験・月謝といった軸でも比較できます。</p>
             <div class="article-related-grid">
                 <a class="article-related-link" href="/recommendations/matsuyama-kids-dance/">
                     <strong>松山のキッズダンス教室おすすめ5選</strong>
