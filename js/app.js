@@ -121,6 +121,10 @@ function renderStudios(data) {
             <strong>${pricingSummary}</strong>
           </div>
         </div>
+        <div class="card-reason">
+          <span class="card-reason-label">おすすめ理由</span>
+          <p>${getDecisionReason(studio)}</p>
+        </div>
         <div class="card-meta-chips">${featureSummary}</div>
         <div class="tags">${genreTags}</div>
         <p class="card-description">${descriptionSummary}</p>
@@ -201,6 +205,34 @@ function getCardDescriptionSummary(description) {
     if (!description) return '';
     if (description.length <= 72) return description;
     return `${description.slice(0, 72).trim()}...`;
+}
+
+function getDecisionReason(studio) {
+    if (!studio || !studio.features) return '公式サイトと特徴を見ながら比較しやすい教室です。';
+
+    const { features, genres = [] } = studio;
+
+    if (features.beginnerFriendly === '◎') {
+        return '初心者でも始めやすい条件がそろっています。';
+    }
+
+    if (features.kidsClass && features.adultClass) {
+        return '子どもも大人も通いやすく、家族で検討しやすい教室です。';
+    }
+
+    if (features.kidsClass) {
+        return 'キッズ向けクラスがあり、初めての習い事候補に入れやすい教室です。';
+    }
+
+    if (features.parking) {
+        return '駐車場があり、車で通いたい人に向いています。';
+    }
+
+    if (genres.length >= 2) {
+        return `${genres[0]}以外の選択肢もあり、比較しながら選びやすい教室です。`;
+    }
+
+    return '公式サイトを見ながら特徴を比較しやすい教室です。';
 }
 
 /**

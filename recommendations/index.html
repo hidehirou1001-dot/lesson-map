@@ -81,7 +81,7 @@
         <section class="recommendations-hero reveal">
             <div class="hero-eyebrow">EDITORIAL GUIDES</div>
             <h1 class="h1">ジャンル別のおすすめ特集を<br>まとめて比較する</h1>
-            <p>LessonMap編集部が、松山・今治を中心に教室をジャンル別や地域別で整理した特集記事です。迷ったらまず特集で候補を絞り、その後一覧検索で比較すると探しやすくなります。</p>
+            <p>まずは地域かジャンルの入口記事から入り、気になる比較記事へ進むと探しやすい構成です。</p>
             <div class="hero-stats recommendations-stats">
                 <div class="hero-stat">
                     <span class="hero-stat-label">公開中の特集</span>
@@ -99,9 +99,8 @@
             <div class="site-summary-block site-summary-block-centered">
                 <span class="site-summary-kicker">特集の見方</span>
                 <ul class="site-summary-list">
-                    <li>特集は、実在性と公式サイトの確認ができた教室を中心に整理しています。</li>
-                    <li>地域別とジャンル別の両方から、比較しやすい候補を短時間で絞れる構成です。</li>
-                    <li>気になる特集を見たあと、トップの一覧検索で条件比較すると選びやすくなります。</li>
+                    <li>実在性と公式サイトの確認ができた教室を中心に整理しています。</li>
+                    <li>迷ったら「地域から探す」か「人気ジャンルから探す」から進むのが最短です。</li>
                 </ul>
             </div>
         </section>
@@ -115,41 +114,49 @@
             <a href="/" class="btn btn-outline results-clear-btn">一覧検索へ戻る</a>
         </div>
 
+        <div class="recommendation-entry-switch reveal">
+            <a href="#popular-zone" class="recommendation-entry-pill">まずは人気特集</a>
+            <a href="#area-zone" class="recommendation-entry-pill">地域から探す</a>
+            <a href="#genre-zone" class="recommendation-entry-pill">ジャンルから探す</a>
+        </div>
+
         <section class="recommendation-discovery-grid reveal">
-            <article class="recommendation-discovery-card" data-tone="new">
+            <a href="#popular-zone" class="recommendation-discovery-card" data-tone="new">
                 <span class="results-kicker">NEW THIS MONTH</span>
                 <h2 class="h3">まずは新着から見る</h2>
-                <p>最近追加した特集から見たい方向けです。比較軸が整理された記事を先にまとめています。</p>
-                <div class="recommendation-discovery-links">
-                    <a href="/recommendations/matsuyama-adult-piano/">松山の大人向けピアノ3選</a>
-                    <a href="/recommendations/matsuyama-ballet/">松山のバレエ3選</a>
-                    <a href="/recommendations/niihama-english/">新居浜の英会話3選</a>
-                    <a href="/recommendations/imabari-english/">今治の英会話3選</a>
+                <p>最近追加した比較記事です。</p>
+                <div class="recommendation-discovery-examples">
+                    <span>大人向けピアノ</span>
+                    <span>バレエ</span>
+                    <span>新居浜英会話</span>
                 </div>
-            </article>
-            <article class="recommendation-discovery-card" data-tone="area">
+                <span class="recommendation-discovery-cta">新着特集を見る</span>
+            </a>
+            <a href="#area-zone" class="recommendation-discovery-card" data-tone="area">
                 <span class="results-kicker">BY AREA</span>
                 <h2 class="h3">地域から入口記事を選ぶ</h2>
-                <p>まずは住んでいるエリアに近い特集から候補を絞り、そのあとジャンル特集で深掘りできます。</p>
-                <div class="recommendation-discovery-links">
-                    <a href="/recommendations/imabari-lessons/">今治の習い事3選</a>
-                    <a href="/recommendations/niihama-lessons/">新居浜の習い事3選</a>
-                    <a href="/recommendations/imabari-english/">今治の英会話3選</a>
-                    <a href="/recommendations/niihama-english/">新居浜の英会話3選</a>
+                <p>住んでいるエリアに近い特集から候補を絞れます。</p>
+                <div class="recommendation-discovery-examples">
+                    <span>今治の習い事</span>
+                    <span>新居浜の習い事</span>
+                    <span>今治・新居浜英会話</span>
                 </div>
-            </article>
-            <article class="recommendation-discovery-card" data-tone="theme">
+                <span class="recommendation-discovery-cta">地域特集を見る</span>
+            </a>
+            <a href="#genre-zone" class="recommendation-discovery-card" data-tone="theme">
                 <span class="results-kicker">BY THEME</span>
                 <h2 class="h3">人気ジャンルから探す</h2>
-                <p>やりたいことが決まっているなら、定番ジャンルの比較記事から入ると迷いにくいです。</p>
-                <div class="recommendation-discovery-links">
-                    <a href="/recommendations/matsuyama-english/">松山の英会話3選</a>
-                    <a href="/recommendations/matsuyama-programming/">松山のプログラミング5選</a>
-                    <a href="/recommendations/matsuyama-dance/">松山のダンス5選</a>
-                    <a href="/recommendations/matsuyama-piano/">松山のピアノ5選</a>
+                <p>やりたいことが決まっている人向けです。</p>
+                <div class="recommendation-discovery-examples">
+                    <span>英会話</span>
+                    <span>プログラミング</span>
+                    <span>ダンス・ピアノ</span>
                 </div>
-            </article>
+                <span class="recommendation-discovery-cta">ジャンル特集を見る</span>
+            </a>
         </section>
+
+        <p class="recommendation-flow-note">迷ったら `人気特集` から、住んでいる場所が決まっているなら `地域` から、やりたいことが決まっているなら `ジャンル` から進むと探しやすいです。</p>
 
         <div class="grid-3 recommendations-grid">
             <div class="recommendation-grid-label" id="popular-zone">
