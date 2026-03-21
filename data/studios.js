@@ -422,6 +422,75 @@ const studios = [
     imageUrl: 'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
     link: 'https://tino-programming.com/'
   },
+  {
+    id: 'studio-prog-004',
+    name: 'プログラミング A GO! GO!',
+    description: '今治市常盤町にある子ども向けプログラミング教室。Scratchを中心に、通学とオンラインの両方で学べる地域密着型の教室です。',
+    category: 'Programming',
+    city: '今治市',
+    area: '常盤町周辺',
+    access: '今治市常盤町2丁目2-1 2階',
+    genres: ['Programming', 'Scratch', 'Kids'],
+    pricing: {
+      system: '不明',
+      minPrice: 0,
+      note: '詳細は公式サイトへ'
+    },
+    features: {
+      parking: false,
+      beginnerFriendly: '◎',
+      kidsClass: true,
+      adultClass: false
+    },
+    imageUrl: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+    link: 'https://www.imabari-programming.com/'
+  },
+  {
+    id: 'studio-prog-005',
+    name: 'DCプログラミングスクール',
+    description: '新居浜市一宮町にあるScratch中心のプログラミング教室。3Dプリンターやデジタル工作も体験できる子ども向けスクールです。',
+    category: 'Programming',
+    city: '新居浜市',
+    area: '一宮町周辺',
+    access: '新居浜市一宮町2丁目2-40',
+    genres: ['Programming', 'Scratch', '3D'],
+    pricing: {
+      system: '不明',
+      minPrice: 0,
+      note: '詳細は公式サイトへ'
+    },
+    features: {
+      parking: false,
+      beginnerFriendly: '◎',
+      kidsClass: true,
+      adultClass: false
+    },
+    imageUrl: 'https://images.unsplash.com/photo-1515879218367-8466d910aaa4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+    link: 'https://dc-school.jp/'
+  },
+  {
+    id: 'studio-prog-006',
+    name: '明光義塾新居浜中央教室 QUREO',
+    description: '新居浜駅徒歩圏で通いやすいQUREOプログラミング教室。学習塾併設で、初めてでも段階的に進めやすい教室です。',
+    category: 'Programming',
+    city: '新居浜市',
+    area: '坂井町周辺',
+    access: '新居浜市坂井町1丁目6-1',
+    genres: ['Programming', 'QUREO', 'Kids'],
+    pricing: {
+      system: '不明',
+      minPrice: 0,
+      note: '詳細は公式サイトへ'
+    },
+    features: {
+      parking: false,
+      beginnerFriendly: '◎',
+      kidsClass: true,
+      adultClass: false
+    },
+    imageUrl: 'https://images.unsplash.com/photo-1542831371-29b0f74f9713?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+    link: 'https://qureo.jp/class/meikogijuku_niihamachuo'
+  },
 
   // ================= 体操教室（松山市） =================
   {
@@ -1250,6 +1319,77 @@ const studios = [
     },
     imageUrl: 'https://images.unsplash.com/photo-1513364776144-60967b0f800f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
     link: 'https://aoitorikaiga.com/'
+  },
+
+  // ================= 追加エリア（愛媛県内） =================
+  {
+    id: 'studio-english-005',
+    name: 'NOVAバイリンガルKIDS 川内校',
+    description: '東温市北方にある子ども向け英会話教室。無料体験や校舎見学にも対応していて、英語が初めての家庭でも比較しやすい教室です。',
+    category: 'English',
+    city: '東温市',
+    area: '北方周辺',
+    access: '東温市北方（町西公民館周辺）',
+    genres: ['English', 'Kids'],
+    pricing: {
+      system: '不明',
+      minPrice: 0,
+      note: '詳細は公式サイトへ'
+    },
+    features: {
+      parking: true,
+      beginnerFriendly: '◎',
+      kidsClass: true,
+      adultClass: false
+    },
+    imageUrl: 'https://images.unsplash.com/photo-1513258496099-48168024aec0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+    link: 'https://www.nova.co.jp/junior/schools/chugoku_shikoku/ehime/kawauchi.html'
+  },
+  {
+    id: 'studio-programming-007',
+    name: 'QUREOプログラミング教室 明光義塾 伊予教室',
+    description: '伊予市米湊にある子ども向けプログラミング教室。マイクラを入り口にした学習や、駅近で通いやすい立地が特徴です。',
+    category: 'Programming',
+    city: '伊予市',
+    area: '米湊周辺',
+    access: '伊予市米湊（JR伊予市駅・郡中港駅周辺）',
+    genres: ['Programming', 'Minecraft', 'Kids'],
+    pricing: {
+      system: '不明',
+      minPrice: 0,
+      note: '詳細は公式サイトへ'
+    },
+    features: {
+      parking: false,
+      beginnerFriendly: '◎',
+      kidsClass: true,
+      adultClass: false
+    },
+    imageUrl: 'https://images.unsplash.com/photo-1515879218367-8466d910aaa4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+    link: 'https://qureo.jp/class/meikogijuku_iyo'
+  },
+  {
+    id: 'studio-english-006',
+    name: 'ペッピーキッズクラブ 伊予三島南教室',
+    description: '四国中央市三島中央にある子ども向け英会話教室。1歳から高校生まで対応していて、駅近で通いやすい教室です。',
+    category: 'English',
+    city: '四国中央市',
+    area: '三島中央周辺',
+    access: '四国中央市三島中央（JR伊予三島駅周辺）',
+    genres: ['English', 'Kids'],
+    pricing: {
+      system: '不明',
+      minPrice: 0,
+      note: '詳細は公式サイトへ'
+    },
+    features: {
+      parking: false,
+      beginnerFriendly: '◎',
+      kidsClass: true,
+      adultClass: false
+    },
+    imageUrl: 'https://images.unsplash.com/photo-1543269865-cbf427effbad?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+    link: 'https://www.peppy-kids.com/classroom/713/'
   }
 ];
 
