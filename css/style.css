@@ -1508,6 +1508,26 @@ p {
   line-height: 1.7;
 }
 
+.recommendation-seo-copy {
+  display: grid;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+  padding: 1rem 1.1rem;
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.88);
+  border: 1px solid rgba(34, 34, 34, 0.06);
+}
+
+.recommendation-seo-copy .h2 {
+  margin-bottom: 0;
+}
+
+.recommendation-seo-copy p {
+  margin: 0;
+  color: var(--clr-text-main);
+  line-height: 1.75;
+}
+
 .recommendation-grid-label {
   grid-column: 1 / -1;
   display: grid;
