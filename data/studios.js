@@ -351,6 +351,52 @@ const studios = [
     imageUrl: 'https://images.unsplash.com/photo-1550100136-e092101726f4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
     link: 'https://www.yamamoto-musica.com/'
   },
+  {
+    id: 'studio-piano-005',
+    name: '松山ピアノ教室「カルテット」',
+    description: '松山市内で案内されているピアノ教室。子どもから大人まで幅広く通いやすく、柔軟な個人レッスンが受けやすい候補として紹介しています。',
+    category: 'Piano',
+    city: '松山市',
+    area: '松山市内',
+    access: '詳細は公式サイトを確認',
+    genres: ['Piano', 'Music'],
+    pricing: {
+      system: '不明',
+      minPrice: 0,
+      note: '料金は要問い合わせ'
+    },
+    features: {
+      parking: false,
+      beginnerFriendly: '◎',
+      kidsClass: true,
+      adultClass: true
+    },
+    imageUrl: 'https://images.unsplash.com/photo-1513364776144-60967b0f800f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+    link: 'https://www.t-piano.com/'
+  },
+  {
+    id: 'studio-piano-006',
+    name: 'RIBECA音楽教室',
+    description: '松山市内で案内されている音楽教室。ピアノの基礎から表現面まで広く見たい人向けに、記事内でも候補として整理しています。',
+    category: 'Piano',
+    city: '松山市',
+    area: '松山市内',
+    access: '詳細は公式サイトを確認',
+    genres: ['Piano', 'Music'],
+    pricing: {
+      system: '不明',
+      minPrice: 0,
+      note: '料金は要問い合わせ'
+    },
+    features: {
+      parking: false,
+      beginnerFriendly: '〇',
+      kidsClass: true,
+      adultClass: true
+    },
+    imageUrl: 'https://images.unsplash.com/photo-1552422535-c45813c61732?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+    link: 'https://ribeca.info/'
+  },
 
   // ================= プログラミング教室（松山市） =================
   {
@@ -421,6 +467,98 @@ const studios = [
     },
     imageUrl: 'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
     link: 'https://tino-programming.com/'
+  },
+  {
+    id: 'studio-prog-008',
+    name: 'プログラボ松山本町',
+    description: '松山市本町にあるロボットプログラミング教室。STEM教育やロボット教材を重視したい家庭向けの候補として記事で紹介しています。',
+    category: 'Programming',
+    city: '松山市',
+    area: '本町周辺',
+    access: '松山市本町周辺',
+    genres: ['Programming', 'Robot', 'Kids'],
+    pricing: {
+      system: '不明',
+      minPrice: 0,
+      note: '料金は要問い合わせ'
+    },
+    features: {
+      parking: false,
+      beginnerFriendly: '〇',
+      kidsClass: true,
+      adultClass: false
+    },
+    imageUrl: 'https://images.unsplash.com/photo-1515879218367-8466d910aaa4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+    link: 'https://www.proglab.education/school/matsuyamahonmachi.html'
+  },
+  {
+    id: 'studio-prog-007',
+    name: 'まなるご ジョー・プラ南松山校',
+    description: '松山市朝生田町にある初心者向けプログラミング教室。個別型で基礎から進めやすく、買い物動線にも乗せやすい教室として紹介しています。',
+    category: 'Programming',
+    city: '松山市',
+    area: '朝生田町周辺',
+    access: '松山市朝生田町5丁目1-25（ジョー・プラ内）',
+    genres: ['Programming', 'Kids', 'Beginner'],
+    pricing: {
+      system: '月謝制',
+      minPrice: 6600,
+      note: '月3回コースの目安'
+    },
+    features: {
+      parking: true,
+      beginnerFriendly: '◎',
+      kidsClass: true,
+      adultClass: false
+    },
+    imageUrl: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+    link: 'https://manalgo.net/entry/entry_chugoku/ehime/matsuyama/'
+  },
+  {
+    id: 'studio-prog-009',
+    name: '自立学習RED松山教室 QUREO',
+    description: '松山市内で案内されているQUREO対応のプログラミング教室。ゲーム感覚で基礎から学ばせたい家庭向けに整理している候補です。',
+    category: 'Programming',
+    city: '松山市',
+    area: '松山市内',
+    access: '詳細は公式サイトを確認',
+    genres: ['Programming', 'QUREO', 'Kids'],
+    pricing: {
+      system: '不明',
+      minPrice: 0,
+      note: '料金は要問い合わせ'
+    },
+    features: {
+      parking: false,
+      beginnerFriendly: '◎',
+      kidsClass: true,
+      adultClass: false
+    },
+    imageUrl: 'https://images.unsplash.com/photo-1542831371-29b0f74f9713?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+    link: 'https://qureo.jp/class/red_matsuyama'
+  },
+  {
+    id: 'studio-prog-010',
+    name: '明光義塾本町教室 QUREO',
+    description: '松山市本町にあるQUREO対応のプログラミング教室。学習塾併設で通いやすく、段階的に学ばせたい家庭向けの候補です。',
+    category: 'Programming',
+    city: '松山市',
+    area: '本町周辺',
+    access: '松山市本町周辺',
+    genres: ['Programming', 'QUREO', 'Kids'],
+    pricing: {
+      system: '不明',
+      minPrice: 0,
+      note: '料金は要問い合わせ'
+    },
+    features: {
+      parking: false,
+      beginnerFriendly: '◎',
+      kidsClass: true,
+      adultClass: false
+    },
+    imageUrl: 'https://images.unsplash.com/photo-1515879218367-8466d910aaa4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+    link: 'https://qureo.jp/class/meikogijuku_honmachi'
   },
   {
     id: 'studio-prog-004',
@@ -919,6 +1057,98 @@ const studios = [
     imageUrl: 'https://images.unsplash.com/photo-1547153760-18fc86324498?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
     link: 'https://trinityschoolinjapan.com/'
   },
+  {
+    id: 'studio-english-008',
+    name: 'ECCジュニア 持田教室',
+    description: '松山市持田町にある英会話教室。小学生から中学生を中心に、社会人・シニア向けコースもあり、地元で通いやすい教室です。',
+    category: 'English',
+    city: '松山市',
+    area: '持田町周辺',
+    access: '松山市持田町周辺',
+    genres: ['English', 'Kids'],
+    pricing: {
+      system: '不明',
+      minPrice: 0,
+      note: '無料体験あり / 料金は要問い合わせ'
+    },
+    features: {
+      parking: true,
+      beginnerFriendly: '◎',
+      kidsClass: true,
+      adultClass: true
+    },
+    imageUrl: 'https://images.unsplash.com/photo-1513258496099-48168024aec0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+    link: 'https://eccjuniorbs.jp/ht380166/'
+  },
+  {
+    id: 'studio-english-003',
+    name: 'ペッピーキッズクラブ 山越教室',
+    description: '松山市山越にある子ども向け英会話教室。1歳から高校生まで対応していて、無料体験から始めやすい候補として記事でも紹介しています。',
+    category: 'English',
+    city: '松山市',
+    area: '山越周辺',
+    access: '松山市山越周辺',
+    genres: ['English', 'Kids'],
+    pricing: {
+      system: '月謝制',
+      minPrice: 8140,
+      note: '子ども向けコースの目安 / 無料体験あり'
+    },
+    features: {
+      parking: true,
+      beginnerFriendly: '◎',
+      kidsClass: true,
+      adultClass: false
+    },
+    imageUrl: 'https://images.unsplash.com/photo-1513258496099-48168024aec0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+    link: 'https://www.peppy-kids.com/classroom/233/'
+  },
+  {
+    id: 'studio-english-004',
+    name: '駅前留学NOVA 松山校',
+    description: '松山市湊町にある英会話教室。子どもから大人まで対応し、学び直しや旅行英会話でも比較しやすい候補として整理しています。',
+    category: 'English',
+    city: '松山市',
+    area: '湊町周辺',
+    access: '松山市湊町4丁目（松山市駅周辺）',
+    genres: ['English', 'Conversation', 'Kids'],
+    pricing: {
+      system: '月謝制',
+      minPrice: 10000,
+      note: 'グループレッスンの目安 / 無料体験あり'
+    },
+    features: {
+      parking: false,
+      beginnerFriendly: '◎',
+      kidsClass: true,
+      adultClass: true
+    },
+    imageUrl: 'https://images.unsplash.com/photo-1543269865-cbf427effbad?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+    link: 'https://www.nova.co.jp/schools/chugoku_shikoku/ehime/matsuyama.html'
+  },
+  {
+    id: 'studio-english-007',
+    name: '英会話イーオン 松山校',
+    description: '松山市朝生田町にある英会話教室。子どもから大人まで対応し、無料体験から比較しやすい教室として松山向け記事で紹介しています。',
+    category: 'English',
+    city: '松山市',
+    area: '朝生田町周辺',
+    access: '松山市朝生田町周辺',
+    genres: ['English', 'Conversation'],
+    pricing: {
+      system: '不明',
+      minPrice: 0,
+      note: '無料体験あり / 料金は要問い合わせ'
+    },
+    features: {
+      parking: true,
+      beginnerFriendly: '◎',
+      kidsClass: true,
+      adultClass: true
+    },
+    imageUrl: 'https://images.unsplash.com/photo-1547153760-18fc86324498?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+    link: 'https://www.aeonet.co.jp/school/ehime/matsuyama.html'
+  },
 
   // ================= 学習塾（松山市） =================
   {
@@ -1138,6 +1368,8 @@ const studios = [
     id: 'studio-fitness-001',
     name: 'スポーツクラブ フィッタ松山',
     description: '松山市宮西にある総合フィットネスクラブ。ジムに加えてプールやスタジオも備え、運動習慣をつくりやすい大型施設です。',
+    chainName: 'スポーツクラブ フィッタ',
+    locationSummary: 'フィッタは愛媛県内に複数店舗があります。この一覧では松山市内で比較しやすい松山店を掲載しています。',
     category: 'Fitness',
     city: '松山市',
     area: '宮西周辺',
@@ -1161,6 +1393,8 @@ const studios = [
     id: 'studio-fitness-002',
     name: 'スポーツクラブ フィッタ衣山',
     description: '松山市衣山にあるフィットネスジム。マシン、ウエイトトレーニング、プールまで揃い、初心者から続けやすい環境です。',
+    chainName: 'スポーツクラブ フィッタ',
+    locationSummary: 'フィッタは愛媛県内に複数店舗があります。この一覧では松山市内で比較しやすい衣山店を掲載しています。',
     category: 'Fitness',
     city: '松山市',
     area: '衣山周辺',
@@ -1184,6 +1418,8 @@ const studios = [
     id: 'studio-fitness-003',
     name: 'P・SPO 松山空港通り店',
     description: '松山市空港通にある24時間型フィットネスジム。通いやすい営業時間と駐車場付きで、仕事帰りにも使いやすい店舗です。',
+    chainName: 'P・SPO',
+    locationSummary: 'P・SPOは愛媛県内に複数店舗があります。この一覧では松山市内で比較しやすい空港通り店を掲載しています。',
     category: 'Fitness',
     city: '松山市',
     area: '空港通周辺',
@@ -1207,6 +1443,8 @@ const studios = [
     id: 'studio-fitness-004',
     name: 'スポーツクラブ フィッタ新居浜',
     description: '新居浜市新須賀町にある総合フィットネスクラブ。ジム、プール、スタジオを備え、幅広い運動ニーズに対応しています。',
+    chainName: 'スポーツクラブ フィッタ',
+    locationSummary: 'フィッタは愛媛県内に複数店舗があります。この一覧では新居浜市で比較しやすい新居浜店を掲載しています。',
     category: 'Fitness',
     city: '新居浜市',
     area: '新須賀町周辺',
@@ -1230,6 +1468,8 @@ const studios = [
     id: 'studio-fitness-005',
     name: 'P・SPO マリエール今治店',
     description: '今治市郷本町にある24時間利用可能なスポーツジム。駐車場があり、日常の運動を無理なく継続しやすい店舗です。',
+    chainName: 'P・SPO',
+    locationSummary: 'P・SPOは愛媛県内に複数店舗があります。この一覧では今治市で比較しやすいマリエール今治店を掲載しています。',
     category: 'Fitness',
     city: '今治市',
     area: '郷本町周辺',
@@ -1253,6 +1493,8 @@ const studios = [
     id: 'studio-fitness-006',
     name: 'P・SPO ワールドプラザ店',
     description: '今治市東村のワールドプラザ内にあるフィットネスジム。買い物動線と合わせて利用しやすく、初めてでも始めやすい環境です。',
+    chainName: 'P・SPO',
+    locationSummary: 'P・SPOは愛媛県内に複数店舗があります。この一覧では今治市で比較しやすいワールドプラザ店を掲載しています。',
     category: 'Fitness',
     city: '今治市',
     area: '東村周辺',

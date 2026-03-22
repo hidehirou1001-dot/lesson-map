@@ -7,6 +7,8 @@ document.addEventListener('DOMContentLoaded', () => {
     initAnimations();
     initFAQ();
     initCompareMemo();
+    initFavorites();
+    initShareTools();
 
     // Render studios if a container exists (e.g., on index.html)
     const studiosGrid = document.getElementById('studios-grid');
@@ -18,6 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
         initFilters();
         initModal();
         renderCompareMemo();
+        renderFavorites();
         applyFilters(); // Apply initial filters
     }
 });
@@ -94,6 +97,8 @@ function renderStudios(data) {
         const compareButtonLabel = isComparedStudio(studio.id) ? '比較メモ済み' : '比較メモに追加';
         const compareButtonState = isComparedStudio(studio.id) ? 'active' : '';
         const compareButtonDisabled = !isComparedStudio(studio.id) && compareMemoIds.length >= COMPARE_MEMO_LIMIT ? 'disabled' : '';
+        const favoriteButtonLabel = isFavoriteStudio(studio.id) ? 'お気に入り済み' : 'あとで見る';
+        const favoriteButtonState = isFavoriteStudio(studio.id) ? 'active' : '';
         const cardGuideMarkup = cardGuideLinks.length > 0 ? `
         <div class="card-guide-box">
           <span class="card-guide-label">次に見る特集</span>
@@ -117,6 +122,7 @@ function renderStudios(data) {
 
         // Generate genre tags
         const genreTags = studio.genres.map(g => `<span class="tag">${g}</span>`).join('');
+        const locationNoteMarkup = getLocationNoteMarkup(studio);
 
         card.innerHTML = `
       <div class="card-img-wrap">
@@ -131,6 +137,7 @@ function renderStudios(data) {
           <span class="card-eyebrow">${categoryLabel}</span>
           <h3 class="h3">${studio.name}</h3>
           <p class="card-location">${studio.access}</p>
+          ${locationNoteMarkup}
         </div>
         <div class="card-stat-grid">
           <div class="card-stat card-stat-primary">
@@ -154,6 +161,7 @@ function renderStudios(data) {
         ${cardGuideMarkup}
         <div class="card-action-row">
           <button class="btn btn-outline detail-btn card-detail-btn">詳細を見る</button>
+          <button class="btn btn-text favorite-toggle-btn ${favoriteButtonState}" type="button" data-favorite-id="${studio.id}">${favoriteButtonLabel}</button>
           <button class="btn btn-text compare-toggle-btn ${compareButtonState}" type="button" data-studio-id="${studio.id}" ${compareButtonDisabled}>${compareButtonLabel}</button>
         </div>
       </div>
@@ -170,6 +178,11 @@ function renderStudios(data) {
         const compareBtn = card.querySelector('.compare-toggle-btn');
         if (compareBtn) {
             compareBtn.addEventListener('click', () => toggleCompareMemo(studio.id));
+        }
+
+        const favoriteBtn = card.querySelector('.favorite-toggle-btn');
+        if (favoriteBtn) {
+            favoriteBtn.addEventListener('click', () => toggleFavorite(studio.id));
         }
 
         // Staggered Animation Logic
@@ -206,6 +219,18 @@ function getCardFeatureSummary(studio) {
     return chips.map(chip => `<span class="card-meta-chip">${chip}</span>`).join('');
 }
 
+function getLocationNoteMarkup(studio, className = 'location-note') {
+    if (!studio?.locationSummary) return '';
+
+    const label = studio.chainName ? `${studio.chainName}の掲載方針` : '掲載方針';
+    return `
+    <p class="${className}">
+      <strong>${label}</strong>
+      <span>${studio.locationSummary}</span>
+    </p>
+    `;
+}
+
 function hasTrialInfo(studio) {
     if (!studio) return false;
 
@@ -221,16 +246,19 @@ function hasTrialInfo(studio) {
 function getQuickStatusItems(studio) {
     return [
         {
+            key: 'price',
             label: '料金',
             value: studio?.pricing?.minPrice > 0 ? '公開あり' : '要確認',
             tone: studio?.pricing?.minPrice > 0 ? 'good' : 'neutral'
         },
         {
+            key: 'trial',
             label: '体験',
             value: hasTrialInfo(studio) ? '案内あり' : '要確認',
             tone: hasTrialInfo(studio) ? 'good' : 'neutral'
         },
         {
+            key: 'access',
             label: '通いやすさ',
             value: studio?.features?.parking ? '駐車場あり' : 'アクセス確認',
             tone: studio?.features?.parking ? 'good' : 'neutral'
@@ -256,6 +284,8 @@ const SITE_REVIEW_DATE = '2026-03-22';
 const COMPARE_MEMO_KEY = 'lessonmap_compare_memo';
 const COMPARE_MEMO_LIMIT = 3;
 let compareMemoIds = [];
+const FAVORITES_KEY = 'lessonmap_favorites';
+let favoriteIds = [];
 
 function getPricingCheckStatus(studio) {
     if (studio?.pricing?.minPrice > 0) return '料金公開を確認済み';
@@ -297,12 +327,34 @@ function initCompareMemo() {
     renderCompareMemo();
 }
 
+function initFavorites() {
+    favoriteIds = loadFavorites();
+
+    const clearBtn = document.getElementById('favorite-clear-btn');
+    if (clearBtn) {
+        clearBtn.addEventListener('click', clearFavorites);
+    }
+
+    renderFavorites();
+}
+
 function loadCompareMemo() {
     try {
         const raw = window.localStorage.getItem(COMPARE_MEMO_KEY);
         if (!raw) return [];
         const parsed = JSON.parse(raw);
         return Array.isArray(parsed) ? parsed.slice(0, COMPARE_MEMO_LIMIT) : [];
+    } catch (error) {
+        return [];
+    }
+}
+
+function loadFavorites() {
+    try {
+        const raw = window.localStorage.getItem(FAVORITES_KEY);
+        if (!raw) return [];
+        const parsed = JSON.parse(raw);
+        return Array.isArray(parsed) ? parsed : [];
     } catch (error) {
         return [];
     }
@@ -316,8 +368,20 @@ function saveCompareMemo() {
     }
 }
 
+function saveFavorites() {
+    try {
+        window.localStorage.setItem(FAVORITES_KEY, JSON.stringify(favoriteIds));
+    } catch (error) {
+        // localStorage unavailable
+    }
+}
+
 function isComparedStudio(studioId) {
     return compareMemoIds.includes(studioId);
+}
+
+function isFavoriteStudio(studioId) {
+    return favoriteIds.includes(studioId);
 }
 
 function toggleCompareMemo(studioId) {
@@ -346,10 +410,41 @@ function clearCompareMemo() {
     applyFilters();
 }
 
+function toggleFavorite(studioId) {
+    if (isFavoriteStudio(studioId)) {
+        favoriteIds = favoriteIds.filter(id => id !== studioId);
+    } else {
+        favoriteIds = [studioId, ...favoriteIds.filter(id => id !== studioId)];
+    }
+
+    saveFavorites();
+    renderFavorites();
+    applyFilters();
+
+    const overlay = document.getElementById('studio-modal');
+    if (overlay?.classList.contains('active')) {
+        openModal(studioId);
+    }
+}
+
+function clearFavorites() {
+    favoriteIds = [];
+    saveFavorites();
+    renderFavorites();
+    applyFilters();
+}
+
 function renderCompareMemo() {
     const panel = document.getElementById('compare-memo-panel');
     const grid = document.getElementById('compare-memo-grid');
     if (!panel || !grid) return;
+    let diffSummary = panel.querySelector('#compare-memo-diff-summary');
+    if (!diffSummary) {
+        diffSummary = document.createElement('div');
+        diffSummary.id = 'compare-memo-diff-summary';
+        diffSummary.className = 'compare-diff-summary';
+        panel.insertBefore(diffSummary, grid);
+    }
 
     const items = compareMemoIds
         .map(id => window.studiosData?.find(studio => studio.id === id))
@@ -358,13 +453,44 @@ function renderCompareMemo() {
     if (items.length === 0) {
         panel.hidden = true;
         grid.innerHTML = '';
+        diffSummary.hidden = true;
+        diffSummary.innerHTML = '';
+        updateCompareSharePanel([]);
         return;
     }
 
     panel.hidden = false;
+    const diffMap = getCompareMemoDiffMap(items);
+    const diffKeys = Object.keys(diffMap).filter(key => diffMap[key]);
+    if (diffKeys.length > 0) {
+        const diffLabels = {
+            audience: '対象',
+            pricing: '料金',
+            commute: '通学',
+            status_price: '料金公開',
+            status_trial: '体験案内',
+            status_access: '通いやすさ'
+        };
+        diffSummary.hidden = false;
+        diffSummary.innerHTML = `
+          <span class="compare-diff-label">差分が出ている項目</span>
+          <div class="compare-diff-chips">
+            ${diffKeys.map(key => `<span class="compare-diff-chip">${diffLabels[key] || key}</span>`).join('')}
+          </div>
+        `;
+    } else {
+        diffSummary.hidden = true;
+        diffSummary.innerHTML = '';
+    }
+    updateCompareSharePanel(items);
     grid.innerHTML = items.map(studio => {
         const statuses = getQuickStatusItems(studio);
         const verificationMarkup = getVerificationMarkup(studio, 'compare-memo-verification');
+        const summaryRows = [
+            { key: 'audience', label: '対象', value: getAudienceSummary(studio.features) },
+            { key: 'pricing', label: '料金', value: formatPricingSummary(studio.pricing) },
+            { key: 'commute', label: '通学', value: getCommuteSummary(studio) }
+        ];
         return `
         <article class="compare-memo-item">
           <div class="compare-memo-item-head">
@@ -375,12 +501,14 @@ function renderCompareMemo() {
             <button class="compare-memo-remove" type="button" data-remove-compare-id="${studio.id}" aria-label="${studio.name}を比較メモから外す">×</button>
           </div>
           <div class="compare-memo-summary">
-            <span><strong>対象:</strong> ${getAudienceSummary(studio.features)}</span>
-            <span><strong>料金:</strong> ${formatPricingSummary(studio.pricing)}</span>
-            <span><strong>通学:</strong> ${getCommuteSummary(studio)}</span>
+            ${summaryRows.map(row => `
+              <span class="compare-memo-summary-row ${diffMap[row.key] ? 'is-diff' : ''}">
+                <strong>${row.label}:</strong> ${row.value}
+              </span>
+            `).join('')}
           </div>
           <div class="compare-memo-statuses">
-            ${statuses.map(item => `<span class="compare-memo-status" data-tone="${item.tone}"><strong>${item.label}</strong>${item.value}</span>`).join('')}
+            ${statuses.map(item => `<span class="compare-memo-status ${diffMap[`status_${item.key}`] ? 'is-diff' : ''}" data-tone="${item.tone}"><strong>${item.label}</strong>${item.value}</span>`).join('')}
           </div>
           ${verificationMarkup}
           <div class="compare-memo-actions">
@@ -397,6 +525,178 @@ function renderCompareMemo() {
 
     grid.querySelectorAll('[data-open-compare-id]').forEach(button => {
         button.addEventListener('click', () => openModal(button.getAttribute('data-open-compare-id')));
+    });
+}
+
+function getCompareMemoDiffMap(items) {
+    if (!items || items.length <= 1) return {};
+
+    const values = {
+        audience: items.map(studio => getAudienceSummary(studio.features)),
+        pricing: items.map(studio => formatPricingSummary(studio.pricing)),
+        commute: items.map(studio => getCommuteSummary(studio)),
+        status_price: items.map(studio => getQuickStatusItems(studio)[0]?.value || ''),
+        status_trial: items.map(studio => getQuickStatusItems(studio)[1]?.value || ''),
+        status_access: items.map(studio => getQuickStatusItems(studio)[2]?.value || '')
+    };
+
+    return Object.fromEntries(
+        Object.entries(values).map(([key, entries]) => [key, new Set(entries).size > 1])
+    );
+}
+
+function renderFavorites() {
+    const panel = document.getElementById('favorite-panel');
+    const grid = document.getElementById('favorite-grid');
+    if (!panel || !grid) return;
+
+    const items = favoriteIds
+        .map(id => window.studiosData?.find(studio => studio.id === id))
+        .filter(Boolean);
+
+    if (items.length === 0) {
+        panel.hidden = true;
+        grid.innerHTML = '';
+        return;
+    }
+
+    panel.hidden = false;
+    grid.innerHTML = items.map(studio => `
+      <article class="favorite-item">
+        <div class="favorite-item-head">
+          <div>
+            <span class="favorite-city">${studio.city} ${studio.area}</span>
+            <h3 class="favorite-title">${studio.name}</h3>
+          </div>
+          <button class="favorite-remove" type="button" data-remove-favorite-id="${studio.id}" aria-label="${studio.name}をお気に入りから外す">×</button>
+        </div>
+        <p class="favorite-copy">${getCardDescriptionSummary(studio.description)}</p>
+        <div class="favorite-meta">
+          <span><strong>対象:</strong> ${getAudienceSummary(studio.features)}</span>
+          <span><strong>料金:</strong> ${formatPricingSummary(studio.pricing)}</span>
+        </div>
+        <div class="favorite-actions">
+          <button class="btn btn-outline favorite-detail-btn" type="button" data-open-favorite-id="${studio.id}">詳細を見る</button>
+          <button class="btn btn-text favorite-compare-btn" type="button" data-favorite-compare-id="${studio.id}">${isComparedStudio(studio.id) ? '比較メモ済み' : '比較メモへ'}</button>
+        </div>
+      </article>
+    `).join('');
+
+    grid.querySelectorAll('[data-remove-favorite-id]').forEach(button => {
+        button.addEventListener('click', () => toggleFavorite(button.getAttribute('data-remove-favorite-id')));
+    });
+
+    grid.querySelectorAll('[data-open-favorite-id]').forEach(button => {
+        button.addEventListener('click', () => openModal(button.getAttribute('data-open-favorite-id')));
+    });
+
+    grid.querySelectorAll('[data-favorite-compare-id]').forEach(button => {
+        button.addEventListener('click', () => toggleCompareMemo(button.getAttribute('data-favorite-compare-id')));
+    });
+}
+
+function initShareTools() {
+    initArticleSharePanel();
+    initCompareSharePanel();
+}
+
+function buildXShareUrl(text, url) {
+    const params = new URLSearchParams({
+        text,
+        url
+    });
+    return `https://twitter.com/intent/tweet?${params.toString()}`;
+}
+
+function buildLineShareUrl(text, url) {
+    return `https://social-plugins.line.me/lineit/share?url=${encodeURIComponent(url)}&text=${encodeURIComponent(text)}`;
+}
+
+function initArticleSharePanel() {
+    const articleShell = document.querySelector('.article-shell');
+    const articleHeader = document.querySelector('.article-header');
+    if (!articleShell || !articleHeader) return;
+
+    const title = document.querySelector('h1')?.textContent?.trim() || document.title;
+    const url = window.location.href;
+    const shareText = `${title} | LessonMap`;
+
+    const panel = document.createElement('section');
+    panel.className = 'share-panel share-panel-article';
+    panel.innerHTML = `
+      <div class="share-panel-head">
+        <span class="results-kicker">SHARE</span>
+        <strong>この特集をシェアする</strong>
+      </div>
+      <div class="share-panel-links">
+        <a class="share-link-btn" href="${buildXShareUrl(shareText, url)}" target="_blank" rel="noopener noreferrer">Xで共有</a>
+        <a class="share-link-btn" href="${buildLineShareUrl(shareText, url)}" target="_blank" rel="noopener noreferrer">LINEで送る</a>
+        <button class="share-link-btn share-copy-btn" type="button" data-share-copy="${url}">URLをコピー</button>
+      </div>
+    `;
+
+    articleHeader.insertAdjacentElement('afterend', panel);
+    bindShareCopyButtons(panel);
+}
+
+function initCompareSharePanel() {
+    const comparePanel = document.getElementById('compare-memo-panel');
+    if (!comparePanel) return;
+
+    const sharePanel = document.createElement('div');
+    sharePanel.className = 'share-panel share-panel-compare';
+    sharePanel.id = 'compare-share-panel';
+    sharePanel.hidden = true;
+    comparePanel.insertAdjacentElement('beforeend', sharePanel);
+}
+
+function updateCompareSharePanel(items) {
+    const sharePanel = document.getElementById('compare-share-panel');
+    if (!sharePanel) return;
+
+    if (!items || items.length === 0) {
+        sharePanel.hidden = true;
+        sharePanel.innerHTML = '';
+        return;
+    }
+
+    const names = items.map(studio => studio.name).slice(0, 3);
+    const summary = `LessonMapで比較中: ${names.join(' / ')}`;
+    const url = window.location.href;
+
+    sharePanel.hidden = false;
+    sharePanel.innerHTML = `
+      <div class="share-panel-head">
+        <span class="results-kicker">SHARE</span>
+        <strong>この比較メモを共有する</strong>
+      </div>
+      <p class="share-panel-copy">${summary}</p>
+      <div class="share-panel-links">
+        <a class="share-link-btn" href="${buildXShareUrl(summary, url)}" target="_blank" rel="noopener noreferrer">Xで共有</a>
+        <a class="share-link-btn" href="${buildLineShareUrl(summary, url)}" target="_blank" rel="noopener noreferrer">LINEで送る</a>
+        <button class="share-link-btn share-copy-btn" type="button" data-share-copy="${summary} ${url}">比較内容をコピー</button>
+      </div>
+    `;
+
+    bindShareCopyButtons(sharePanel);
+}
+
+function bindShareCopyButtons(scope = document) {
+    scope.querySelectorAll('.share-copy-btn').forEach(button => {
+        if (button.dataset.boundCopy === 'true') return;
+        button.dataset.boundCopy = 'true';
+        button.addEventListener('click', async () => {
+            const text = button.getAttribute('data-share-copy') || window.location.href;
+            try {
+                await navigator.clipboard.writeText(text);
+                button.textContent = 'コピーしました';
+                window.setTimeout(() => {
+                    button.textContent = button.closest('.share-panel-compare') ? '比較内容をコピー' : 'URLをコピー';
+                }, 1400);
+            } catch (error) {
+                button.textContent = 'コピーできませんでした';
+            }
+        });
     });
 }
 
@@ -915,6 +1215,10 @@ function updateResultsMeta(filtered) {
     const guidePanel = document.getElementById('results-guide-panel');
     const guideTitle = document.getElementById('results-guide-title');
     const guideLinks = document.getElementById('results-guide-links');
+    const explainPanel = document.getElementById('results-explain-panel');
+    const explainTitle = document.getElementById('results-explain-title');
+    const explainCopy = document.getElementById('results-explain-copy');
+    const explainChips = document.getElementById('results-explain-chips');
     const activeChips = [];
 
     if (currentFilterState.category !== 'all') activeChips.push(filterLabelMap[currentFilterState.category] || currentFilterState.category);
@@ -927,6 +1231,41 @@ function updateResultsMeta(filtered) {
 
     if (summary) {
         summary.textContent = `${filtered.length}件の教室を表示中。${currentFilterState.city === 'all' ? '愛媛県全域' : currentFilterState.city}の候補を比較できます。`;
+    }
+
+    const sortExplainMap = {
+        recommended: {
+            title: 'おすすめ順の見方',
+            copy: '初心者の始めやすさ、キッズ対応、駐車場あり、料金公開ありをもとに、比較しやすい候補を上にしています。',
+            chips: ['初心者の始めやすさ', 'キッズ対応', '駐車場あり', '料金公開あり']
+        },
+        beginner: {
+            title: '初心者向け順の見方',
+            copy: '初心者歓迎の強さを優先しつつ、比較しやすい候補が上に来るように並べています。',
+            chips: ['初心者歓迎 ◎', '初心者歓迎 ○', 'キッズ対応', '料金公開あり']
+        },
+        kids: {
+            title: 'キッズ対応順の見方',
+            copy: '子ども向けクラスがある教室を優先し、その中で始めやすさや通いやすさも見ています。',
+            chips: ['キッズクラスあり', '初心者歓迎', '駐車場あり', '料金公開あり']
+        },
+        price: {
+            title: '料金がわかる順の見方',
+            copy: '料金公開がある教室を優先し、その中では最安料金が低い順に並べています。',
+            chips: ['料金公開あり', '最安料金', '比較しやすさ']
+        },
+        area: {
+            title: 'エリア名順の見方',
+            copy: '市町名とエリア名の並びで見やすく整理しています。地域ごとの候補をまとめて見たいときに向いています。',
+            chips: ['市町名', 'エリア名']
+        }
+    };
+    const explain = sortExplainMap[currentFilterState.sort] || sortExplainMap.recommended;
+    if (explainPanel && explainTitle && explainCopy && explainChips) {
+        explainPanel.hidden = false;
+        explainTitle.textContent = explain.title;
+        explainCopy.textContent = explain.copy;
+        explainChips.innerHTML = explain.chips.map(chip => `<span class="results-explain-chip">${chip}</span>`).join('');
     }
 
     if (chipContainer && filterBar) {
@@ -1155,9 +1494,11 @@ function openModal(studioId) {
     const commuteSummary = getCommuteSummary(studio);
     const quickStatusMarkup = getQuickStatusMarkup(studio);
     const verificationMarkup = getVerificationMarkup(studio, 'modal-verification-block');
+    const locationNoteMarkup = getLocationNoteMarkup(studio, 'location-note location-note-modal');
     const relatedGuides = getRecommendedGuidesForStudio(studio);
     const compareButtonLabel = isComparedStudio(studio.id) ? '比較メモから外す' : '比較メモに追加';
     const compareButtonDisabled = !isComparedStudio(studio.id) && compareMemoIds.length >= COMPARE_MEMO_LIMIT ? 'disabled' : '';
+    const favoriteButtonLabel = isFavoriteStudio(studio.id) ? 'お気に入りから外す' : 'あとで見る';
     const relatedGuideMarkup = relatedGuides.length > 0 ? `
             <section class="modal-guide-section">
                 <div class="modal-guide-head">
@@ -1190,6 +1531,7 @@ function openModal(studioId) {
                     <span class="badge modal-location-badge">${studio.city} ${studio.area}</span>
                     <span class="modal-access-text">${studio.access}</span>
                 </div>
+                ${locationNoteMarkup}
             </div>
 
             <div class="modal-summary-grid">
@@ -1215,6 +1557,7 @@ function openModal(studioId) {
 
             <div class="modal-action-row">
                 <a href="${studio.link}" target="_blank" rel="noopener noreferrer" class="btn btn-primary modal-primary-btn">公式サイト・SNSを見る</a>
+                <button class="btn btn-outline modal-favorite-btn" type="button" data-modal-favorite-id="${studio.id}">${favoriteButtonLabel}</button>
                 <button class="btn btn-outline modal-compare-btn" type="button" data-modal-studio-id="${studio.id}" ${compareButtonDisabled}>${compareButtonLabel}</button>
             </div>
 
@@ -1241,6 +1584,11 @@ function openModal(studioId) {
     const modalCompareBtn = modalBody.querySelector('.modal-compare-btn');
     if (modalCompareBtn) {
         modalCompareBtn.addEventListener('click', () => toggleCompareMemo(studio.id));
+    }
+
+    const modalFavoriteBtn = modalBody.querySelector('.modal-favorite-btn');
+    if (modalFavoriteBtn) {
+        modalFavoriteBtn.addEventListener('click', () => toggleFavorite(studio.id));
     }
 
     overlay.classList.add('active');
