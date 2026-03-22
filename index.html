@@ -43,7 +43,7 @@
       }
     }
   </script>
-  <link rel="stylesheet" href="/css/style.css?v=7">
+  <link rel="stylesheet" href="/css/style.css?v=8">
 </head>
 
 <body>
@@ -428,6 +428,18 @@
       <div class="results-guide-links" id="results-guide-links"></div>
     </div>
 
+    <div class="compare-memo-panel" id="compare-memo-panel" hidden>
+      <div class="compare-memo-head">
+        <div>
+          <span class="results-kicker">COMPARE MEMO</span>
+          <strong>気になる教室を3件までキープ</strong>
+          <p class="results-summary">あとで見比べたい教室だけ残して、対象・料金・通いやすさを並べて確認できます。</p>
+        </div>
+        <button id="compare-clear-btn" class="btn btn-outline results-clear-btn" type="button">比較メモを空にする</button>
+      </div>
+      <div class="compare-memo-grid" id="compare-memo-grid"></div>
+    </div>
+
     <!-- Cards will be injected here by app.js -->
     <div id="studios-grid" class="grid-3">
       <!-- Loading state (optional) -->
@@ -467,7 +479,7 @@
 
   <!-- Scripts -->
   <script src="/data/studios.js?v=13"></script>
-  <script src="/js/app.js?v=18"></script>
+  <script src="/js/app.js?v=19"></script>
 </body>
 
 </html>

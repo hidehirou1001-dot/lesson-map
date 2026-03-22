@@ -6,6 +6,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     initAnimations();
     initFAQ();
+    initCompareMemo();
 
     // Render studios if a container exists (e.g., on index.html)
     const studiosGrid = document.getElementById('studios-grid');
@@ -16,6 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
         initSearch();
         initFilters();
         initModal();
+        renderCompareMemo();
         applyFilters(); // Apply initial filters
     }
 });
@@ -84,9 +86,14 @@ function renderStudios(data) {
     data.forEach((studio, index) => {
         const pricingSummary = formatPricingSummary(studio.pricing);
         const featureSummary = getCardFeatureSummary(studio);
+        const quickStatusMarkup = getQuickStatusMarkup(studio);
+        const verificationMarkup = getVerificationMarkup(studio);
         const categoryLabel = getCategoryLabel(studio.category);
         const descriptionSummary = getCardDescriptionSummary(studio.description);
         const cardGuideLinks = getInlineGuideLinksForStudio(studio);
+        const compareButtonLabel = isComparedStudio(studio.id) ? '比較メモ済み' : '比較メモに追加';
+        const compareButtonState = isComparedStudio(studio.id) ? 'active' : '';
+        const compareButtonDisabled = !isComparedStudio(studio.id) && compareMemoIds.length >= COMPARE_MEMO_LIMIT ? 'disabled' : '';
         const cardGuideMarkup = cardGuideLinks.length > 0 ? `
         <div class="card-guide-box">
           <span class="card-guide-label">次に見る特集</span>
@@ -135,6 +142,8 @@ function renderStudios(data) {
             <strong>${pricingSummary}</strong>
           </div>
         </div>
+        ${quickStatusMarkup}
+        ${verificationMarkup}
         <div class="card-reason">
           <span class="card-reason-label">おすすめ理由</span>
           <p>${getDecisionReason(studio)}</p>
@@ -143,7 +152,10 @@ function renderStudios(data) {
         <div class="tags">${genreTags}</div>
         <p class="card-description">${descriptionSummary}</p>
         ${cardGuideMarkup}
-        <button class="btn btn-outline detail-btn card-detail-btn">詳細を見る</button>
+        <div class="card-action-row">
+          <button class="btn btn-outline detail-btn card-detail-btn">詳細を見る</button>
+          <button class="btn btn-text compare-toggle-btn ${compareButtonState}" type="button" data-studio-id="${studio.id}" ${compareButtonDisabled}>${compareButtonLabel}</button>
+        </div>
       </div>
     `;
 
@@ -153,6 +165,11 @@ function renderStudios(data) {
         const detailBtn = card.querySelector('.detail-btn');
         if (detailBtn) {
             detailBtn.addEventListener('click', () => openModal(studio.id));
+        }
+
+        const compareBtn = card.querySelector('.compare-toggle-btn');
+        if (compareBtn) {
+            compareBtn.addEventListener('click', () => toggleCompareMemo(studio.id));
         }
 
         // Staggered Animation Logic
@@ -187,6 +204,200 @@ function getCardFeatureSummary(studio) {
     chips.push(getCommuteSummary(studio));
     chips.push(getPricingVisibility(studio.pricing));
     return chips.map(chip => `<span class="card-meta-chip">${chip}</span>`).join('');
+}
+
+function hasTrialInfo(studio) {
+    if (!studio) return false;
+
+    const text = [
+        studio.description || '',
+        studio.pricing?.note || '',
+        studio.access || ''
+    ].join(' ');
+
+    return /無料体験|体験|見学/.test(text);
+}
+
+function getQuickStatusItems(studio) {
+    return [
+        {
+            label: '料金',
+            value: studio?.pricing?.minPrice > 0 ? '公開あり' : '要確認',
+            tone: studio?.pricing?.minPrice > 0 ? 'good' : 'neutral'
+        },
+        {
+            label: '体験',
+            value: hasTrialInfo(studio) ? '案内あり' : '要確認',
+            tone: hasTrialInfo(studio) ? 'good' : 'neutral'
+        },
+        {
+            label: '通いやすさ',
+            value: studio?.features?.parking ? '駐車場あり' : 'アクセス確認',
+            tone: studio?.features?.parking ? 'good' : 'neutral'
+        }
+    ];
+}
+
+function getQuickStatusMarkup(studio) {
+    const items = getQuickStatusItems(studio);
+    return `
+    <div class="card-quick-statuses" aria-label="比較しやすいポイント">
+      ${items.map(item => `
+        <span class="card-quick-status" data-tone="${item.tone}">
+          <span class="card-quick-status-label">${item.label}</span>
+          <strong>${item.value}</strong>
+        </span>
+      `).join('')}
+    </div>
+    `;
+}
+
+const SITE_REVIEW_DATE = '2026-03-22';
+const COMPARE_MEMO_KEY = 'lessonmap_compare_memo';
+const COMPARE_MEMO_LIMIT = 3;
+let compareMemoIds = [];
+
+function getPricingCheckStatus(studio) {
+    if (studio?.pricing?.minPrice > 0) return '料金公開を確認済み';
+    if (studio?.pricing?.note) return '料金メモあり・詳細は要確認';
+    return '料金は要確認';
+}
+
+function getVerificationItems(studio) {
+    return [
+        { label: '掲載確認日', value: SITE_REVIEW_DATE },
+        { label: '公式情報', value: '公式サイト確認済み' },
+        { label: '料金確認', value: getPricingCheckStatus(studio) }
+    ];
+}
+
+function getVerificationMarkup(studio, extraClass = '') {
+    const items = getVerificationItems(studio);
+    const className = ['verification-block', extraClass].filter(Boolean).join(' ');
+    return `
+    <div class="${className}" aria-label="更新日と確認状況">
+      ${items.map(item => `
+        <div class="verification-item">
+          <span class="verification-label">${item.label}</span>
+          <strong>${item.value}</strong>
+        </div>
+      `).join('')}
+    </div>
+    `;
+}
+
+function initCompareMemo() {
+    compareMemoIds = loadCompareMemo();
+
+    const clearBtn = document.getElementById('compare-clear-btn');
+    if (clearBtn) {
+        clearBtn.addEventListener('click', clearCompareMemo);
+    }
+
+    renderCompareMemo();
+}
+
+function loadCompareMemo() {
+    try {
+        const raw = window.localStorage.getItem(COMPARE_MEMO_KEY);
+        if (!raw) return [];
+        const parsed = JSON.parse(raw);
+        return Array.isArray(parsed) ? parsed.slice(0, COMPARE_MEMO_LIMIT) : [];
+    } catch (error) {
+        return [];
+    }
+}
+
+function saveCompareMemo() {
+    try {
+        window.localStorage.setItem(COMPARE_MEMO_KEY, JSON.stringify(compareMemoIds));
+    } catch (error) {
+        // localStorage unavailable
+    }
+}
+
+function isComparedStudio(studioId) {
+    return compareMemoIds.includes(studioId);
+}
+
+function toggleCompareMemo(studioId) {
+    if (isComparedStudio(studioId)) {
+        compareMemoIds = compareMemoIds.filter(id => id !== studioId);
+    } else if (compareMemoIds.length >= COMPARE_MEMO_LIMIT) {
+        compareMemoIds = [...compareMemoIds.slice(1), studioId];
+    } else {
+        compareMemoIds = [...compareMemoIds, studioId];
+    }
+
+    saveCompareMemo();
+    renderCompareMemo();
+    applyFilters();
+
+    const overlay = document.getElementById('studio-modal');
+    if (overlay?.classList.contains('active')) {
+        openModal(studioId);
+    }
+}
+
+function clearCompareMemo() {
+    compareMemoIds = [];
+    saveCompareMemo();
+    renderCompareMemo();
+    applyFilters();
+}
+
+function renderCompareMemo() {
+    const panel = document.getElementById('compare-memo-panel');
+    const grid = document.getElementById('compare-memo-grid');
+    if (!panel || !grid) return;
+
+    const items = compareMemoIds
+        .map(id => window.studiosData?.find(studio => studio.id === id))
+        .filter(Boolean);
+
+    if (items.length === 0) {
+        panel.hidden = true;
+        grid.innerHTML = '';
+        return;
+    }
+
+    panel.hidden = false;
+    grid.innerHTML = items.map(studio => {
+        const statuses = getQuickStatusItems(studio);
+        const verificationMarkup = getVerificationMarkup(studio, 'compare-memo-verification');
+        return `
+        <article class="compare-memo-item">
+          <div class="compare-memo-item-head">
+            <div>
+              <span class="compare-memo-city">${studio.city} ${studio.area}</span>
+              <h3 class="compare-memo-title">${studio.name}</h3>
+            </div>
+            <button class="compare-memo-remove" type="button" data-remove-compare-id="${studio.id}" aria-label="${studio.name}を比較メモから外す">×</button>
+          </div>
+          <div class="compare-memo-summary">
+            <span><strong>対象:</strong> ${getAudienceSummary(studio.features)}</span>
+            <span><strong>料金:</strong> ${formatPricingSummary(studio.pricing)}</span>
+            <span><strong>通学:</strong> ${getCommuteSummary(studio)}</span>
+          </div>
+          <div class="compare-memo-statuses">
+            ${statuses.map(item => `<span class="compare-memo-status" data-tone="${item.tone}"><strong>${item.label}</strong>${item.value}</span>`).join('')}
+          </div>
+          ${verificationMarkup}
+          <div class="compare-memo-actions">
+            <button class="btn btn-outline compare-memo-detail-btn" type="button" data-open-compare-id="${studio.id}">詳細を見る</button>
+            <a class="compare-memo-link" href="${studio.link}" target="_blank" rel="noopener noreferrer">公式サイトへ</a>
+          </div>
+        </article>
+        `;
+    }).join('');
+
+    grid.querySelectorAll('[data-remove-compare-id]').forEach(button => {
+        button.addEventListener('click', () => toggleCompareMemo(button.getAttribute('data-remove-compare-id')));
+    });
+
+    grid.querySelectorAll('[data-open-compare-id]').forEach(button => {
+        button.addEventListener('click', () => openModal(button.getAttribute('data-open-compare-id')));
+    });
 }
 
 function getCommuteSummary(studio) {
@@ -942,7 +1153,11 @@ function openModal(studioId) {
     const audienceSummary = getAudienceSummary(studio.features);
     const featureSummary = getCardFeatureSummary(studio);
     const commuteSummary = getCommuteSummary(studio);
+    const quickStatusMarkup = getQuickStatusMarkup(studio);
+    const verificationMarkup = getVerificationMarkup(studio, 'modal-verification-block');
     const relatedGuides = getRecommendedGuidesForStudio(studio);
+    const compareButtonLabel = isComparedStudio(studio.id) ? '比較メモから外す' : '比較メモに追加';
+    const compareButtonDisabled = !isComparedStudio(studio.id) && compareMemoIds.length >= COMPARE_MEMO_LIMIT ? 'disabled' : '';
     const relatedGuideMarkup = relatedGuides.length > 0 ? `
             <section class="modal-guide-section">
                 <div class="modal-guide-head">
@@ -992,9 +1207,16 @@ function openModal(studioId) {
                 </div>
             </div>
 
+            <div class="modal-quick-status-wrap">
+                ${quickStatusMarkup}
+            </div>
+            ${verificationMarkup}
             <div class="card-meta-chips modal-feature-chips">${featureSummary}</div>
 
-            <a href="${studio.link}" target="_blank" rel="noopener noreferrer" class="btn btn-primary modal-primary-btn">公式サイト・SNSを見る</a>
+            <div class="modal-action-row">
+                <a href="${studio.link}" target="_blank" rel="noopener noreferrer" class="btn btn-primary modal-primary-btn">公式サイト・SNSを見る</a>
+                <button class="btn btn-outline modal-compare-btn" type="button" data-modal-studio-id="${studio.id}" ${compareButtonDisabled}>${compareButtonLabel}</button>
+            </div>
 
             <p class="modal-desc">${studio.description}</p>
             ${relatedGuideMarkup}
@@ -1015,6 +1237,11 @@ function openModal(studioId) {
             </ul>
         </div>
     `;
+
+    const modalCompareBtn = modalBody.querySelector('.modal-compare-btn');
+    if (modalCompareBtn) {
+        modalCompareBtn.addEventListener('click', () => toggleCompareMemo(studio.id));
+    }
 
     overlay.classList.add('active');
 }
