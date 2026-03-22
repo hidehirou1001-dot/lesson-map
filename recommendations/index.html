@@ -129,6 +129,11 @@
             <div class="hero-eyebrow">EDITORIAL GUIDES</div>
             <h1 class="h1">ジャンル別のおすすめ特集を<br>まとめて比較する</h1>
             <p>まずは地域・悩み・ジャンルの入口記事から入り、気になる比較記事へ進むと探しやすい構成です。松山・今治・新居浜の地域記事に加えて、松前町・東温市・伊予市・西条市・宇和島市・四国中央市のような市町別記事もまとめています。</p>
+            <div class="hero-action-row recommendations-hero-actions">
+                <a href="#recommendations-start-title" class="btn btn-primary hero-main-cta">入口から探し方を選ぶ</a>
+                <a href="/" class="btn btn-outline hero-main-subcta">一覧検索へ戻る</a>
+            </div>
+            <p class="hero-compact-note recommendations-hero-note">迷っているときはこの下の「最初の1歩」から、読みたい記事が決まっているときはそのまま下へ進むと見やすいです。</p>
             <div class="hero-stats recommendations-stats">
                 <div class="hero-stat">
                     <span class="hero-stat-label">公開中の特集</span>
@@ -143,90 +148,71 @@
                     <strong>3選〜5選</strong>
                 </div>
             </div>
-            <div class="site-summary-block site-summary-block-centered">
-                <span class="site-summary-kicker">特集の見方</span>
-                <ul class="site-summary-list">
-                    <li>実在性と公式サイトの確認ができた教室を中心に整理しています。</li>
-                    <li>迷ったら「地域から探す」か「悩みから探す」から進み、やりたいことが決まっているなら「ジャンルから探す」に進むと絞りやすいです。</li>
-                </ul>
-            </div>
-            <div class="trust-note-block trust-note-block-wide">
-                <span class="site-summary-kicker">掲載方針</span>
-                <ul class="trust-note-list">
-                    <li>実在確認と公式サイトの確認ができた教室・施設を中心に特集化しています。</li>
-                    <li>比較軸は、対象、料金の見えやすさ、通いやすさ、始めやすさを基本にしています。</li>
-                    <li>リンク切れや閉校が分かった場合は、差し替えと更新を順次行います。</li>
-                </ul>
+            <div class="recommendations-guide-grid">
+                <div class="site-summary-block">
+                    <span class="site-summary-kicker">特集の見方</span>
+                    <ul class="site-summary-list">
+                        <li>迷ったら「地域から探す」か「悩みから探す」から進むと絞りやすいです。</li>
+                        <li>やりたいことが決まっているなら「ジャンルから探す」に進むのが最短です。</li>
+                    </ul>
+                </div>
+                <div class="trust-note-block trust-note-block-wide">
+                    <span class="site-summary-kicker">掲載方針</span>
+                    <ul class="trust-note-list">
+                        <li>実在確認と公式サイト確認ができた教室・施設を中心に特集化しています。</li>
+                        <li>比較軸は、対象、料金の見えやすさ、通いやすさ、始めやすさを基本にしています。</li>
+                    </ul>
+                </div>
             </div>
         </section>
 
         <div class="recommendations-toolbar">
-            <div>
+            <div class="recommendations-toolbar-copy">
                 <div class="results-kicker">FEATURED ARTICLES</div>
                 <h2 class="h2" style="margin-bottom: 0.25rem;">公開中の特集</h2>
-                <p class="results-summary">ジャンルごとの比較記事から、気になる教室を短時間で絞り込めます。</p>
+                <p class="results-summary">まずは今の探し方に近い入口を1つ選ぶと、この先の比較がかなり楽になります。</p>
+                <p class="recommendations-toolbar-note">TOPで迷ったときは、ここではなく先に「最初の1歩だけ選ぶ」から入るのがおすすめです。</p>
             </div>
             <a href="/" class="btn btn-outline results-clear-btn">一覧検索へ戻る</a>
         </div>
 
-        <div class="recommendation-entry-switch reveal">
-            <a href="#popular-zone" class="recommendation-entry-pill">まずは人気特集</a>
-            <a href="#area-zone" class="recommendation-entry-pill">地域から探す</a>
-            <a href="#issue-zone" class="recommendation-entry-pill">悩みから探す</a>
-            <a href="#genre-zone" class="recommendation-entry-pill">ジャンルから探す</a>
-        </div>
-
-        <section class="recommendation-discovery-grid reveal">
-            <a href="#popular-zone" class="recommendation-discovery-card" data-tone="new">
-                <span class="results-kicker">NEW THIS MONTH</span>
-                <h2 class="h3">まずは新着から見る</h2>
-                <p>最近追加した比較記事です。地域記事だけでなく、料金やジャンルを絞った記事も含みます。</p>
-                <div class="recommendation-discovery-examples">
-                    <span>安い英会話</span>
-                    <span>今治プログラミング</span>
-                    <span>新居浜プログラミング</span>
+        <section class="start-path-panel reveal" aria-labelledby="recommendations-start-title">
+            <div class="start-path-head">
+                <div>
+                    <span class="featured-strip-kicker">START HERE</span>
+                    <h2 class="h2 finder-title" id="recommendations-start-title">最初の1歩だけ選ぶ</h2>
+                    <p class="results-summary">全部を上から見るより、今の状況に近い入口から進む方が迷いにくい構成にしています。</p>
                 </div>
-                <span class="recommendation-discovery-cta">新着特集を見る</span>
-            </a>
-            <a href="#area-zone" class="recommendation-discovery-card" data-tone="area">
-                <span class="results-kicker">BY AREA</span>
-                <h2 class="h3">地域から入口記事を選ぶ</h2>
-                <p>住んでいるエリアに近い特集から候補を絞れます。</p>
-                <div class="recommendation-discovery-examples">
-                    <span>今治の習い事</span>
-                    <span>松前町の習い事</span>
-                    <span>西条・宇和島の地域記事</span>
-                </div>
-                <span class="recommendation-discovery-cta">地域特集を見る</span>
-            </a>
-            <a href="#issue-zone" class="recommendation-discovery-card" data-tone="issue">
-                <span class="results-kicker">BY NEED</span>
-                <h2 class="h3">悩み・目的から探す</h2>
-                <p>安さ、子ども向け、大人向け、初心者向けなど、探し方が決まっている人向けです。</p>
-                <div class="recommendation-discovery-examples">
-                    <span>安い英会話</span>
-                    <span>子どもピアノ</span>
-                    <span>初心者ダンス</span>
-                </div>
-                <span class="recommendation-discovery-cta">悩み別特集を見る</span>
-            </a>
-            <a href="#genre-zone" class="recommendation-discovery-card" data-tone="theme">
-                <span class="results-kicker">BY THEME</span>
-                <h2 class="h3">人気ジャンルから探す</h2>
-                <p>やりたいことが決まっている人向けです。</p>
-                <div class="recommendation-discovery-examples">
-                    <span>英会話</span>
-                    <span>プログラミング</span>
-                    <span>ダンス・ピアノ</span>
-                </div>
-                <span class="recommendation-discovery-cta">ジャンル特集を見る</span>
-            </a>
+            </div>
+            <div class="start-path-grid">
+                <a class="start-path-card" href="#popular-zone">
+                    <span class="start-path-step">1</span>
+                    <strong>まずは人気特集から見たい</strong>
+                    <p>最初の1本に向いている比較記事を先に見たい人向けです。</p>
+                </a>
+                <a class="start-path-card" href="#area-zone">
+                    <span class="start-path-step">2</span>
+                    <strong>住んでいる地域から探したい</strong>
+                    <p>今治、新居浜、松前町、西条市など地域入口から進めます。</p>
+                </a>
+                <a class="start-path-card" href="#issue-zone">
+                    <span class="start-path-step">3</span>
+                    <strong>悩みや目的が決まっている</strong>
+                    <p>子ども向け、初心者向け、体験しやすさ、料金比較から入れます。</p>
+                </a>
+                <a class="start-path-card" href="#genre-zone">
+                    <span class="start-path-step">4</span>
+                    <strong>やりたいジャンルが決まっている</strong>
+                    <p>英会話、ダンス、ピアノ、プログラミングなどから直接探せます。</p>
+                </a>
+            </div>
         </section>
 
-        <p class="recommendation-flow-note">迷ったら `人気特集` から、住んでいる場所が決まっているなら `地域` から、安さや年齢などの条件が決まっているなら `悩み` から、やりたいことが決まっているなら `ジャンル` から進むと探しやすいです。</p>
-
         <section class="recommendation-seo-copy reveal">
-            <h2 class="h2">愛媛の習い事特集を地域別・悩み別・ジャンル別に探せるページです</h2>
+            <div class="recommendation-seo-copy-head">
+                <span class="site-summary-kicker">HOW TO USE</span>
+                <h2 class="h2">愛媛の習い事特集を地域別・悩み別・ジャンル別に探せるページです</h2>
+            </div>
             <p>LessonMapの特集一覧では、松山・今治・新居浜を中心に、英会話、ダンス、プログラミング、ピアノ、スポーツジムなどの比較記事をまとめています。まずは住んでいるエリアに近い地域記事を見るか、安さや対象年齢のような悩み別記事から入ると、候補を絞りやすくなります。</p>
             <p>特に「松山の英会話教室」「今治の習い事」「松前町の習い事」「西条市のダンス教室」のように、地域名や悩み軸で探している人は、入口記事から関連特集へ進むと比較しやすいです。気になる記事を見つけたあとは、トップの一覧検索でエリアや特徴を絞り込めます。</p>
         </section>

@@ -89,19 +89,20 @@ function renderStudios(data) {
     data.forEach((studio, index) => {
         const pricingSummary = formatPricingSummary(studio.pricing);
         const featureSummary = getCardFeatureSummary(studio);
+        const commuteSummary = getCommuteSummary(studio);
         const quickStatusMarkup = getQuickStatusMarkup(studio);
         const verificationMarkup = getVerificationMarkup(studio);
         const categoryLabel = getCategoryLabel(studio.category);
         const descriptionSummary = getCardDescriptionSummary(studio.description);
         const cardGuideLinks = getInlineGuideLinksForStudio(studio);
-        const compareButtonLabel = isComparedStudio(studio.id) ? '比較メモ済み' : '比較メモに追加';
+        const compareButtonLabel = isComparedStudio(studio.id) ? '比較中' : '今すぐ比べる';
         const compareButtonState = isComparedStudio(studio.id) ? 'active' : '';
         const compareButtonDisabled = !isComparedStudio(studio.id) && compareMemoIds.length >= COMPARE_MEMO_LIMIT ? 'disabled' : '';
-        const favoriteButtonLabel = isFavoriteStudio(studio.id) ? 'お気に入り済み' : 'あとで見る';
+        const favoriteButtonLabel = isFavoriteStudio(studio.id) ? '保存済み' : 'あとで残す';
         const favoriteButtonState = isFavoriteStudio(studio.id) ? 'active' : '';
         const cardGuideMarkup = cardGuideLinks.length > 0 ? `
         <div class="card-guide-box">
-          <span class="card-guide-label">次に見る特集</span>
+          <span class="card-guide-label">関連特集</span>
           <div class="card-guide-links">
             ${cardGuideLinks.map(guide => `
               <a class="card-guide-link" href="${guide.href}">
@@ -148,21 +149,30 @@ function renderStudios(data) {
             <span class="card-stat-label">料金</span>
             <strong>${pricingSummary}</strong>
           </div>
+          <div class="card-stat">
+            <span class="card-stat-label">通いやすさ</span>
+            <strong>${commuteSummary}</strong>
+          </div>
         </div>
         ${quickStatusMarkup}
-        ${verificationMarkup}
+        <p class="card-description">${descriptionSummary}</p>
         <div class="card-reason">
           <span class="card-reason-label">おすすめ理由</span>
           <p>${getDecisionReason(studio)}</p>
         </div>
-        <div class="card-meta-chips">${featureSummary}</div>
-        <div class="tags">${genreTags}</div>
-        <p class="card-description">${descriptionSummary}</p>
+        <div class="card-secondary-block">
+          <span class="card-secondary-label">補足情報</span>
+          <div class="card-meta-chips">${featureSummary}</div>
+          <div class="tags">${genreTags}</div>
+          ${verificationMarkup}
+        </div>
         ${cardGuideMarkup}
         <div class="card-action-row">
-          <button class="btn btn-outline detail-btn card-detail-btn">詳細を見る</button>
-          <button class="btn btn-text favorite-toggle-btn ${favoriteButtonState}" type="button" data-favorite-id="${studio.id}">${favoriteButtonLabel}</button>
-          <button class="btn btn-text compare-toggle-btn ${compareButtonState}" type="button" data-studio-id="${studio.id}" ${compareButtonDisabled}>${compareButtonLabel}</button>
+          <button class="btn btn-primary detail-btn card-detail-btn">詳細を見る</button>
+          <div class="card-support-actions">
+            <button class="btn btn-text favorite-toggle-btn ${favoriteButtonState}" type="button" data-favorite-id="${studio.id}">${favoriteButtonLabel}</button>
+            <button class="btn btn-text compare-toggle-btn ${compareButtonState}" type="button" data-studio-id="${studio.id}" ${compareButtonDisabled}>${compareButtonLabel}</button>
+          </div>
         </div>
       </div>
     `;
@@ -434,6 +444,18 @@ function clearFavorites() {
     applyFilters();
 }
 
+function updateCollectionCounts(compareCount = compareMemoIds.length, favoriteCount = favoriteIds.length) {
+    const compareGuideCount = document.getElementById('compare-guide-count');
+    const comparePanelCount = document.getElementById('compare-panel-count');
+    const favoriteGuideCount = document.getElementById('favorite-guide-count');
+    const favoritePanelCount = document.getElementById('favorite-panel-count');
+
+    if (compareGuideCount) compareGuideCount.textContent = `${compareCount}/${COMPARE_MEMO_LIMIT}`;
+    if (comparePanelCount) comparePanelCount.textContent = `${compareCount}/${COMPARE_MEMO_LIMIT}`;
+    if (favoriteGuideCount) favoriteGuideCount.textContent = `${favoriteCount}件`;
+    if (favoritePanelCount) favoritePanelCount.textContent = `${favoriteCount}件`;
+}
+
 function renderCompareMemo() {
     const panel = document.getElementById('compare-memo-panel');
     const grid = document.getElementById('compare-memo-grid');
@@ -455,11 +477,13 @@ function renderCompareMemo() {
         grid.innerHTML = '';
         diffSummary.hidden = true;
         diffSummary.innerHTML = '';
+        updateCollectionCounts(0, favoriteIds.length);
         updateCompareSharePanel([]);
         return;
     }
 
     panel.hidden = false;
+    updateCollectionCounts(items.length, favoriteIds.length);
     const diffMap = getCompareMemoDiffMap(items);
     const diffKeys = Object.keys(diffMap).filter(key => diffMap[key]);
     if (diffKeys.length > 0) {
@@ -557,10 +581,12 @@ function renderFavorites() {
     if (items.length === 0) {
         panel.hidden = true;
         grid.innerHTML = '';
+        updateCollectionCounts(compareMemoIds.length, 0);
         return;
     }
 
     panel.hidden = false;
+    updateCollectionCounts(compareMemoIds.length, items.length);
     grid.innerHTML = items.map(studio => `
       <article class="favorite-item">
         <div class="favorite-item-head">
@@ -577,7 +603,7 @@ function renderFavorites() {
         </div>
         <div class="favorite-actions">
           <button class="btn btn-outline favorite-detail-btn" type="button" data-open-favorite-id="${studio.id}">詳細を見る</button>
-          <button class="btn btn-text favorite-compare-btn" type="button" data-favorite-compare-id="${studio.id}">${isComparedStudio(studio.id) ? '比較メモ済み' : '比較メモへ'}</button>
+          <button class="btn btn-text favorite-compare-btn" type="button" data-favorite-compare-id="${studio.id}">${isComparedStudio(studio.id) ? '比較中' : '今すぐ比較へ'}</button>
         </div>
       </article>
     `).join('');
@@ -959,17 +985,33 @@ function initFilters() {
     const subBtns = document.querySelectorAll('.sub-btn');
     const cityBtns = document.querySelectorAll('.city-btn');
     const quickFilterBtns = document.querySelectorAll('[data-quick-filter]');
+    const categoryFilterRow = document.getElementById('category-filter-row');
+    const categoryExpandBtn = document.getElementById('category-expand-btn');
     const danceFilters = document.getElementById('sub-filters');
     const progFilters = document.getElementById('sub-filters-prog');
     const clearFiltersBtn = document.getElementById('clear-filters-btn');
     const sortSelect = document.getElementById('sort-select');
     const subFilterGroups = [danceFilters, progFilters, document.getElementById('sub-filters-gym'), document.getElementById('sub-filters-swim')].filter(Boolean);
 
+    if (categoryExpandBtn && categoryFilterRow) {
+        categoryExpandBtn.addEventListener('click', () => {
+            const expanded = categoryFilterRow.classList.toggle('is-expanded');
+            categoryExpandBtn.setAttribute('aria-expanded', String(expanded));
+            categoryExpandBtn.textContent = expanded ? '人気ジャンルだけに戻す' : '人気ジャンル以外も見る';
+        });
+    }
+
     // 1. Category Buttons
     categoryBtns.forEach(btn => {
         btn.addEventListener('click', () => {
             categoryBtns.forEach(b => b.classList.remove('active'));
             btn.classList.add('active');
+
+            if (btn.classList.contains('category-btn-extra') && categoryFilterRow && categoryExpandBtn) {
+                categoryFilterRow.classList.add('is-expanded');
+                categoryExpandBtn.setAttribute('aria-expanded', 'true');
+                categoryExpandBtn.textContent = '人気ジャンルだけに戻す';
+            }
 
             const cat = btn.getAttribute('data-category');
             currentFilterState.category = cat;
@@ -1277,8 +1319,8 @@ function updateResultsMeta(filtered) {
         const guides = getRecommendedGuides();
         if (guides.length > 0) {
             guideTitle.textContent = currentFilterState.city !== 'all'
-                ? `${currentFilterState.city}で次に見ると比較しやすい特集`
-                : '次に見ると比較しやすい特集';
+                ? `${currentFilterState.city}で合わせて見たい特集`
+                : '合わせて見たい特集';
             guideLinks.innerHTML = guides.map(guide => `
                 <a class="results-guide-link" href="${guide.href}">
                     <strong>${guide.title}</strong>
@@ -1375,7 +1417,7 @@ function getRecommendedGuides() {
         pushGuide({ href: '/recommendations/ehime-kids-lessons/', title: '愛媛の子ども向け習い事ガイド', description: '子ども向けの入口をまとめています。' });
     }
 
-    return guides.slice(0, 3);
+    return guides.slice(0, 2);
 }
 
 function getRecommendedGuidesForStudio(studio) {
@@ -1496,9 +1538,9 @@ function openModal(studioId) {
     const verificationMarkup = getVerificationMarkup(studio, 'modal-verification-block');
     const locationNoteMarkup = getLocationNoteMarkup(studio, 'location-note location-note-modal');
     const relatedGuides = getRecommendedGuidesForStudio(studio);
-    const compareButtonLabel = isComparedStudio(studio.id) ? '比較メモから外す' : '比較メモに追加';
+    const compareButtonLabel = isComparedStudio(studio.id) ? '比較から外す' : '今すぐ比べる';
     const compareButtonDisabled = !isComparedStudio(studio.id) && compareMemoIds.length >= COMPARE_MEMO_LIMIT ? 'disabled' : '';
-    const favoriteButtonLabel = isFavoriteStudio(studio.id) ? 'お気に入りから外す' : 'あとで見る';
+    const favoriteButtonLabel = isFavoriteStudio(studio.id) ? '保存を外す' : 'あとで残す';
     const relatedGuideMarkup = relatedGuides.length > 0 ? `
             <section class="modal-guide-section">
                 <div class="modal-guide-head">
