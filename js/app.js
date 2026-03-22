@@ -86,6 +86,20 @@ function renderStudios(data) {
         const featureSummary = getCardFeatureSummary(studio);
         const categoryLabel = getCategoryLabel(studio.category);
         const descriptionSummary = getCardDescriptionSummary(studio.description);
+        const cardGuideLinks = getInlineGuideLinksForStudio(studio);
+        const cardGuideMarkup = cardGuideLinks.length > 0 ? `
+        <div class="card-guide-box">
+          <span class="card-guide-label">次に見る特集</span>
+          <div class="card-guide-links">
+            ${cardGuideLinks.map(guide => `
+              <a class="card-guide-link" href="${guide.href}">
+                <strong>${guide.title}</strong>
+                <span>${guide.description}</span>
+              </a>
+            `).join('')}
+          </div>
+        </div>
+        ` : '';
 
         // Add staggered delay for rendering
         const delay = index * 100;
@@ -128,6 +142,7 @@ function renderStudios(data) {
         <div class="card-meta-chips">${featureSummary}</div>
         <div class="tags">${genreTags}</div>
         <p class="card-description">${descriptionSummary}</p>
+        ${cardGuideMarkup}
         <button class="btn btn-outline detail-btn card-detail-btn">詳細を見る</button>
       </div>
     `;
@@ -255,6 +270,62 @@ function getDecisionReason(studio) {
     return '公式サイトを見ながら特徴を比較しやすい教室です。';
 }
 
+function getInlineGuideLinksForStudio(studio) {
+    if (!studio) return [];
+
+    const guides = [];
+    const seen = new Set();
+    const pushGuide = (guide) => {
+        if (!guide || seen.has(guide.href)) return;
+        seen.add(guide.href);
+        guides.push(guide);
+    };
+
+    const cityGuideMap = {
+        '今治市': { href: '/recommendations/imabari-lessons/', title: '今治の習い事ガイド', description: '地域全体で候補を広げて見られます。' },
+        '新居浜市': { href: '/recommendations/niihama-lessons/', title: '新居浜の習い事ガイド', description: '新居浜でまず見たい入口記事です。' },
+        '松前町': { href: '/recommendations/masaki-lessons/', title: '松前町の習い事ガイド', description: '松前町で探し始める人向けです。' },
+        '東温市': { href: '/recommendations/toon-english/', title: '東温市の地域特集', description: '東温市で年齢や始めやすさを見比べられます。' },
+        '伊予市': { href: '/recommendations/iyo-programming/', title: '伊予市の地域特集', description: '伊予市で始めやすい候補を先に見られます。' },
+        '四国中央市': { href: '/recommendations/shikokuchuo-english/', title: '四国中央市の地域特集', description: '四国中央市の比較記事へ進めます。' },
+        '西条市': { href: '/recommendations/saijo-dance/', title: '西条市の地域特集', description: '西条市で比較を始める入口です。' },
+        '宇和島市': { href: '/recommendations/uwajima-swimming/', title: '宇和島市の地域特集', description: '宇和島市の地域比較へ進めます。' }
+    };
+
+    const categoryGuideMap = {
+        Dance: { href: '/recommendations/matsuyama-dance/', title: 'ダンス特集を見る', description: 'ダンス全体の比較軸を先に見たい方向けです。' },
+        Piano: { href: '/recommendations/matsuyama-piano/', title: 'ピアノ特集を見る', description: '子ども・大人の違いを見比べやすいです。' },
+        Programming: { href: '/recommendations/matsuyama-programming/', title: 'プログラミング特集を見る', description: '教材や対象年齢の違いを整理できます。' },
+        English: { href: '/recommendations/matsuyama-english/', title: '英会話特集を見る', description: '子ども向けと大人向けを横断で見られます。' },
+        Fitness: { href: '/recommendations/matsuyama-fitness/', title: 'ジム特集を見る', description: '初心者向けの比較をまとめています。' },
+        CramSchool: { href: '/recommendations/matsuyama-cram-school/', title: '学習塾特集を見る', description: '通いやすさと学年感で比較できます。' },
+        Calligraphy: { href: '/recommendations/matsuyama-calligraphy/', title: '書道特集を見る', description: '子ども・大人の両方を見比べられます。' },
+        Soroban: { href: '/recommendations/matsuyama-soroban/', title: 'そろばん特集を見る', description: '通いやすさを含めて比較できます。' }
+    };
+
+    pushGuide(cityGuideMap[studio.city]);
+
+    if (studio.features?.kidsClass) {
+        pushGuide({ href: '/recommendations/ehime-age-lessons/', title: '年齢別ガイドを見る', description: '今の年齢に近い入口から探せます。' });
+    }
+
+    if (studio.features?.kidsClass && !studio.features?.adultClass) {
+        pushGuide({ href: '/recommendations/ehime-kids-lessons/', title: '子ども向けガイドを見る', description: '幼児・小学生向けの入口をまとめています。' });
+    }
+
+    if (studio.features?.adultClass && !studio.features?.kidsClass) {
+        pushGuide({ href: '/recommendations/ehime-adult-lessons/', title: '大人向けガイドを見る', description: '学び直しや趣味の入口へ進めます。' });
+    }
+
+    if (['◎', '〇'].includes(studio.features?.beginnerFriendly)) {
+        pushGuide({ href: '/recommendations/ehime-beginner-lessons/', title: '初心者向けガイドを見る', description: '初めてでも始めやすい候補をまとめています。' });
+    }
+
+    pushGuide(categoryGuideMap[studio.category]);
+
+    return guides.slice(0, 2);
+}
+
 /**
  * Search Functionality
  */
@@ -312,6 +383,7 @@ let currentFilterState = {
     subFilter: 'all', // 'all', 'HIPHOP', 'K-POP', 'POP', 'JAZZ', 'LOCK', 'コンテンポラリー', 'Kids', 'parking'
     city: 'all',       // 'all', '松山市', '今治市', '新居浜市'
     searchQuery: '',   // Search query string
+    quickFilters: [],
     sort: 'recommended'
 };
 
@@ -335,6 +407,9 @@ const filterLabelMap = {
     Robot: 'ロボット・工作',
     Acrobat: 'アクロバット',
     Baby: 'ベビー対応',
+    kids: '子ども向け',
+    adult: '大人向け',
+    beginner: '初心者向け',
     HIPHOP: 'HIPHOP',
     'K-POP': 'K-POP',
     POP: 'POP',
@@ -372,6 +447,7 @@ function initFilters() {
     const categoryBtns = document.querySelectorAll('.category-btn');
     const subBtns = document.querySelectorAll('.sub-btn');
     const cityBtns = document.querySelectorAll('.city-btn');
+    const quickFilterBtns = document.querySelectorAll('[data-quick-filter]');
     const danceFilters = document.getElementById('sub-filters');
     const progFilters = document.getElementById('sub-filters-prog');
     const clearFiltersBtn = document.getElementById('clear-filters-btn');
@@ -448,6 +524,22 @@ function initFilters() {
         });
     });
 
+    quickFilterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const filterKey = btn.getAttribute('data-quick-filter');
+            const exists = currentFilterState.quickFilters.includes(filterKey);
+
+            if (exists) {
+                currentFilterState.quickFilters = currentFilterState.quickFilters.filter(key => key !== filterKey);
+            } else {
+                currentFilterState.quickFilters = [...currentFilterState.quickFilters, filterKey];
+            }
+
+            syncQuickFilterButtons();
+            applyFilters();
+        });
+    });
+
     if (sortSelect) {
         sortSelect.addEventListener('change', () => {
             currentFilterState.sort = sortSelect.value;
@@ -462,6 +554,7 @@ function initFilters() {
                 subFilter: 'all',
                 city: 'all',
                 searchQuery: '',
+                quickFilters: [],
                 sort: 'recommended'
             };
 
@@ -484,9 +577,19 @@ function initFilters() {
                 });
             });
 
+            syncQuickFilterButtons();
             applyFilters();
         });
     }
+
+    syncQuickFilterButtons();
+}
+
+function syncQuickFilterButtons() {
+    document.querySelectorAll('[data-quick-filter]').forEach(button => {
+        const filterKey = button.getAttribute('data-quick-filter');
+        button.classList.toggle('active', currentFilterState.quickFilters.includes(filterKey));
+    });
 }
 
 /**
@@ -525,6 +628,22 @@ function applyFilters() {
     // Apply City Filter
     if (currentFilterState.city !== 'all') {
         filtered = filtered.filter(s => s.city === currentFilterState.city);
+    }
+
+    if (currentFilterState.quickFilters.includes('kids')) {
+        filtered = filtered.filter(s => s.features?.kidsClass);
+    }
+
+    if (currentFilterState.quickFilters.includes('adult')) {
+        filtered = filtered.filter(s => s.features?.adultClass);
+    }
+
+    if (currentFilterState.quickFilters.includes('beginner')) {
+        filtered = filtered.filter(s => ['◎', '〇'].includes(s.features?.beginnerFriendly));
+    }
+
+    if (currentFilterState.quickFilters.includes('parking')) {
+        filtered = filtered.filter(s => s.features?.parking);
     }
 
     filtered = sortStudios(filtered, currentFilterState.sort);
@@ -582,11 +701,17 @@ function updateResultsMeta(filtered) {
     const chipContainer = document.getElementById('active-filter-chips');
     const filterBar = document.getElementById('active-filter-bar');
     const clearFiltersBtn = document.getElementById('clear-filters-btn');
+    const guidePanel = document.getElementById('results-guide-panel');
+    const guideTitle = document.getElementById('results-guide-title');
+    const guideLinks = document.getElementById('results-guide-links');
     const activeChips = [];
 
     if (currentFilterState.category !== 'all') activeChips.push(filterLabelMap[currentFilterState.category] || currentFilterState.category);
     if (currentFilterState.subFilter !== 'all') activeChips.push(filterLabelMap[currentFilterState.subFilter] || currentFilterState.subFilter);
     if (currentFilterState.city !== 'all') activeChips.push(currentFilterState.city);
+    currentFilterState.quickFilters.forEach(filterKey => {
+        activeChips.push(filterLabelMap[filterKey] || filterKey);
+    });
     if (currentFilterState.searchQuery) activeChips.push(`"${currentFilterState.searchQuery}"`);
 
     if (summary) {
@@ -598,9 +723,173 @@ function updateResultsMeta(filtered) {
         filterBar.hidden = activeChips.length === 0;
     }
 
-    if (clearFiltersBtn) {
-        clearFiltersBtn.style.display = activeChips.length > 1 || currentFilterState.searchQuery ? 'inline-flex' : 'none';
+    if (guidePanel && guideTitle && guideLinks) {
+        const guides = getRecommendedGuides();
+        if (guides.length > 0) {
+            guideTitle.textContent = currentFilterState.city !== 'all'
+                ? `${currentFilterState.city}で次に見ると比較しやすい特集`
+                : '次に見ると比較しやすい特集';
+            guideLinks.innerHTML = guides.map(guide => `
+                <a class="results-guide-link" href="${guide.href}">
+                    <strong>${guide.title}</strong>
+                    <span>${guide.description}</span>
+                </a>
+            `).join('');
+            guidePanel.hidden = false;
+        } else {
+            guideLinks.innerHTML = '';
+            guidePanel.hidden = true;
+        }
     }
+
+    if (clearFiltersBtn) {
+        clearFiltersBtn.style.display = activeChips.length > 1 || currentFilterState.searchQuery || currentFilterState.quickFilters.length ? 'inline-flex' : 'none';
+    }
+}
+
+function getRecommendedGuides() {
+    const cityGuideMap = {
+        '今治市': { href: '/recommendations/imabari-lessons/', title: '今治の習い事おすすめ3選', description: '今治エリアの入口記事から広く比較できます。' },
+        '新居浜市': { href: '/recommendations/niihama-lessons/', title: '新居浜の習い事おすすめ3選', description: '新居浜エリアでまず候補を広く見たい方向けです。' },
+        '松前町': { href: '/recommendations/masaki-lessons/', title: '松前町の習い事おすすめ3選', description: '松前町で探し始める人向けの地域特集です。' },
+        '東温市': { href: '/recommendations/toon-english/', title: '東温市の英会話教室おすすめ1選', description: '東温市でまず見やすい地域特化記事です。' },
+        '伊予市': { href: '/recommendations/iyo-programming/', title: '伊予市のプログラミング教室おすすめ1選', description: '伊予市で始めやすい候補を先に見られます。' },
+        '四国中央市': { href: '/recommendations/shikokuchuo-english/', title: '四国中央市の英会話教室おすすめ2選', description: '四国中央市の地域特化記事へ進めます。' },
+        '西条市': { href: '/recommendations/saijo-dance/', title: '西条市のダンス教室おすすめ1選', description: '西条市で初心者にも見やすい地域記事です。' },
+        '宇和島市': { href: '/recommendations/uwajima-swimming/', title: '宇和島市のスイミングスクールおすすめ1選', description: '宇和島市の地域特化記事へ進めます。' }
+    };
+    const ageGuide = { href: '/recommendations/ehime-age-lessons/', title: '愛媛の年齢別習い事ガイド', description: '幼児から小学生まで年齢目安で入口を見比べられます。' };
+
+    const quickGuideMap = {
+        kids: { href: '/recommendations/ehime-kids-lessons/', title: '愛媛の子ども向け習い事ガイド', description: '幼児・小学生向けの入口をまとめています。' },
+        adult: { href: '/recommendations/ehime-adult-lessons/', title: '愛媛の大人向け習い事ガイド', description: '学び直しや趣味から始めたい方向けです。' },
+        beginner: { href: '/recommendations/ehime-beginner-lessons/', title: '愛媛の初心者向け習い事ガイド', description: '初めてでも始めやすい記事をまとめています。' },
+        parking: { href: '/recommendations/ehime-local-lessons/', title: '愛媛の地域別習い事ガイド', description: '通いやすい地域から比較しやすい入口です。' }
+    };
+    const trialGuide = { href: '/recommendations/ehime-trial-lessons/', title: '愛媛の体験しやすい習い事ガイド', description: '無料体験や見学から入りやすい記事をまとめています。' };
+    const priceGuide = { href: '/recommendations/ehime-price-lessons/', title: '愛媛の料金が見やすい習い事ガイド', description: '月謝や費用感から探しやすい記事をまとめています。' };
+
+    const categoryGuideMap = {
+        Dance: { href: '/recommendations/matsuyama-dance/', title: '松山のダンス教室おすすめ5選', description: 'ダンスを詳しく比較したい方向けです。' },
+        Piano: { href: '/recommendations/matsuyama-piano/', title: '松山のピアノ教室おすすめ5選', description: 'ピアノを子ども・大人で比較できます。' },
+        Programming: { href: '/recommendations/matsuyama-programming/', title: '松山のプログラミング教室おすすめ5選', description: '教材や通いやすさで比較できます。' },
+        Fitness: { href: '/recommendations/matsuyama-fitness/', title: '松山のスポーツジムおすすめ3選', description: '初心者向けのジム比較に進めます。' },
+        English: { href: '/recommendations/matsuyama-english/', title: '松山の英会話教室おすすめ3選', description: '子ども・大人を含めて英会話を比較できます。' },
+        CramSchool: { href: '/recommendations/matsuyama-cram-school/', title: '松山の学習塾おすすめ3選', description: '学習塾を通いやすさで比較できます。' },
+        Calligraphy: { href: '/recommendations/matsuyama-calligraphy/', title: '松山の書道教室おすすめ3選', description: '書道を子ども・大人で見比べられます。' },
+        Soroban: { href: '/recommendations/matsuyama-soroban/', title: '松山のそろばん教室おすすめ3選', description: 'そろばんを通いやすさで比較できます。' }
+    };
+
+    const guides = [];
+    const seen = new Set();
+
+    const pushGuide = (guide) => {
+        if (!guide || seen.has(guide.href)) return;
+        seen.add(guide.href);
+        guides.push(guide);
+    };
+
+    if (currentFilterState.city !== 'all') {
+        pushGuide(cityGuideMap[currentFilterState.city]);
+    }
+
+    currentFilterState.quickFilters.forEach(filterKey => {
+        pushGuide(quickGuideMap[filterKey]);
+    });
+
+    if (currentFilterState.quickFilters.includes('kids')) {
+        pushGuide(ageGuide);
+        pushGuide(trialGuide);
+    }
+
+    if (currentFilterState.sort === 'price') {
+        pushGuide(priceGuide);
+    }
+
+    if (['Swimming', 'Gymnastics', 'Programming', 'English'].includes(currentFilterState.category)) {
+        pushGuide(ageGuide);
+        pushGuide(trialGuide);
+    }
+
+    if (currentFilterState.sort === 'beginner') {
+        pushGuide(quickGuideMap.beginner);
+    }
+
+    pushGuide(categoryGuideMap[currentFilterState.category]);
+
+    if (guides.length === 0) {
+        pushGuide({ href: '/recommendations/ehime-local-lessons/', title: '愛媛の地域別習い事ガイド', description: 'まずは住んでいる地域に近い特集から探せます。' });
+        pushGuide(ageGuide);
+        pushGuide(trialGuide);
+        pushGuide(priceGuide);
+        pushGuide({ href: '/recommendations/ehime-kids-lessons/', title: '愛媛の子ども向け習い事ガイド', description: '子ども向けの入口をまとめています。' });
+    }
+
+    return guides.slice(0, 3);
+}
+
+function getRecommendedGuidesForStudio(studio) {
+    if (!studio) return [];
+
+    const guides = [];
+    const seen = new Set();
+    const ageGuide = { href: '/recommendations/ehime-age-lessons/', title: '愛媛の年齢別習い事ガイド', description: '年齢目安から近い入口を選びたいときに便利です。' };
+    const pushGuide = (guide) => {
+        if (!guide || seen.has(guide.href)) return;
+        seen.add(guide.href);
+        guides.push(guide);
+    };
+
+    const cityGuideMap = {
+        '今治市': { href: '/recommendations/imabari-lessons/', title: '今治の習い事おすすめ3選', description: '今治エリアの入口記事から広く比較できます。' },
+        '新居浜市': { href: '/recommendations/niihama-lessons/', title: '新居浜の習い事おすすめ3選', description: '新居浜エリアでまず候補を広く見たい方向けです。' },
+        '松前町': { href: '/recommendations/masaki-lessons/', title: '松前町の習い事おすすめ3選', description: '松前町で探し始める人向けの地域特集です。' },
+        '東温市': { href: '/recommendations/toon-english/', title: '東温市の英会話教室おすすめ1選', description: '東温市でまず見やすい地域特化記事です。' },
+        '伊予市': { href: '/recommendations/iyo-programming/', title: '伊予市のプログラミング教室おすすめ1選', description: '伊予市で始めやすい候補を先に見られます。' },
+        '四国中央市': { href: '/recommendations/shikokuchuo-english/', title: '四国中央市の英会話教室おすすめ2選', description: '四国中央市の地域特化記事へ進めます。' },
+        '西条市': { href: '/recommendations/saijo-dance/', title: '西条市のダンス教室おすすめ1選', description: '西条市で比較しやすい地域特集です。' },
+        '宇和島市': { href: '/recommendations/uwajima-swimming/', title: '宇和島市のスイミングスクールおすすめ1選', description: '宇和島市の地域特化記事へ進めます。' }
+    };
+
+    const categoryGuideMap = {
+        Dance: { href: '/recommendations/matsuyama-dance/', title: '松山のダンス教室おすすめ5選', description: 'ダンス全体を詳しく比較したい方向けです。' },
+        Piano: { href: '/recommendations/matsuyama-piano/', title: '松山のピアノ教室おすすめ5選', description: '子ども・大人を含めてピアノを比較できます。' },
+        Programming: { href: '/recommendations/matsuyama-programming/', title: '松山のプログラミング教室おすすめ5選', description: '教材や通いやすさで比較できます。' },
+        Fitness: { href: '/recommendations/matsuyama-fitness/', title: '松山のスポーツジムおすすめ3選', description: '初心者向けのジム比較に進めます。' },
+        English: { href: '/recommendations/matsuyama-english/', title: '松山の英会話教室おすすめ3選', description: '子ども・大人を含めて英会話を比較できます。' },
+        CramSchool: { href: '/recommendations/matsuyama-cram-school/', title: '松山の学習塾おすすめ3選', description: '学習塾を通いやすさで比較できます。' },
+        Calligraphy: { href: '/recommendations/matsuyama-calligraphy/', title: '松山の書道教室おすすめ3選', description: '書道を子ども・大人で見比べられます。' },
+        Soroban: { href: '/recommendations/matsuyama-soroban/', title: '松山のそろばん教室おすすめ3選', description: 'そろばんを通いやすさで比較できます。' },
+        Swimming: { href: '/recommendations/ehime-beginner-lessons/', title: '愛媛の初心者向け習い事ガイド', description: '初めてでも始めやすい習い事の入口へ進めます。' },
+        Gymnastics: { href: '/recommendations/ehime-kids-lessons/', title: '愛媛の子ども向け習い事ガイド', description: '子ども向けの入口から広く比較できます。' },
+        Cooking: { href: '/recommendations/ehime-adult-lessons/', title: '愛媛の大人向け習い事ガイド', description: '大人向けの趣味・学び直し記事をまとめています。' },
+        Yoga: { href: '/recommendations/ehime-adult-lessons/', title: '愛媛の大人向け習い事ガイド', description: '大人向けの始めやすい候補をまとめています。' },
+        Art: { href: '/recommendations/ehime-kids-lessons/', title: '愛媛の子ども向け習い事ガイド', description: '子ども向けの表現系習い事もまとめています。' }
+    };
+
+    pushGuide(cityGuideMap[studio.city]);
+    pushGuide(categoryGuideMap[studio.category]);
+
+    if (studio.features?.kidsClass) {
+        pushGuide(ageGuide);
+        pushGuide({ href: '/recommendations/ehime-trial-lessons/', title: '愛媛の体験しやすい習い事ガイド', description: '子どもの初回比較に向く記事をまとめています。' });
+        pushGuide({ href: '/recommendations/ehime-kids-lessons/', title: '愛媛の子ども向け習い事ガイド', description: '子ども向けの入口から比較を広げられます。' });
+    }
+
+    if (studio.features?.adultClass) {
+        pushGuide({ href: '/recommendations/ehime-adult-lessons/', title: '愛媛の大人向け習い事ガイド', description: '大人向け・学び直しの入口へ進めます。' });
+    }
+
+    if (['◎', '〇'].includes(studio.features?.beginnerFriendly)) {
+        pushGuide({ href: '/recommendations/ehime-beginner-lessons/', title: '愛媛の初心者向け習い事ガイド', description: '初めてでも始めやすい候補をまとめています。' });
+        pushGuide({ href: '/recommendations/ehime-trial-lessons/', title: '愛媛の体験しやすい習い事ガイド', description: '無料体験や見学から始めたい方向けです。' });
+    }
+
+    if (studio.pricing?.minPrice > 0) {
+        pushGuide({ href: '/recommendations/ehime-price-lessons/', title: '愛媛の料金が見やすい習い事ガイド', description: '料金公開や費用感から比較したい方向けです。' });
+    }
+
+    return guides.slice(0, 3);
 }
 
 /**
@@ -653,6 +942,23 @@ function openModal(studioId) {
     const audienceSummary = getAudienceSummary(studio.features);
     const featureSummary = getCardFeatureSummary(studio);
     const commuteSummary = getCommuteSummary(studio);
+    const relatedGuides = getRecommendedGuidesForStudio(studio);
+    const relatedGuideMarkup = relatedGuides.length > 0 ? `
+            <section class="modal-guide-section">
+                <div class="modal-guide-head">
+                    <span class="results-kicker">RELATED GUIDE</span>
+                    <strong>この教室に近い特集</strong>
+                </div>
+                <div class="modal-guide-links">
+                    ${relatedGuides.map(guide => `
+                        <a class="modal-guide-link" href="${guide.href}">
+                            <strong>${guide.title}</strong>
+                            <span>${guide.description}</span>
+                        </a>
+                    `).join('')}
+                </div>
+            </section>
+    ` : '';
 
     modalBody.innerHTML = `
         <div style="position: relative;">
@@ -691,6 +997,7 @@ function openModal(studioId) {
             <a href="${studio.link}" target="_blank" rel="noopener noreferrer" class="btn btn-primary modal-primary-btn">公式サイト・SNSを見る</a>
 
             <p class="modal-desc">${studio.description}</p>
+            ${relatedGuideMarkup}
             
             <ul class="modal-info-list">
                 <li class="modal-info-item">

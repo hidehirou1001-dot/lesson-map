@@ -135,6 +135,7 @@
       <div class="featured-strip-links">
         <a href="/recommendations/#popular-zone">人気特集から見る</a>
         <a href="/recommendations/#area-zone">地域から探す</a>
+        <a href="/recommendations/ehime-age-lessons/">年齢から探す</a>
         <a href="/recommendations/#issue-zone">悩みから探す</a>
         <a href="/recommendations/#genre-zone">ジャンルから探す</a>
       </div>
@@ -193,6 +194,88 @@
       </div>
     </section>
 
+    <section class="entry-map-panel reveal" aria-labelledby="entry-map-title">
+      <div class="popular-guides-head">
+        <div>
+          <span class="featured-strip-kicker">SMART ENTRY</span>
+          <h2 class="h2 finder-title" id="entry-map-title">地域・年齢・目的から探す</h2>
+          <p class="results-summary">検索を始める前に、今の状況に近い入口から進めるようにまとめています。</p>
+        </div>
+        <a href="/recommendations/" class="btn btn-outline results-clear-btn">入口特集をまとめて見る</a>
+      </div>
+      <div class="entry-map-grid">
+        <article class="entry-map-card">
+          <div class="entry-map-card-head">
+            <span class="entry-map-kicker">AREA</span>
+            <h3 class="h3">地域から探す</h3>
+          </div>
+          <p class="results-summary">松山以外も含めて、住んでいるエリアに近い入口から探せます。</p>
+          <div class="entry-map-links">
+            <a class="entry-map-link" href="/recommendations/ehime-local-lessons/">
+              <strong>愛媛の地域別習い事ガイド</strong>
+              <span>市町ごとの入口をまとめて見たいときに便利です。</span>
+            </a>
+            <a class="entry-map-link" href="/recommendations/masaki-lessons/">
+              <strong>松前町の習い事おすすめ3選</strong>
+              <span>小規模エリアでも探しやすい地域特集です。</span>
+            </a>
+            <a class="entry-map-link" href="/recommendations/saijo-dance/">
+              <strong>西条市のダンス教室おすすめ1選</strong>
+              <span>西条市で比較を始める入口として使えます。</span>
+            </a>
+          </div>
+        </article>
+
+        <article class="entry-map-card">
+          <div class="entry-map-card-head">
+            <span class="entry-map-kicker">AGE</span>
+            <h3 class="h3">年齢から探す</h3>
+          </div>
+          <p class="results-summary">幼児から小学生まで、始めやすい習い事の入口を年齢目安で見られます。</p>
+          <div class="entry-map-links">
+            <a class="entry-map-link" href="/recommendations/ehime-age-lessons/">
+              <strong>愛媛の年齢別習い事ガイド</strong>
+              <span>0〜2歳、3〜5歳、小学生の目安で入口を整理しています。</span>
+            </a>
+            <a class="entry-map-link" href="/recommendations/ehime-kids-lessons/">
+              <strong>愛媛の子ども向け習い事ガイド</strong>
+              <span>幼児・小学生向けの人気記事を横断で見比べられます。</span>
+            </a>
+            <a class="entry-map-link" href="/recommendations/toon-english/">
+              <strong>東温市の英会話教室おすすめ1選</strong>
+              <span>年齢と始めやすさを意識して見たい家庭向けです。</span>
+            </a>
+          </div>
+        </article>
+
+        <article class="entry-map-card">
+          <div class="entry-map-card-head">
+            <span class="entry-map-kicker">GOAL</span>
+            <h3 class="h3">目的から探す</h3>
+          </div>
+          <p class="results-summary">初めてでも始めやすいか、大人の学び直しかなど、状況に合わせて選べます。</p>
+          <div class="entry-map-links">
+            <a class="entry-map-link" href="/recommendations/ehime-beginner-lessons/">
+              <strong>愛媛の初心者向け習い事ガイド</strong>
+              <span>未経験から比較しやすい記事をまとめています。</span>
+            </a>
+            <a class="entry-map-link" href="/recommendations/ehime-trial-lessons/">
+              <strong>愛媛の体験しやすい習い事ガイド</strong>
+              <span>無料体験や見学から入りやすい記事をまとめています。</span>
+            </a>
+            <a class="entry-map-link" href="/recommendations/ehime-price-lessons/">
+              <strong>愛媛の料金が見やすい習い事ガイド</strong>
+              <span>月謝や費用感から探しやすい記事をまとめています。</span>
+            </a>
+            <a class="entry-map-link" href="/recommendations/ehime-adult-lessons/">
+              <strong>愛媛の大人向け習い事ガイド</strong>
+              <span>趣味や学び直しから始めたい方向けです。</span>
+            </a>
+          </div>
+        </article>
+      </div>
+    </section>
+
     <div class="finder-panel" id="finder-panel">
       <div class="finder-panel-header">
         <div>
@@ -201,10 +284,18 @@
           <p class="results-summary">キーワード、ジャンル、エリアの順に選ぶと、候補をかなり絞りやすくなります。</p>
         </div>
         <div class="finder-tip-list">
-          <span>人気: キッズ対応</span>
-          <span>人気: 駐車場あり</span>
-          <span>人気: 松山市</span>
+          <button class="finder-quick-btn" type="button" data-quick-filter="kids">人気: 子ども向け</button>
+          <button class="finder-quick-btn" type="button" data-quick-filter="adult">人気: 大人向け</button>
+          <button class="finder-quick-btn" type="button" data-quick-filter="beginner">人気: 初心者向け</button>
+          <button class="finder-quick-btn" type="button" data-quick-filter="parking">人気: 駐車場あり</button>
         </div>
+      </div>
+
+      <div class="finder-quick-row" aria-label="すぐ絞る">
+        <button class="filter-btn finder-chip-btn" type="button" data-quick-filter="kids">👶 子ども向け</button>
+        <button class="filter-btn finder-chip-btn" type="button" data-quick-filter="adult">🧑 大人向け</button>
+        <button class="filter-btn finder-chip-btn" type="button" data-quick-filter="beginner">🔰 初心者向け</button>
+        <button class="filter-btn finder-chip-btn" type="button" data-quick-filter="parking">🚗 駐車場あり</button>
       </div>
 
       <div class="finder-section finder-section-primary">
@@ -327,6 +418,14 @@
     <div class="active-filter-bar" id="active-filter-bar" hidden>
       <span class="active-filter-label">現在の条件</span>
       <div class="active-filter-chips" id="active-filter-chips"></div>
+    </div>
+
+    <div class="results-guide-panel" id="results-guide-panel" hidden>
+      <div class="results-guide-head">
+        <span class="results-kicker">NEXT GUIDE</span>
+        <strong id="results-guide-title">次に見ると比較しやすい特集</strong>
+      </div>
+      <div class="results-guide-links" id="results-guide-links"></div>
     </div>
 
     <!-- Cards will be injected here by app.js -->
