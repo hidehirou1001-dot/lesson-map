@@ -6,6 +6,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     initAnimations();
     initFAQ();
+    initResultsPanels();
     initCompareMemo();
     initFavorites();
     initShareTools();
@@ -113,6 +114,22 @@ function renderStudios(data) {
           </div>
         </div>
         ` : '';
+        const hasExtraInfo = Boolean(featureSummary || genreTags || verificationMarkup || cardGuideMarkup);
+        const extraToggleLabel = cardGuideLinks.length > 0 ? '補足情報と補助導線を見る' : '補足情報を見る';
+        const cardExtraMarkup = hasExtraInfo ? `
+        <div class="card-extra-wrap">
+          <button class="btn btn-text card-extra-toggle" type="button" data-card-extra-toggle="card-extra-${studio.id}" aria-expanded="false" aria-controls="card-extra-${studio.id}">${extraToggleLabel}</button>
+          <div class="card-extra-content" id="card-extra-${studio.id}" hidden>
+            <div class="card-secondary-block">
+              <span class="card-secondary-label">補足情報</span>
+              <div class="card-meta-chips">${featureSummary}</div>
+              <div class="tags">${genreTags}</div>
+              ${verificationMarkup}
+            </div>
+            ${cardGuideMarkup}
+          </div>
+        </div>
+        ` : '';
 
         // Add staggered delay for rendering
         const delay = index * 100;
@@ -160,13 +177,7 @@ function renderStudios(data) {
           <span class="card-reason-label">おすすめ理由</span>
           <p>${getDecisionReason(studio)}</p>
         </div>
-        <div class="card-secondary-block">
-          <span class="card-secondary-label">補足情報</span>
-          <div class="card-meta-chips">${featureSummary}</div>
-          <div class="tags">${genreTags}</div>
-          ${verificationMarkup}
-        </div>
-        ${cardGuideMarkup}
+        ${cardExtraMarkup}
         <div class="card-action-row">
           <button class="btn btn-primary detail-btn card-detail-btn">詳細を見る</button>
           <div class="card-support-actions">
@@ -193,6 +204,19 @@ function renderStudios(data) {
         const favoriteBtn = card.querySelector('.favorite-toggle-btn');
         if (favoriteBtn) {
             favoriteBtn.addEventListener('click', () => toggleFavorite(studio.id));
+        }
+
+        const extraToggle = card.querySelector('[data-card-extra-toggle]');
+        if (extraToggle) {
+            extraToggle.addEventListener('click', () => {
+                const targetId = extraToggle.getAttribute('data-card-extra-toggle');
+                const extraContent = card.querySelector(`#${targetId}`);
+                if (!extraContent) return;
+                const isExpanded = extraToggle.getAttribute('aria-expanded') === 'true';
+                extraContent.hidden = isExpanded;
+                extraToggle.setAttribute('aria-expanded', isExpanded ? 'false' : 'true');
+                extraToggle.textContent = isExpanded ? extraToggleLabel : '補足情報を閉じる';
+            });
         }
 
         // Staggered Animation Logic
@@ -296,6 +320,19 @@ const COMPARE_MEMO_LIMIT = 3;
 let compareMemoIds = [];
 const FAVORITES_KEY = 'lessonmap_favorites';
 let favoriteIds = [];
+const cityRegionMap = {
+    中予: ['松山市', '松前町', '東温市', '伊予市'],
+    東予: ['今治市', '新居浜市', '西条市', '四国中央市'],
+    南予: ['宇和島市']
+};
+const resultsPanelState = {
+    guide: false,
+    explain: false,
+    utility: false,
+    guideTouched: false,
+    explainTouched: false,
+    utilityTouched: false
+};
 
 function getPricingCheckStatus(studio) {
     if (studio?.pricing?.minPrice > 0) return '料金公開を確認済み';
@@ -445,15 +482,75 @@ function clearFavorites() {
 }
 
 function updateCollectionCounts(compareCount = compareMemoIds.length, favoriteCount = favoriteIds.length) {
-    const compareGuideCount = document.getElementById('compare-guide-count');
     const comparePanelCount = document.getElementById('compare-panel-count');
-    const favoriteGuideCount = document.getElementById('favorite-guide-count');
     const favoritePanelCount = document.getElementById('favorite-panel-count');
+    const compareGuideCounts = document.querySelectorAll('[data-compare-count]');
+    const favoriteGuideCounts = document.querySelectorAll('[data-favorite-count]');
+    const utilityPanel = document.querySelector('.results-utility-panel');
+    const utilityGuideGrid = document.getElementById('results-utility-guide-grid');
+    const utilityEmptyCopy = document.getElementById('results-utility-empty-copy');
+    const hasSavedItems = compareCount > 0 || favoriteCount > 0;
 
-    if (compareGuideCount) compareGuideCount.textContent = `${compareCount}/${COMPARE_MEMO_LIMIT}`;
+    compareGuideCounts.forEach(node => {
+        node.textContent = `${compareCount}/${COMPARE_MEMO_LIMIT}`;
+    });
     if (comparePanelCount) comparePanelCount.textContent = `${compareCount}/${COMPARE_MEMO_LIMIT}`;
-    if (favoriteGuideCount) favoriteGuideCount.textContent = `${favoriteCount}件`;
+    favoriteGuideCounts.forEach(node => {
+        node.textContent = `${favoriteCount}件`;
+    });
     if (favoritePanelCount) favoritePanelCount.textContent = `${favoriteCount}件`;
+    if (utilityPanel) utilityPanel.classList.toggle('is-empty', !hasSavedItems);
+    if (utilityGuideGrid) utilityGuideGrid.hidden = !hasSavedItems;
+    if (utilityEmptyCopy) utilityEmptyCopy.hidden = hasSavedItems;
+}
+
+function initResultsPanels() {
+    bindResultsPanelToggle('results-guide-toggle', 'results-guide-body', 'guide');
+    bindResultsPanelToggle('results-explain-toggle', 'results-explain-body', 'explain');
+    bindResultsPanelToggle('results-utility-toggle', 'results-utility-body', 'utility');
+    syncResultsPanelStates();
+}
+
+function bindResultsPanelToggle(buttonId, bodyId, panelKey) {
+    const button = document.getElementById(buttonId);
+    const body = document.getElementById(bodyId);
+    if (!button || !body) return;
+
+    button.addEventListener('click', () => {
+        resultsPanelState[panelKey] = !resultsPanelState[panelKey];
+        resultsPanelState[`${panelKey}Touched`] = true;
+        applyResultsPanelState(panelKey, body, button);
+    });
+}
+
+function applyResultsPanelState(panelKey, body, button) {
+    const expanded = Boolean(resultsPanelState[panelKey]);
+    body.hidden = !expanded;
+    button.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+    button.textContent = expanded ? '閉じる' : '開く';
+}
+
+function syncResultsPanelStates() {
+    const guideBody = document.getElementById('results-guide-body');
+    const guideButton = document.getElementById('results-guide-toggle');
+    const explainBody = document.getElementById('results-explain-body');
+    const explainButton = document.getElementById('results-explain-toggle');
+    const utilityBody = document.getElementById('results-utility-body');
+    const utilityButton = document.getElementById('results-utility-toggle');
+
+    if (guideBody && guideButton) applyResultsPanelState('guide', guideBody, guideButton);
+    if (explainBody && explainButton) applyResultsPanelState('explain', explainBody, explainButton);
+    if (utilityBody && utilityButton) applyResultsPanelState('utility', utilityBody, utilityButton);
+}
+
+function ensureUtilityPanelVisibleIfNeeded() {
+    if (resultsPanelState.utilityTouched) {
+        syncResultsPanelStates();
+        return;
+    }
+
+    resultsPanelState.utility = compareMemoIds.length > 0 || favoriteIds.length > 0;
+    syncResultsPanelStates();
 }
 
 function renderCompareMemo() {
@@ -479,10 +576,12 @@ function renderCompareMemo() {
         diffSummary.innerHTML = '';
         updateCollectionCounts(0, favoriteIds.length);
         updateCompareSharePanel([]);
+        ensureUtilityPanelVisibleIfNeeded();
         return;
     }
 
     panel.hidden = false;
+    ensureUtilityPanelVisibleIfNeeded();
     updateCollectionCounts(items.length, favoriteIds.length);
     const diffMap = getCompareMemoDiffMap(items);
     const diffKeys = Object.keys(diffMap).filter(key => diffMap[key]);
@@ -582,10 +681,12 @@ function renderFavorites() {
         panel.hidden = true;
         grid.innerHTML = '';
         updateCollectionCounts(compareMemoIds.length, 0);
+        ensureUtilityPanelVisibleIfNeeded();
         return;
     }
 
     panel.hidden = false;
+    ensureUtilityPanelVisibleIfNeeded();
     updateCollectionCounts(compareMemoIds.length, items.length);
     grid.innerHTML = items.map(studio => `
       <article class="favorite-item">
@@ -830,37 +931,37 @@ function getInlineGuideLinksForStudio(studio) {
     };
 
     const categoryGuideMap = {
-        Dance: { href: '/recommendations/matsuyama-dance/', title: 'ダンス特集を見る', description: 'ダンス全体の比較軸を先に見たい方向けです。' },
-        Piano: { href: '/recommendations/matsuyama-piano/', title: 'ピアノ特集を見る', description: '子ども・大人の違いを見比べやすいです。' },
-        Programming: { href: '/recommendations/matsuyama-programming/', title: 'プログラミング特集を見る', description: '教材や対象年齢の違いを整理できます。' },
-        English: { href: '/recommendations/matsuyama-english/', title: '英会話特集を見る', description: '子ども向けと大人向けを横断で見られます。' },
-        Fitness: { href: '/recommendations/matsuyama-fitness/', title: 'ジム特集を見る', description: '初心者向けの比較をまとめています。' },
-        CramSchool: { href: '/recommendations/matsuyama-cram-school/', title: '学習塾特集を見る', description: '通いやすさと学年感で比較できます。' },
-        Calligraphy: { href: '/recommendations/matsuyama-calligraphy/', title: '書道特集を見る', description: '子ども・大人の両方を見比べられます。' },
-        Soroban: { href: '/recommendations/matsuyama-soroban/', title: 'そろばん特集を見る', description: '通いやすさを含めて比較できます。' }
+        Dance: { href: '/recommendations/matsuyama-dance/', title: 'ダンス特集も見る', description: 'ダンス全体の比較軸を補助的に確認できます。' },
+        Piano: { href: '/recommendations/matsuyama-piano/', title: 'ピアノ特集も見る', description: '子ども・大人の違いを補助的に見比べやすいです。' },
+        Programming: { href: '/recommendations/matsuyama-programming/', title: 'プログラミング特集も見る', description: '教材や対象年齢の違いを補助的に整理できます。' },
+        English: { href: '/recommendations/matsuyama-english/', title: '英会話特集も見る', description: '子ども向けと大人向けを横断で補助的に見られます。' },
+        Fitness: { href: '/recommendations/matsuyama-fitness/', title: 'ジム特集も見る', description: '初心者向けの比較を補助的にまとめています。' },
+        CramSchool: { href: '/recommendations/matsuyama-cram-school/', title: '学習塾特集も見る', description: '通いやすさと学年感を補助的に比較できます。' },
+        Calligraphy: { href: '/recommendations/matsuyama-calligraphy/', title: '書道特集も見る', description: '子ども・大人の両方を補助的に見比べられます。' },
+        Soroban: { href: '/recommendations/matsuyama-soroban/', title: 'そろばん特集も見る', description: '通いやすさを含めて補助的に比較できます。' }
     };
 
     pushGuide(cityGuideMap[studio.city]);
 
     if (studio.features?.kidsClass) {
-        pushGuide({ href: '/recommendations/ehime-age-lessons/', title: '年齢別ガイドを見る', description: '今の年齢に近い入口から探せます。' });
+        pushGuide({ href: '/recommendations/ehime-age-lessons/', title: '年齢別ガイドも見る', description: '今の年齢に近い入口を補助的に探せます。' });
     }
 
     if (studio.features?.kidsClass && !studio.features?.adultClass) {
-        pushGuide({ href: '/recommendations/ehime-kids-lessons/', title: '子ども向けガイドを見る', description: '幼児・小学生向けの入口をまとめています。' });
+        pushGuide({ href: '/recommendations/ehime-kids-lessons/', title: '子ども向けガイドも見る', description: '幼児・小学生向けの入口を補助的にまとめています。' });
     }
 
     if (studio.features?.adultClass && !studio.features?.kidsClass) {
-        pushGuide({ href: '/recommendations/ehime-adult-lessons/', title: '大人向けガイドを見る', description: '学び直しや趣味の入口へ進めます。' });
+        pushGuide({ href: '/recommendations/ehime-adult-lessons/', title: '大人向けガイドも見る', description: '学び直しや趣味の入口を補助的に見られます。' });
     }
 
     if (['◎', '〇'].includes(studio.features?.beginnerFriendly)) {
-        pushGuide({ href: '/recommendations/ehime-beginner-lessons/', title: '初心者向けガイドを見る', description: '初めてでも始めやすい候補をまとめています。' });
+        pushGuide({ href: '/recommendations/ehime-beginner-lessons/', title: '初心者向けガイドも見る', description: '初めてでも始めやすい候補を補助的にまとめています。' });
     }
 
     pushGuide(categoryGuideMap[studio.category]);
 
-    return guides.slice(0, 2);
+    return guides.slice(0, 1);
 }
 
 /**
@@ -916,7 +1017,7 @@ function initSearch() {
  * Filter State and Logic
  */
 let currentFilterState = {
-    category: 'Dance',  // 'Dance', 'Piano', etc. (Removed 'all')
+    category: 'all',
     subFilter: 'all', // 'all', 'HIPHOP', 'K-POP', 'POP', 'JAZZ', 'LOCK', 'コンテンポラリー', 'Kids', 'parking'
     city: 'all',       // 'all', '松山市', '今治市', '新居浜市'
     searchQuery: '',   // Search query string
@@ -987,11 +1088,63 @@ function initFilters() {
     const quickFilterBtns = document.querySelectorAll('[data-quick-filter]');
     const categoryFilterRow = document.getElementById('category-filter-row');
     const categoryExpandBtn = document.getElementById('category-expand-btn');
+    const areaCityPanel = document.getElementById('area-city-panel');
+    const areaCityGroups = document.querySelectorAll('[data-region-cities]');
+    const areaHelper = document.getElementById('finder-area-helper');
+    const areaRegionLink = document.getElementById('finder-area-region-link');
     const danceFilters = document.getElementById('sub-filters');
     const progFilters = document.getElementById('sub-filters-prog');
     const clearFiltersBtn = document.getElementById('clear-filters-btn');
     const sortSelect = document.getElementById('sort-select');
     const subFilterGroups = [danceFilters, progFilters, document.getElementById('sub-filters-gym'), document.getElementById('sub-filters-swim')].filter(Boolean);
+    const regionGuideMap = {
+        中予: { href: '/recommendations/ehime-local-lessons/#chuyo-area', label: '中予の入口を見る' },
+        東予: { href: '/recommendations/ehime-local-lessons/#toyo-area', label: '東予の入口を見る' },
+        南予: { href: '/recommendations/ehime-local-lessons/#nanyo-area', label: '南予の入口を見る' }
+    };
+
+    function syncAreaSelection(selectedCity) {
+        const activeRegion = cityRegionMap[selectedCity]
+            ? selectedCity
+            : Object.keys(cityRegionMap).find(region => cityRegionMap[region].includes(selectedCity)) || 'all';
+
+        if (areaCityPanel) {
+            areaCityPanel.hidden = activeRegion === 'all';
+        }
+
+        areaCityGroups.forEach(group => {
+            group.hidden = activeRegion === 'all' || group.getAttribute('data-region-cities') !== activeRegion;
+        });
+
+        if (areaHelper) {
+            if (activeRegion === 'all') {
+                areaHelper.textContent = '広域だけで絞ることもできます。もっと細かく見たいときだけ市町を選べます。';
+            } else if (selectedCity === activeRegion) {
+                areaHelper.textContent = `${activeRegion}全体で探すときはこのままで大丈夫です。必要なら下の市町へ進めます。`;
+            } else {
+                areaHelper.textContent = `${selectedCity}まで絞っています。広げたいときは${activeRegion}に戻せます。`;
+            }
+        }
+
+        if (areaRegionLink) {
+            const regionGuide = regionGuideMap[activeRegion];
+            areaRegionLink.hidden = !regionGuide || activeRegion === 'all';
+            if (regionGuide) {
+                areaRegionLink.href = regionGuide.href;
+                areaRegionLink.textContent = regionGuide.label;
+            }
+        }
+
+        cityBtns.forEach(button => {
+            const buttonCity = button.getAttribute('data-city');
+            const isDetailButton = button.classList.contains('city-detail-btn');
+            if (isDetailButton) {
+                button.classList.toggle('active', buttonCity === selectedCity);
+            } else {
+                button.classList.toggle('active', buttonCity === selectedCity || (selectedCity !== 'all' && buttonCity === activeRegion));
+            }
+        });
+    }
 
     if (categoryExpandBtn && categoryFilterRow) {
         categoryExpandBtn.addEventListener('click', () => {
@@ -1027,7 +1180,7 @@ function initFilters() {
             if (swimFilters) swimFilters.style.display = 'none';
 
             // Show relevant sub-filters
-            if (cat === 'Dance' || cat === 'all') {
+            if (cat === 'Dance') {
                 if (danceFilters) danceFilters.style.display = 'flex';
             } else if (cat === 'Programming') {
                 if (progFilters) progFilters.style.display = 'flex';
@@ -1069,10 +1222,8 @@ function initFilters() {
     // 3. City Buttons
     cityBtns.forEach(btn => {
         btn.addEventListener('click', () => {
-            cityBtns.forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
-
             currentFilterState.city = btn.getAttribute('data-city');
+            syncAreaSelection(currentFilterState.city);
             applyFilters();
         });
     });
@@ -1103,7 +1254,7 @@ function initFilters() {
     if (clearFiltersBtn) {
         clearFiltersBtn.addEventListener('click', () => {
             currentFilterState = {
-                category: 'Dance',
+                category: 'all',
                 subFilter: 'all',
                 city: 'all',
                 searchQuery: '',
@@ -1116,7 +1267,7 @@ function initFilters() {
             if (sortSelect) sortSelect.value = 'recommended';
 
             categoryBtns.forEach(button => {
-                button.classList.toggle('active', button.getAttribute('data-category') === 'Dance');
+                button.classList.toggle('active', button.getAttribute('data-category') === 'all');
             });
 
             cityBtns.forEach(button => {
@@ -1124,17 +1275,19 @@ function initFilters() {
             });
 
             subFilterGroups.forEach(group => {
-                group.style.display = group.id === 'sub-filters' ? 'flex' : 'none';
+                group.style.display = 'none';
                 group.querySelectorAll('.sub-btn').forEach(button => {
                     button.classList.toggle('active', button.getAttribute('data-filter') === 'all');
                 });
             });
 
+            syncAreaSelection('all');
             syncQuickFilterButtons();
             applyFilters();
         });
     }
 
+    syncAreaSelection(currentFilterState.city);
     syncQuickFilterButtons();
 }
 
@@ -1180,7 +1333,8 @@ function applyFilters() {
 
     // Apply City Filter
     if (currentFilterState.city !== 'all') {
-        filtered = filtered.filter(s => s.city === currentFilterState.city);
+        const regionCities = cityRegionMap[currentFilterState.city];
+        filtered = filtered.filter(s => regionCities ? regionCities.includes(s.city) : s.city === currentFilterState.city);
     }
 
     if (currentFilterState.quickFilters.includes('kids')) {
@@ -1308,6 +1462,9 @@ function updateResultsMeta(filtered) {
         explainTitle.textContent = explain.title;
         explainCopy.textContent = explain.copy;
         explainChips.innerHTML = explain.chips.map(chip => `<span class="results-explain-chip">${chip}</span>`).join('');
+        if (!resultsPanelState.explainTouched) {
+            resultsPanelState.explain = currentFilterState.sort !== 'recommended';
+        }
     }
 
     if (chipContainer && filterBar) {
@@ -1328,6 +1485,9 @@ function updateResultsMeta(filtered) {
                 </a>
             `).join('');
             guidePanel.hidden = false;
+            if (!resultsPanelState.guideTouched) {
+                resultsPanelState.guide = activeChips.length > 0 || currentFilterState.city !== 'all';
+            }
         } else {
             guideLinks.innerHTML = '';
             guidePanel.hidden = true;
@@ -1337,10 +1497,15 @@ function updateResultsMeta(filtered) {
     if (clearFiltersBtn) {
         clearFiltersBtn.style.display = activeChips.length > 1 || currentFilterState.searchQuery || currentFilterState.quickFilters.length ? 'inline-flex' : 'none';
     }
+
+    syncResultsPanelStates();
 }
 
 function getRecommendedGuides() {
     const cityGuideMap = {
+        中予: { href: '/recommendations/ehime-local-lessons/', title: '中予から見たい特集', description: '松山、松前町、東温市、伊予市の入口から探せます。' },
+        東予: { href: '/recommendations/ehime-local-lessons/', title: '東予から見たい特集', description: '今治、新居浜、西条市、四国中央市の入口から探せます。' },
+        南予: { href: '/recommendations/ehime-local-lessons/', title: '南予から見たい特集', description: '宇和島市を中心に南予側の入口から探せます。' },
         '今治市': { href: '/recommendations/imabari-lessons/', title: '今治の習い事おすすめ3選', description: '今治エリアの入口記事から広く比較できます。' },
         '新居浜市': { href: '/recommendations/niihama-lessons/', title: '新居浜の習い事おすすめ3選', description: '新居浜エリアでまず候補を広く見たい方向けです。' },
         '松前町': { href: '/recommendations/masaki-lessons/', title: '松前町の習い事おすすめ3選', description: '松前町で探し始める人向けの地域特集です。' },
@@ -1464,24 +1629,24 @@ function getRecommendedGuidesForStudio(studio) {
 
     if (studio.features?.kidsClass) {
         pushGuide(ageGuide);
-        pushGuide({ href: '/recommendations/ehime-trial-lessons/', title: '愛媛の体験しやすい習い事ガイド', description: '子どもの初回比較に向く記事をまとめています。' });
-        pushGuide({ href: '/recommendations/ehime-kids-lessons/', title: '愛媛の子ども向け習い事ガイド', description: '子ども向けの入口から比較を広げられます。' });
+        pushGuide({ href: '/recommendations/ehime-trial-lessons/', title: '愛媛の体験しやすい習い事ガイド', description: '子どもの初回比較を補助的に見たいときに向いています。' });
+        pushGuide({ href: '/recommendations/ehime-kids-lessons/', title: '愛媛の子ども向け習い事ガイド', description: '子ども向けの入口を補助的に広げられます。' });
     }
 
     if (studio.features?.adultClass) {
-        pushGuide({ href: '/recommendations/ehime-adult-lessons/', title: '愛媛の大人向け習い事ガイド', description: '大人向け・学び直しの入口へ進めます。' });
+        pushGuide({ href: '/recommendations/ehime-adult-lessons/', title: '愛媛の大人向け習い事ガイド', description: '大人向け・学び直しの入口を補助的に見られます。' });
     }
 
     if (['◎', '〇'].includes(studio.features?.beginnerFriendly)) {
-        pushGuide({ href: '/recommendations/ehime-beginner-lessons/', title: '愛媛の初心者向け習い事ガイド', description: '初めてでも始めやすい候補をまとめています。' });
-        pushGuide({ href: '/recommendations/ehime-trial-lessons/', title: '愛媛の体験しやすい習い事ガイド', description: '無料体験や見学から始めたい方向けです。' });
+        pushGuide({ href: '/recommendations/ehime-beginner-lessons/', title: '愛媛の初心者向け習い事ガイド', description: '初めてでも始めやすい候補を補助的にまとめています。' });
+        pushGuide({ href: '/recommendations/ehime-trial-lessons/', title: '愛媛の体験しやすい習い事ガイド', description: '無料体験や見学を補助的に見たい方向けです。' });
     }
 
     if (studio.pricing?.minPrice > 0) {
-        pushGuide({ href: '/recommendations/ehime-price-lessons/', title: '愛媛の料金が見やすい習い事ガイド', description: '料金公開や費用感から比較したい方向けです。' });
+        pushGuide({ href: '/recommendations/ehime-price-lessons/', title: '愛媛の料金が見やすい習い事ガイド', description: '料金公開や費用感を補助的に比較したい方向けです。' });
     }
 
-    return guides.slice(0, 3);
+    return guides.slice(0, 1);
 }
 
 /**
@@ -1545,7 +1710,8 @@ function openModal(studioId) {
             <section class="modal-guide-section">
                 <div class="modal-guide-head">
                     <span class="results-kicker">RELATED GUIDE</span>
-                    <strong>この教室に近い特集</strong>
+                    <strong>必要なら近い特集も見る</strong>
+                    <p class="results-guide-copy">特集導線は検索結果上部がメインです。ここでは近い特集だけを1本だけ置いています。</p>
                 </div>
                 <div class="modal-guide-links">
                     ${relatedGuides.map(guide => `
