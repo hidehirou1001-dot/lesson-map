@@ -96,6 +96,7 @@ function renderStudios(data) {
         const categoryLabel = getCategoryLabel(studio.category);
         const descriptionSummary = getCardDescriptionSummary(studio.description);
         const cardGuideLinks = getInlineGuideLinksForStudio(studio);
+        const genreTags = studio.genres.map(g => `<span class="tag">${g}</span>`).join('');
         const compareButtonLabel = isComparedStudio(studio.id) ? '比較中' : '今すぐ比べる';
         const compareButtonState = isComparedStudio(studio.id) ? 'active' : '';
         const compareButtonDisabled = !isComparedStudio(studio.id) && compareMemoIds.length >= COMPARE_MEMO_LIMIT ? 'disabled' : '';
@@ -138,8 +139,6 @@ function renderStudios(data) {
         card.className = 'card reveal';
         card.style.transitionDelay = `${delay}ms`;
 
-        // Generate genre tags
-        const genreTags = studio.genres.map(g => `<span class="tag">${g}</span>`).join('');
         const locationNoteMarkup = getLocationNoteMarkup(studio);
 
         card.innerHTML = `
@@ -242,7 +241,18 @@ function formatPricingSummary(pricing) {
     if (pricing.minPrice > 0) {
         return `${pricing.system} / 最安 ${pricing.minPrice.toLocaleString()}円〜`;
     }
+    if (hasVisiblePricing(pricing)) {
+        return pricing.note ? `${pricing.system} / ${pricing.note}` : `${pricing.system} / 公式サイトで確認`;
+    }
     return pricing.note ? `${pricing.system} / ${pricing.note}` : `${pricing.system} / 料金は要確認`;
+}
+
+function hasVisiblePricing(pricing) {
+    if (!pricing) return false;
+    if (pricing.minPrice > 0) return true;
+    const system = pricing.system || '';
+    const note = pricing.note || '';
+    return system.includes('料金表公開') || note.includes('料金表公開');
 }
 
 function getCardFeatureSummary(studio) {
@@ -336,6 +346,7 @@ const resultsPanelState = {
 
 function getPricingCheckStatus(studio) {
     if (studio?.pricing?.minPrice > 0) return '料金公開を確認済み';
+    if (hasVisiblePricing(studio?.pricing)) return '料金表公開を確認済み';
     if (studio?.pricing?.note) return '料金メモあり・詳細は要確認';
     return '料金は要確認';
 }
@@ -843,6 +854,7 @@ function getCommuteSummary(studio) {
 function getPricingVisibility(pricing) {
     if (!pricing) return '料金は要確認';
     if (pricing.minPrice > 0) return '料金公開あり';
+    if (hasVisiblePricing(pricing)) return '料金表公開あり';
     return '料金は要確認';
 }
 

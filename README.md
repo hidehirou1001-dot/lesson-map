@@ -43,6 +43,7 @@
 ## 運用メモと参照先
 
 - [SEO・UX運用メモ](docs/seo-operations-checklist.md)
+- [愛媛県内の地域網羅メモ](docs/ehime-area-coverage.md)
 
 ## 主な更新対象
 

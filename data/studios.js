@@ -35,7 +35,7 @@ const studios = [
     pricing: {
       system: '月謝制',
       minPrice: 5500,
-      note: '無料体験等詳細確認'
+      note: '無料体験あり / 詳細は公式サイトへ'
     },
     features: {
       parking: true,
@@ -463,9 +463,9 @@ const studios = [
     access: '鷹子駅から徒歩10分',
     genres: ['Programming', 'Python', 'Scratch'],
     pricing: {
-      system: '不明',
+      system: '料金表公開',
       minPrice: 0,
-      note: '詳細は公式サイトへ'
+      note: '公式サイトで料金表を確認'
     },
     features: {
       parking: true,
