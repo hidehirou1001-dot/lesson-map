@@ -3738,6 +3738,33 @@ p {
   box-shadow: var(--shadow-sm);
 }
 
+.entry-map-hero-media {
+  display: grid;
+  gap: 0.75rem;
+  margin: 0 0 0.25rem;
+  padding: 0.8rem;
+  border-radius: 28px;
+  background: linear-gradient(180deg, rgba(255, 252, 249, 0.98), rgba(255, 255, 255, 0.92));
+  border: 1px solid rgba(34, 34, 34, 0.07);
+  box-shadow: var(--shadow-sm);
+}
+
+.entry-map-hero-media img {
+  width: 100%;
+  height: clamp(220px, 32vw, 340px);
+  object-fit: cover;
+  object-position: center 58%;
+  display: block;
+  border-radius: 22px;
+}
+
+.entry-map-hero-media figcaption {
+  margin: 0;
+  color: var(--clr-text-muted);
+  font-size: 0.9rem;
+  line-height: 1.7;
+}
+
 .entry-map-intro {
   display: grid;
   gap: 0.45rem;
