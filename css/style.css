@@ -1869,6 +1869,33 @@ p {
   border: 1px solid rgba(34, 34, 34, 0.08);
 }
 
+.article-section-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  margin-top: 1rem;
+  margin-bottom: 1.1rem;
+}
+
+.article-section-nav a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 40px;
+  padding: 0.58rem 0.9rem;
+  border-radius: var(--radius-full);
+  background: rgba(255, 255, 255, 0.94);
+  border: 1px solid rgba(34, 34, 34, 0.08);
+  color: var(--clr-text-main);
+  font-size: 0.84rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.article-section-nav a:hover {
+  border-color: rgba(201, 42, 42, 0.18);
+  color: var(--clr-primary-dark);
+}
+
 .results-legend-chips {
   display: flex;
   flex-wrap: wrap;
