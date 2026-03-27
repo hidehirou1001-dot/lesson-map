@@ -3,9 +3,12 @@
  * Handles animations, search functionality, and rendering of studio cards
  */
 
+document.documentElement.classList.add('js');
+
 document.addEventListener('DOMContentLoaded', () => {
     initAnimations();
     initFAQ();
+    initCarousels();
     initResultsPanels();
     initCompareMemo();
     initFavorites();
@@ -25,6 +28,67 @@ document.addEventListener('DOMContentLoaded', () => {
         applyFilters(); // Apply initial filters
     }
 });
+
+function initCarousels() {
+    const carousels = document.querySelectorAll('[data-carousel]');
+    if (!carousels.length) return;
+
+    carousels.forEach((carousel) => {
+        const carouselId = carousel.getAttribute('data-carousel');
+        const track = carousel.querySelector('[data-carousel-track]');
+        if (!track) return;
+
+        const slides = Array.from(track.children);
+        const dotsWrap = carousel.querySelector(`[data-carousel-dots="${carouselId}"]`);
+        const prevBtn = document.querySelector(`[data-carousel-prev="${carouselId}"]`);
+        const nextBtn = document.querySelector(`[data-carousel-next="${carouselId}"]`);
+
+        if (dotsWrap) {
+            dotsWrap.innerHTML = slides.map((_, index) => (
+                `<button class="carousel-dot ${index === 0 ? 'is-active' : ''}" type="button" aria-label="${index + 1}枚目へ" data-carousel-dot="${carouselId}" data-index="${index}"></button>`
+            )).join('');
+        }
+
+        const getStepWidth = () => {
+            const firstSlide = slides[0];
+            if (!firstSlide) return 0;
+            const styles = window.getComputedStyle(track);
+            const gap = parseFloat(styles.columnGap || styles.gap || 0);
+            return firstSlide.getBoundingClientRect().width + gap;
+        };
+
+        const updateDots = () => {
+            if (!dotsWrap) return;
+            const stepWidth = getStepWidth();
+            if (!stepWidth) return;
+            const activeIndex = Math.round(track.scrollLeft / stepWidth);
+            dotsWrap.querySelectorAll('.carousel-dot').forEach((dot, index) => {
+                dot.classList.toggle('is-active', index === activeIndex);
+            });
+        };
+
+        prevBtn?.addEventListener('click', () => {
+            track.scrollBy({ left: -getStepWidth(), behavior: 'smooth' });
+        });
+
+        nextBtn?.addEventListener('click', () => {
+            track.scrollBy({ left: getStepWidth(), behavior: 'smooth' });
+        });
+
+        dotsWrap?.addEventListener('click', (event) => {
+            const dot = event.target.closest('[data-carousel-dot]');
+            if (!dot) return;
+            const index = Number(dot.getAttribute('data-index'));
+            track.scrollTo({ left: getStepWidth() * index, behavior: 'smooth' });
+        });
+
+        track.addEventListener('scroll', () => {
+            window.requestAnimationFrame(updateDots);
+        }, { passive: true });
+
+        updateDots();
+    });
+}
 
 /**
  * Scroll Reveal Animations (Intersection Observer)
@@ -97,10 +161,12 @@ function renderStudios(data) {
         const descriptionSummary = getCardDescriptionSummary(studio.description);
         const cardGuideLinks = getInlineGuideLinksForStudio(studio);
         const genreTags = studio.genres.map(g => `<span class="tag">${g}</span>`).join('');
-        const compareButtonLabel = isComparedStudio(studio.id) ? '比較中' : '今すぐ比べる';
+        const curatorLabelMarkup = getCuratorLabelMarkup(studio);
+        const localAreaCueMarkup = getLocalAreaCueMarkup(studio);
+        const compareButtonLabel = isComparedStudio(studio.id) ? '比較中' : '比較メモへ';
         const compareButtonState = isComparedStudio(studio.id) ? 'active' : '';
         const compareButtonDisabled = !isComparedStudio(studio.id) && compareMemoIds.length >= COMPARE_MEMO_LIMIT ? 'disabled' : '';
-        const favoriteButtonLabel = isFavoriteStudio(studio.id) ? '保存済み' : 'あとで残す';
+        const favoriteButtonLabel = isFavoriteStudio(studio.id) ? '保存済み' : 'あとで見返す';
         const favoriteButtonState = isFavoriteStudio(studio.id) ? 'active' : '';
         const cardGuideMarkup = cardGuideLinks.length > 0 ? `
         <div class="card-guide-box">
@@ -153,6 +219,8 @@ function renderStudios(data) {
         <div class="card-heading-block">
           <span class="card-eyebrow">${categoryLabel}</span>
           <h3 class="h3">${studio.name}</h3>
+          ${curatorLabelMarkup}
+          ${localAreaCueMarkup}
           <p class="card-location">${studio.access}</p>
           ${locationNoteMarkup}
         </div>
@@ -178,7 +246,7 @@ function renderStudios(data) {
         </div>
         ${cardExtraMarkup}
         <div class="card-action-row">
-          <button class="btn btn-primary detail-btn card-detail-btn">詳細を見る</button>
+          <button class="btn btn-primary detail-btn card-detail-btn">比較ポイントを見る</button>
           <div class="card-support-actions">
             <button class="btn btn-text favorite-toggle-btn ${favoriteButtonState}" type="button" data-favorite-id="${studio.id}">${favoriteButtonLabel}</button>
             <button class="btn btn-text compare-toggle-btn ${compareButtonState}" type="button" data-studio-id="${studio.id}" ${compareButtonDisabled}>${compareButtonLabel}</button>
@@ -275,6 +343,26 @@ function getLocationNoteMarkup(studio, className = 'location-note') {
     `;
 }
 
+function getLocalAreaCue(studio) {
+    const access = studio?.access || '';
+    const area = studio?.area || '';
+    const text = `${area} ${access}`;
+
+    if (/フジグラン|エミフル|イオンモール|ジョー・プラ|三越|高島屋/.test(text)) return '買い物ついでに寄りやすいエリア';
+    if (/松山市駅|JR松山駅|大街道駅|勝山町駅|本町五丁目駅|土橋駅|鷹子駅|駅から徒歩|徒歩圏内|徒歩\d+分/.test(text)) return '駅や電車沿線から通いやすいエリア';
+    if (/銀天街|大街道|二番町|三番町|千舟町|湊町/.test(text)) return '松山中心部から動きやすいエリア';
+    if (/朝生田|山越|持田|桑原|衣山|宮西|空港通/.test(text)) return '車移動もしやすい市内エリア';
+    if (/今治市|新居浜市|西条市|宇和島市|大洲市|八幡浜市|西予市|愛南町|松前町|砥部町|内子町|鬼北町/.test(text)) return '地域名から探したいときに見やすいエリア';
+
+    return '';
+}
+
+function getLocalAreaCueMarkup(studio, className = 'local-area-cue') {
+    const cue = getLocalAreaCue(studio);
+    if (!cue) return '';
+    return `<span class="${className}">${cue}</span>`;
+}
+
 function hasTrialInfo(studio) {
     if (!studio) return false;
 
@@ -320,6 +408,35 @@ function getQuickStatusMarkup(studio) {
           <strong>${item.value}</strong>
         </span>
       `).join('')}
+    </div>
+    `;
+}
+
+function getCuratorLabels(studio) {
+    const labels = [];
+    const pricing = getPricingVisibility(studio?.pricing);
+    const trialStatus = getTrialStatus(studio);
+    const commute = getCommuteSummary(studio);
+    const beginner = studio?.features?.beginnerFriendly;
+
+    if (trialStatus === '無料体験あり' || trialStatus === '体験案内あり') labels.push('体験から入りやすい');
+    if (pricing === '料金公開あり' || pricing === '料金表公開あり') labels.push('料金感をつかみやすい');
+    if (commute === '車で通いやすい') labels.push('送迎しやすい');
+    if (commute === '駅近・徒歩圏') labels.push('駅から通いやすい');
+    if (beginner === '◎' || beginner === '〇') labels.push('初心者が入りやすい');
+    if (studio?.features?.kidsClass) labels.push('子どもの入口に向く');
+    if (studio?.features?.adultClass) labels.push('大人の学び直し向き');
+
+    return [...new Set(labels)].slice(0, 2);
+}
+
+function getCuratorLabelMarkup(studio, className = 'curator-label-row') {
+    const labels = getCuratorLabels(studio);
+    if (labels.length === 0) return '';
+
+    return `
+    <div class="${className}" aria-label="LessonMapの見立て">
+      ${labels.map(label => `<span class="curator-label-chip">${label}</span>`).join('')}
     </div>
     `;
 }
@@ -495,6 +612,8 @@ function clearFavorites() {
 function updateCollectionCounts(compareCount = compareMemoIds.length, favoriteCount = favoriteIds.length) {
     const comparePanelCount = document.getElementById('compare-panel-count');
     const favoritePanelCount = document.getElementById('favorite-panel-count');
+    const floatingCompareBar = document.getElementById('floating-compare-bar');
+    const floatingCompareCount = document.getElementById('floating-compare-count');
     const compareGuideCounts = document.querySelectorAll('[data-compare-count]');
     const favoriteGuideCounts = document.querySelectorAll('[data-favorite-count]');
     const utilityPanel = document.querySelector('.results-utility-panel');
@@ -506,10 +625,12 @@ function updateCollectionCounts(compareCount = compareMemoIds.length, favoriteCo
         node.textContent = `${compareCount}/${COMPARE_MEMO_LIMIT}`;
     });
     if (comparePanelCount) comparePanelCount.textContent = `${compareCount}/${COMPARE_MEMO_LIMIT}`;
+    if (floatingCompareCount) floatingCompareCount.textContent = `${compareCount}/${COMPARE_MEMO_LIMIT}`;
     favoriteGuideCounts.forEach(node => {
         node.textContent = `${favoriteCount}件`;
     });
     if (favoritePanelCount) favoritePanelCount.textContent = `${favoriteCount}件`;
+    if (floatingCompareBar) floatingCompareBar.hidden = compareCount === 0;
     if (utilityPanel) utilityPanel.classList.toggle('is-empty', !hasSavedItems);
     if (utilityGuideGrid) utilityGuideGrid.hidden = !hasSavedItems;
     if (utilityEmptyCopy) utilityEmptyCopy.hidden = hasSavedItems;
@@ -519,7 +640,23 @@ function initResultsPanels() {
     bindResultsPanelToggle('results-guide-toggle', 'results-guide-body', 'guide');
     bindResultsPanelToggle('results-explain-toggle', 'results-explain-body', 'explain');
     bindResultsPanelToggle('results-utility-toggle', 'results-utility-body', 'utility');
+    initFloatingCompareBar();
     syncResultsPanelStates();
+}
+
+function initFloatingCompareBar() {
+    const button = document.getElementById('floating-compare-bar');
+    if (!button) return;
+
+    button.addEventListener('click', () => {
+        resultsPanelState.utility = true;
+        resultsPanelState.utilityTouched = true;
+        syncResultsPanelStates();
+        const comparePanel = document.getElementById('compare-memo-panel');
+        if (comparePanel) {
+            comparePanel.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+    });
 }
 
 function bindResultsPanelToggle(buttonId, bodyId, panelKey) {
@@ -620,6 +757,7 @@ function renderCompareMemo() {
     grid.innerHTML = items.map(studio => {
         const statuses = getQuickStatusItems(studio);
         const verificationMarkup = getVerificationMarkup(studio, 'compare-memo-verification');
+        const trialCheckpoints = getTrialCheckpoints(studio);
         const summaryRows = [
             { key: 'audience', label: '対象', value: getAudienceSummary(studio.features) },
             { key: 'pricing', label: '料金', value: formatPricingSummary(studio.pricing) },
@@ -644,10 +782,16 @@ function renderCompareMemo() {
           <div class="compare-memo-statuses">
             ${statuses.map(item => `<span class="compare-memo-status ${diffMap[`status_${item.key}`] ? 'is-diff' : ''}" data-tone="${item.tone}"><strong>${item.label}</strong>${item.value}</span>`).join('')}
           </div>
+          <div class="compare-memo-checklist">
+            <span class="compare-memo-checklist-label">体験時に見るポイント</span>
+            <ul class="compare-memo-checklist-list">
+              ${trialCheckpoints.map(point => `<li>${point}</li>`).join('')}
+            </ul>
+          </div>
           ${verificationMarkup}
           <div class="compare-memo-actions">
-            <button class="btn btn-outline compare-memo-detail-btn" type="button" data-open-compare-id="${studio.id}">詳細を見る</button>
-            <a class="compare-memo-link" href="${studio.link}" target="_blank" rel="noopener noreferrer">公式サイトへ</a>
+            <button class="btn btn-outline compare-memo-detail-btn" type="button" data-open-compare-id="${studio.id}">比較ポイントを見る</button>
+            <a class="compare-memo-link" href="${studio.link}" target="_blank" rel="noopener noreferrer">${getOfficialActionLabel(studio)}</a>
           </div>
         </article>
         `;
@@ -677,6 +821,57 @@ function getCompareMemoDiffMap(items) {
     return Object.fromEntries(
         Object.entries(values).map(([key, entries]) => [key, new Set(entries).size > 1])
     );
+}
+
+function getTrialCheckpoints(studio) {
+    const category = studio?.category || '';
+    const points = [];
+
+    if (category === '英会話') {
+        points.push('先生の話すスピードと声かけが合うか');
+        points.push('体験後の宿題や通い方が想像できるか');
+    } else if (category === 'ダンス') {
+        points.push('レベル感が合っていて萎縮しないか');
+        points.push('見学時にクラスの雰囲気が合うか');
+    } else if (category === 'ピアノ') {
+        points.push('先生の教え方が子どもや初心者に合うか');
+        points.push('振替や練習ペースを続けられそうか');
+    } else if (category === 'プログラミング') {
+        points.push('教材の進み方が年齢に合っているか');
+        points.push('自分で考える時間とサポートの量が合うか');
+    } else if (category === 'スイミング') {
+        points.push('水への慣れ方や声かけが安心できるか');
+        points.push('更衣室や見学環境が使いやすいか');
+    } else if (category === 'スポーツジム' || category === '体操教室') {
+        points.push('通う時間帯の混み方や使いやすさを見ておく');
+        points.push('初心者でも入りやすい雰囲気か確かめる');
+    } else {
+        points.push('通う曜日と時間を続けられそうか');
+        points.push('先生や教室の雰囲気が合うか見ておく');
+    }
+
+    if (studio?.features?.parking) {
+        points.push('駐車場の停めやすさと送迎動線を確認する');
+    } else if ((studio?.access || '').includes('徒歩')) {
+        points.push('駅や停留所から実際に通いやすいか見る');
+    } else {
+        points.push('通学ルートと送迎のしやすさを確認する');
+    }
+
+    return points.slice(0, 3);
+}
+
+function getOfficialActionLabel(studio) {
+    const pricing = getPricingVisibility(studio?.pricing);
+    const trialStatus = getTrialStatus(studio);
+
+    if (trialStatus === '無料体験あり' || trialStatus === '体験案内あり') {
+        return 'まずは体験の有無を見る';
+    }
+    if (pricing === '料金公開あり' || pricing === '料金表公開あり') {
+        return '料金とコースを見る';
+    }
+    return '公式サイトで教室情報を見る';
 }
 
 function renderFavorites() {
@@ -714,8 +909,8 @@ function renderFavorites() {
           <span><strong>料金:</strong> ${formatPricingSummary(studio.pricing)}</span>
         </div>
         <div class="favorite-actions">
-          <button class="btn btn-outline favorite-detail-btn" type="button" data-open-favorite-id="${studio.id}">詳細を見る</button>
-          <button class="btn btn-text favorite-compare-btn" type="button" data-favorite-compare-id="${studio.id}">${isComparedStudio(studio.id) ? '比較中' : '今すぐ比較へ'}</button>
+          <button class="btn btn-outline favorite-detail-btn" type="button" data-open-favorite-id="${studio.id}">候補を見直す</button>
+          <button class="btn btn-text favorite-compare-btn" type="button" data-favorite-compare-id="${studio.id}">${isComparedStudio(studio.id) ? '比較中' : '比較メモへ'}</button>
         </div>
       </article>
     `).join('');
@@ -1714,10 +1909,12 @@ function openModal(studioId) {
     const quickStatusMarkup = getQuickStatusMarkup(studio);
     const verificationMarkup = getVerificationMarkup(studio, 'modal-verification-block');
     const locationNoteMarkup = getLocationNoteMarkup(studio, 'location-note location-note-modal');
+    const curatorLabelMarkup = getCuratorLabelMarkup(studio, 'curator-label-row curator-label-row-modal');
+    const localAreaCueMarkup = getLocalAreaCueMarkup(studio, 'local-area-cue local-area-cue-modal');
     const relatedGuides = getRecommendedGuidesForStudio(studio);
-    const compareButtonLabel = isComparedStudio(studio.id) ? '比較から外す' : '今すぐ比べる';
+    const compareButtonLabel = isComparedStudio(studio.id) ? '比較メモから外す' : '比較メモに入れる';
     const compareButtonDisabled = !isComparedStudio(studio.id) && compareMemoIds.length >= COMPARE_MEMO_LIMIT ? 'disabled' : '';
-    const favoriteButtonLabel = isFavoriteStudio(studio.id) ? '保存を外す' : 'あとで残す';
+    const favoriteButtonLabel = isFavoriteStudio(studio.id) ? '保存を外す' : 'あとで見返す';
     const relatedGuideMarkup = relatedGuides.length > 0 ? `
             <section class="modal-guide-section">
                 <div class="modal-guide-head">
@@ -1747,6 +1944,8 @@ function openModal(studioId) {
             <div class="modal-head">
                 <div class="tags modal-genre-tags">${genreTags}</div>
                 <h2 class="modal-title">${studio.name}</h2>
+                ${curatorLabelMarkup}
+                ${localAreaCueMarkup}
                 <div class="modal-location-badges">
                     <span class="badge modal-location-badge">${studio.city} ${studio.area}</span>
                     <span class="modal-access-text">${studio.access}</span>
@@ -1776,7 +1975,7 @@ function openModal(studioId) {
             <div class="card-meta-chips modal-feature-chips">${featureSummary}</div>
 
             <div class="modal-action-row">
-                <a href="${studio.link}" target="_blank" rel="noopener noreferrer" class="btn btn-primary modal-primary-btn">公式サイト・SNSを見る</a>
+                <a href="${studio.link}" target="_blank" rel="noopener noreferrer" class="btn btn-primary modal-primary-btn">${getOfficialActionLabel(studio)}</a>
                 <button class="btn btn-outline modal-favorite-btn" type="button" data-modal-favorite-id="${studio.id}">${favoriteButtonLabel}</button>
                 <button class="btn btn-outline modal-compare-btn" type="button" data-modal-studio-id="${studio.id}" ${compareButtonDisabled}>${compareButtonLabel}</button>
             </div>

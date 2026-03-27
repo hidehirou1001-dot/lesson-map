@@ -180,21 +180,61 @@
                     <strong>3選〜5選</strong>
                 </div>
             </div>
-            <div class="recommendations-guide-grid">
-                <div class="site-summary-block">
-                    <span class="site-summary-kicker">特集の見方</span>
-                    <ul class="site-summary-list">
-                        <li>迷ったら「地域」か「悩み」から入ると見やすいです。</li>
-                        <li>決まっているなら「ジャンル」から入るのが最短です。</li>
-                    </ul>
-                </div>
-                <div class="trust-note-block trust-note-block-wide">
-                    <span class="site-summary-kicker">掲載方針</span>
-                    <ul class="trust-note-list">
-                        <li>公式確認できた教室・施設を中心に特集化しています。</li>
-                        <li>比較軸は、対象、料金、通いやすさです。</li>
-                    </ul>
-                </div>
+            <div class="compact-accordion-list recommendations-hero-accordion-list">
+                <details class="compact-accordion-item" open>
+                    <summary class="compact-accordion-trigger">
+                        <span>特集の見方</span>
+                    </summary>
+                    <div class="compact-accordion-body">
+                        <div class="site-summary-chip-row">
+                            <span class="site-summary-chip">迷ったら地域</span>
+                            <span class="site-summary-chip">悩みからでもOK</span>
+                            <span class="site-summary-chip">決まっていればジャンル</span>
+                        </div>
+                    </div>
+                </details>
+                <details class="compact-accordion-item">
+                    <summary class="compact-accordion-trigger">
+                        <span>掲載方針</span>
+                    </summary>
+                    <div class="compact-accordion-body">
+                        <div class="site-summary-chip-row">
+                            <span class="site-summary-chip">公式確認ベース</span>
+                            <span class="site-summary-chip">対象で比較</span>
+                            <span class="site-summary-chip">料金で比較</span>
+                            <span class="site-summary-chip">通いやすさで比較</span>
+                        </div>
+                    </div>
+                </details>
+                <details class="compact-accordion-item">
+                    <summary class="compact-accordion-trigger">
+                        <span>LessonMapが特に見る軸</span>
+                    </summary>
+                    <div class="compact-accordion-body">
+                        <div class="editorial-axis-grid">
+                            <article class="editorial-axis-card">
+                                <span class="editorial-axis-kicker">送迎</span>
+                                <strong>送迎しやすさ</strong>
+                                <p>市町ごとの動きやすさを見ます。</p>
+                            </article>
+                            <article class="editorial-axis-card">
+                                <span class="editorial-axis-kicker">体験</span>
+                                <strong>体験から入りやすいか</strong>
+                                <p>無料体験や見学の入り口を見ます。</p>
+                            </article>
+                            <article class="editorial-axis-card">
+                                <span class="editorial-axis-kicker">料金</span>
+                                <strong>料金感がつかみやすいか</strong>
+                                <p>月謝や料金表の見え方を見ます。</p>
+                            </article>
+                            <article class="editorial-axis-card">
+                                <span class="editorial-axis-kicker">入口</span>
+                                <strong>初心者が迷いにくいか</strong>
+                                <p>子どもも大人も入りやすい導線を見ます。</p>
+                            </article>
+                        </div>
+                    </div>
+                </details>
             </div>
         </section>
 
@@ -263,13 +303,58 @@
             </div>
         </section>
 
-        <section class="recommendation-seo-copy reveal">
-            <div class="recommendation-seo-copy-head">
-                <span class="site-summary-kicker">HOW TO USE</span>
-                <h2 class="h2">愛媛の習い事特集を地域別・悩み別・ジャンル別に探せるページです</h2>
+        <section class="issue-path-panel reveal" aria-labelledby="recommendations-issue-title">
+            <div class="start-path-head">
+                <div>
+                    <span class="featured-strip-kicker">BY CONCERN</span>
+                    <h2 class="h2 finder-title" id="recommendations-issue-title">悩みから入口を選ぶ</h2>
+                    <p class="results-summary">何を探すかより先に、今の迷い方に近い入口から入れます。</p>
+                </div>
             </div>
-            <p>地域、悩み、ジャンルの入口記事をまとめています。まずは今の探し方に近い入口を1つ選ぶのが使いやすいです。</p>
-            <p>さらに絞りたいときは、トップの一覧検索へ戻れます。</p>
+            <div class="issue-path-grid">
+                <a class="issue-path-card" href="/recommendations/ehime-kids-lessons/">
+                    <span class="issue-path-kicker">子ども</span>
+                    <strong>引っ込み思案でも始めやすい候補から見たい</strong>
+                    <div class="start-path-tags">
+                        <span class="start-path-tag">家庭目線</span>
+                        <span class="start-path-tag">年齢別へ広げる</span>
+                    </div>
+                    <p>子ども向けの入口から、年齢やジャンルに広げられます。</p>
+                </a>
+                <a class="issue-path-card" href="/recommendations/ehime-adult-lessons/">
+                    <span class="issue-path-kicker">大人</span>
+                    <strong>大人の趣味や学び直しを続けやすさで見たい</strong>
+                    <div class="start-path-tags">
+                        <span class="start-path-tag">学び直し</span>
+                        <span class="start-path-tag">平日夜も見る</span>
+                    </div>
+                    <p>大人向けの入口から、生活に合う候補を探せます。</p>
+                </a>
+                <a class="issue-path-card" href="/recommendations/ehime-trial-lessons/">
+                    <span class="issue-path-kicker">失敗したくない</span>
+                    <strong>まずは体験しやすい教室から見て比較したい</strong>
+                    <div class="start-path-tags">
+                        <span class="start-path-tag">無料体験</span>
+                        <span class="start-path-tag">比較しやすい</span>
+                    </div>
+                    <p>体験しやすい特集から入って、比較しやすい候補へ進めます。</p>
+                </a>
+            </div>
+        </section>
+
+        <section class="recommendation-seo-copy reveal">
+            <details class="compact-accordion-item" open>
+                <summary class="compact-accordion-trigger">
+                    <span>HOW TO USE</span>
+                </summary>
+                <div class="compact-accordion-body">
+                    <div class="recommendation-seo-copy-head">
+                        <h2 class="h2">愛媛の習い事特集を地域別・悩み別・ジャンル別に探せるページです</h2>
+                    </div>
+                    <p>地域、悩み、ジャンルの入口記事をまとめています。まずは今の探し方に近い入口を1つ選ぶのが使いやすいです。</p>
+                    <p>さらに絞りたいときは、トップの一覧検索へ戻れます。</p>
+                </div>
+            </details>
         </section>
 
         <div class="grid-3 recommendations-grid">
@@ -280,7 +365,7 @@
                     <span>最初の1本に向く記事を厳選</span>
                     <span>7本</span>
                 </div>
-                <p class="results-summary">比較しやすさと回遊しやすさを重視して、最初の1本に向いている特集を先にまとめています。</p>
+                <p class="results-summary">最初の1本に向いている特集を先にまとめています。</p>
             </div>
 
             <a href="/recommendations/matsuyama-adult-piano/" class="card recommendation-entry recommendation-entry-new"
@@ -366,7 +451,7 @@
                     <span>入口記事からエリアを絞る</span>
                     <span>13本</span>
                 </div>
-                <p class="results-summary">まずはエリア全体の入口記事を見てから、気になったジャンル特集へ進む流れが使いやすいです。</p>
+                <p class="results-summary">まずは地域入口から見るのが使いやすいです。</p>
             </div>
 
             <a href="/recommendations/niihama-lessons/" class="card recommendation-entry recommendation-entry-new"
@@ -620,11 +705,68 @@
                 <span class="results-kicker">NEED GUIDES</span>
                 <h2 class="h2">悩み・目的から探す</h2>
                 <div class="recommendation-grid-meta">
-                    <span>条件が決まっている人向け</span>
+                    <span>失敗しにくい入口から見る</span>
                     <span>16本</span>
                 </div>
-                <p class="results-summary">安さ、子ども向け、大人向け、初心者向けなど、悩みや目的から比較記事を選べます。</p>
+                <p class="results-summary">何を習うかより先に、始めやすさ・体験・学び直しのような悩みから比較記事を選べます。</p>
             </div>
+
+            <a href="/recommendations/ehime-trial-lessons/" class="card recommendation-entry recommendation-entry-new"
+                style="text-decoration: none; color: inherit;">
+                <div class="card-img-wrap" style="height: 180px;">
+                    <span class="badge">🧪 体験しやすい</span>
+                    <span class="recommendation-fresh-badge">NEW</span>
+                    <img src="https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                        alt="愛媛の体験しやすい習い事ガイド" class="card-img">
+                </div>
+                <div class="card-content">
+                    <h3 class="h3" style="font-size: 1.1rem; flex: 1;">愛媛の体験しやすい習い事ガイド｜無料体験・見学から探す入口【2026年】</h3>
+                    <div class="card-meta-chips">
+                        <span class="card-meta-chip">体験・見学</span>
+                        <span class="card-meta-chip">初回比較</span>
+                        <span class="card-meta-chip">入口ガイド</span>
+                    </div>
+                    <p style="font-size: 0.875rem; color: var(--clr-text-muted); margin-top: 0.5rem;">愛媛県内で無料体験や見学から始めやすい習い事を探す方向けに、体験しやすい特集をまとめたハブページです。</p>
+                </div>
+            </a>
+
+            <a href="/recommendations/ehime-price-lessons/" class="card recommendation-entry recommendation-entry-new"
+                style="text-decoration: none; color: inherit;">
+                <div class="card-img-wrap" style="height: 180px;">
+                    <span class="badge">💴 料金が見やすい</span>
+                    <span class="recommendation-fresh-badge">NEW</span>
+                    <img src="https://images.unsplash.com/photo-1513258496099-48168024aec0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                        alt="愛媛の料金が見やすい習い事ガイド" class="card-img">
+                </div>
+                <div class="card-content">
+                    <h3 class="h3" style="font-size: 1.1rem; flex: 1;">愛媛の料金が見やすい習い事ガイド｜月謝・費用感から探す入口【2026年】</h3>
+                    <div class="card-meta-chips">
+                        <span class="card-meta-chip">月謝・費用感</span>
+                        <span class="card-meta-chip">料金比較</span>
+                        <span class="card-meta-chip">入口ガイド</span>
+                    </div>
+                    <p style="font-size: 0.875rem; color: var(--clr-text-muted); margin-top: 0.5rem;">愛媛県内で月謝や費用感を見ながら習い事を探したい方向けに、料金比較に進みやすい特集をまとめたハブページです。</p>
+                </div>
+            </a>
+
+            <a href="/recommendations/ehime-beginner-lessons/" class="card recommendation-entry recommendation-entry-new"
+                style="text-decoration: none; color: inherit;">
+                <div class="card-img-wrap" style="height: 180px;">
+                    <span class="badge">🔰 初心者向け</span>
+                    <span class="recommendation-fresh-badge">NEW</span>
+                    <img src="https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                        alt="愛媛の初心者向け習い事ガイド" class="card-img">
+                </div>
+                <div class="card-content">
+                    <h3 class="h3" style="font-size: 1.1rem; flex: 1;">愛媛の初心者向け習い事ガイド｜初めてでも始めやすい入口【2026年】</h3>
+                    <div class="card-meta-chips">
+                        <span class="card-meta-chip">愛媛全域</span>
+                        <span class="card-meta-chip">未経験向け</span>
+                        <span class="card-meta-chip">入口ガイド</span>
+                    </div>
+                    <p style="font-size: 0.875rem; color: var(--clr-text-muted); margin-top: 0.5rem;">愛媛県内で初めての習い事を探す方向けに、始めやすい記事をまとめたハブページです。</p>
+                </div>
+            </a>
 
             <a href="/recommendations/matsuyama-cheap-english/" class="card recommendation-entry recommendation-entry-new"
                 style="text-decoration: none; color: inherit;">
@@ -778,62 +920,6 @@
                 </div>
             </a>
 
-            <a href="/recommendations/ehime-beginner-lessons/" class="card recommendation-entry recommendation-entry-new"
-                style="text-decoration: none; color: inherit;">
-                <div class="card-img-wrap" style="height: 180px;">
-                    <span class="badge">🔰 初心者向け</span>
-                    <span class="recommendation-fresh-badge">NEW</span>
-                    <img src="https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-                        alt="愛媛の初心者向け習い事ガイド" class="card-img">
-                </div>
-                <div class="card-content">
-                    <h3 class="h3" style="font-size: 1.1rem; flex: 1;">愛媛の初心者向け習い事ガイド｜初めてでも始めやすい入口【2026年】</h3>
-                    <div class="card-meta-chips">
-                        <span class="card-meta-chip">愛媛全域</span>
-                        <span class="card-meta-chip">未経験向け</span>
-                        <span class="card-meta-chip">入口ガイド</span>
-                    </div>
-                    <p style="font-size: 0.875rem; color: var(--clr-text-muted); margin-top: 0.5rem;">愛媛県内で初めての習い事を探す方向けに、始めやすい記事をまとめたハブページです。</p>
-                </div>
-            </a>
-
-            <a href="/recommendations/ehime-trial-lessons/" class="card recommendation-entry recommendation-entry-new"
-                style="text-decoration: none; color: inherit;">
-                <div class="card-img-wrap" style="height: 180px;">
-                    <span class="badge">🧪 体験しやすい</span>
-                    <span class="recommendation-fresh-badge">NEW</span>
-                    <img src="https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-                        alt="愛媛の体験しやすい習い事ガイド" class="card-img">
-                </div>
-                <div class="card-content">
-                    <h3 class="h3" style="font-size: 1.1rem; flex: 1;">愛媛の体験しやすい習い事ガイド｜無料体験・見学から探す入口【2026年】</h3>
-                    <div class="card-meta-chips">
-                        <span class="card-meta-chip">体験・見学</span>
-                        <span class="card-meta-chip">初回比較</span>
-                        <span class="card-meta-chip">入口ガイド</span>
-                    </div>
-                    <p style="font-size: 0.875rem; color: var(--clr-text-muted); margin-top: 0.5rem;">愛媛県内で無料体験や見学から始めやすい習い事を探す方向けに、体験しやすい特集をまとめたハブページです。</p>
-                </div>
-            </a>
-
-            <a href="/recommendations/ehime-price-lessons/" class="card recommendation-entry recommendation-entry-new"
-                style="text-decoration: none; color: inherit;">
-                <div class="card-img-wrap" style="height: 180px;">
-                    <span class="badge">💴 料金が見やすい</span>
-                    <span class="recommendation-fresh-badge">NEW</span>
-                    <img src="https://images.unsplash.com/photo-1513258496099-48168024aec0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-                        alt="愛媛の料金が見やすい習い事ガイド" class="card-img">
-                </div>
-                <div class="card-content">
-                    <h3 class="h3" style="font-size: 1.1rem; flex: 1;">愛媛の料金が見やすい習い事ガイド｜月謝・費用感から探す入口【2026年】</h3>
-                    <div class="card-meta-chips">
-                        <span class="card-meta-chip">月謝・費用感</span>
-                        <span class="card-meta-chip">料金比較</span>
-                        <span class="card-meta-chip">入口ガイド</span>
-                    </div>
-                    <p style="font-size: 0.875rem; color: var(--clr-text-muted); margin-top: 0.5rem;">愛媛県内で月謝や費用感を見ながら習い事を探したい方向けに、料金比較に進みやすい特集をまとめたハブページです。</p>
-                </div>
-            </a>
 
             <a href="/recommendations/matsuyama-adult-piano/" class="card recommendation-entry recommendation-entry-new"
                 style="text-decoration: none; color: inherit;">
@@ -1426,19 +1512,31 @@
         </section>
         <section class="article-faq reveal" style="margin-top: var(--space-2xl);">
             <h2 class="h2 article-heading-accent">よくある質問（FAQ）</h2>
-            <div class="article-faq-list">
-                <div class="article-faq-item">
-                    <h3 class="h3">おすすめ特集一覧は、どこから見始めるのが使いやすいですか？</h3>
-                    <p>迷っているなら、まずは地域から探すか、子ども向けや初心者向けのような目的から探す入口がおすすめです。やりたいジャンルが決まっている場合は、ジャンル別の特集へ直接進むと探しやすくなります。</p>
-                </div>
-                <div class="article-faq-item">
-                    <h3 class="h3">特集一覧とトップの一覧検索は、どう使い分ければいいですか？</h3>
-                    <p>特集一覧は、比較記事の入口を探すページです。気になる地域や目的の記事を見つけたあとに、トップの一覧検索でエリアや特徴をさらに絞り込むと候補を詰めやすくなります。</p>
-                </div>
-                <div class="article-faq-item">
-                    <h3 class="h3">地域名で探している場合も、このページから見て大丈夫ですか？</h3>
-                    <p>大丈夫です。今治、新居浜、松前町、西条市、宇和島市、大洲市、八幡浜市、西予市、愛南町などの地域入口ページをこの一覧から選べます。地域記事で絞ったあとに、英会話やダンスなどの個別特集へ進む流れが使いやすいです。</p>
-                </div>
+            <div class="compact-accordion-list article-faq-list">
+                <details class="compact-accordion-item">
+                    <summary class="compact-accordion-trigger">
+                        <span>おすすめ特集一覧は、どこから見始めるのが使いやすいですか？</span>
+                    </summary>
+                    <div class="compact-accordion-body">
+                        <p>迷っているなら、まずは地域から探すか、子ども向けや初心者向けのような目的から探す入口がおすすめです。やりたいジャンルが決まっている場合は、ジャンル別の特集へ直接進むと探しやすくなります。</p>
+                    </div>
+                </details>
+                <details class="compact-accordion-item">
+                    <summary class="compact-accordion-trigger">
+                        <span>特集一覧とトップの一覧検索は、どう使い分ければいいですか？</span>
+                    </summary>
+                    <div class="compact-accordion-body">
+                        <p>特集一覧は、比較記事の入口を探すページです。気になる地域や目的の記事を見つけたあとに、トップの一覧検索でエリアや特徴をさらに絞り込むと候補を詰めやすくなります。</p>
+                    </div>
+                </details>
+                <details class="compact-accordion-item">
+                    <summary class="compact-accordion-trigger">
+                        <span>地域名で探している場合も、このページから見て大丈夫ですか？</span>
+                    </summary>
+                    <div class="compact-accordion-body">
+                        <p>大丈夫です。今治、新居浜、松前町、西条市、宇和島市、大洲市、八幡浜市、西予市、愛南町などの地域入口ページをこの一覧から選べます。地域記事で絞ったあとに、英会話やダンスなどの個別特集へ進む流れが使いやすいです。</p>
+                    </div>
+                </details>
             </div>
         </section>
 
