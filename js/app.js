@@ -1520,8 +1520,22 @@ function applyFilters() {
     if (currentFilterState.searchQuery) {
         const query = currentFilterState.searchQuery;
         filtered = filtered.filter(s => {
-            // Search in name, description, area, and genres
-            const text = `${s.name} ${s.description} ${s.area} ${s.genres.join(' ')}`.toLowerCase();
+            const regionLabel = Object.keys(cityRegionMap).find(region => cityRegionMap[region].includes(s.city)) || '';
+            const categoryLabel = getCategoryLabel(s.category);
+            const genreLabels = s.genres.map(genre => filterLabelMap[genre] || genre).join(' ');
+            // Search in visible user-facing fields
+            const text = [
+                s.name,
+                s.description,
+                s.city,
+                s.area,
+                s.access,
+                categoryLabel,
+                s.category,
+                s.genres.join(' '),
+                genreLabels,
+                regionLabel
+            ].join(' ').toLowerCase();
             return text.includes(query);
         });
     }
