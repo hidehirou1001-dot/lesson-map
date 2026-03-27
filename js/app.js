@@ -1707,7 +1707,7 @@ function updateResultsMeta(filtered) {
     }
 
     if (clearFiltersBtn) {
-        clearFiltersBtn.style.display = activeChips.length > 1 || currentFilterState.searchQuery || currentFilterState.quickFilters.length ? 'inline-flex' : 'none';
+        clearFiltersBtn.style.display = activeChips.length > 0 ? 'inline-flex' : 'none';
     }
 
     syncResultsPanelStates();
