@@ -3618,7 +3618,7 @@ p {
 
 .recommendation-entry .card-content {
   display: grid;
-  gap: 0.48rem;
+  gap: 0.42rem;
   padding: 0 0.35rem 0.35rem;
 }
 
@@ -3629,6 +3629,7 @@ p {
   overflow: hidden;
   line-height: 1.5;
   font-size: 1.04rem !important;
+  letter-spacing: -0.01em;
 }
 
 .recommendation-entry .card-content p {
@@ -3638,9 +3639,9 @@ p {
   -webkit-line-clamp: 1;
   -webkit-box-orient: vertical;
   overflow: hidden;
-  font-size: 0.8rem;
-  line-height: 1.55;
-  color: var(--clr-text-muted);
+  font-size: 0.77rem;
+  line-height: 1.5;
+  color: rgba(34, 34, 34, 0.58);
 }
 
 .recommendation-entry .card-content .card-meta-chips {
@@ -3655,6 +3656,11 @@ p {
   font-size: 0.68rem;
   background: rgba(34, 34, 34, 0.04);
   color: rgba(34, 34, 34, 0.72);
+}
+
+.recommendation-entry .card-content .card-meta-chip:first-child {
+  background: rgba(201, 42, 42, 0.08);
+  color: var(--clr-primary-dark);
 }
 
 .recommendation-entry .card-img-wrap::after,
@@ -4847,9 +4853,7 @@ p {
   }
 
   .recommendation-entry .card-content p {
-    margin-top: 0 !important;
-    line-height: 1.62;
-    font-size: 0.82rem;
+    display: none;
   }
 
   .recommendation-grid-label {
