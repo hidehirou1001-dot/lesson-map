@@ -5,27 +5,35 @@
 
 document.documentElement.classList.add('js');
 
+function runSafely(label, callback) {
+    try {
+        callback();
+    } catch (error) {
+        console.error(`[LessonMap] ${label} failed`, error);
+    }
+}
+
 document.addEventListener('DOMContentLoaded', () => {
-    initAnimations();
-    initFAQ();
-    initCarousels();
-    initResultsPanels();
-    initCompareMemo();
-    initFavorites();
-    initShareTools();
+    runSafely('initAnimations', initAnimations);
+    runSafely('initFAQ', initFAQ);
+    runSafely('initCarousels', initCarousels);
+    runSafely('initResultsPanels', initResultsPanels);
+    runSafely('initCompareMemo', initCompareMemo);
+    runSafely('initFavorites', initFavorites);
+    runSafely('initShareTools', initShareTools);
 
     // Render studios if a container exists (e.g., on index.html)
     const studiosGrid = document.getElementById('studios-grid');
     if (studiosGrid && window.studiosData) {
-        initHeroStats(window.studiosData);
-        initCategoryCounts(window.studiosData);
-        renderStudios(window.studiosData);
-        initSearch();
-        initFilters();
-        initModal();
-        renderCompareMemo();
-        renderFavorites();
-        applyFilters(); // Apply initial filters
+        runSafely('initHeroStats', () => initHeroStats(window.studiosData));
+        runSafely('initCategoryCounts', () => initCategoryCounts(window.studiosData));
+        runSafely('renderStudios', () => renderStudios(window.studiosData));
+        runSafely('initSearch', initSearch);
+        runSafely('initFilters', initFilters);
+        runSafely('initModal', initModal);
+        runSafely('renderCompareMemo', renderCompareMemo);
+        runSafely('renderFavorites', renderFavorites);
+        runSafely('applyFilters', applyFilters); // Apply initial filters
     }
 });
 
@@ -121,6 +129,7 @@ function initFAQ() {
 
     faqItems.forEach(item => {
         const question = item.querySelector('.faq-question');
+        if (!question) return;
         question.addEventListener('click', () => {
             // Toggle active class
             const isActive = item.classList.contains('active');
@@ -1581,8 +1590,8 @@ function applyFilters() {
 
     filtered = sortStudios(filtered, currentFilterState.sort);
 
-    renderStudios(filtered);
-    updateResultsMeta(filtered);
+    runSafely('renderStudios(applyFilters)', () => renderStudios(filtered));
+    runSafely('updateResultsMeta(applyFilters)', () => updateResultsMeta(filtered));
 }
 
 function sortStudios(data, sortKey) {
