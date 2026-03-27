@@ -827,22 +827,27 @@ function getTrialCheckpoints(studio) {
     const category = studio?.category || '';
     const points = [];
 
-    if (category === '英会話') {
+    if (category === 'English' || category === '英会話') {
         points.push('先生の話すスピードと声かけが合うか');
         points.push('体験後の宿題や通い方が想像できるか');
-    } else if (category === 'ダンス') {
+    } else if (category === 'Dance' || category === 'ダンス') {
         points.push('レベル感が合っていて萎縮しないか');
         points.push('見学時にクラスの雰囲気が合うか');
-    } else if (category === 'ピアノ') {
+    } else if (category === 'Piano' || category === 'ピアノ') {
         points.push('先生の教え方が子どもや初心者に合うか');
         points.push('振替や練習ペースを続けられそうか');
-    } else if (category === 'プログラミング') {
+    } else if (category === 'Programming' || category === 'プログラミング') {
         points.push('教材の進み方が年齢に合っているか');
         points.push('自分で考える時間とサポートの量が合うか');
-    } else if (category === 'スイミング') {
+    } else if (category === 'Swimming' || category === 'スイミング') {
         points.push('水への慣れ方や声かけが安心できるか');
         points.push('更衣室や見学環境が使いやすいか');
-    } else if (category === 'スポーツジム' || category === '体操教室') {
+    } else if (
+        category === 'Fitness' ||
+        category === 'Gymnastics' ||
+        category === 'スポーツジム' ||
+        category === '体操教室'
+    ) {
         points.push('通う時間帯の混み方や使いやすさを見ておく');
         points.push('初心者でも入りやすい雰囲気か確かめる');
     } else {
