@@ -1,0 +1,20 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="630" rx="36" fill="#F6F0E9"/>
+  <rect x="32" y="32" width="1136" height="566" rx="28" fill="url(#bg)"/>
+  <rect x="80" y="86" width="220" height="56" rx="28" fill="#FFECD2"/>
+  <text x="122" y="122" fill="#9B4E11" font-family="Arial, sans-serif" font-size="28" font-weight="700">CHUYO GUIDE</text>
+  <text x="80" y="224" fill="#173B45" font-family="Arial, sans-serif" font-size="72" font-weight="700">Central Ehime</text>
+  <text x="80" y="292" fill="#2E5561" font-family="Arial, sans-serif" font-size="32" font-weight="600">Masaki, Tobe, and nearby routes you can actually use.</text>
+  <rect x="80" y="366" width="228" height="74" rx="22" fill="#FFFFFF"/>
+  <rect x="332" y="366" width="228" height="74" rx="22" fill="#FFFFFF"/>
+  <rect x="584" y="366" width="228" height="74" rx="22" fill="#FFFFFF"/>
+  <text x="112" y="412" fill="#173B45" font-family="Arial, sans-serif" font-size="28" font-weight="700">School routes</text>
+  <text x="364" y="412" fill="#173B45" font-family="Arial, sans-serif" font-size="28" font-weight="700">Car-friendly</text>
+  <text x="616" y="412" fill="#173B45" font-family="Arial, sans-serif" font-size="28" font-weight="700">Expand nearby</text>
+  <defs>
+    <linearGradient id="bg" x1="80" y1="80" x2="1120" y2="560" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFF9F0"/>
+      <stop offset="1" stop-color="#E8EFF1"/>
+    </linearGradient>
+  </defs>
+</svg>
