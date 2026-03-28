@@ -1536,10 +1536,12 @@ function syncQuickFilterButtons() {
 }
 
 function scrollToResultsZone() {
+    const resultsGrid = document.getElementById('studios-grid');
     const resultsZone = document.getElementById('results-zone');
-    if (!resultsZone) return;
+    const target = resultsGrid || resultsZone;
+    if (!target) return;
 
-    const top = resultsZone.getBoundingClientRect().top + window.scrollY - 24;
+    const top = target.getBoundingClientRect().top + window.scrollY - 28;
     window.scrollTo({
         top: Math.max(top, 0),
         behavior: 'smooth'
