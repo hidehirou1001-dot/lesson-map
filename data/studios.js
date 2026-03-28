@@ -1475,6 +1475,54 @@ const studios = [
     link: 'https://pspo.jp/worldplaza/'
   },
 
+  // ================= ボクシングジム（松山市） =================
+  {
+    id: 'studio-boxing-001',
+    name: 'NEWボクシングクラブ',
+    description: '松山市土居田町にあるボクシングクラブ。初心者のフィットネス利用から本格的に続けたい人まで相談しやすい環境です。',
+    category: 'Boxing',
+    city: '松山市',
+    area: '土居田町周辺',
+    access: '松山市土居田町138-3',
+    genres: ['Boxing', 'Beginner', 'Fitness'],
+    pricing: {
+      system: '要確認',
+      minPrice: 0,
+      note: '料金は公式サイトで要確認'
+    },
+    features: {
+      parking: false,
+      beginnerFriendly: '◎',
+      kidsClass: false,
+      adultClass: true
+    },
+    imageUrl: 'https://images.unsplash.com/photo-1549719386-74dfcbf7dbed?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+    link: 'https://www.new-boxing.com/'
+  },
+  {
+    id: 'studio-boxing-002',
+    name: '升田ボクシングジム',
+    description: '松山市鴨川にあるボクシングジム。子どもから大人まで通いやすく、体験から始めたい人にも向いています。',
+    category: 'Boxing',
+    city: '松山市',
+    area: '鴨川周辺',
+    access: '松山市鴨川1丁目1-3 2F',
+    genres: ['Boxing', 'Kids', 'Fitness'],
+    pricing: {
+      system: '月会費',
+      minPrice: 5900,
+      note: '小学生月会費の目安 / 体験1,000円'
+    },
+    features: {
+      parking: true,
+      beginnerFriendly: '◎',
+      kidsClass: true,
+      adultClass: true
+    },
+    imageUrl: 'https://images.unsplash.com/photo-1517438984742-1262db08379e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+    link: 'https://masuda-gym.com/'
+  },
+
   // ================= アート・絵画教室（松山市） =================
   {
     id: 'studio-art-001',

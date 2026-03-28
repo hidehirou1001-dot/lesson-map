@@ -848,6 +848,9 @@ function getTrialCheckpoints(studio) {
     } else if (category === 'Programming' || category === 'プログラミング') {
         points.push('教材の進み方が年齢に合っているか');
         points.push('自分で考える時間とサポートの量が合うか');
+    } else if (category === 'Boxing' || category === 'ボクシング') {
+        points.push('初心者向けの説明が分かりやすいか');
+        points.push('強度やメニューが体力に合っているか');
     } else if (category === 'Swimming' || category === 'スイミング') {
         points.push('水への慣れ方や声かけが安心できるか');
         points.push('更衣室や見学環境が使いやすいか');
@@ -1075,6 +1078,7 @@ function getCategoryLabel(category) {
         Gymnastics: '体操',
         Swimming: '水泳',
         Fitness: 'スポーツジム',
+        Boxing: 'ボクシング',
         Yoga: 'ヨガ・ピラティス',
         Cooking: '料理教室',
         English: '英会話',
@@ -1157,6 +1161,7 @@ function getInlineGuideLinksForStudio(studio) {
         Programming: { href: '/recommendations/matsuyama-programming/', title: 'プログラミング特集も見る', description: '教材や対象年齢の違いを補助的に整理できます。' },
         English: { href: '/recommendations/matsuyama-english/', title: '英会話特集も見る', description: '子ども向けと大人向けを横断で補助的に見られます。' },
         Fitness: { href: '/recommendations/matsuyama-fitness/', title: 'ジム特集も見る', description: '初心者向けの比較を補助的にまとめています。' },
+        Boxing: { href: '/recommendations/matsuyama-boxing/', title: 'ボクシング特集も見る', description: '初心者向けと通いやすさの比較に進めます。' },
         CramSchool: { href: '/recommendations/matsuyama-cram-school/', title: '学習塾特集も見る', description: '通いやすさと学年感を補助的に比較できます。' },
         Calligraphy: { href: '/recommendations/matsuyama-calligraphy/', title: '書道特集も見る', description: '子ども・大人の両方を補助的に見比べられます。' },
         Soroban: { href: '/recommendations/matsuyama-soroban/', title: 'そろばん特集も見る', description: '通いやすさを含めて補助的に比較できます。' }
@@ -1253,6 +1258,7 @@ const filterLabelMap = {
     Gymnastics: '体操',
     Swimming: '水泳',
     Fitness: 'スポーツジム',
+    Boxing: 'ボクシング',
     Yoga: 'ヨガ・ピラティス',
     Cooking: '料理教室',
     English: '英会話',
@@ -1766,6 +1772,7 @@ function getRecommendedGuides() {
         Piano: { href: '/recommendations/matsuyama-piano/', title: '松山のピアノ教室おすすめ5選', description: 'ピアノを子ども・大人で比較できます。' },
         Programming: { href: '/recommendations/matsuyama-programming/', title: '松山のプログラミング教室おすすめ5選', description: '教材や通いやすさで比較できます。' },
         Fitness: { href: '/recommendations/matsuyama-fitness/', title: '松山のスポーツジムおすすめ3選', description: '初心者向けのジム比較に進めます。' },
+        Boxing: { href: '/recommendations/matsuyama-boxing/', title: '松山のボクシングジムおすすめ2選', description: '初心者向けと通いやすさの比較に進めます。' },
         English: { href: '/recommendations/matsuyama-english/', title: '松山の英会話教室おすすめ3選', description: '子ども・大人を含めて英会話を比較できます。' },
         CramSchool: { href: '/recommendations/matsuyama-cram-school/', title: '松山の学習塾おすすめ3選', description: '学習塾を通いやすさで比較できます。' },
         Calligraphy: { href: '/recommendations/matsuyama-calligraphy/', title: '松山の書道教室おすすめ3選', description: '書道を子ども・大人で見比べられます。' },
@@ -1848,6 +1855,7 @@ function getRecommendedGuidesForStudio(studio) {
         Piano: { href: '/recommendations/matsuyama-piano/', title: '松山のピアノ教室おすすめ5選', description: '子ども・大人を含めてピアノを比較できます。' },
         Programming: { href: '/recommendations/matsuyama-programming/', title: '松山のプログラミング教室おすすめ5選', description: '教材や通いやすさで比較できます。' },
         Fitness: { href: '/recommendations/matsuyama-fitness/', title: '松山のスポーツジムおすすめ3選', description: '初心者向けのジム比較に進めます。' },
+        Boxing: { href: '/recommendations/matsuyama-boxing/', title: '松山のボクシングジムおすすめ2選', description: '初心者向けと通いやすさの比較に進めます。' },
         English: { href: '/recommendations/matsuyama-english/', title: '松山の英会話教室おすすめ3選', description: '子ども・大人を含めて英会話を比較できます。' },
         CramSchool: { href: '/recommendations/matsuyama-cram-school/', title: '松山の学習塾おすすめ3選', description: '学習塾を通いやすさで比較できます。' },
         Calligraphy: { href: '/recommendations/matsuyama-calligraphy/', title: '松山の書道教室おすすめ3選', description: '書道を子ども・大人で見比べられます。' },
