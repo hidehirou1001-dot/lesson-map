@@ -187,30 +187,13 @@
         </div>
       </div>
 
-      <details class="compact-accordion-item finder-quick-accordion">
-        <summary class="compact-accordion-trigger">
-          <span class="finder-quick-summary">
-            <span class="featured-strip-kicker">QUICK FILTER</span>
-            <span>よく使う条件だけ開く</span>
-          </span>
-        </summary>
-        <div class="compact-accordion-body">
-          <div class="finder-quick-row" aria-label="すぐ絞る">
-            <button class="filter-btn finder-chip-btn" type="button" data-quick-filter="kids">👶 子ども向け</button>
-            <button class="filter-btn finder-chip-btn" type="button" data-quick-filter="adult">🧑 大人向け</button>
-            <button class="filter-btn finder-chip-btn" type="button" data-quick-filter="beginner">🔰 初心者向け</button>
-            <button class="filter-btn finder-chip-btn" type="button" data-quick-filter="parking">🚗 駐車場あり</button>
-          </div>
-        </div>
-      </details>
-
       <div class="finder-duo-grid">
         <div class="finder-section">
           <div class="finder-section-head">
           <span class="finder-step">STEP 1</span>
           <div>
             <strong>ジャンルを選ぶ</strong>
-              <p class="finder-section-copy">まずは人気ジャンルから選び、必要なら残りを開けます。</p>
+              <p class="finder-section-copy">人気ジャンルから選び、必要なら残りを開きます。</p>
           </div>
         </div>
           <div class="filters scrollable-filters category-filter-row" id="category-filter-row">
@@ -271,7 +254,7 @@
           <span class="finder-step">STEP 2</span>
           <div>
             <strong>エリアで絞る</strong>
-              <p class="finder-section-copy">まず広域、必要なら市町まで選べます。</p>
+              <p class="finder-section-copy">まず広域、必要なら市町まで絞れます。</p>
           </div>
         </div>
           <div class="finder-area-flow" aria-label="エリア選択の流れ">
@@ -331,7 +314,7 @@
               <span class="finder-step">STEP 3</span>
               <div>
                 <strong>キーワードで探す</strong>
-                <p class="finder-section-copy">教室名や地域名が決まっている人向けです。</p>
+                <p class="finder-section-copy">教室名が決まっている人向けです。</p>
               </div>
             </div>
             <div class="search-container">
@@ -345,7 +328,6 @@
               </button>
               <button id="search-btn" class="search-btn">この条件で見る</button>
             </div>
-            <p class="finder-inline-note">例: 「松山 ダンス」「今治 英会話」「子ども ピアノ」</p>
           </div>
         </div>
       </details>
@@ -362,7 +344,6 @@
   <section class="section container" id="results-zone">
     <div class="results-toolbar">
       <div class="results-toolbar-copy">
-        <div class="results-kicker">SEARCH RESULTS</div>
         <h2 class="results-title">検索結果</h2>
         <p class="results-summary" id="results-summary">条件に合う候補をここに表示します。</p>
       </div>
@@ -386,9 +367,8 @@
     </div>
 
     <button class="floating-compare-bar" id="floating-compare-bar" type="button" hidden aria-controls="results-utility-panel">
-      <span class="floating-compare-kicker">SAVE & COMPARE</span>
-      <strong>保存した候補を開く</strong>
-      <span class="floating-compare-copy">比較メモ <span id="floating-compare-count">0/3</span> / お気に入り <span id="floating-favorite-count">0件</span></span>
+      <span class="floating-compare-kicker">SAVE</span>
+      <strong><span id="floating-compare-count">0/3</span> / <span id="floating-favorite-count">0件</span></strong>
     </button>
 
     <!-- Cards will be injected here by app.js -->
@@ -519,13 +499,13 @@
         </summary>
         <div class="top-secondary-body">
           <div class="top-secondary-panel-head">
-            <p class="results-summary">ジャンルより先に、今の迷い方に近い入口から見られます。</p>
+            <p class="results-summary">迷い方から入りたいときだけ使えます。</p>
             <div class="issue-path-head-actions">
               <div class="carousel-controls" aria-label="悩み別カルーセルの操作">
                 <button class="carousel-btn" type="button" data-carousel-prev="issue-path-carousel" aria-label="前の悩みを見る">←</button>
                 <button class="carousel-btn" type="button" data-carousel-next="issue-path-carousel" aria-label="次の悩みを見る">→</button>
               </div>
-              <a href="/recommendations/" class="btn btn-outline results-clear-btn">悩み別の入口を見る</a>
+              <a href="/recommendations/" class="btn btn-outline results-clear-btn">特集一覧へ</a>
             </div>
           </div>
           <div class="issue-path-carousel" data-carousel="issue-path-carousel">
@@ -563,54 +543,6 @@
         </div>
       </details>
 
-      <details class="top-secondary-accordion" id="new-guide-title">
-        <summary class="top-secondary-summary">
-          <span class="featured-strip-kicker">NEW THEMES</span>
-          <span class="top-secondary-summary-text">
-            <strong>新しく増えた特集</strong>
-            <small>必要なときだけ開く</small>
-          </span>
-        </summary>
-        <div class="top-secondary-body">
-          <div class="top-secondary-panel-head">
-            <p class="results-summary">新カテゴリからすぐ入りたい人向けのショートカットです。</p>
-            <a href="/recommendations/#genre-zone" class="btn btn-outline results-clear-btn">ジャンル一覧を見る</a>
-          </div>
-          <div class="new-guide-chip-row">
-            <a class="new-guide-chip" href="/recommendations/matsuyama-boxing/">
-              <span>🥊</span>
-              <strong>ボクシング</strong>
-              <small>初心者・体験重視</small>
-            </a>
-            <a class="new-guide-chip" href="/recommendations/matsuyama-yoga-pilates/">
-              <span>🧘</span>
-              <strong>ヨガ・ピラティス</strong>
-              <small>通いやすさ比較</small>
-            </a>
-            <a class="new-guide-chip" href="/recommendations/ehime-qualification-lessons/">
-              <span>🪪</span>
-              <strong>資格・検定</strong>
-              <small>学び直しの入口</small>
-            </a>
-          </div>
-        </div>
-      </details>
-    </div>
-  </section>
-
-  <!-- CTA Section -->
-  <section class="section container reveal cta-section">
-    <div class="cta-panel">
-      <h2 class="h2">迷ったら、おすすめ特集をチェック</h2>
-      <p class="cta-copy">目的別やレベル別で、あなたにぴったりのスクールを徹底比較しています。</p>
-      <div class="hero-quick-links cta-links">
-        <a href="/recommendations/matsuyama-english/">英会話3選</a>
-        <a href="/recommendations/matsuyama-early-education/">幼児教室3選</a>
-        <a href="/recommendations/matsuyama-soccer/">サッカー3選</a>
-        <a href="/recommendations/matsuyama-cram-school/">学習塾3選</a>
-      </div>
-      <a href="/recommendations/" class="btn btn-primary"
-        style="padding: 1rem 3rem; font-size: 1.125rem;">おすすめ特集一覧を見る ✨</a>
     </div>
   </section>
 
