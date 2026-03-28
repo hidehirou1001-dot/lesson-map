@@ -2128,14 +2128,31 @@ p {
 }
 
 .results-utility-panel {
+  position: fixed;
+  right: 18px;
+  bottom: 96px;
+  z-index: 70;
   display: grid;
   gap: 1rem;
-  margin: 1rem 0 1.25rem;
+  width: min(420px, calc(100vw - 36px));
+  max-height: calc(100vh - 120px);
+  overflow-y: auto;
+  margin: 0;
   padding: 1rem 1.1rem;
   border-radius: 28px;
   border: 1px solid rgba(34, 34, 34, 0.08);
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(249, 246, 242, 0.96));
   box-shadow: 0 16px 34px rgba(34, 34, 34, 0.05);
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(18px);
+  transition: opacity 0.24s ease, transform 0.24s ease;
+}
+
+.results-utility-panel.is-open {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
 }
 
 .results-utility-panel.is-empty {
@@ -4961,6 +4978,14 @@ p {
     bottom: 12px;
     min-width: 0;
     padding: 0.8rem 0.95rem;
+  }
+
+  .results-utility-panel {
+    right: 12px;
+    left: 12px;
+    bottom: 84px;
+    width: auto;
+    max-height: calc(100vh - 108px);
   }
 
   .recommendations-toolbar {

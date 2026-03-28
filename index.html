@@ -572,12 +572,12 @@
       </div>
     </div>
 
-    <section class="results-utility-panel" aria-label="保存と比較のエリア">
+    <section class="results-utility-panel" id="results-utility-panel" aria-label="保存と比較のエリア">
       <div class="results-utility-head">
         <div>
           <span class="results-kicker">SAVE & COMPARE</span>
-          <strong>必要になったら候補を整理する</strong>
-          <p class="results-summary">迷った候補を残して、体験前の比較に使えます。</p>
+          <strong>保存した候補をここで見直す</strong>
+          <p class="results-summary">比較メモとお気に入りを、必要なときだけ開いて整理できます。</p>
           <div class="results-utility-inline-status" aria-label="保存状況">
             <span>比較メモ <strong data-compare-count>0/3</strong></span>
             <span>お気に入り <strong data-favorite-count>0件</strong></span>
@@ -628,10 +628,10 @@
       </div>
     </section>
 
-    <button class="floating-compare-bar" id="floating-compare-bar" type="button" hidden aria-controls="compare-memo-panel">
-      <span class="floating-compare-kicker">COMPARE</span>
-      <strong>気になる教室 <span id="floating-compare-count">0/3</span></strong>
-      <span class="floating-compare-copy">今すぐ違いを見る</span>
+    <button class="floating-compare-bar" id="floating-compare-bar" type="button" hidden aria-controls="results-utility-panel">
+      <span class="floating-compare-kicker">SAVE & COMPARE</span>
+      <strong>保存した候補を開く</strong>
+      <span class="floating-compare-copy">比較メモ <span id="floating-compare-count">0/3</span> / お気に入り <span id="floating-favorite-count">0件</span></span>
     </button>
 
     <!-- Cards will be injected here by app.js -->

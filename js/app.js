@@ -623,6 +623,7 @@ function updateCollectionCounts(compareCount = compareMemoIds.length, favoriteCo
     const favoritePanelCount = document.getElementById('favorite-panel-count');
     const floatingCompareBar = document.getElementById('floating-compare-bar');
     const floatingCompareCount = document.getElementById('floating-compare-count');
+    const floatingFavoriteCount = document.getElementById('floating-favorite-count');
     const compareGuideCounts = document.querySelectorAll('[data-compare-count]');
     const favoriteGuideCounts = document.querySelectorAll('[data-favorite-count]');
     const utilityPanel = document.querySelector('.results-utility-panel');
@@ -635,11 +636,12 @@ function updateCollectionCounts(compareCount = compareMemoIds.length, favoriteCo
     });
     if (comparePanelCount) comparePanelCount.textContent = `${compareCount}/${COMPARE_MEMO_LIMIT}`;
     if (floatingCompareCount) floatingCompareCount.textContent = `${compareCount}/${COMPARE_MEMO_LIMIT}`;
+    if (floatingFavoriteCount) floatingFavoriteCount.textContent = `${favoriteCount}件`;
     favoriteGuideCounts.forEach(node => {
         node.textContent = `${favoriteCount}件`;
     });
     if (favoritePanelCount) favoritePanelCount.textContent = `${favoriteCount}件`;
-    if (floatingCompareBar) floatingCompareBar.hidden = compareCount === 0;
+    if (floatingCompareBar) floatingCompareBar.hidden = !hasSavedItems;
     if (utilityPanel) utilityPanel.classList.toggle('is-empty', !hasSavedItems);
     if (utilityGuideGrid) utilityGuideGrid.hidden = !hasSavedItems;
     if (utilityEmptyCopy) utilityEmptyCopy.hidden = hasSavedItems;
@@ -661,10 +663,6 @@ function initFloatingCompareBar() {
         resultsPanelState.utility = true;
         resultsPanelState.utilityTouched = true;
         syncResultsPanelStates();
-        const comparePanel = document.getElementById('compare-memo-panel');
-        if (comparePanel) {
-            comparePanel.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
     });
 }
 
@@ -685,6 +683,12 @@ function applyResultsPanelState(panelKey, body, button) {
     body.hidden = !expanded;
     button.setAttribute('aria-expanded', expanded ? 'true' : 'false');
     button.textContent = expanded ? '閉じる' : '開く';
+    if (panelKey === 'utility') {
+        const utilityPanel = document.getElementById('results-utility-panel');
+        const floatingCompareBar = document.getElementById('floating-compare-bar');
+        if (utilityPanel) utilityPanel.classList.toggle('is-open', expanded);
+        if (floatingCompareBar) floatingCompareBar.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+    }
 }
 
 function syncResultsPanelStates() {
@@ -706,7 +710,7 @@ function ensureUtilityPanelVisibleIfNeeded() {
         return;
     }
 
-    resultsPanelState.utility = compareMemoIds.length > 0 || favoriteIds.length > 0;
+    resultsPanelState.utility = false;
     syncResultsPanelStates();
 }
 
