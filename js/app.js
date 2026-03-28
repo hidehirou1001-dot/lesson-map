@@ -1538,10 +1538,11 @@ function syncQuickFilterButtons() {
 function scrollToResultsZone() {
     const resultsGrid = document.getElementById('studios-grid');
     const resultsZone = document.getElementById('results-zone');
-    const target = resultsGrid || resultsZone;
+    const firstResultCard = resultsGrid ? resultsGrid.querySelector('.card') : null;
+    const target = firstResultCard || resultsGrid || resultsZone;
     if (!target) return;
 
-    const top = target.getBoundingClientRect().top + window.scrollY - 28;
+    const top = target.getBoundingClientRect().top + window.scrollY - 96;
     window.scrollTo({
         top: Math.max(top, 0),
         behavior: 'smooth'
