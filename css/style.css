@@ -1993,6 +1993,19 @@ p {
   margin-bottom: var(--space-lg);
 }
 
+.results-support-accordion {
+  margin-bottom: var(--space-lg);
+}
+
+.results-support-accordion .compact-accordion-trigger {
+  background: rgba(255, 255, 255, 0.88);
+  border: 1px solid rgba(34, 34, 34, 0.08);
+}
+
+.results-support-accordion .compact-accordion-body {
+  padding-top: 1rem;
+}
+
 .results-panel-header {
   display: flex;
   align-items: flex-start;
@@ -2117,10 +2130,6 @@ p {
   border-radius: 18px;
   background: rgba(255, 255, 255, 0.86);
   border: 1px solid rgba(34, 34, 34, 0.08);
-}
-
-.results-legend-accordion {
-  margin-bottom: 1rem;
 }
 
 .results-legend-summary {
