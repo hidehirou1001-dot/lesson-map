@@ -1688,8 +1688,6 @@ function updateResultsMeta(filtered) {
     const filterBar = document.getElementById('active-filter-bar');
     const clearFiltersBtn = document.getElementById('clear-filters-btn');
     const finderResultsCta = document.getElementById('finder-results-cta');
-    const finderResultsCtaTitle = document.getElementById('finder-results-cta-title');
-    const finderResultsCtaNote = document.getElementById('finder-results-cta-note');
     const finderResultsCtaBtn = document.getElementById('finder-results-cta-btn');
     const guidePanel = document.getElementById('results-guide-panel');
     const guideTitle = document.getElementById('results-guide-title');
@@ -1781,13 +1779,9 @@ function updateResultsMeta(filtered) {
         clearFiltersBtn.style.display = activeChips.length > 0 ? 'inline-flex' : 'none';
     }
 
-    if (finderResultsCta && finderResultsCtaTitle && finderResultsCtaNote && finderResultsCtaBtn) {
+    if (finderResultsCta && finderResultsCtaBtn) {
         const shouldShow = activeChips.length > 0 || currentFilterState.searchQuery.length > 0;
         finderResultsCta.hidden = !shouldShow;
-        finderResultsCtaTitle.textContent = shouldShow ? `${filtered.length}件の検索結果を見る` : '検索結果を見る';
-        finderResultsCtaNote.textContent = shouldShow
-            ? `${currentFilterState.city === 'all' ? '愛媛県全域' : currentFilterState.city}で絞った候補を一覧で確認できます。`
-            : '条件を選ぶと、ここから一覧へ進めます。';
         finderResultsCtaBtn.textContent = shouldShow ? `${filtered.length}件を表示する` : '検索結果を見る';
     }
 
