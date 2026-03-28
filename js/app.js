@@ -1323,8 +1323,6 @@ function initFilters() {
     const categoryExpandBtn = document.getElementById('category-expand-btn');
     const areaCityPanel = document.getElementById('area-city-panel');
     const areaCityGroups = document.querySelectorAll('[data-region-cities]');
-    const areaHelper = document.getElementById('finder-area-helper');
-    const areaRegionLink = document.getElementById('finder-area-region-link');
     const areaStepRegion = document.getElementById('finder-area-step-region');
     const areaStepCity = document.getElementById('finder-area-step-city');
     const danceFilters = document.getElementById('sub-filters');
@@ -1334,12 +1332,6 @@ function initFilters() {
     const finderResultsCtaBtn = document.getElementById('finder-results-cta-btn');
     const sortSelect = document.getElementById('sort-select');
     const subFilterGroups = [danceFilters, progFilters, document.getElementById('sub-filters-gym'), document.getElementById('sub-filters-swim')].filter(Boolean);
-    const regionGuideMap = {
-        中予: { href: '/recommendations/ehime-local-lessons/#chuyo-area', label: '中予の入口を見る' },
-        東予: { href: '/recommendations/ehime-local-lessons/#toyo-area', label: '東予の入口を見る' },
-        南予: { href: '/recommendations/ehime-local-lessons/#nanyo-area', label: '南予の入口を見る' }
-    };
-
     function syncAreaSelection(selectedCity) {
         const activeRegion = cityRegionMap[selectedCity]
             ? selectedCity
@@ -1353,31 +1345,12 @@ function initFilters() {
             group.hidden = activeRegion === 'all' || group.getAttribute('data-region-cities') !== activeRegion;
         });
 
-        if (areaHelper) {
-            if (activeRegion === 'all') {
-                areaHelper.textContent = '広域だけで絞ることもできます。もっと細かく見たいときだけ市町を選べます。';
-            } else if (selectedCity === activeRegion) {
-                areaHelper.textContent = `${activeRegion}全体で探すときはこのままで大丈夫です。必要なら下の市町へ進めます。`;
-            } else {
-                areaHelper.textContent = `${selectedCity}まで絞っています。広げたいときは${activeRegion}に戻せます。`;
-            }
-        }
-
         if (areaStepRegion) {
             areaStepRegion.classList.add('is-active');
         }
 
         if (areaStepCity) {
             areaStepCity.classList.toggle('is-active', activeRegion !== 'all');
-        }
-
-        if (areaRegionLink) {
-            const regionGuide = regionGuideMap[activeRegion];
-            areaRegionLink.hidden = !regionGuide || activeRegion === 'all';
-            if (regionGuide) {
-                areaRegionLink.href = regionGuide.href;
-                areaRegionLink.textContent = regionGuide.label;
-            }
         }
 
         cityBtns.forEach(button => {
