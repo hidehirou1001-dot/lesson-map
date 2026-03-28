@@ -247,11 +247,6 @@ function renderStudios(data) {
           </div>
         </div>
         ${quickStatusMarkup}
-        <p class="card-description">${descriptionSummary}</p>
-        <div class="card-reason">
-          <span class="card-reason-label">おすすめ理由</span>
-          <p>${getDecisionReason(studio)}</p>
-        </div>
         ${cardExtraMarkup}
         <div class="card-action-row">
           <button class="btn btn-primary detail-btn card-detail-btn">比較ポイントを見る</button>
