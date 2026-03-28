@@ -178,7 +178,7 @@
         <div>
           <span class="featured-strip-kicker">FINDER</span>
           <h2 class="h2 finder-title">条件で探す</h2>
-          <p class="results-summary">キーワード、ジャンル、エリアの順で足すだけです。</p>
+          <p class="results-summary">ジャンルとエリアを選ぶだけで、候補をかなり絞れます。</p>
         </div>
       </div>
 
@@ -199,32 +199,10 @@
         </div>
       </details>
 
-      <div class="finder-section finder-section-primary">
-          <div class="finder-section-head">
-            <span class="finder-step">STEP 1</span>
-          <div>
-            <strong>キーワードで探す</strong>
-            <p class="finder-section-copy">教室名や地域名が決まっている人向けです。</p>
-          </div>
-        </div>
-        <div class="search-container">
-          <label for="search-input" class="visually-hidden">
-            <span class="search-icon">🔍</span>
-            キーワードで検索
-          </label>
-          <input type="text" id="search-input" class="search-input" placeholder="🔍 教室名・ジャンル・エリアで検索" aria-label="教室名・ジャンル・エリアで検索">
-          <button id="voice-btn" class="btn voice-btn" type="button" aria-label="音声検索を開始">
-            🎤<span class="visually-hidden">音声検索</span>
-          </button>
-          <button id="search-btn" class="search-btn">この条件で見る</button>
-        </div>
-        <p class="finder-inline-note">例: 「松山 ダンス」「今治 英会話」「子ども ピアノ」</p>
-      </div>
-
       <div class="finder-duo-grid">
         <div class="finder-section">
           <div class="finder-section-head">
-          <span class="finder-step">STEP 2</span>
+          <span class="finder-step">STEP 1</span>
           <div>
             <strong>ジャンルを選ぶ</strong>
               <p class="finder-section-copy">やりたいことが決まっている人向けです。</p>
@@ -285,7 +263,7 @@
 
         <div class="finder-section">
           <div class="finder-section-head">
-          <span class="finder-step">STEP 3</span>
+          <span class="finder-step">STEP 2</span>
           <div>
             <strong>エリアで絞る</strong>
               <p class="finder-section-copy">まず広域、必要なら市町まで選べます。</p>
@@ -330,6 +308,38 @@
           </div>
         </div>
       </div>
+
+      <details class="compact-accordion-item finder-keyword-accordion">
+        <summary class="compact-accordion-trigger">
+          <span class="finder-quick-summary">
+            <span class="featured-strip-kicker">KEYWORD</span>
+            <span>教室名が決まっている人だけ開く</span>
+          </span>
+        </summary>
+        <div class="compact-accordion-body">
+          <div class="finder-section finder-section-primary">
+            <div class="finder-section-head">
+              <span class="finder-step">STEP 3</span>
+              <div>
+                <strong>キーワードで探す</strong>
+                <p class="finder-section-copy">教室名や地域名が決まっている人向けです。</p>
+              </div>
+            </div>
+            <div class="search-container">
+              <label for="search-input" class="visually-hidden">
+                <span class="search-icon">🔍</span>
+                キーワードで検索
+              </label>
+              <input type="text" id="search-input" class="search-input" placeholder="🔍 教室名・ジャンル・エリアで検索" aria-label="教室名・ジャンル・エリアで検索">
+              <button id="voice-btn" class="btn voice-btn" type="button" aria-label="音声検索を開始">
+                🎤<span class="visually-hidden">音声検索</span>
+              </button>
+              <button id="search-btn" class="search-btn">この条件で見る</button>
+            </div>
+            <p class="finder-inline-note">例: 「松山 ダンス」「今治 英会話」「子ども ピアノ」</p>
+          </div>
+        </div>
+      </details>
     </div>
 
     <div class="top-secondary-grid reveal">

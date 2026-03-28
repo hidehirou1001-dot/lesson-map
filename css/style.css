@@ -1624,6 +1624,10 @@ p {
   margin-bottom: 1rem;
 }
 
+.finder-keyword-accordion {
+  margin-top: 1rem;
+}
+
 .finder-quick-summary {
   display: grid;
   gap: 0.18rem;
