@@ -1687,6 +1687,37 @@ p {
   margin-top: 1rem;
 }
 
+.finder-results-cta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 1rem;
+  padding: 1rem 1.1rem;
+  border-radius: 22px;
+  background: linear-gradient(180deg, rgba(255, 250, 247, 0.96), rgba(255, 255, 255, 0.98));
+  border: 1px solid rgba(201, 42, 42, 0.12);
+}
+
+.finder-results-cta-copy {
+  display: grid;
+  gap: 0.18rem;
+}
+
+.finder-results-cta-copy strong {
+  font-size: 1rem;
+  letter-spacing: -0.01em;
+}
+
+.finder-results-cta-copy p {
+  margin: 0;
+  font-size: 0.85rem;
+}
+
+.finder-results-cta-btn {
+  white-space: nowrap;
+}
+
 .finder-quick-summary {
   display: grid;
   gap: 0.18rem;
@@ -4834,6 +4865,15 @@ p {
 
   .finder-duo-grid {
     grid-template-columns: 1fr;
+  }
+
+  .finder-results-cta {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .finder-results-cta-btn {
+    width: 100%;
   }
 
   .results-insight-grid {

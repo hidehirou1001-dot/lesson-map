@@ -1328,6 +1328,8 @@ function initFilters() {
     const danceFilters = document.getElementById('sub-filters');
     const progFilters = document.getElementById('sub-filters-prog');
     const clearFiltersBtn = document.getElementById('clear-filters-btn');
+    const finderResultsCta = document.getElementById('finder-results-cta');
+    const finderResultsCtaBtn = document.getElementById('finder-results-cta-btn');
     const sortSelect = document.getElementById('sort-select');
     const subFilterGroups = [danceFilters, progFilters, document.getElementById('sub-filters-gym'), document.getElementById('sub-filters-swim')].filter(Boolean);
     const regionGuideMap = {
@@ -1387,6 +1389,12 @@ function initFilters() {
         });
     }
 
+    if (finderResultsCtaBtn) {
+        finderResultsCtaBtn.addEventListener('click', () => {
+            scrollToResultsZone();
+        });
+    }
+
     // 1. Category Buttons
     categoryBtns.forEach(btn => {
         btn.addEventListener('click', () => {
@@ -1435,7 +1443,6 @@ function initFilters() {
             });
 
             applyFilters();
-            scrollToResultsZone();
         });
     });
 
@@ -1450,7 +1457,6 @@ function initFilters() {
 
             currentFilterState.subFilter = btn.getAttribute('data-filter');
             applyFilters();
-            scrollToResultsZone();
         });
     });
 
@@ -1460,7 +1466,6 @@ function initFilters() {
             currentFilterState.city = btn.getAttribute('data-city');
             syncAreaSelection(currentFilterState.city);
             applyFilters();
-            scrollToResultsZone();
         });
     });
 
@@ -1477,7 +1482,6 @@ function initFilters() {
 
             syncQuickFilterButtons();
             applyFilters();
-            scrollToResultsZone();
         });
     });
 
@@ -1673,6 +1677,10 @@ function updateResultsMeta(filtered) {
     const chipContainer = document.getElementById('active-filter-chips');
     const filterBar = document.getElementById('active-filter-bar');
     const clearFiltersBtn = document.getElementById('clear-filters-btn');
+    const finderResultsCta = document.getElementById('finder-results-cta');
+    const finderResultsCtaTitle = document.getElementById('finder-results-cta-title');
+    const finderResultsCtaNote = document.getElementById('finder-results-cta-note');
+    const finderResultsCtaBtn = document.getElementById('finder-results-cta-btn');
     const guidePanel = document.getElementById('results-guide-panel');
     const guideTitle = document.getElementById('results-guide-title');
     const guideLinks = document.getElementById('results-guide-links');
@@ -1761,6 +1769,16 @@ function updateResultsMeta(filtered) {
 
     if (clearFiltersBtn) {
         clearFiltersBtn.style.display = activeChips.length > 0 ? 'inline-flex' : 'none';
+    }
+
+    if (finderResultsCta && finderResultsCtaTitle && finderResultsCtaNote && finderResultsCtaBtn) {
+        const shouldShow = activeChips.length > 0 || currentFilterState.searchQuery.length > 0;
+        finderResultsCta.hidden = !shouldShow;
+        finderResultsCtaTitle.textContent = shouldShow ? `${filtered.length}件の検索結果を見る` : '検索結果を見る';
+        finderResultsCtaNote.textContent = shouldShow
+            ? `${currentFilterState.city === 'all' ? '愛媛県全域' : currentFilterState.city}で絞った候補を一覧で確認できます。`
+            : '条件を選ぶと、ここから一覧へ進めます。';
+        finderResultsCtaBtn.textContent = shouldShow ? `${filtered.length}件を表示する` : '検索結果を見る';
     }
 
     syncResultsPanelStates();
