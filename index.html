@@ -63,7 +63,7 @@
         <a href="/recommendations/" class="global-nav-link">特集</a>
       </nav>
       <nav class="header-actions">
-        <a href="/contact/" class="btn btn-text header-link-btn header-utility-link">お問い合わせ</a>
+        <a href="/contact/" class="btn btn-text header-link-btn header-utility-link" aria-label="お問い合わせ">問合せ</a>
       </nav>
     </div>
   </header>
@@ -375,7 +375,7 @@
       <summary class="compact-accordion-trigger">
         <span class="results-legend-summary">
           <span class="results-kicker">RESULT HELP</span>
-          <span>見方と補助情報を開く</span>
+          <span>補助を見る</span>
         </span>
       </summary>
       <div class="compact-accordion-body">
@@ -428,8 +428,8 @@
       <div class="results-utility-head">
         <div>
           <span class="results-kicker">SAVE & COMPARE</span>
-          <strong>保存した候補をここで見直す</strong>
-          <p class="results-summary">比較メモとお気に入りを、必要なときだけ開いて整理できます。</p>
+          <strong>保存した候補</strong>
+          <p class="results-summary">必要なときだけ開いて見直せます。</p>
           <div class="results-utility-inline-status" aria-label="保存状況">
             <span>比較メモ <strong data-compare-count>0/3</strong></span>
             <span>お気に入り <strong data-favorite-count>0件</strong></span>
@@ -438,17 +438,17 @@
         <button id="results-utility-toggle" class="btn btn-text results-panel-toggle" type="button" aria-expanded="false" aria-controls="results-utility-body">開く</button>
       </div>
       <div class="results-utility-body" id="results-utility-body" hidden>
-        <p class="results-utility-empty-copy" id="results-utility-empty-copy">気になる候補が出たら追加して、体験前に「何を見るか」まで並べて確認できます。</p>
+        <p class="results-utility-empty-copy" id="results-utility-empty-copy">気になる候補が出たら追加して、あとで見直せます。</p>
         <div class="results-utility-guide-grid" id="results-utility-guide-grid" hidden>
           <article class="results-utility-guide-card" data-tone="compare">
             <span class="results-utility-kicker">NOW</span>
             <strong>比較メモ <span class="results-utility-count" data-compare-count>0/3</span></strong>
-            <p>体験前に違いとチェックポイントを見たい候補向けです。</p>
+            <p>体験前に違いを見比べたい候補向けです。</p>
           </article>
           <article class="results-utility-guide-card" data-tone="favorite">
             <span class="results-utility-kicker">LATER</span>
             <strong>お気に入り <span class="results-utility-count" data-favorite-count>0件</span></strong>
-            <p>まだ外したくない候補を一度残しておく向けです。</p>
+            <p>まだ外したくない候補を残しておく向けです。</p>
           </article>
         </div>
 
@@ -458,7 +458,7 @@
               <div>
                 <span class="results-kicker">COMPARE MEMO</span>
                 <strong>今すぐ比べる候補 <span class="results-collection-count" id="compare-panel-count">0/3</span></strong>
-                <p class="results-summary">対象・料金・通いやすさを並べて見られます。</p>
+                <p class="results-summary">違いを並べて見られます。</p>
               </div>
               <button id="compare-clear-btn" class="btn btn-outline results-clear-btn" type="button">比較メモを空にする</button>
             </div>
@@ -470,7 +470,7 @@
               <div>
                 <span class="results-kicker">FAVORITES</span>
                 <strong>あとで残す候補 <span class="results-collection-count" id="favorite-panel-count">0件</span></strong>
-                <p class="results-summary">気になった教室をあとで見返せます。</p>
+                <p class="results-summary">気になった候補をあとで見返せます。</p>
               </div>
               <button id="favorite-clear-btn" class="btn btn-outline results-clear-btn" type="button">お気に入りを空にする</button>
             </div>
@@ -511,7 +511,6 @@
                   <span class="start-path-tag">家庭目線</span>
                   <span class="start-path-tag">年齢別へ広げる</span>
                 </div>
-                <p>まずは子ども向けの入口から見て、年齢やジャンルへ進みます。</p>
               </a>
               <a class="issue-path-card" href="/recommendations/ehime-adult-lessons/">
                 <span class="issue-path-kicker">大人</span>
@@ -520,7 +519,6 @@
                   <span class="start-path-tag">学び直し</span>
                   <span class="start-path-tag">続けやすさ</span>
                 </div>
-                <p>大人向けの入口から、平日夜や初心者向けの候補を見つけます。</p>
               </a>
               <a class="issue-path-card" href="/recommendations/ehime-trial-lessons/">
                 <span class="issue-path-kicker">失敗したくない</span>
@@ -529,7 +527,6 @@
                   <span class="start-path-tag">無料体験</span>
                   <span class="start-path-tag">比較しやすい</span>
                 </div>
-                <p>体験しやすい特集から入って、比較メモで候補を絞れます。</p>
               </a>
             </div>
             <div class="carousel-dots" data-carousel-dots="issue-path-carousel" aria-label="悩み別カルーセルの位置"></div>
