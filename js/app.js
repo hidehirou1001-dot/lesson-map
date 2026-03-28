@@ -375,6 +375,20 @@ function hasTrialInfo(studio) {
     return /無料体験|体験|見学/.test(text);
 }
 
+function getTrialStatus(studio) {
+    if (!studio) return '要確認';
+
+    const text = [
+        studio.description || '',
+        studio.pricing?.note || '',
+        studio.access || ''
+    ].join(' ');
+
+    if (/無料体験/.test(text)) return '無料体験あり';
+    if (/体験|見学/.test(text)) return '体験案内あり';
+    return '要確認';
+}
+
 function getQuickStatusItems(studio) {
     return [
         {
