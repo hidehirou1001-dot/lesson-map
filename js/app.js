@@ -207,12 +207,8 @@ function renderStudios(data) {
         </div>
         ` : '';
 
-        // Add staggered delay for rendering
-        const delay = index * 100;
-
         const card = document.createElement('article');
-        card.className = 'card reveal';
-        card.style.transitionDelay = `${delay}ms`;
+        card.className = 'card';
 
         const locationNoteMarkup = getLocationNoteMarkup(studio);
 
@@ -295,22 +291,7 @@ function renderStudios(data) {
             });
         }
 
-        // Staggered Animation Logic
-        card.style.opacity = '0';
-        card.style.transform = 'translateY(20px)';
-        card.style.transition = 'opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1), transform 0.5s cubic-bezier(0.16, 1, 0.3, 1)';
-
-        // Timeout based on index to create stagger effect
-        setTimeout(() => {
-            requestAnimationFrame(() => {
-                card.style.opacity = '1';
-                card.style.transform = 'translateY(0)';
-            });
-        }, 50 * index);
     });
-
-    // Re-trigger animation observer for any other elements
-    setTimeout(initAnimations, 50);
 }
 
 function formatPricingSummary(pricing) {
