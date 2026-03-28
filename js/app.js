@@ -1208,6 +1208,7 @@ function initSearch() {
         const query = searchInput.value.toLowerCase().trim();
         currentFilterState.searchQuery = query;
         applyFilters();
+        scrollToResultsZone();
     };
 
     searchBtn.addEventListener('click', performSearch);
@@ -1434,6 +1435,7 @@ function initFilters() {
             });
 
             applyFilters();
+            scrollToResultsZone();
         });
     });
 
@@ -1448,6 +1450,7 @@ function initFilters() {
 
             currentFilterState.subFilter = btn.getAttribute('data-filter');
             applyFilters();
+            scrollToResultsZone();
         });
     });
 
@@ -1457,6 +1460,7 @@ function initFilters() {
             currentFilterState.city = btn.getAttribute('data-city');
             syncAreaSelection(currentFilterState.city);
             applyFilters();
+            scrollToResultsZone();
         });
     });
 
@@ -1473,6 +1477,7 @@ function initFilters() {
 
             syncQuickFilterButtons();
             applyFilters();
+            scrollToResultsZone();
         });
     });
 
@@ -1527,6 +1532,17 @@ function syncQuickFilterButtons() {
     document.querySelectorAll('[data-quick-filter]').forEach(button => {
         const filterKey = button.getAttribute('data-quick-filter');
         button.classList.toggle('active', currentFilterState.quickFilters.includes(filterKey));
+    });
+}
+
+function scrollToResultsZone() {
+    const resultsZone = document.getElementById('results-zone');
+    if (!resultsZone) return;
+
+    const top = resultsZone.getBoundingClientRect().top + window.scrollY - 24;
+    window.scrollTo({
+        top: Math.max(top, 0),
+        behavior: 'smooth'
     });
 }
 
