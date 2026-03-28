@@ -160,24 +160,27 @@ function renderStudios(data) {
         return;
     }
 
-    data.forEach((studio, index) => {
-        const pricingSummary = formatPricingSummary(studio.pricing);
-        const featureSummary = getCardFeatureSummary(studio);
-        const commuteSummary = getCommuteSummary(studio);
-        const quickStatusMarkup = getQuickStatusMarkup(studio);
-        const verificationMarkup = getVerificationMarkup(studio);
-        const categoryLabel = getCategoryLabel(studio.category);
-        const descriptionSummary = getCardDescriptionSummary(studio.description);
-        const cardGuideLinks = getInlineGuideLinksForStudio(studio);
-        const genreTags = studio.genres.map(g => `<span class="tag">${g}</span>`).join('');
-        const curatorLabelMarkup = getCuratorLabelMarkup(studio);
-        const localAreaCueMarkup = getLocalAreaCueMarkup(studio);
-        const compareButtonLabel = isComparedStudio(studio.id) ? '比較中' : '比較メモへ';
-        const compareButtonState = isComparedStudio(studio.id) ? 'active' : '';
-        const compareButtonDisabled = !isComparedStudio(studio.id) && compareMemoIds.length >= COMPARE_MEMO_LIMIT ? 'disabled' : '';
-        const favoriteButtonLabel = isFavoriteStudio(studio.id) ? '保存済み' : 'あとで見返す';
-        const favoriteButtonState = isFavoriteStudio(studio.id) ? 'active' : '';
-        const cardGuideMarkup = cardGuideLinks.length > 0 ? `
+    let renderedCount = 0;
+
+    data.forEach((studio) => {
+        try {
+            const pricingSummary = formatPricingSummary(studio.pricing);
+            const featureSummary = getCardFeatureSummary(studio);
+            const commuteSummary = getCommuteSummary(studio);
+            const quickStatusMarkup = getQuickStatusMarkup(studio);
+            const verificationMarkup = getVerificationMarkup(studio);
+            const categoryLabel = getCategoryLabel(studio.category);
+            const descriptionSummary = getCardDescriptionSummary(studio.description);
+            const cardGuideLinks = getInlineGuideLinksForStudio(studio);
+            const genreTags = Array.isArray(studio.genres) ? studio.genres.map(g => `<span class="tag">${g}</span>`).join('') : '';
+            const curatorLabelMarkup = getCuratorLabelMarkup(studio);
+            const localAreaCueMarkup = getLocalAreaCueMarkup(studio);
+            const compareButtonLabel = isComparedStudio(studio.id) ? '比較中' : '比較メモへ';
+            const compareButtonState = isComparedStudio(studio.id) ? 'active' : '';
+            const compareButtonDisabled = !isComparedStudio(studio.id) && compareMemoIds.length >= COMPARE_MEMO_LIMIT ? 'disabled' : '';
+            const favoriteButtonLabel = isFavoriteStudio(studio.id) ? '保存済み' : 'あとで見返す';
+            const favoriteButtonState = isFavoriteStudio(studio.id) ? 'active' : '';
+            const cardGuideMarkup = cardGuideLinks.length > 0 ? `
         <div class="card-guide-box">
           <span class="card-guide-label">関連特集</span>
           <div class="card-guide-links">
@@ -190,9 +193,9 @@ function renderStudios(data) {
           </div>
         </div>
         ` : '';
-        const hasExtraInfo = Boolean(featureSummary || genreTags || verificationMarkup || cardGuideMarkup);
-        const extraToggleLabel = cardGuideLinks.length > 0 ? '補足情報と補助導線を見る' : '補足情報を見る';
-        const cardExtraMarkup = hasExtraInfo ? `
+            const hasExtraInfo = Boolean(featureSummary || genreTags || verificationMarkup || cardGuideMarkup);
+            const extraToggleLabel = cardGuideLinks.length > 0 ? '補足情報と補助導線を見る' : '補足情報を見る';
+            const cardExtraMarkup = hasExtraInfo ? `
         <div class="card-extra-wrap">
           <button class="btn btn-text card-extra-toggle" type="button" data-card-extra-toggle="card-extra-${studio.id}" aria-expanded="false" aria-controls="card-extra-${studio.id}">${extraToggleLabel}</button>
           <div class="card-extra-content" id="card-extra-${studio.id}" hidden>
@@ -207,12 +210,12 @@ function renderStudios(data) {
         </div>
         ` : '';
 
-        const card = document.createElement('article');
-        card.className = 'card';
+            const card = document.createElement('article');
+            card.className = 'card';
 
-        const locationNoteMarkup = getLocationNoteMarkup(studio);
+            const locationNoteMarkup = getLocationNoteMarkup(studio);
 
-        card.innerHTML = `
+            card.innerHTML = `
       <div class="card-img-wrap">
         <span class="badge">${studio.city} ${studio.area}</span>
         <img src="${studio.imageUrl}" alt="${studio.name}" class="card-img" loading="lazy">
@@ -260,38 +263,45 @@ function renderStudios(data) {
       </div>
     `;
 
-        grid.appendChild(card);
+            grid.appendChild(card);
+            renderedCount += 1;
 
-        // Add event listener to the detail button
-        const detailBtn = card.querySelector('.detail-btn');
-        if (detailBtn) {
-            detailBtn.addEventListener('click', () => openModal(studio.id));
+            // Add event listener to the detail button
+            const detailBtn = card.querySelector('.detail-btn');
+            if (detailBtn) {
+                detailBtn.addEventListener('click', () => openModal(studio.id));
+            }
+
+            const compareBtn = card.querySelector('.compare-toggle-btn');
+            if (compareBtn) {
+                compareBtn.addEventListener('click', () => toggleCompareMemo(studio.id));
+            }
+
+            const favoriteBtn = card.querySelector('.favorite-toggle-btn');
+            if (favoriteBtn) {
+                favoriteBtn.addEventListener('click', () => toggleFavorite(studio.id));
+            }
+
+            const extraToggle = card.querySelector('[data-card-extra-toggle]');
+            if (extraToggle) {
+                extraToggle.addEventListener('click', () => {
+                    const targetId = extraToggle.getAttribute('data-card-extra-toggle');
+                    const extraContent = card.querySelector(`#${targetId}`);
+                    if (!extraContent) return;
+                    const isExpanded = extraToggle.getAttribute('aria-expanded') === 'true';
+                    extraContent.hidden = isExpanded;
+                    extraToggle.setAttribute('aria-expanded', isExpanded ? 'false' : 'true');
+                    extraToggle.textContent = isExpanded ? extraToggleLabel : '補足情報を閉じる';
+                });
+            }
+        } catch (error) {
+            console.error('[LessonMap] renderStudios item failed', studio?.id, error);
         }
-
-        const compareBtn = card.querySelector('.compare-toggle-btn');
-        if (compareBtn) {
-            compareBtn.addEventListener('click', () => toggleCompareMemo(studio.id));
-        }
-
-        const favoriteBtn = card.querySelector('.favorite-toggle-btn');
-        if (favoriteBtn) {
-            favoriteBtn.addEventListener('click', () => toggleFavorite(studio.id));
-        }
-
-        const extraToggle = card.querySelector('[data-card-extra-toggle]');
-        if (extraToggle) {
-            extraToggle.addEventListener('click', () => {
-                const targetId = extraToggle.getAttribute('data-card-extra-toggle');
-                const extraContent = card.querySelector(`#${targetId}`);
-                if (!extraContent) return;
-                const isExpanded = extraToggle.getAttribute('aria-expanded') === 'true';
-                extraContent.hidden = isExpanded;
-                extraToggle.setAttribute('aria-expanded', isExpanded ? 'false' : 'true');
-                extraToggle.textContent = isExpanded ? extraToggleLabel : '補足情報を閉じる';
-            });
-        }
-
     });
+
+    if (renderedCount === 0) {
+        grid.innerHTML = '<div class="empty-state" style="grid-column: 1/-1;"><strong>教室一覧の表示で問題が発生しました。</strong><p>条件をリセットして再読み込みしてください。改善しない場合は別の条件でもお試しください。</p></div>';
+    }
 }
 
 function formatPricingSummary(pricing) {
