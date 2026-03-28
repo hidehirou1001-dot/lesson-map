@@ -1611,13 +1611,22 @@ p {
   display: flex;
   flex-wrap: wrap;
   gap: 0.75rem;
-  margin: 0.25rem 0 1rem;
+  margin: 0;
 }
 
 .finder-chip-btn {
   background: rgba(255, 255, 255, 0.96);
   border-radius: 999px;
   padding: 0.7rem 1rem;
+}
+
+.finder-quick-accordion {
+  margin-bottom: 1rem;
+}
+
+.finder-quick-summary {
+  display: grid;
+  gap: 0.18rem;
 }
 
 .finder-chip-btn.active {

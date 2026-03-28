@@ -178,23 +178,33 @@
         <div>
           <span class="featured-strip-kicker">FINDER</span>
           <h2 class="h2 finder-title">条件で探す</h2>
-          <p class="results-summary">1つずつ足すだけで候補を絞れます。</p>
+          <p class="results-summary">キーワード、ジャンル、エリアの順で足すだけです。</p>
         </div>
       </div>
 
-      <div class="finder-quick-row" aria-label="すぐ絞る">
-        <button class="filter-btn finder-chip-btn" type="button" data-quick-filter="kids">👶 子ども向け</button>
-        <button class="filter-btn finder-chip-btn" type="button" data-quick-filter="adult">🧑 大人向け</button>
-        <button class="filter-btn finder-chip-btn" type="button" data-quick-filter="beginner">🔰 初心者向け</button>
-        <button class="filter-btn finder-chip-btn" type="button" data-quick-filter="parking">🚗 駐車場あり</button>
-      </div>
+      <details class="compact-accordion-item finder-quick-accordion">
+        <summary class="compact-accordion-trigger">
+          <span class="finder-quick-summary">
+            <span class="featured-strip-kicker">QUICK FILTER</span>
+            <span>よく使う条件だけ開く</span>
+          </span>
+        </summary>
+        <div class="compact-accordion-body">
+          <div class="finder-quick-row" aria-label="すぐ絞る">
+            <button class="filter-btn finder-chip-btn" type="button" data-quick-filter="kids">👶 子ども向け</button>
+            <button class="filter-btn finder-chip-btn" type="button" data-quick-filter="adult">🧑 大人向け</button>
+            <button class="filter-btn finder-chip-btn" type="button" data-quick-filter="beginner">🔰 初心者向け</button>
+            <button class="filter-btn finder-chip-btn" type="button" data-quick-filter="parking">🚗 駐車場あり</button>
+          </div>
+        </div>
+      </details>
 
       <div class="finder-section finder-section-primary">
-        <div class="finder-section-head">
-          <span class="finder-step">STEP 1</span>
+          <div class="finder-section-head">
+            <span class="finder-step">STEP 1</span>
           <div>
             <strong>キーワードで探す</strong>
-            <p class="finder-section-copy">名前や地域が決まっているならここからです。</p>
+            <p class="finder-section-copy">教室名や地域名が決まっている人向けです。</p>
           </div>
         </div>
         <div class="search-container">
@@ -217,7 +227,7 @@
           <span class="finder-step">STEP 2</span>
           <div>
             <strong>ジャンルを選ぶ</strong>
-              <p class="finder-section-copy">やりたいことが見えているならここからです。</p>
+              <p class="finder-section-copy">やりたいことが決まっている人向けです。</p>
           </div>
         </div>
           <div class="filters scrollable-filters category-filter-row" id="category-filter-row">
@@ -278,7 +288,7 @@
           <span class="finder-step">STEP 3</span>
           <div>
             <strong>エリアで絞る</strong>
-              <p class="finder-section-copy">まず広域を選ぶと、市町へ進めます。</p>
+              <p class="finder-section-copy">まず広域、必要なら市町まで選べます。</p>
           </div>
         </div>
           <div class="filters scrollable-filters area-region-row">
@@ -313,9 +323,7 @@
               </div>
             </div>
           </div>
-          <div class="finder-area-helper" id="finder-area-helper">
-            広域だけで絞ることもできます。もっと細かく見たいときだけ市町を選べます。
-          </div>
+          <div class="finder-area-helper" id="finder-area-helper">広域だけでも探せます。細かく見たいときだけ市町を選べます。</div>
           <div class="finder-area-links">
             <a href="/recommendations/ehime-local-lessons/">地域別ガイドを見る</a>
             <a href="/recommendations/ehime-local-lessons/" id="finder-area-region-link" hidden>選んだ広域の入口を見る</a>
