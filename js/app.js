@@ -1325,6 +1325,8 @@ function initFilters() {
     const areaCityGroups = document.querySelectorAll('[data-region-cities]');
     const areaHelper = document.getElementById('finder-area-helper');
     const areaRegionLink = document.getElementById('finder-area-region-link');
+    const areaStepRegion = document.getElementById('finder-area-step-region');
+    const areaStepCity = document.getElementById('finder-area-step-city');
     const danceFilters = document.getElementById('sub-filters');
     const progFilters = document.getElementById('sub-filters-prog');
     const clearFiltersBtn = document.getElementById('clear-filters-btn');
@@ -1359,6 +1361,14 @@ function initFilters() {
             } else {
                 areaHelper.textContent = `${selectedCity}まで絞っています。広げたいときは${activeRegion}に戻せます。`;
             }
+        }
+
+        if (areaStepRegion) {
+            areaStepRegion.classList.add('is-active');
+        }
+
+        if (areaStepCity) {
+            areaStepCity.classList.toggle('is-active', activeRegion !== 'all');
         }
 
         if (areaRegionLink) {

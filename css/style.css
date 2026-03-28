@@ -1818,6 +1818,30 @@ p {
   line-height: 1.65;
 }
 
+.finder-area-flow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  margin-bottom: 0.8rem;
+}
+
+.finder-area-flow-step {
+  display: inline-flex;
+  align-items: center;
+  min-height: 34px;
+  padding: 0.35rem 0.72rem;
+  border-radius: var(--radius-full);
+  background: rgba(34, 34, 34, 0.05);
+  color: var(--clr-text-muted);
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.finder-area-flow-step.is-active {
+  background: rgba(201, 42, 42, 0.1);
+  color: var(--clr-primary-dark);
+}
+
 .finder-area-links {
   display: flex;
   flex-wrap: wrap;
