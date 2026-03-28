@@ -153,6 +153,10 @@ p {
   padding: var(--space-xl) 0;
 }
 
+#results-zone {
+  padding-top: 1.25rem;
+}
+
 /* Header */
 .header {
   position: fixed;
