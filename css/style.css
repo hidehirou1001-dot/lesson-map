@@ -177,6 +177,13 @@ p {
   gap: 1rem;
 }
 
+.header-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  min-width: 0;
+}
+
 .logo {
   display: inline-block;
   width: 156px;
@@ -191,10 +198,53 @@ p {
   flex-shrink: 0;
 }
 
+.header-brand-note {
+  color: var(--clr-text-muted);
+  font-size: 0.78rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.global-nav {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  flex: 1;
+  min-width: 0;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.global-nav::-webkit-scrollbar {
+  display: none;
+}
+
+.global-nav-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 40px;
+  padding: 0.5rem 0.85rem;
+  border-radius: var(--radius-full);
+  background: rgba(255, 255, 255, 0.82);
+  border: 1px solid rgba(34, 34, 34, 0.08);
+  color: var(--clr-text-main);
+  font-size: 0.83rem;
+  font-weight: 700;
+  white-space: nowrap;
+  box-shadow: var(--shadow-sm);
+}
+
+.global-nav-link:hover {
+  border-color: rgba(201, 42, 42, 0.18);
+  color: var(--clr-primary-dark);
+}
+
 .header-actions {
   display: flex;
   align-items: center;
   gap: 0.75rem;
+  flex-shrink: 0;
 }
 
 /* Buttons */
@@ -4516,6 +4566,20 @@ p {
     padding-bottom: 0;
   }
 
+  .header-brand-note {
+    display: none;
+  }
+
+  .global-nav {
+    gap: 0.3rem;
+  }
+
+  .global-nav-link {
+    min-height: 36px;
+    padding: 0.4rem 0.65rem;
+    font-size: 0.74rem;
+  }
+
   .header-actions {
     gap: 0.3rem;
     width: auto;
@@ -5198,6 +5262,11 @@ p {
 
   .header .container {
     gap: 0.45rem;
+  }
+
+  .global-nav-link {
+    padding: 0.34rem 0.5rem;
+    font-size: 0.66rem;
   }
 
   .header-actions {
