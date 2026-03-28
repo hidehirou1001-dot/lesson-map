@@ -901,6 +901,20 @@ p {
   border: 1px solid rgba(201, 42, 42, 0.1);
 }
 
+.editorial-axis-accordion {
+  margin-top: 1.15rem;
+}
+
+.editorial-axis-summary {
+  display: grid;
+  gap: 0.2rem;
+}
+
+.editorial-axis-body {
+  display: grid;
+  gap: 0.55rem;
+}
+
 .editorial-axis-head {
   display: grid;
   gap: 0.35rem;
@@ -1999,6 +2013,15 @@ p {
   border-radius: 18px;
   background: rgba(255, 255, 255, 0.86);
   border: 1px solid rgba(34, 34, 34, 0.08);
+}
+
+.results-legend-accordion {
+  margin-bottom: 1rem;
+}
+
+.results-legend-summary {
+  display: grid;
+  gap: 0.18rem;
 }
 
 .article-section-nav {
