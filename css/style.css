@@ -1042,6 +1042,77 @@ p {
   margin-top: 1.15rem;
 }
 
+.top-secondary-accordion {
+  margin-top: 1rem;
+  border: 1px solid rgba(34, 34, 34, 0.08);
+  border-radius: calc(var(--radius-xl) + 2px);
+  background: rgba(255, 255, 255, 0.94);
+  box-shadow: var(--shadow-soft);
+  overflow: hidden;
+}
+
+.top-secondary-summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem 1.1rem;
+  cursor: pointer;
+  list-style: none;
+}
+
+.top-secondary-summary::-webkit-details-marker {
+  display: none;
+}
+
+.top-secondary-summary::after {
+  content: "+";
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 999px;
+  background: rgba(201, 42, 42, 0.08);
+  color: var(--clr-primary-dark);
+  font-size: 1rem;
+  font-weight: 900;
+  flex-shrink: 0;
+}
+
+.top-secondary-accordion[open] .top-secondary-summary::after {
+  content: "−";
+}
+
+.top-secondary-summary-text {
+  display: grid;
+  gap: 0.15rem;
+  flex: 1;
+}
+
+.top-secondary-summary-text strong {
+  font-size: 1rem;
+  color: var(--clr-text-main);
+}
+
+.top-secondary-summary-text small {
+  color: var(--clr-text-muted);
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.top-secondary-body {
+  padding: 0 1.1rem 1.1rem;
+}
+
+.top-secondary-panel-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 0.9rem;
+}
+
 .issue-path-head-actions {
   display: flex;
   align-items: center;
@@ -4559,6 +4630,11 @@ p {
   .new-guide-strip-head {
     align-items: stretch;
     flex-direction: column;
+  }
+
+  .top-secondary-panel-head {
+    flex-direction: column;
+    align-items: stretch;
   }
 
   .new-guide-chip-row {
