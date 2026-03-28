@@ -1080,7 +1080,7 @@ p {
 
 .start-path-card {
   display: grid;
-  gap: 0.55rem;
+  gap: 0.45rem;
   padding: 1rem 1.05rem;
   border-radius: 22px;
   text-decoration: none;
@@ -1111,6 +1111,7 @@ p {
 
 .start-path-card strong {
   font-size: 1rem;
+  line-height: 1.45;
 }
 
 .start-path-tags {
@@ -1129,13 +1130,6 @@ p {
   font-size: 0.7rem;
   font-weight: 700;
   letter-spacing: 0.02em;
-}
-
-.start-path-card p {
-  margin: 0;
-  font-size: 0.86rem;
-  line-height: 1.65;
-  color: var(--clr-text-muted);
 }
 
 .issue-path-panel {
