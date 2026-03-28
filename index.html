@@ -377,62 +377,6 @@
       <div class="active-filter-chips" id="active-filter-chips"></div>
     </div>
 
-    <section class="results-utility-panel" id="results-utility-panel" aria-label="保存と比較のエリア">
-      <div class="results-utility-head">
-        <div>
-          <span class="results-kicker">SAVE & COMPARE</span>
-          <strong>保存した候補をここで見直す</strong>
-          <p class="results-summary">比較メモとお気に入りを、必要なときだけ開いて整理できます。</p>
-          <div class="results-utility-inline-status" aria-label="保存状況">
-            <span>比較メモ <strong data-compare-count>0/3</strong></span>
-            <span>お気に入り <strong data-favorite-count>0件</strong></span>
-          </div>
-        </div>
-        <button id="results-utility-toggle" class="btn btn-text results-panel-toggle" type="button" aria-expanded="false" aria-controls="results-utility-body">開く</button>
-      </div>
-      <div class="results-utility-body" id="results-utility-body" hidden>
-        <p class="results-utility-empty-copy" id="results-utility-empty-copy">気になる候補が出たら追加して、体験前に「何を見るか」まで並べて確認できます。</p>
-        <div class="results-utility-guide-grid" id="results-utility-guide-grid" hidden>
-          <article class="results-utility-guide-card" data-tone="compare">
-            <span class="results-utility-kicker">NOW</span>
-            <strong>比較メモ <span class="results-utility-count" data-compare-count>0/3</span></strong>
-            <p>体験前に違いとチェックポイントを見たい候補向けです。</p>
-          </article>
-          <article class="results-utility-guide-card" data-tone="favorite">
-            <span class="results-utility-kicker">LATER</span>
-            <strong>お気に入り <span class="results-utility-count" data-favorite-count>0件</span></strong>
-            <p>まだ外したくない候補を一度残しておく向けです。</p>
-          </article>
-        </div>
-
-        <div class="results-collection-grid">
-          <div class="compare-memo-panel" id="compare-memo-panel" hidden>
-            <div class="compare-memo-head">
-              <div>
-                <span class="results-kicker">COMPARE MEMO</span>
-                <strong>今すぐ比べる候補 <span class="results-collection-count" id="compare-panel-count">0/3</span></strong>
-                <p class="results-summary">対象・料金・通いやすさを並べて見られます。</p>
-              </div>
-              <button id="compare-clear-btn" class="btn btn-outline results-clear-btn" type="button">比較メモを空にする</button>
-            </div>
-            <div class="compare-memo-grid" id="compare-memo-grid"></div>
-          </div>
-
-          <div class="favorite-panel" id="favorite-panel" hidden>
-            <div class="favorite-head">
-              <div>
-                <span class="results-kicker">FAVORITES</span>
-                <strong>あとで残す候補 <span class="results-collection-count" id="favorite-panel-count">0件</span></strong>
-                <p class="results-summary">気になった教室をあとで見返せます。</p>
-              </div>
-              <button id="favorite-clear-btn" class="btn btn-outline results-clear-btn" type="button">お気に入りを空にする</button>
-            </div>
-            <div class="favorite-grid" id="favorite-grid"></div>
-          </div>
-        </div>
-      </div>
-    </section>
-
     <button class="floating-compare-bar" id="floating-compare-bar" type="button" hidden aria-controls="results-utility-panel">
       <span class="floating-compare-kicker">SAVE & COMPARE</span>
       <strong>保存した候補を開く</strong>
@@ -491,6 +435,62 @@
         </div>
       </div>
     </div>
+
+    <section class="results-utility-panel" id="results-utility-panel" aria-label="保存と比較のエリア">
+      <div class="results-utility-head">
+        <div>
+          <span class="results-kicker">SAVE & COMPARE</span>
+          <strong>保存した候補をここで見直す</strong>
+          <p class="results-summary">比較メモとお気に入りを、必要なときだけ開いて整理できます。</p>
+          <div class="results-utility-inline-status" aria-label="保存状況">
+            <span>比較メモ <strong data-compare-count>0/3</strong></span>
+            <span>お気に入り <strong data-favorite-count>0件</strong></span>
+          </div>
+        </div>
+        <button id="results-utility-toggle" class="btn btn-text results-panel-toggle" type="button" aria-expanded="false" aria-controls="results-utility-body">開く</button>
+      </div>
+      <div class="results-utility-body" id="results-utility-body" hidden>
+        <p class="results-utility-empty-copy" id="results-utility-empty-copy">気になる候補が出たら追加して、体験前に「何を見るか」まで並べて確認できます。</p>
+        <div class="results-utility-guide-grid" id="results-utility-guide-grid" hidden>
+          <article class="results-utility-guide-card" data-tone="compare">
+            <span class="results-utility-kicker">NOW</span>
+            <strong>比較メモ <span class="results-utility-count" data-compare-count>0/3</span></strong>
+            <p>体験前に違いとチェックポイントを見たい候補向けです。</p>
+          </article>
+          <article class="results-utility-guide-card" data-tone="favorite">
+            <span class="results-utility-kicker">LATER</span>
+            <strong>お気に入り <span class="results-utility-count" data-favorite-count>0件</span></strong>
+            <p>まだ外したくない候補を一度残しておく向けです。</p>
+          </article>
+        </div>
+
+        <div class="results-collection-grid">
+          <div class="compare-memo-panel" id="compare-memo-panel" hidden>
+            <div class="compare-memo-head">
+              <div>
+                <span class="results-kicker">COMPARE MEMO</span>
+                <strong>今すぐ比べる候補 <span class="results-collection-count" id="compare-panel-count">0/3</span></strong>
+                <p class="results-summary">対象・料金・通いやすさを並べて見られます。</p>
+              </div>
+              <button id="compare-clear-btn" class="btn btn-outline results-clear-btn" type="button">比較メモを空にする</button>
+            </div>
+            <div class="compare-memo-grid" id="compare-memo-grid"></div>
+          </div>
+
+          <div class="favorite-panel" id="favorite-panel" hidden>
+            <div class="favorite-head">
+              <div>
+                <span class="results-kicker">FAVORITES</span>
+                <strong>あとで残す候補 <span class="results-collection-count" id="favorite-panel-count">0件</span></strong>
+                <p class="results-summary">気になった教室をあとで見返せます。</p>
+              </div>
+              <button id="favorite-clear-btn" class="btn btn-outline results-clear-btn" type="button">お気に入りを空にする</button>
+            </div>
+            <div class="favorite-grid" id="favorite-grid"></div>
+          </div>
+        </div>
+      </div>
+    </section>
   </section>
 
   <section class="section container">
