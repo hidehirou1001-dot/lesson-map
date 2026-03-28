@@ -210,56 +210,6 @@ const studios = [
     link: 'https://www.moga-jp.com/'
   },
 
-  // ================= 今治市（実在するスタジオ） =================
-  {
-    id: 'studio-imb-real-001',
-    name: 'EXPG STUDIO IMABARI',
-    description: '今治市でLDHが運営する本格的なダンススクール。アーティストを目指す本格的な環境でHIPHOPを学べます。',
-    category: "Dance",
-    city: '今治市',
-    area: '馬越町周辺',
-    access: '今治市馬越町エリア',
-    genres: ['HIPHOP', 'Artist'],
-    pricing: {
-      system: '不明',
-      minPrice: 0,
-      note: '詳細は公式サイトへ'
-    },
-    features: {
-      parking: false,
-      beginnerFriendly: '△',
-      kidsClass: true,
-      adultClass: true
-    },
-    imageUrl: 'https://images.unsplash.com/photo-1547153760-18fc86324498?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-    link: 'https://expg.jp/school/imabari/'
-  },
-
-  // ================= 新居浜市（実在するスタジオ） =================
-  {
-    id: 'studio-nii-real-001',
-    name: 'EXPG STUDIO NIIHAMA',
-    description: '新居浜市でLDHが運営する本格的なダンススクール。アーティストを目指す本格的な環境でHIPHOPを学べます。',
-    category: "Dance",
-    city: '新居浜市',
-    area: '前田町周辺',
-    access: '新居浜市前田町エリア（イオンモール新居浜付近）',
-    genres: ['HIPHOP', 'Artist'],
-    pricing: {
-      system: '不明',
-      minPrice: 0,
-      note: '詳細は公式サイトへ'
-    },
-    features: {
-      parking: false,
-      beginnerFriendly: '△',
-      kidsClass: true,
-      adultClass: true
-    },
-    imageUrl: 'https://images.unsplash.com/photo-1547153760-18fc86324498?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-    link: 'https://expg.jp/school/niihama/'
-  },
-
   // ================= ピアノ教室（松山市） =================
   {
     id: 'studio-piano-001',
