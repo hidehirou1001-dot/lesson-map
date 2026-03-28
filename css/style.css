@@ -2013,13 +2013,25 @@ p {
 .results-toolbar {
   display: flex;
   justify-content: space-between;
-  align-items: flex-end;
+  align-items: center;
   gap: 1rem;
-  margin-bottom: var(--space-md);
-  padding: 1rem 1.1rem;
+  margin-bottom: 1rem;
+  padding: 0.85rem 1rem;
   border: 1px solid rgba(34, 34, 34, 0.08);
   border-radius: 22px;
   background: rgba(255, 255, 255, 0.9);
+}
+
+.results-toolbar-copy {
+  display: grid;
+  gap: 0.15rem;
+}
+
+.results-title {
+  margin: 0;
+  font-size: clamp(1.85rem, 3vw, 2.35rem);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
 }
 
 .results-toolbar-actions {
