@@ -556,6 +556,27 @@ p {
   display: flex;
 }
 
+.hero-quick-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.hero-quick-tag {
+  display: inline-flex;
+  align-items: center;
+  min-height: 36px;
+  padding: 0.45rem 0.78rem;
+  border-radius: var(--radius-full);
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(34, 34, 34, 0.08);
+  color: var(--clr-text-main);
+  font-size: 0.78rem;
+  font-weight: 800;
+  box-shadow: var(--shadow-sm);
+}
+
 .hero-side-stack {
   width: 100%;
   display: grid;
@@ -988,7 +1009,7 @@ p {
 
 .start-path-grid {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 0.9rem;
 }
 
@@ -1063,6 +1084,17 @@ p {
   background: rgba(255, 255, 255, 0.94);
   box-shadow: var(--shadow-soft);
   overflow: hidden;
+}
+
+.top-secondary-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.top-secondary-grid .top-secondary-accordion {
+  margin-top: 0;
 }
 
 .top-secondary-summary {
@@ -4665,6 +4697,10 @@ p {
 
   .issue-path-grid {
     grid-auto-columns: 88%;
+  }
+
+  .top-secondary-grid {
+    grid-template-columns: 1fr;
   }
 
   .new-guide-strip-head {
