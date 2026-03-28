@@ -758,12 +758,12 @@ const studios = [
   // ================= ヨガ・ピラティス教室（松山市） =================
   {
     id: 'studio-yoga-001',
-    name: 'ホットヨガスタジオLAVA 松山店',
-    description: '大街道から徒歩すぐ。全国展開する日本最大級のホットヨガスタジオ。初心者が多く、アットホームな雰囲気が特徴。',
+    name: 'ホットヨガスタジオLAVA ジョー・プラ松山店',
+    description: 'ジョー・プラ松山内にあるホットヨガスタジオ。初心者向けの体験導線が分かりやすく、買い物動線にも乗せやすいのが特徴です。',
     category: 'Yoga',
     city: '松山市',
-    area: '大街道周辺',
-    access: '大街道駅 徒歩3分',
+    area: '朝生田町周辺',
+    access: '松山市朝生田町5-1-25 ジョー・プラ3F',
     genres: ['Yoga', 'HotYoga'],
     pricing: {
       system: '月会費',
@@ -771,36 +771,36 @@ const studios = [
       note: 'ライトプラン'
     },
     features: {
-      parking: false,
+      parking: true,
       beginnerFriendly: '◎',
       kidsClass: false,
       adultClass: true
     },
     imageUrl: 'https://plus.unsplash.com/premium_photo-1663089688180-444ff0066e5d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-    link: 'https://yoga-lava.com/'
+    link: 'https://yoga-lava.com/ehime/matsuyama_jowpla/'
   },
   {
     id: 'studio-yoga-002',
-    name: 'ピラティススタジオ the SILK 松山店',
-    description: '女性専用のマシンピラティス専門スタジオ。千舟町にあり、白を基調とした洗練された空間でレッスンが受けられます。',
+    name: 'ホットヨガスタジオ P・YOGA 中央通り店',
+    description: '松山市中央にあるホットヨガスタジオ。ヨガとピラティスの両方を見やすく、無料駐車場が使えるのが特徴です。',
     category: 'Yoga',
     city: '松山市',
-    area: '千舟町周辺',
-    access: '松山市駅 徒歩5分',
-    genres: ['Pilates', 'Machine'],
+    area: '中央通り周辺',
+    access: '松山市中央2丁目76-1',
+    genres: ['Yoga', 'Pilates', 'HotYoga'],
     pricing: {
       system: '不明',
       minPrice: 0,
       note: '詳細は公式サイトへ'
     },
     features: {
-      parking: false,
+      parking: true,
       beginnerFriendly: '◎',
       kidsClass: false,
       adultClass: true
     },
     imageUrl: 'https://images.unsplash.com/photo-1518611012118-696072aa579a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-    link: 'https://the-silk.co.jp/'
+    link: 'https://yoga.pspo.jp/'
   },
 
   // ================= 西条市・宇和島市のスタジオ =================
