@@ -1533,11 +1533,11 @@ p {
 }
 
 .finder-panel {
-  background: rgba(255, 255, 255, 0.92);
-  border: 1px solid rgba(34, 34, 34, 0.08);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(249, 246, 242, 0.94));
+  border: 1px solid rgba(34, 34, 34, 0.07);
   border-radius: 28px;
-  padding: var(--space-lg);
-  box-shadow: 0 22px 46px rgba(34, 34, 34, 0.07);
+  padding: 1rem 1.05rem;
+  box-shadow: 0 14px 28px rgba(34, 34, 34, 0.04);
 }
 
 .finder-panel-header {
@@ -1545,7 +1545,7 @@ p {
   justify-content: space-between;
   align-items: flex-end;
   gap: var(--space-md);
-  margin-bottom: var(--space-lg);
+  margin-bottom: 0.85rem;
 }
 
 .finder-title {
@@ -1627,10 +1627,10 @@ p {
   justify-content: space-between;
   gap: 0.8rem;
   margin-top: 0.85rem;
-  padding: 0.8rem 0.95rem;
+  padding: 0.72rem 0.85rem;
   border-radius: 18px;
-  background: rgba(255, 250, 247, 0.9);
-  border: 1px solid rgba(201, 42, 42, 0.1);
+  background: rgba(255, 255, 255, 0.88);
+  border: 1px solid rgba(34, 34, 34, 0.07);
 }
 
 .finder-results-cta-kicker {
@@ -1656,24 +1656,24 @@ p {
 }
 
 .finder-section {
-  padding: 1.2rem 1.25rem;
-  margin-top: 1rem;
-  border: 1px solid rgba(34, 34, 34, 0.08);
+  padding: 1rem 1.05rem;
+  margin-top: 0.8rem;
+  border: 1px solid rgba(34, 34, 34, 0.07);
   border-radius: 22px;
-  background: rgba(34, 34, 34, 0.02);
+  background: rgba(255, 255, 255, 0.9);
 }
 
 .finder-section-primary {
-  padding: 1.2rem 1.25rem 1.25rem;
+  padding: 1rem 1.05rem 1.05rem;
   margin-top: 0;
-  border-top: 1px solid rgba(34, 34, 34, 0.08);
+  border-top: 1px solid rgba(34, 34, 34, 0.07);
 }
 
 .finder-section-head {
   display: flex;
   align-items: flex-start;
   gap: 0.75rem;
-  margin-bottom: 1rem;
+  margin-bottom: 0.85rem;
 }
 
 .finder-section-head strong {
