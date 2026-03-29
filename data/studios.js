@@ -246,9 +246,9 @@ const studios = [
     access: '松山市二番町3丁目（三越横）',
     genres: ['Piano', 'Rythmique', 'Kids'],
     pricing: {
-      system: '料金表公開',
+      system: '不明',
       minPrice: 0,
-      note: '体験案内あり / 公式サイトで料金表を確認'
+      note: '無料体験案内あり / コース詳細は公式サイトを確認'
     },
     features: {
       parking: true,
@@ -789,9 +789,9 @@ const studios = [
     access: '松山市中央2丁目76-1',
     genres: ['Yoga', 'Pilates', 'HotYoga'],
     pricing: {
-      system: '不明',
-      minPrice: 0,
-      note: '詳細は公式サイトへ'
+      system: '月会費',
+      minPrice: 5478,
+      note: '体験500円〜 / 入会金7,700円・事務手数料3,300円'
     },
     features: {
       parking: true,
@@ -1027,9 +1027,9 @@ const studios = [
     access: '松山市持田町周辺',
     genres: ['English', 'Kids'],
     pricing: {
-      system: '料金表公開',
+      system: '不明',
       minPrice: 0,
-      note: '無料体験あり / 公式サイトで料金表を確認'
+      note: '無料体験あり / 料金は要問い合わせ'
     },
     features: {
       parking: true,
@@ -1096,9 +1096,9 @@ const studios = [
     access: '松山市朝生田町周辺',
     genres: ['English', 'Conversation'],
     pricing: {
-      system: '月謝制',
-      minPrice: 10000,
-      note: '10,000円台〜 / 無料体験あり'
+      system: '不明',
+      minPrice: 0,
+      note: '無料体験あり / 料金詳細は公式サイトを確認'
     },
     features: {
       parking: true,
