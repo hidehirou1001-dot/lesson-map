@@ -246,9 +246,9 @@ const studios = [
     access: '松山市二番町3丁目（三越横）',
     genres: ['Piano', 'Rythmique', 'Kids'],
     pricing: {
-      system: '不明',
+      system: '料金表公開',
       minPrice: 0,
-      note: '詳細は公式サイトへ'
+      note: '体験案内あり / 公式サイトで料金表を確認'
     },
     features: {
       parking: true,
@@ -768,7 +768,7 @@ const studios = [
     pricing: {
       system: '月会費',
       minPrice: 6800,
-      note: 'ライトプラン'
+      note: 'ライトプラン / 体験0円案内あり'
     },
     features: {
       parking: true,
@@ -1027,9 +1027,9 @@ const studios = [
     access: '松山市持田町周辺',
     genres: ['English', 'Kids'],
     pricing: {
-      system: '不明',
+      system: '料金表公開',
       minPrice: 0,
-      note: '無料体験あり / 料金は要問い合わせ'
+      note: '無料体験あり / 公式サイトで料金表を確認'
     },
     features: {
       parking: true,
@@ -1096,9 +1096,9 @@ const studios = [
     access: '松山市朝生田町周辺',
     genres: ['English', 'Conversation'],
     pricing: {
-      system: '不明',
-      minPrice: 0,
-      note: '無料体験あり / 料金は要問い合わせ'
+      system: '月謝制',
+      minPrice: 10000,
+      note: '10,000円台〜 / 無料体験あり'
     },
     features: {
       parking: true,
