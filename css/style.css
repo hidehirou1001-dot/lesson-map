@@ -2524,6 +2524,34 @@ p {
   line-height: 1.5;
 }
 
+.finder-subfilter-status {
+  display: grid;
+  gap: 0.16rem;
+  margin-bottom: 0.75rem;
+  padding: 0.72rem 0.82rem;
+  border-radius: 18px;
+  background: rgba(34, 34, 34, 0.03);
+  border: 1px dashed rgba(34, 34, 34, 0.09);
+}
+
+.finder-subfilter-kicker {
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: var(--clr-primary-dark);
+}
+
+.finder-subfilter-title {
+  font-size: 0.9rem;
+  color: var(--clr-text-main);
+}
+
+.finder-subfilter-copy {
+  color: var(--clr-text-muted);
+  font-size: 0.78rem;
+  line-height: 1.5;
+}
+
 .sub-filter-row,
 .city-filter-row {
   gap: 0.65rem;

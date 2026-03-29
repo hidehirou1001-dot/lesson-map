@@ -1336,6 +1336,9 @@ function initFilters() {
     const areaStatusCopy = document.getElementById('finder-area-status-copy');
     const categoryStatusTitle = document.getElementById('finder-category-status-title');
     const categoryStatusCopy = document.getElementById('finder-category-status-copy');
+    const subfilterStatus = document.getElementById('finder-subfilter-status');
+    const subfilterStatusTitle = document.getElementById('finder-subfilter-title');
+    const subfilterStatusCopy = document.getElementById('finder-subfilter-copy');
     const danceFilters = document.getElementById('sub-filters');
     const progFilters = document.getElementById('sub-filters-prog');
     const clearFiltersBtn = document.getElementById('clear-filters-btn');
@@ -1360,6 +1363,40 @@ function initFilters() {
         categoryStatusCopy.textContent = hasSubFilters
             ? '必要なら下の条件も選んで、さらに絞り込めます。'
             : 'このままエリアを選ぶか、検索結果を見ると比較しやすいです。';
+    }
+
+    function syncSubfilterStatus(selectedCategory) {
+        if (!subfilterStatus || !subfilterStatusTitle || !subfilterStatusCopy) return;
+
+        if (selectedCategory === 'Dance') {
+            subfilterStatus.hidden = false;
+            subfilterStatusTitle.textContent = '追加で絞る';
+            subfilterStatusCopy.textContent = 'ダンスの中で、K-POPやキッズ対応などの条件を足したいときだけ使えます。';
+            return;
+        }
+
+        if (selectedCategory === 'Programming') {
+            subfilterStatus.hidden = false;
+            subfilterStatusTitle.textContent = '追加で絞る';
+            subfilterStatusCopy.textContent = 'プログラミングの中で、マイクラやロボット系まで絞りたいときだけ使えます。';
+            return;
+        }
+
+        if (selectedCategory === 'Gymnastics') {
+            subfilterStatus.hidden = false;
+            subfilterStatusTitle.textContent = '追加で絞る';
+            subfilterStatusCopy.textContent = '体操の中で、キッズ専用やアクロバットなどを追加で絞れます。';
+            return;
+        }
+
+        if (selectedCategory === 'Swimming') {
+            subfilterStatus.hidden = false;
+            subfilterStatusTitle.textContent = '追加で絞る';
+            subfilterStatusCopy.textContent = '水泳の中で、ベビー対応やキッズ対応まで絞りたいときだけ使えます。';
+            return;
+        }
+
+        subfilterStatus.hidden = true;
     }
 
     function syncAreaSelection(selectedCity) {
@@ -1454,6 +1491,7 @@ function initFilters() {
             const cat = btn.getAttribute('data-category');
             currentFilterState.category = cat;
             syncCategoryStatus(cat);
+            syncSubfilterStatus(cat);
 
             // Hide all sub-filters first
             if (danceFilters) danceFilters.style.display = 'none';
@@ -1566,11 +1604,13 @@ function initFilters() {
 
             syncAreaSelection('all');
             syncCategoryStatus('all');
+            syncSubfilterStatus('all');
             applyFilters();
         });
     }
 
     syncCategoryStatus(currentFilterState.category);
+    syncSubfilterStatus(currentFilterState.category);
     syncAreaSelection(currentFilterState.city);
 }
 
