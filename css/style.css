@@ -3007,6 +3007,19 @@ p {
   gap: 0.1rem;
 }
 
+.compare-memo-diff-kicker {
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+  padding: 0.15rem 0.42rem;
+  border-radius: var(--radius-full);
+  background: rgba(201, 42, 42, 0.1);
+  color: var(--clr-primary-dark);
+  font-size: 0.64rem;
+  font-weight: 900;
+  letter-spacing: 0.05em;
+}
+
 .compare-diff-summary {
   display: grid;
   gap: 0.5rem;

@@ -786,6 +786,7 @@ function renderCompareMemo() {
           <div class="compare-memo-summary">
             ${summaryRows.map(row => `
               <span class="compare-memo-summary-row ${diffMap[row.key] ? 'is-diff' : ''}">
+                ${diffMap[row.key] ? '<span class="compare-memo-diff-kicker">差分あり</span>' : ''}
                 <strong>${row.label}:</strong> ${row.value}
               </span>
             `).join('')}
