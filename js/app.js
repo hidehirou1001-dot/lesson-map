@@ -1511,20 +1511,11 @@ function initFilters() {
             });
 
             syncAreaSelection('all');
-            syncQuickFilterButtons();
             applyFilters();
         });
     }
 
     syncAreaSelection(currentFilterState.city);
-    syncQuickFilterButtons();
-}
-
-function syncQuickFilterButtons() {
-    document.querySelectorAll('[data-quick-filter]').forEach(button => {
-        const filterKey = button.getAttribute('data-quick-filter');
-        button.classList.toggle('active', currentFilterState.quickFilters.includes(filterKey));
-    });
 }
 
 function scrollToResultsZone() {
