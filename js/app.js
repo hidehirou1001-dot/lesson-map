@@ -801,8 +801,8 @@ function renderCompareMemo() {
           </div>
           ${verificationMarkup}
           <div class="compare-memo-actions">
-            <button class="btn btn-outline compare-memo-detail-btn" type="button" data-open-compare-id="${studio.id}">比較ポイントを見る</button>
-            <a class="compare-memo-link" href="${studio.link}" target="_blank" rel="noopener noreferrer">${getOfficialActionLabel(studio)}</a>
+            <button class="btn btn-primary compare-memo-detail-btn" type="button" data-open-compare-id="${studio.id}">比較ポイントを見る</button>
+            <a class="compare-memo-link" href="${studio.link}" target="_blank" rel="noopener noreferrer">公式サイトで確認する</a>
           </div>
         </article>
         `;
