@@ -1334,6 +1334,8 @@ function initFilters() {
     const areaStepCity = document.getElementById('finder-area-step-city');
     const areaStatusTitle = document.getElementById('finder-area-status-title');
     const areaStatusCopy = document.getElementById('finder-area-status-copy');
+    const categoryStatusTitle = document.getElementById('finder-category-status-title');
+    const categoryStatusCopy = document.getElementById('finder-category-status-copy');
     const danceFilters = document.getElementById('sub-filters');
     const progFilters = document.getElementById('sub-filters-prog');
     const clearFiltersBtn = document.getElementById('clear-filters-btn');
@@ -1341,6 +1343,25 @@ function initFilters() {
     const finderResultsCtaBtn = document.getElementById('finder-results-cta-btn');
     const sortSelect = document.getElementById('sort-select');
     const subFilterGroups = [danceFilters, progFilters, document.getElementById('sub-filters-gym'), document.getElementById('sub-filters-swim')].filter(Boolean);
+
+    function syncCategoryStatus(selectedCategory) {
+        if (!categoryStatusTitle || !categoryStatusCopy) return;
+
+        if (selectedCategory === 'all') {
+            categoryStatusTitle.textContent = '全体を表示中';
+            categoryStatusCopy.textContent = 'まずは気になるジャンルを選ぶと、結果を絞り込めます。';
+            return;
+        }
+
+        const label = getCategoryLabel(selectedCategory) || selectedCategory;
+        const hasSubFilters = ['Dance', 'Programming', 'Gymnastics', 'Swimming'].includes(selectedCategory);
+
+        categoryStatusTitle.textContent = `${label}で絞り込み中`;
+        categoryStatusCopy.textContent = hasSubFilters
+            ? '必要なら下の条件も選んで、さらに絞り込めます。'
+            : 'このままエリアを選ぶか、検索結果を見ると比較しやすいです。';
+    }
+
     function syncAreaSelection(selectedCity) {
         const activeRegion = cityRegionMap[selectedCity]
             ? selectedCity
@@ -1432,6 +1453,7 @@ function initFilters() {
 
             const cat = btn.getAttribute('data-category');
             currentFilterState.category = cat;
+            syncCategoryStatus(cat);
 
             // Hide all sub-filters first
             if (danceFilters) danceFilters.style.display = 'none';
@@ -1543,10 +1565,12 @@ function initFilters() {
             });
 
             syncAreaSelection('all');
+            syncCategoryStatus('all');
             applyFilters();
         });
     }
 
+    syncCategoryStatus(currentFilterState.category);
     syncAreaSelection(currentFilterState.city);
 }
 
