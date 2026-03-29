@@ -3079,10 +3079,10 @@ p {
 
 .compare-memo-checklist {
   display: grid;
-  gap: 0.45rem;
-  padding: 0.85rem 0.95rem;
-  border-radius: 18px;
-  background: rgba(255, 248, 239, 0.88);
+  gap: 0.4rem;
+  padding: 0.75rem 0.85rem;
+  border-radius: 16px;
+  background: rgba(255, 248, 239, 0.72);
   border: 1px solid rgba(34, 34, 34, 0.06);
 }
 
@@ -3090,20 +3090,28 @@ p {
   display: inline-flex;
   align-items: center;
   gap: 0.35rem;
-  font-size: 0.75rem;
+  font-size: 0.72rem;
   font-weight: 900;
   letter-spacing: 0.04em;
   color: var(--clr-primary-dark);
 }
 
-.compare-memo-checklist-list {
-  margin: 0;
-  padding-left: 1.1rem;
-  display: grid;
-  gap: 0.35rem;
+.compare-memo-checkpoint-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.compare-memo-checkpoint-chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.32rem 0.58rem;
+  border-radius: var(--radius-full);
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(34, 34, 34, 0.08);
   color: var(--clr-text-main);
-  font-size: 0.82rem;
-  line-height: 1.55;
+  font-size: 0.76rem;
+  line-height: 1.45;
 }
 
 .compare-memo-verification {

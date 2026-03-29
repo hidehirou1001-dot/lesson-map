@@ -767,7 +767,7 @@ function renderCompareMemo() {
     grid.innerHTML = items.map((studio, index) => {
         const statuses = getQuickStatusItems(studio);
         const verificationMarkup = getVerificationMarkup(studio, 'compare-memo-verification');
-        const trialCheckpoints = getTrialCheckpoints(studio);
+        const trialCheckpoints = getTrialCheckpoints(studio).slice(0, 2);
         const summaryRows = [
             { key: 'audience', label: '対象', value: getAudienceSummary(studio.features) },
             { key: 'pricing', label: '料金', value: formatPricingSummary(studio.pricing) },
@@ -794,10 +794,10 @@ function renderCompareMemo() {
             ${statuses.map(item => `<span class="compare-memo-status ${diffMap[`status_${item.key}`] ? 'is-diff' : ''}" data-tone="${item.tone}"><strong>${item.label}</strong>${item.value}</span>`).join('')}
           </div>
           <div class="compare-memo-checklist">
-            <span class="compare-memo-checklist-label">体験時に見るポイント</span>
-            <ul class="compare-memo-checklist-list">
-              ${trialCheckpoints.map(point => `<li>${point}</li>`).join('')}
-            </ul>
+            <span class="compare-memo-checklist-label">体験時の確認</span>
+            <div class="compare-memo-checkpoint-chips">
+              ${trialCheckpoints.map(point => `<span class="compare-memo-checkpoint-chip">${point}</span>`).join('')}
+            </div>
           </div>
           ${verificationMarkup}
           <div class="compare-memo-actions">
