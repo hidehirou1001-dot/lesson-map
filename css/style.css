@@ -2955,6 +2955,19 @@ p {
   align-items: flex-start;
 }
 
+.compare-memo-rank {
+  display: inline-flex;
+  align-items: center;
+  margin-bottom: 0.25rem;
+  padding: 0.2rem 0.5rem;
+  border-radius: var(--radius-full);
+  background: rgba(201, 42, 42, 0.08);
+  color: var(--clr-primary-dark);
+  font-size: 0.7rem;
+  font-weight: 900;
+  letter-spacing: 0.04em;
+}
+
 .compare-memo-city {
   display: inline-flex;
   font-size: 0.75rem;
@@ -2984,6 +2997,11 @@ p {
   gap: 0.3rem;
   font-size: 0.82rem;
   color: var(--clr-text-muted);
+}
+
+.compare-memo-summary-row {
+  display: grid;
+  gap: 0.1rem;
 }
 
 .compare-diff-summary {
@@ -3027,6 +3045,9 @@ p {
 .compare-memo-summary-row.is-diff {
   color: var(--clr-text-main);
   font-weight: 700;
+  padding: 0.35rem 0.5rem;
+  border-radius: 12px;
+  background: rgba(201, 42, 42, 0.06);
 }
 
 .compare-memo-statuses {

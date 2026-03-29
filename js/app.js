@@ -764,7 +764,7 @@ function renderCompareMemo() {
         diffSummary.innerHTML = '';
     }
     updateCompareSharePanel(items);
-    grid.innerHTML = items.map(studio => {
+    grid.innerHTML = items.map((studio, index) => {
         const statuses = getQuickStatusItems(studio);
         const verificationMarkup = getVerificationMarkup(studio, 'compare-memo-verification');
         const trialCheckpoints = getTrialCheckpoints(studio);
@@ -772,11 +772,12 @@ function renderCompareMemo() {
             { key: 'audience', label: '対象', value: getAudienceSummary(studio.features) },
             { key: 'pricing', label: '料金', value: formatPricingSummary(studio.pricing) },
             { key: 'commute', label: '通学', value: getCommuteSummary(studio) }
-        ];
+        ].sort((a, b) => Number(diffMap[b.key]) - Number(diffMap[a.key]));
         return `
         <article class="compare-memo-item">
           <div class="compare-memo-item-head">
             <div>
+              <span class="compare-memo-rank">候補 ${index + 1}</span>
               <span class="compare-memo-city">${studio.city} ${studio.area}</span>
               <h3 class="compare-memo-title">${studio.name}</h3>
             </div>
