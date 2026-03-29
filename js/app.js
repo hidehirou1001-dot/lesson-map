@@ -1785,7 +1785,11 @@ function updateResultsMeta(filtered) {
     if (currentFilterState.searchQuery) activeChips.push(`"${currentFilterState.searchQuery}"`);
 
     if (summary) {
-        summary.textContent = `${filtered.length}件の教室を表示中。${currentFilterState.city === 'all' ? '愛媛県全域' : currentFilterState.city}の候補を比較できます。`;
+        const categoryText = currentFilterState.category === 'all'
+            ? '愛媛県全体'
+            : (filterLabelMap[currentFilterState.category] || currentFilterState.category);
+        const cityText = currentFilterState.city === 'all' ? '愛媛県全域' : currentFilterState.city;
+        summary.textContent = `${filtered.length}件を表示中。${categoryText}を${cityText}で比べられます。`;
     }
 
     const sortExplainMap = {
@@ -1860,7 +1864,14 @@ function updateResultsMeta(filtered) {
     if (finderResultsCta && finderResultsCtaBtn) {
         const shouldShow = activeChips.length > 0 || currentFilterState.searchQuery.length > 0;
         finderResultsCta.hidden = !shouldShow;
-        finderResultsCtaBtn.textContent = shouldShow ? `${filtered.length}件を表示する` : '検索結果を見る';
+        if (shouldShow) {
+            const categoryLabel = currentFilterState.category === 'all'
+                ? '候補'
+                : (filterLabelMap[currentFilterState.category] || currentFilterState.category);
+            finderResultsCtaBtn.textContent = `${categoryLabel}の${filtered.length}件を見る`;
+        } else {
+            finderResultsCtaBtn.textContent = '検索結果を見る';
+        }
     }
 
     syncResultsPanelStates();
