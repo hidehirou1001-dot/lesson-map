@@ -2502,8 +2502,9 @@ p {
 
 .category-expand-btn {
   min-height: 42px;
-  padding-inline: 0.95rem;
-  margin-bottom: 0.9rem;
+  padding-inline: 0.8rem;
+  margin-bottom: 0.75rem;
+  font-size: 0.84rem;
 }
 
 .sub-filter-row,
