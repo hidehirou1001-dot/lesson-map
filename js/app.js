@@ -792,7 +792,7 @@ function renderCompareMemo() {
             `).join('')}
           </div>
           <div class="compare-memo-statuses">
-            ${statuses.map(item => `<span class="compare-memo-status ${diffMap[`status_${item.key}`] ? 'is-diff' : ''}" data-tone="${item.tone}"><strong>${item.label}</strong>${item.value}</span>`).join('')}
+            ${statuses.map(item => `<span class="compare-memo-status ${diffMap[`status_${item.key}`] ? 'is-diff' : ''}" data-tone="${item.tone}">${diffMap[`status_${item.key}`] ? '<span class="compare-memo-diff-kicker compare-memo-diff-kicker-inline">差分あり</span>' : ''}<strong>${item.label}</strong>${item.value}</span>`).join('')}
           </div>
           <div class="compare-memo-checklist">
             <span class="compare-memo-checklist-label">体験時の確認</span>

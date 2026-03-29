@@ -3020,6 +3020,10 @@ p {
   letter-spacing: 0.05em;
 }
 
+.compare-memo-diff-kicker-inline {
+  margin-right: 0.2rem;
+}
+
 .compare-diff-summary {
   display: grid;
   gap: 0.5rem;
