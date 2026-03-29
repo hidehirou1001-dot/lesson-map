@@ -2870,22 +2870,24 @@ p {
 .card-support-actions {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.35rem 0.55rem;
+  gap: 0.25rem 0.45rem;
   align-items: center;
+  justify-content: flex-end;
+  opacity: 0.88;
 }
 
 .compare-toggle-btn {
   white-space: nowrap;
   font-weight: 700;
   padding-inline: 0;
-  font-size: 0.82rem;
+  font-size: 0.78rem;
 }
 
 .favorite-toggle-btn {
   white-space: nowrap;
   font-weight: 700;
   padding-inline: 0;
-  font-size: 0.82rem;
+  font-size: 0.78rem;
 }
 
 .favorite-toggle-btn.active {

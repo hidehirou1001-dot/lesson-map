@@ -219,9 +219,6 @@ function renderStudios(data) {
       <div class="card-img-wrap">
         <span class="badge">${studio.city} ${studio.area}</span>
         <img src="${studio.imageUrl}" alt="${studio.name}" class="card-img" loading="lazy">
-        <div style="position: absolute; bottom: 0; right: 0; background: rgba(0,0,0,0.5); color: #fff; font-size: 0.6rem; padding: 2px 6px;">
-          画像引用元: ${studio.imageSource || 'フリー素材(Unsplash)'}
-        </div>
       </div>
         <div class="card-content">
         <div class="card-heading-block">
