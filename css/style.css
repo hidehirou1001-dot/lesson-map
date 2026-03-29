@@ -2509,11 +2509,25 @@ p {
   margin-bottom: 0.3rem;
 }
 
+.sub-btn-extra {
+  display: none;
+}
+
+.sub-filter-row.is-expanded .sub-btn-extra {
+  display: inline-flex;
+}
+
 .sub-btn,
 .city-btn {
   border-radius: var(--radius-full);
   padding: 0.58rem 1rem;
   background: rgba(255, 255, 255, 0.94);
+}
+
+.subfilter-expand-btn {
+  min-height: 40px;
+  padding-inline: 0.9rem;
+  margin-bottom: 0.9rem;
 }
 
 .sub-btn.active,

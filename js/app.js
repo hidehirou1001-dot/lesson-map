@@ -1318,9 +1318,9 @@ function initFilters() {
     const categoryBtns = document.querySelectorAll('.category-btn');
     const subBtns = document.querySelectorAll('.sub-btn');
     const cityBtns = document.querySelectorAll('.city-btn');
-    const quickFilterBtns = document.querySelectorAll('[data-quick-filter]');
     const categoryFilterRow = document.getElementById('category-filter-row');
     const categoryExpandBtn = document.getElementById('category-expand-btn');
+    const danceSubfilterExpandBtn = document.getElementById('dance-subfilter-expand-btn');
     const areaCityPanel = document.getElementById('area-city-panel');
     const areaCityGroups = document.querySelectorAll('[data-region-cities]');
     const areaStepRegion = document.getElementById('finder-area-step-region');
@@ -1372,6 +1372,14 @@ function initFilters() {
         });
     }
 
+    if (danceSubfilterExpandBtn && danceFilters) {
+        danceSubfilterExpandBtn.addEventListener('click', () => {
+            const expanded = danceFilters.classList.toggle('is-expanded');
+            danceSubfilterExpandBtn.setAttribute('aria-expanded', String(expanded));
+            danceSubfilterExpandBtn.textContent = expanded ? '人気条件だけに戻す' : 'ほかの条件も見る';
+        });
+    }
+
     if (finderResultsCtaBtn) {
         finderResultsCtaBtn.addEventListener('click', () => {
             scrollToResultsZone();
@@ -1406,16 +1414,29 @@ function initFilters() {
             // Show relevant sub-filters
             if (cat === 'Dance') {
                 if (danceFilters) danceFilters.style.display = 'flex';
+                if (danceSubfilterExpandBtn) danceSubfilterExpandBtn.hidden = false;
             } else if (cat === 'Programming') {
                 if (progFilters) progFilters.style.display = 'flex';
+                if (danceSubfilterExpandBtn) danceSubfilterExpandBtn.hidden = true;
             } else if (cat === 'Gymnastics') {
                 if (gymFilters) gymFilters.style.display = 'flex';
+                if (danceSubfilterExpandBtn) danceSubfilterExpandBtn.hidden = true;
             } else if (cat === 'Swimming') {
                 if (swimFilters) swimFilters.style.display = 'flex';
+                if (danceSubfilterExpandBtn) danceSubfilterExpandBtn.hidden = true;
+            } else if (danceSubfilterExpandBtn) {
+                danceSubfilterExpandBtn.hidden = true;
             }
 
             // Reset sub-filter state
             currentFilterState.subFilter = 'all';
+            if (danceFilters) {
+                danceFilters.classList.remove('is-expanded');
+            }
+            if (danceSubfilterExpandBtn) {
+                danceSubfilterExpandBtn.setAttribute('aria-expanded', 'false');
+                danceSubfilterExpandBtn.textContent = 'ほかの条件も見る';
+            }
             subFilterGroups.forEach(group => {
                 group.querySelectorAll('.sub-btn').forEach(button => {
                     button.classList.remove('active');
@@ -1448,22 +1469,6 @@ function initFilters() {
         btn.addEventListener('click', () => {
             currentFilterState.city = btn.getAttribute('data-city');
             syncAreaSelection(currentFilterState.city);
-            applyFilters();
-        });
-    });
-
-    quickFilterBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-            const filterKey = btn.getAttribute('data-quick-filter');
-            const exists = currentFilterState.quickFilters.includes(filterKey);
-
-            if (exists) {
-                currentFilterState.quickFilters = currentFilterState.quickFilters.filter(key => key !== filterKey);
-            } else {
-                currentFilterState.quickFilters = [...currentFilterState.quickFilters, filterKey];
-            }
-
-            syncQuickFilterButtons();
             applyFilters();
         });
     });
