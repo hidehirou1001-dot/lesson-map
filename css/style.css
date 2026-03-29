@@ -3292,26 +3292,26 @@ p {
   display: grid;
   gap: 0.1rem;
   min-width: 108px;
-  padding: 0.58rem 0.72rem;
+  padding: 0.54rem 0.7rem;
   border: none;
   border-radius: 16px;
-  background: linear-gradient(135deg, var(--clr-primary-dark), #b73b2e);
+  background: linear-gradient(135deg, rgba(34, 34, 34, 0.88), rgba(34, 34, 34, 0.76));
   color: #fff;
-  box-shadow: 0 12px 24px rgba(34, 34, 34, 0.16);
+  box-shadow: 0 10px 20px rgba(34, 34, 34, 0.12);
   text-align: left;
   cursor: pointer;
-  opacity: 0.92;
+  opacity: 0.86;
 }
 
 .floating-compare-kicker {
-  font-size: 0.58rem;
+  font-size: 0.56rem;
   font-weight: 900;
   letter-spacing: 0.08em;
-  color: rgba(255, 255, 255, 0.82);
+  color: rgba(255, 255, 255, 0.74);
 }
 
 .floating-compare-bar strong {
-  font-size: 0.82rem;
+  font-size: 0.8rem;
   line-height: 1.2;
 }
 

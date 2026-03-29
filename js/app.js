@@ -639,9 +639,16 @@ function updateCollectionCounts(compareCount = compareMemoIds.length, favoriteCo
     });
     if (favoritePanelCount) favoritePanelCount.textContent = `${favoriteCount}件`;
     if (floatingCompareBar) floatingCompareBar.hidden = !hasSavedItems;
-    if (utilityPanel) utilityPanel.classList.toggle('is-empty', !hasSavedItems);
+    if (utilityPanel) {
+        utilityPanel.hidden = !hasSavedItems;
+        utilityPanel.classList.toggle('is-empty', !hasSavedItems);
+    }
     if (utilityGuideGrid) utilityGuideGrid.hidden = !hasSavedItems;
     if (utilityEmptyCopy) utilityEmptyCopy.hidden = hasSavedItems;
+
+    if (!hasSavedItems) {
+        resultsPanelState.utility = false;
+    }
 }
 
 function initResultsPanels() {
