@@ -1320,6 +1320,8 @@ function initFilters() {
     const categoryExpandBtn = document.getElementById('category-expand-btn');
     const danceSubfilterExpandBtn = document.getElementById('dance-subfilter-expand-btn');
     const areaCityPanel = document.getElementById('area-city-panel');
+    const areaCityPanelHead = document.getElementById('area-city-panel-head');
+    const areaCityPanelTitle = document.getElementById('area-city-panel-title');
     const areaCityGroups = document.querySelectorAll('[data-region-cities]');
     const areaStepRegion = document.getElementById('finder-area-step-region');
     const areaStepCity = document.getElementById('finder-area-step-city');
@@ -1339,6 +1341,16 @@ function initFilters() {
 
         if (areaCityPanel) {
             areaCityPanel.hidden = activeRegion === 'all';
+        }
+
+        if (areaCityPanelHead) {
+            areaCityPanelHead.hidden = activeRegion === 'all';
+        }
+
+        if (areaCityPanelTitle) {
+            areaCityPanelTitle.textContent = activeRegion === 'all'
+                ? '市町を選ぶ'
+                : `${activeRegion}の市町を選ぶ`;
         }
 
         areaCityGroups.forEach(group => {
