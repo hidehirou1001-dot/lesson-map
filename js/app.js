@@ -1334,6 +1334,8 @@ function initFilters() {
     const areaStepCity = document.getElementById('finder-area-step-city');
     const areaStatusTitle = document.getElementById('finder-area-status-title');
     const areaStatusCopy = document.getElementById('finder-area-status-copy');
+    const areaSection = document.getElementById('finder-area-section');
+    const areaNote = document.getElementById('finder-area-note');
     const categoryStatusTitle = document.getElementById('finder-category-status-title');
     const categoryStatusCopy = document.getElementById('finder-category-status-copy');
     const subfilterStatus = document.getElementById('finder-subfilter-status');
@@ -1358,6 +1360,17 @@ function initFilters() {
 
         const label = getCategoryLabel(selectedCategory) || selectedCategory;
         const hasSubFilters = ['Dance', 'Programming', 'Gymnastics', 'Swimming'].includes(selectedCategory);
+        const hasChosenCategory = selectedCategory !== 'all';
+
+        if (areaSection) {
+            areaSection.classList.toggle('is-ready', hasChosenCategory);
+        }
+
+        if (areaNote) {
+            areaNote.textContent = hasChosenCategory
+                ? '次にエリアを選ぶと、近い候補だけに絞れます。'
+                : 'まずジャンルを選ぶと、次のエリア選択が分かりやすくなります。';
+        }
 
         categoryStatusTitle.textContent = `${label}で絞り込み中`;
         categoryStatusCopy.textContent = hasSubFilters
