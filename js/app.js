@@ -1400,7 +1400,7 @@ function initFilters() {
         categoryExpandBtn.addEventListener('click', () => {
             const expanded = categoryFilterRow.classList.toggle('is-expanded');
             categoryExpandBtn.setAttribute('aria-expanded', String(expanded));
-            categoryExpandBtn.textContent = expanded ? '人気ジャンルだけに戻す' : 'ほかのジャンルも見る';
+            categoryExpandBtn.textContent = expanded ? '人気ジャンルだけに戻す' : 'ほかのジャンルを見る';
         });
     }
 
