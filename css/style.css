@@ -2490,35 +2490,43 @@ p {
 }
 
 .category-btn {
-  border: none;
-  border-bottom: 2px solid transparent;
-  border-radius: 0;
-  background: transparent;
-  padding: 0.5rem 0;
-  color: var(--clr-text-muted);
+  border: 1px solid rgba(34, 34, 34, 0.08);
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.95);
+  padding: 0.65rem 0.9rem;
+  color: var(--clr-text-main);
   box-shadow: none;
 }
 
 .category-btn:hover {
-  background: transparent;
+  background: #fff;
   color: var(--clr-text-main);
-  border-color: transparent;
-  transform: none;
+  border-color: rgba(34, 34, 34, 0.16);
+  transform: translateY(-1px);
 }
 
 .category-btn.active {
-  background: transparent;
+  background: rgba(201, 42, 42, 0.08);
   color: var(--clr-text-main);
-  border-bottom-color: var(--clr-text-main);
-  box-shadow: none;
+  border-color: rgba(201, 42, 42, 0.18);
+  box-shadow: 0 8px 18px rgba(201, 42, 42, 0.08);
 }
 
 .category-btn-extra {
   display: none;
+  background: rgba(34, 34, 34, 0.03);
+  color: var(--clr-text-muted);
+  border-color: rgba(34, 34, 34, 0.06);
 }
 
 .category-filter-row.is-expanded .category-btn-extra {
   display: inline-flex;
+}
+
+.category-btn-extra.active {
+  background: rgba(201, 42, 42, 0.08);
+  color: var(--clr-text-main);
+  border-color: rgba(201, 42, 42, 0.18);
 }
 
 .category-expand-btn {
@@ -2526,6 +2534,8 @@ p {
   padding-inline: 0.8rem;
   margin-bottom: 0.75rem;
   font-size: 0.84rem;
+  border-style: dashed;
+  color: var(--clr-text-muted);
 }
 
 .finder-category-status {
