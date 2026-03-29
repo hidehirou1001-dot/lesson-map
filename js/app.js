@@ -922,14 +922,13 @@ function renderFavorites() {
           </div>
           <button class="favorite-remove" type="button" data-remove-favorite-id="${studio.id}" aria-label="${studio.name}をお気に入りから外す">×</button>
         </div>
-        <p class="favorite-copy">${getCardDescriptionSummary(studio.description)}</p>
         <div class="favorite-meta">
           <span><strong>対象:</strong> ${getAudienceSummary(studio.features)}</span>
           <span><strong>料金:</strong> ${formatPricingSummary(studio.pricing)}</span>
         </div>
         <div class="favorite-actions">
-          <button class="btn btn-outline favorite-detail-btn" type="button" data-open-favorite-id="${studio.id}">候補を見直す</button>
-          <button class="btn btn-text favorite-compare-btn" type="button" data-favorite-compare-id="${studio.id}">${isComparedStudio(studio.id) ? '比較中' : '比較メモへ'}</button>
+          <button class="btn btn-text favorite-detail-btn" type="button" data-open-favorite-id="${studio.id}">候補を見直す</button>
+          <button class="btn btn-outline favorite-compare-btn" type="button" data-favorite-compare-id="${studio.id}">${isComparedStudio(studio.id) ? '比較中' : '比較メモへ移す'}</button>
         </div>
       </article>
     `).join('');
