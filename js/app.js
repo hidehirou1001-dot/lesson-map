@@ -754,7 +754,7 @@ function renderCompareMemo() {
         };
         diffSummary.hidden = false;
         diffSummary.innerHTML = `
-          <span class="compare-diff-label">差分が出ている項目</span>
+          <span class="compare-diff-label">差分</span>
           <div class="compare-diff-chips">
             ${diffKeys.map(key => `<span class="compare-diff-chip">${diffLabels[key] || key}</span>`).join('')}
           </div>
