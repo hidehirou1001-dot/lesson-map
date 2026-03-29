@@ -1325,6 +1325,8 @@ function initFilters() {
     const areaCityGroups = document.querySelectorAll('[data-region-cities]');
     const areaStepRegion = document.getElementById('finder-area-step-region');
     const areaStepCity = document.getElementById('finder-area-step-city');
+    const areaStatusTitle = document.getElementById('finder-area-status-title');
+    const areaStatusCopy = document.getElementById('finder-area-status-copy');
     const danceFilters = document.getElementById('sub-filters');
     const progFilters = document.getElementById('sub-filters-prog');
     const clearFiltersBtn = document.getElementById('clear-filters-btn');
@@ -1351,6 +1353,19 @@ function initFilters() {
 
         if (areaStepCity) {
             areaStepCity.classList.toggle('is-active', activeRegion !== 'all');
+        }
+
+        if (areaStatusTitle && areaStatusCopy) {
+            if (selectedCity === 'all') {
+                areaStatusTitle.textContent = '愛媛県全域を表示中';
+                areaStatusCopy.textContent = '広く見たいときはこのまま、さらに絞るなら広域を選んでください。';
+            } else if (cityRegionMap[selectedCity]) {
+                areaStatusTitle.textContent = `${selectedCity}を表示中`;
+                areaStatusCopy.textContent = `このまま${selectedCity}で比較できます。さらに絞るなら下の市町を選んでください。`;
+            } else {
+                areaStatusTitle.textContent = `${selectedCity}を表示中`;
+                areaStatusCopy.textContent = `${activeRegion}からさらに絞った状態です。近い候補だけを見たいときに向いています。`;
+            }
         }
 
         cityBtns.forEach(button => {
