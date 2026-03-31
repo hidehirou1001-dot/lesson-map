@@ -12,7 +12,7 @@ const studios = [
     pricing: {
       system: '料金表公開',
       minPrice: 0,
-      note: '料金表公開あり / 体験予約あり'
+      note: '料金案内あり / 無料体験予約あり'
     },
     features: {
       parking: true,
@@ -35,7 +35,7 @@ const studios = [
     pricing: {
       system: '月謝制',
       minPrice: 5500,
-      note: '無料体験あり / 詳細は公式サイトへ'
+      note: '入会金・月謝案内あり / 体験レッスン1回無料'
     },
     features: {
       parking: true,
@@ -58,7 +58,7 @@ const studios = [
     pricing: {
       system: '料金表公開',
       minPrice: 0,
-      note: '料金表公開あり / キャンペーン案内あり'
+      note: '料金システム案内あり / 新規入会キャンペーン案内あり'
     },
     features: {
       parking: false,
@@ -461,7 +461,7 @@ const studios = [
     pricing: {
       system: '月謝制',
       minPrice: 6600,
-      note: '月3回コースの目安'
+      note: '月3回コースの目安 / 無料体験案内あり'
     },
     features: {
       parking: true,
