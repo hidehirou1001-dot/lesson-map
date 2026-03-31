@@ -5747,6 +5747,43 @@ p {
   background: linear-gradient(180deg, rgba(255, 250, 247, 0.96), rgba(255, 255, 255, 0.98));
 }
 
+.modal-experience-section {
+  margin-bottom: 1.1rem;
+  padding: 1rem;
+  border-radius: 18px;
+  border: 1px solid rgba(34, 34, 34, 0.08);
+  background: rgba(34, 34, 34, 0.03);
+}
+
+.modal-experience-head {
+  display: grid;
+  gap: 0.25rem;
+  margin-bottom: 0.65rem;
+}
+
+.modal-experience-head strong {
+  font-size: 1rem;
+  color: var(--clr-text-main);
+}
+
+.modal-experience-copy {
+  margin-bottom: 0.8rem;
+  color: var(--clr-text-main);
+  line-height: 1.75;
+}
+
+.modal-experience-points {
+  display: grid;
+  gap: 0.45rem;
+}
+
+.modal-experience-label {
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  color: var(--clr-text-muted);
+}
+
 .modal-guide-head {
   display: grid;
   gap: 0.25rem;

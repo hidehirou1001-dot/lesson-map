@@ -728,6 +728,15 @@ const studios = [
       kidsClass: true,
       adultClass: true
     },
+    experienceReport: {
+      label: '保護者Uさんの声',
+      summary: '先生がアットホームで、子どもも保護者も入りやすい雰囲気を感じたという声がありました。',
+      checkpoints: [
+        '先生との相性',
+        '保護者同士が話しやすそうか',
+        '見学時の空気感'
+      ]
+    },
     imageUrl: 'https://images.unsplash.com/photo-1541534741688-6078c6bfb5c5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
     link: 'https://nankaidc.jp/asoda/'
   },

@@ -1142,6 +1142,31 @@ function getDecisionReason(studio) {
     return '公式サイトを見ながら特徴を比較しやすい教室です。';
 }
 
+function getExperienceReportMarkup(studio) {
+    const report = studio?.experienceReport;
+    if (!report) return '';
+
+    const checkpoints = Array.isArray(report.checkpoints)
+        ? report.checkpoints.map(point => `<span class="card-meta-chip card-meta-chip-soft">${point}</span>`).join('')
+        : '';
+
+    return `
+        <section class="modal-experience-section">
+            <div class="modal-experience-head">
+                <span class="results-kicker">VISIT NOTE</span>
+                <strong>${report.label || '体験メモ'}</strong>
+            </div>
+            <p class="modal-experience-copy">${report.summary || ''}</p>
+            ${checkpoints ? `
+                <div class="modal-experience-points">
+                    <span class="modal-experience-label">体験前に見たいポイント</span>
+                    <div class="card-meta-chips">${checkpoints}</div>
+                </div>
+            ` : ''}
+        </section>
+    `;
+}
+
 function getInlineGuideLinksForStudio(studio) {
     if (!studio) return [];
 
@@ -2084,6 +2109,7 @@ function openModal(studioId) {
     const locationNoteMarkup = getLocationNoteMarkup(studio, 'location-note location-note-modal');
     const curatorLabelMarkup = getCuratorLabelMarkup(studio, 'curator-label-row curator-label-row-modal');
     const localAreaCueMarkup = getLocalAreaCueMarkup(studio, 'local-area-cue local-area-cue-modal');
+    const experienceReportMarkup = getExperienceReportMarkup(studio);
     const relatedGuides = getRecommendedGuidesForStudio(studio);
     const compareButtonLabel = isComparedStudio(studio.id) ? '比較メモから外す' : '比較メモに入れる';
     const compareButtonDisabled = !isComparedStudio(studio.id) && compareMemoIds.length >= COMPARE_MEMO_LIMIT ? 'disabled' : '';
@@ -2154,6 +2180,7 @@ function openModal(studioId) {
             </div>
 
             <p class="modal-desc">${studio.description}</p>
+            ${experienceReportMarkup}
             ${relatedGuideMarkup}
             
             <ul class="modal-info-list">
