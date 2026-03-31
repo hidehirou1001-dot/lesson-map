@@ -10,9 +10,9 @@ const studios = [
     access: '松山市朝生田町（詳細は公式サイトへ）',
     genres: ['HIPHOP', 'JAZZ', 'Kids'],
     pricing: {
-      system: '不明',
+      system: '料金表公開',
       minPrice: 0,
-      note: '詳細は公式サイトへ'
+      note: '料金表公開あり / 体験予約あり'
     },
     features: {
       parking: true,
@@ -56,9 +56,9 @@ const studios = [
     access: '詳細は公式サイトを確認',
     genres: ['HIPHOP', 'LOCK', 'POP'],
     pricing: {
-      system: '不明',
+      system: '料金表公開',
       minPrice: 0,
-      note: '詳細は公式サイトへ'
+      note: '料金表公開あり / キャンペーン案内あり'
     },
     features: {
       parking: false,
@@ -1486,9 +1486,9 @@ const studios = [
     access: '松山市土居田町138-3',
     genres: ['Boxing', 'Beginner', 'Fitness'],
     pricing: {
-      system: '要確認',
-      minPrice: 0,
-      note: '料金は公式サイトで要確認'
+      system: '月会費',
+      minPrice: 6500,
+      note: '土日月会員 6,500円〜 / 見学・体験案内あり'
     },
     features: {
       parking: false,
@@ -1511,7 +1511,7 @@ const studios = [
     pricing: {
       system: '月会費',
       minPrice: 5900,
-      note: '小学生月会費の目安 / 体験1,000円'
+      note: '入会金11,000円 / 月会費5,900円〜 / 体験1,000円'
     },
     features: {
       parking: true,
