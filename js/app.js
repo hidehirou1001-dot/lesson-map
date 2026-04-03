@@ -165,30 +165,14 @@ function renderStudios(data) {
     data.forEach((studio) => {
         try {
             const pricingSummary = formatPricingSummary(studio.pricing);
-            const featureSummary = getCardFeatureSummary(studio);
             const commuteSummary = getCommuteSummary(studio);
             const cardAccessSummary = getCardAccessSummary(studio.access);
             const categoryLabel = getCategoryLabel(studio.category);
-            const genreTags = Array.isArray(studio.genres) ? studio.genres.map(g => `<span class="tag">${g}</span>`).join('') : '';
             const compareButtonLabel = isComparedStudio(studio.id) ? '比較中' : '比較メモへ';
             const compareButtonState = isComparedStudio(studio.id) ? 'active' : '';
             const compareButtonDisabled = !isComparedStudio(studio.id) && compareMemoIds.length >= COMPARE_MEMO_LIMIT ? 'disabled' : '';
             const favoriteButtonLabel = isFavoriteStudio(studio.id) ? '保存済み' : 'あとで見返す';
             const favoriteButtonState = isFavoriteStudio(studio.id) ? 'active' : '';
-            const hasExtraInfo = Boolean(featureSummary || genreTags);
-            const extraToggleLabel = '補足情報を見る';
-            const cardExtraMarkup = hasExtraInfo ? `
-        <div class="card-extra-wrap">
-          <button class="btn btn-text card-extra-toggle" type="button" data-card-extra-toggle="card-extra-${studio.id}" aria-expanded="false" aria-controls="card-extra-${studio.id}">${extraToggleLabel}</button>
-          <div class="card-extra-content" id="card-extra-${studio.id}" hidden>
-            <div class="card-secondary-block">
-              <span class="card-secondary-label">補足情報</span>
-              <div class="card-meta-chips">${featureSummary}</div>
-              <div class="tags">${genreTags}</div>
-            </div>
-          </div>
-        </div>
-        ` : '';
 
             const card = document.createElement('article');
             card.className = 'card';
@@ -218,7 +202,6 @@ function renderStudios(data) {
             <strong>${commuteSummary}</strong>
           </div>
         </div>
-        ${cardExtraMarkup}
         <div class="card-action-row">
           <button class="btn btn-primary detail-btn card-detail-btn">比較ポイントを見る</button>
           <div class="card-support-actions">
@@ -246,19 +229,6 @@ function renderStudios(data) {
             const favoriteBtn = card.querySelector('.favorite-toggle-btn');
             if (favoriteBtn) {
                 favoriteBtn.addEventListener('click', () => toggleFavorite(studio.id));
-            }
-
-            const extraToggle = card.querySelector('[data-card-extra-toggle]');
-            if (extraToggle) {
-                extraToggle.addEventListener('click', () => {
-                    const targetId = extraToggle.getAttribute('data-card-extra-toggle');
-                    const extraContent = card.querySelector(`#${targetId}`);
-                    if (!extraContent) return;
-                    const isExpanded = extraToggle.getAttribute('aria-expanded') === 'true';
-                    extraContent.hidden = isExpanded;
-                    extraToggle.setAttribute('aria-expanded', isExpanded ? 'false' : 'true');
-                    extraToggle.textContent = isExpanded ? extraToggleLabel : '補足情報を閉じる';
-                });
             }
         } catch (error) {
             console.error('[LessonMap] renderStudios item failed', studio?.id, error);
