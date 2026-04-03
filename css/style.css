@@ -3450,6 +3450,7 @@ p {
   background: linear-gradient(180deg, rgba(201, 42, 42, 0.05), rgba(255, 255, 255, 0.96));
   color: var(--clr-text-main);
   box-shadow: 0 10px 22px rgba(34, 34, 34, 0.04);
+  text-align: left;
 }
 
 .article-keypoints-title {
@@ -3480,6 +3481,8 @@ p {
 }
 
 .recommendations-ai-answer {
+  margin-left: auto;
+  margin-right: auto;
   max-width: 860px;
 }
 
