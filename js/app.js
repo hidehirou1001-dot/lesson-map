@@ -167,6 +167,7 @@ function renderStudios(data) {
             const pricingSummary = formatPricingSummary(studio.pricing);
             const featureSummary = getCardFeatureSummary(studio);
             const commuteSummary = getCommuteSummary(studio);
+            const cardAccessSummary = getCardAccessSummary(studio.access);
             const categoryLabel = getCategoryLabel(studio.category);
             const cardGuideLinks = getInlineGuideLinksForStudio(studio);
             const genreTags = Array.isArray(studio.genres) ? studio.genres.map(g => `<span class="tag">${g}</span>`).join('') : '';
@@ -216,7 +217,7 @@ function renderStudios(data) {
         <div class="card-heading-block">
           <span class="card-eyebrow">${categoryLabel}</span>
           <h3 class="h3">${studio.name}</h3>
-          <p class="card-location">${studio.access}</p>
+          <p class="card-location">${cardAccessSummary}</p>
         </div>
         <div class="card-stat-grid">
           <div class="card-stat card-stat-primary">
@@ -1093,6 +1094,23 @@ function getAudienceSummary(features) {
     if (features.kidsClass) return '子ども中心';
     if (features.adultClass) return '大人中心';
     return '要確認';
+}
+
+function getCardAccessSummary(access) {
+    if (!access) return 'アクセスは公式サイトで確認';
+    if (/詳細は公式サイト/.test(access)) return 'アクセスは公式サイトで確認';
+
+    const compact = access
+        .replace(/（[^）]*）/g, '')
+        .replace(/\s+/g, ' ')
+        .trim();
+
+    if (compact.length <= 24) return compact;
+
+    const split = compact.split(/、|・|\/|\/|　/).map(part => part.trim()).filter(Boolean);
+    if (split.length > 0 && split[0].length >= 6) return split[0];
+
+    return `${compact.slice(0, 24).trim()}...`;
 }
 
 function getCardDescriptionSummary(description) {

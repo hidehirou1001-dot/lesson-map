@@ -419,7 +419,11 @@ p {
   margin: 0.22rem 0 0;
   font-size: 0.74rem;
   color: rgba(34, 34, 34, 0.54);
-  line-height: 1.55;
+  line-height: 1.45;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .local-area-cue {
