@@ -3453,6 +3453,10 @@ p {
   font-weight: 500;
 }
 
+.recommendations-ai-answer {
+  max-width: 860px;
+}
+
 .article-summary {
   margin: 0 0 var(--space-xl);
   padding: 1.25rem 1.5rem;
