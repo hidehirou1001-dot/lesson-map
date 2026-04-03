@@ -3942,7 +3942,12 @@ p {
 }
 
 .recent-guides-panel {
-  margin-bottom: 0.75rem;
+  margin-top: -0.1rem;
+  margin-bottom: 0.65rem;
+}
+
+.recent-guides-panel .start-path-head {
+  margin-bottom: 0.35rem;
 }
 
 .recent-guides-grid {
