@@ -168,7 +168,7 @@ function renderStudios(data) {
             const commuteSummary = getCommuteSummary(studio);
             const cardAccessSummary = getCardAccessSummary(studio.access);
             const categoryLabel = getCategoryLabel(studio.category);
-            const compareButtonLabel = isComparedStudio(studio.id) ? '比較中' : '比較メモへ';
+            const compareButtonLabel = isComparedStudio(studio.id) ? '比較中' : '比較する';
             const compareButtonState = isComparedStudio(studio.id) ? 'active' : '';
             const compareButtonDisabled = !isComparedStudio(studio.id) && compareMemoIds.length >= COMPARE_MEMO_LIMIT ? 'disabled' : '';
             const favoriteButtonLabel = isFavoriteStudio(studio.id) ? '保存済み' : '保存する';
