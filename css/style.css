@@ -3442,6 +3442,17 @@ p {
   margin-bottom: var(--space-xl);
 }
 
+.article-ai-answer {
+  margin: 0 0 var(--space-lg);
+  padding: 14px 16px;
+  border-radius: 16px;
+  border: 1px solid rgba(201, 42, 42, 0.14);
+  background: rgba(201, 42, 42, 0.04);
+  color: var(--clr-text-main);
+  line-height: 1.8;
+  font-weight: 500;
+}
+
 .article-summary {
   margin: 0 0 var(--space-xl);
   padding: 1.25rem 1.5rem;
