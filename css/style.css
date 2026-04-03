@@ -3711,7 +3711,7 @@ p {
 .article-related-link {
   display: grid;
   gap: 0.28rem;
-  padding: 0.92rem 1rem;
+  padding: 0.84rem 0.92rem;
   border-radius: 20px;
   background: rgba(255, 255, 255, 0.92);
   border: 1px solid rgba(34, 34, 34, 0.08);
@@ -3721,14 +3721,14 @@ p {
 
 .article-related-link strong {
   color: var(--clr-text-main);
-  font-size: 0.92rem;
+  font-size: 0.9rem;
   line-height: 1.45;
 }
 
 .article-related-link span {
   color: var(--clr-text-muted);
-  font-size: 0.78rem;
-  line-height: 1.5;
+  font-size: 0.76rem;
+  line-height: 1.45;
 }
 
 .article-related-link:hover {
