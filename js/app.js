@@ -171,7 +171,7 @@ function renderStudios(data) {
             const compareButtonLabel = isComparedStudio(studio.id) ? '比較中' : '比較メモへ';
             const compareButtonState = isComparedStudio(studio.id) ? 'active' : '';
             const compareButtonDisabled = !isComparedStudio(studio.id) && compareMemoIds.length >= COMPARE_MEMO_LIMIT ? 'disabled' : '';
-            const favoriteButtonLabel = isFavoriteStudio(studio.id) ? '保存済み' : 'あとで見返す';
+            const favoriteButtonLabel = isFavoriteStudio(studio.id) ? '保存済み' : '保存する';
             const favoriteButtonState = isFavoriteStudio(studio.id) ? 'active' : '';
 
             const card = document.createElement('article');
