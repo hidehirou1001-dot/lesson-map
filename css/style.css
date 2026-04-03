@@ -1951,7 +1951,15 @@ p {
 }
 
 .recommendations-hero-accordion-list {
-  margin-top: 1rem;
+  margin-top: 0.8rem;
+}
+
+.recommendations-hero-accordion-list .compact-accordion-trigger {
+  padding: 0.8rem 0.95rem;
+}
+
+.recommendations-hero-accordion-list .compact-accordion-body {
+  padding: 0 0.95rem 0.95rem;
 }
 
 .search-btn:hover {
@@ -3770,14 +3778,34 @@ p {
 
 .recommendations-hero > p {
   max-width: 760px;
-  margin: 0 auto 1rem;
+  margin: 0 auto 0.85rem;
   font-size: 1rem;
-  line-height: 1.85;
+  line-height: 1.75;
   color: var(--clr-text-main);
 }
 
 .recommendations-stats {
   max-width: 980px;
+}
+
+.recommendations-hero .hero-stats {
+  gap: 0.45rem;
+  margin-bottom: 0.8rem;
+}
+
+.recommendations-hero .hero-stat {
+  min-height: 40px;
+  background: rgba(255, 255, 255, 0.64);
+  padding: 0.56rem 0.82rem;
+  box-shadow: 0 8px 16px rgba(34, 34, 34, 0.03);
+}
+
+.recommendations-hero .hero-stat-label {
+  font-size: 0.72rem;
+}
+
+.recommendations-hero .hero-stat strong {
+  font-size: 0.98rem;
 }
 
 .recommendations-hero-actions {
