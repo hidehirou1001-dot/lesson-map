@@ -4778,17 +4778,18 @@ p {
 
 /* FAQ Accordion */
 .faq-item {
-  border-bottom: 1px solid var(--clr-border);
+  border-bottom: 1px solid rgba(34, 34, 34, 0.08);
   margin-bottom: 0;
-  background: var(--clr-surface);
+  background: rgba(255, 255, 255, 0.7);
   border-radius: 0;
 }
 
 .faq-question {
-  padding: 1.5rem 0;
+  padding: 1.25rem 0;
   cursor: pointer;
   font-weight: 500;
-  font-size: 1.1rem;
+  font-size: 1.02rem;
+  line-height: 1.55;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -4801,10 +4802,12 @@ p {
   overflow: hidden;
   transition: max-height 0.3s ease-out, padding 0.3s ease;
   color: var(--clr-text-muted);
+  font-size: 0.94rem;
+  line-height: 1.75;
 }
 
 .faq-item.active .faq-answer {
-  padding: 0 0 1.5rem;
+  padding: 0 0 1.25rem;
   max-height: 500px;
 }
 
