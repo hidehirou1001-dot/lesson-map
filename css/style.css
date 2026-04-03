@@ -3463,30 +3463,20 @@ p {
 
 .article-keypoints-list {
   margin: 0;
-  padding: 0;
-  list-style: none;
+  padding-left: 1rem;
+  list-style: disc;
   display: grid;
   gap: 0.32rem;
 }
 
 .article-keypoints-list li {
-  position: relative;
-  padding-left: 0.82rem;
   color: var(--clr-text-main);
   font-size: 0.9rem;
   line-height: 1.65;
 }
 
-.article-keypoints-list li::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 0.7em;
-  width: 0.32rem;
-  height: 0.32rem;
-  border-radius: 999px;
-  background: var(--clr-primary);
-  transform: translateY(-50%);
+.article-keypoints-list li::marker {
+  color: var(--clr-primary);
 }
 
 .recommendations-ai-answer {
