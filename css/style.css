@@ -3942,39 +3942,37 @@ p {
 }
 
 .recent-guides-panel {
-  margin-bottom: 1rem;
+  margin-bottom: 0.75rem;
 }
 
 .recent-guides-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 0.75rem;
+  gap: 0.6rem;
 }
 
 .recent-guide-link {
-  display: grid;
-  gap: 0.18rem;
-  padding: 0.9rem 1rem;
-  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0.72rem 0.9rem;
+  border-radius: 999px;
   border: 1px solid rgba(34, 34, 34, 0.08);
-  background: rgba(255, 255, 255, 0.88);
+  background: rgba(255, 255, 255, 0.8);
   text-decoration: none;
 }
 
 .recent-guide-link strong {
-  font-size: 0.92rem;
+  display: block;
+  font-size: 0.84rem;
+  line-height: 1.45;
   color: var(--clr-text-main);
-}
-
-.recent-guide-link span {
-  font-size: 0.8rem;
-  color: var(--clr-text-muted);
-  line-height: 1.5;
+  font-weight: 700;
 }
 
 .recent-guide-link:hover {
-  border-color: rgba(34, 34, 34, 0.14);
-  box-shadow: var(--shadow-sm);
+  border-color: rgba(201, 42, 42, 0.16);
+  box-shadow: 0 8px 16px rgba(34, 34, 34, 0.06);
 }
 
 .recommendation-entry-switch {

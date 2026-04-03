@@ -633,7 +633,8 @@ function renderRecentGuides() {
     if (!panel || !grid) return;
 
     const currentPath = window.location.pathname;
-    const recent = loadRecentGuides().filter(item => item?.href && item.href !== currentPath).slice(0, RECENT_GUIDES_LIMIT);
+    const limit = currentPath === '/recommendations/' ? RECENT_GUIDES_LIMIT : 2;
+    const recent = loadRecentGuides().filter(item => item?.href && item.href !== currentPath).slice(0, limit);
 
     if (recent.length === 0) {
         panel.hidden = true;
@@ -644,7 +645,6 @@ function renderRecentGuides() {
     grid.innerHTML = recent.map(item => `
         <a class="recent-guide-link" href="${item.href}">
             <strong>${item.title}</strong>
-            <span>前に見た比較ガイドへ戻る</span>
         </a>
     `).join('');
     panel.hidden = false;
