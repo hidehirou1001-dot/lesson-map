@@ -1808,7 +1808,10 @@ function updateResultsMeta(filtered) {
             ? '愛媛県全体'
             : (filterLabelMap[currentFilterState.category] || currentFilterState.category);
         const cityText = currentFilterState.city === 'all' ? '愛媛県全域' : currentFilterState.city;
-        summary.textContent = `${filtered.length}件を表示中。${categoryText}を${cityText}で比べられます。`;
+        const lowCountHint = filtered.length > 0 && filtered.length <= 2
+            ? ' 候補が少ないので、近い特集も合わせて見ると比較しやすくなります。'
+            : '';
+        summary.textContent = `${filtered.length}件を表示中。${categoryText}を${cityText}で比べられます。${lowCountHint}`;
     }
 
     const sortExplainMap = {
@@ -1857,9 +1860,12 @@ function updateResultsMeta(filtered) {
     if (guidePanel && guideTitle && guideLinks) {
         const guides = getRecommendedGuides();
         if (guides.length > 0) {
-            guideTitle.textContent = currentFilterState.city !== 'all'
-                ? `${currentFilterState.city}で合わせて見たい特集`
-                : '合わせて見たい特集';
+            const isLowCount = filtered.length > 0 && filtered.length <= 2;
+            guideTitle.textContent = isLowCount
+                ? '候補が少ないときに広げたい特集'
+                : (currentFilterState.city !== 'all'
+                    ? `${currentFilterState.city}で合わせて見たい特集`
+                    : '合わせて見たい特集');
             guideLinks.innerHTML = guides.map(guide => `
                 <a class="results-guide-link" href="${guide.href}">
                     <strong>${guide.title}</strong>
@@ -1868,7 +1874,7 @@ function updateResultsMeta(filtered) {
             `).join('');
             guidePanel.hidden = false;
             if (!resultsPanelState.guideTouched) {
-                resultsPanelState.guide = activeChips.length > 0 || currentFilterState.city !== 'all';
+                resultsPanelState.guide = isLowCount || activeChips.length > 0 || currentFilterState.city !== 'all';
             }
         } else {
             guideLinks.innerHTML = '';
