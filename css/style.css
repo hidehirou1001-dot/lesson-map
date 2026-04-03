@@ -5187,7 +5187,26 @@ p {
   }
 
   .card-stat-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.45rem;
+  }
+
+  .card-stat {
+    padding: 0.6rem 0.68rem;
+    border-radius: 16px;
+  }
+
+  .card-stat-primary {
+    grid-column: 1 / -1;
+  }
+
+  .card-stat-label {
+    font-size: 0.64rem;
+  }
+
+  .card-stat strong {
+    font-size: 0.78rem;
+    line-height: 1.35;
   }
 
   .card-quick-statuses {
