@@ -167,14 +167,9 @@ function renderStudios(data) {
             const pricingSummary = formatPricingSummary(studio.pricing);
             const featureSummary = getCardFeatureSummary(studio);
             const commuteSummary = getCommuteSummary(studio);
-            const quickStatusMarkup = getQuickStatusMarkup(studio);
-            const verificationMarkup = getVerificationMarkup(studio);
             const categoryLabel = getCategoryLabel(studio.category);
-            const descriptionSummary = getCardDescriptionSummary(studio.description);
             const cardGuideLinks = getInlineGuideLinksForStudio(studio);
             const genreTags = Array.isArray(studio.genres) ? studio.genres.map(g => `<span class="tag">${g}</span>`).join('') : '';
-            const curatorLabelMarkup = getCuratorLabelMarkup(studio);
-            const localAreaCueMarkup = getLocalAreaCueMarkup(studio);
             const compareButtonLabel = isComparedStudio(studio.id) ? '比較中' : '比較メモへ';
             const compareButtonState = isComparedStudio(studio.id) ? 'active' : '';
             const compareButtonDisabled = !isComparedStudio(studio.id) && compareMemoIds.length >= COMPARE_MEMO_LIMIT ? 'disabled' : '';
@@ -203,7 +198,6 @@ function renderStudios(data) {
               <span class="card-secondary-label">補足情報</span>
               <div class="card-meta-chips">${featureSummary}</div>
               <div class="tags">${genreTags}</div>
-              ${verificationMarkup}
             </div>
             ${cardGuideMarkup}
           </div>
@@ -212,8 +206,6 @@ function renderStudios(data) {
 
             const card = document.createElement('article');
             card.className = 'card';
-
-            const locationNoteMarkup = getLocationNoteMarkup(studio);
 
             card.innerHTML = `
       <div class="card-img-wrap">
@@ -224,10 +216,7 @@ function renderStudios(data) {
         <div class="card-heading-block">
           <span class="card-eyebrow">${categoryLabel}</span>
           <h3 class="h3">${studio.name}</h3>
-          ${curatorLabelMarkup}
-          ${localAreaCueMarkup}
           <p class="card-location">${studio.access}</p>
-          ${locationNoteMarkup}
         </div>
         <div class="card-stat-grid">
           <div class="card-stat card-stat-primary">
@@ -243,7 +232,6 @@ function renderStudios(data) {
             <strong>${commuteSummary}</strong>
           </div>
         </div>
-        ${quickStatusMarkup}
         ${cardExtraMarkup}
         <div class="card-action-row">
           <button class="btn btn-primary detail-btn card-detail-btn">比較ポイントを見る</button>
