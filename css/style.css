@@ -4048,7 +4048,7 @@ p {
   gap: 0.55rem;
   margin-top: 0.65rem;
   margin-bottom: 0.2rem;
-  padding: 1.15rem 1.2rem;
+  padding: 0.95rem 1.05rem;
   border-radius: 24px;
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(250, 247, 244, 0.92));
   border: 1px solid rgba(34, 34, 34, 0.07);
@@ -4066,7 +4066,7 @@ p {
   justify-content: space-between;
   gap: 1rem;
   color: var(--clr-text-muted);
-  font-size: 0.84rem;
+  font-size: 0.8rem;
   font-weight: 700;
 }
 
@@ -4083,7 +4083,8 @@ p {
 
 .recommendation-grid-label .results-summary {
   max-width: 760px;
-  line-height: 1.75;
+  font-size: 0.92rem;
+  line-height: 1.65;
 }
 
 .recommendation-entry .card-img-wrap {
