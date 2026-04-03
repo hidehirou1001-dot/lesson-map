@@ -3697,6 +3697,11 @@ p {
   margin-top: var(--space-2xl);
 }
 
+.faq-container + .article-related,
+.article-faq + .article-related {
+  margin-top: var(--space-xl);
+}
+
 .article-related-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
