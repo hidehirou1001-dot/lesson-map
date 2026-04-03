@@ -2028,16 +2028,18 @@ p {
 }
 
 .results-support-accordion {
-  margin-bottom: var(--space-lg);
+  margin-bottom: 0.9rem;
 }
 
 .results-support-accordion .compact-accordion-trigger {
-  background: rgba(255, 255, 255, 0.88);
-  border: 1px solid rgba(34, 34, 34, 0.08);
+  padding: 0.82rem 0.95rem;
+  background: rgba(255, 255, 255, 0.76);
+  border: 1px solid rgba(34, 34, 34, 0.06);
+  box-shadow: none;
 }
 
 .results-support-accordion .compact-accordion-body {
-  padding-top: 1rem;
+  padding-top: 0.82rem;
 }
 
 .results-panel-header {
@@ -2050,7 +2052,7 @@ p {
 .results-panel-body {
   display: grid;
   gap: 0.85rem;
-  margin-top: 0.85rem;
+  margin-top: 0.72rem;
 }
 
 .results-clear-btn {
@@ -2058,10 +2060,10 @@ p {
 }
 
 .results-panel-toggle {
-  padding: 0.35rem 0.85rem;
+  padding: 0.3rem 0.72rem;
   border-radius: var(--radius-full);
-  background: rgba(34, 34, 34, 0.05);
-  font-size: 0.8rem;
+  background: rgba(34, 34, 34, 0.04);
+  font-size: 0.76rem;
   font-weight: 800;
   white-space: nowrap;
 }

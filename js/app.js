@@ -1937,7 +1937,7 @@ function updateResultsMeta(filtered) {
             `).join('');
             guidePanel.hidden = false;
             if (!resultsPanelState.guideTouched) {
-                resultsPanelState.guide = isLowCount || activeChips.length > 0 || currentFilterState.city !== 'all';
+                resultsPanelState.guide = isLowCount;
             }
         } else {
             guideLinks.innerHTML = '';
