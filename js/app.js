@@ -169,28 +169,14 @@ function renderStudios(data) {
             const commuteSummary = getCommuteSummary(studio);
             const cardAccessSummary = getCardAccessSummary(studio.access);
             const categoryLabel = getCategoryLabel(studio.category);
-            const cardGuideLinks = getInlineGuideLinksForStudio(studio);
             const genreTags = Array.isArray(studio.genres) ? studio.genres.map(g => `<span class="tag">${g}</span>`).join('') : '';
             const compareButtonLabel = isComparedStudio(studio.id) ? '比較中' : '比較メモへ';
             const compareButtonState = isComparedStudio(studio.id) ? 'active' : '';
             const compareButtonDisabled = !isComparedStudio(studio.id) && compareMemoIds.length >= COMPARE_MEMO_LIMIT ? 'disabled' : '';
             const favoriteButtonLabel = isFavoriteStudio(studio.id) ? '保存済み' : 'あとで見返す';
             const favoriteButtonState = isFavoriteStudio(studio.id) ? 'active' : '';
-            const cardGuideMarkup = cardGuideLinks.length > 0 ? `
-        <div class="card-guide-box">
-          <span class="card-guide-label">関連特集</span>
-          <div class="card-guide-links">
-            ${cardGuideLinks.map(guide => `
-              <a class="card-guide-link" href="${guide.href}">
-                <strong>${guide.title}</strong>
-                <span>${guide.description}</span>
-              </a>
-            `).join('')}
-          </div>
-        </div>
-        ` : '';
-            const hasExtraInfo = Boolean(featureSummary || genreTags || verificationMarkup || cardGuideMarkup);
-            const extraToggleLabel = cardGuideLinks.length > 0 ? '補足情報と補助導線を見る' : '補足情報を見る';
+            const hasExtraInfo = Boolean(featureSummary || genreTags);
+            const extraToggleLabel = '補足情報を見る';
             const cardExtraMarkup = hasExtraInfo ? `
         <div class="card-extra-wrap">
           <button class="btn btn-text card-extra-toggle" type="button" data-card-extra-toggle="card-extra-${studio.id}" aria-expanded="false" aria-controls="card-extra-${studio.id}">${extraToggleLabel}</button>
@@ -200,7 +186,6 @@ function renderStudios(data) {
               <div class="card-meta-chips">${featureSummary}</div>
               <div class="tags">${genreTags}</div>
             </div>
-            ${cardGuideMarkup}
           </div>
         </div>
         ` : '';
