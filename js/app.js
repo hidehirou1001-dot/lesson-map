@@ -20,6 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
     runSafely('initResultsPanels', initResultsPanels);
     runSafely('initCompareMemo', initCompareMemo);
     runSafely('initFavorites', initFavorites);
+    runSafely('initRecentGuides', initRecentGuides);
     runSafely('initShareTools', initShareTools);
 
     // Render studios if a container exists (e.g., on index.html)
@@ -427,6 +428,8 @@ function getCuratorLabelMarkup(studio, className = 'curator-label-row') {
 const SITE_REVIEW_DATE = '2026-03-22';
 const COMPARE_MEMO_KEY = 'lessonmap_compare_memo';
 const COMPARE_MEMO_LIMIT = 3;
+const RECENT_GUIDES_KEY = 'lessonmap_recent_guides';
+const RECENT_GUIDES_LIMIT = 3;
 let compareMemoIds = [];
 const FAVORITES_KEY = 'lessonmap_favorites';
 let favoriteIds = [];
@@ -590,6 +593,66 @@ function clearFavorites() {
     saveFavorites();
     renderFavorites();
     applyFilters();
+}
+
+function loadRecentGuides() {
+    try {
+        const raw = window.localStorage.getItem(RECENT_GUIDES_KEY);
+        if (!raw) return [];
+        const parsed = JSON.parse(raw);
+        return Array.isArray(parsed) ? parsed.slice(0, RECENT_GUIDES_LIMIT) : [];
+    } catch (error) {
+        return [];
+    }
+}
+
+function saveRecentGuides(items) {
+    try {
+        window.localStorage.setItem(RECENT_GUIDES_KEY, JSON.stringify(items.slice(0, RECENT_GUIDES_LIMIT)));
+    } catch (error) {
+        // localStorage unavailable
+    }
+}
+
+function trackCurrentGuide() {
+    const { pathname } = window.location;
+    if (!pathname.startsWith('/recommendations/') || pathname === '/recommendations/') return;
+
+    const heading = document.querySelector('h1');
+    const title = heading?.textContent?.trim() || document.title.replace(/\s*\|\s*LessonMap\s*$/, '').trim();
+    if (!title) return;
+
+    const recent = loadRecentGuides().filter(item => item?.href && item.href !== pathname);
+    recent.unshift({ href: pathname, title });
+    saveRecentGuides(recent);
+}
+
+function renderRecentGuides() {
+    const panel = document.getElementById('recent-guides-panel');
+    const grid = document.getElementById('recent-guides-grid');
+    if (!panel || !grid) return;
+
+    const currentPath = window.location.pathname;
+    const recent = loadRecentGuides().filter(item => item?.href && item.href !== currentPath).slice(0, RECENT_GUIDES_LIMIT);
+
+    if (recent.length === 0) {
+        panel.hidden = true;
+        grid.innerHTML = '';
+        return;
+    }
+
+    grid.innerHTML = recent.map(item => `
+        <a class="recent-guide-link" href="${item.href}">
+            <strong>${item.title}</strong>
+            <span>前に見た比較ガイドへ戻る</span>
+        </a>
+    `).join('');
+    panel.hidden = false;
+}
+
+function initRecentGuides() {
+    trackCurrentGuide();
+    renderRecentGuides();
 }
 
 function updateCollectionCounts(compareCount = compareMemoIds.length, favoriteCount = favoriteIds.length) {
