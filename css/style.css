@@ -2985,31 +2985,40 @@ p {
 }
 
 .card-support-actions {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 0.38rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.3rem 0.75rem;
   align-items: center;
-  opacity: 0.72;
+  opacity: 0.78;
 }
 
 .compare-toggle-btn {
+  min-height: auto;
+  padding: 0;
   white-space: nowrap;
   font-weight: 700;
-  padding: 0.42rem 0.62rem;
-  font-size: 0.74rem;
+  font-size: 0.72rem;
   justify-content: center;
-  border-radius: 999px;
-  background: rgba(34, 34, 34, 0.035);
+  border-radius: 0;
+  background: transparent;
+  color: var(--clr-text-muted);
+  text-decoration: underline;
+  text-underline-offset: 0.14em;
 }
 
 .favorite-toggle-btn {
+  min-height: auto;
+  padding: 0;
   white-space: nowrap;
   font-weight: 700;
-  padding: 0.42rem 0.62rem;
-  font-size: 0.74rem;
+  font-size: 0.72rem;
   justify-content: center;
-  border-radius: 999px;
-  background: rgba(34, 34, 34, 0.035);
+  border-radius: 0;
+  background: transparent;
+  color: var(--clr-text-muted);
+  text-decoration: underline;
+  text-underline-offset: 0.14em;
 }
 
 .favorite-toggle-btn.active {
@@ -5333,10 +5342,6 @@ p {
   }
 
   .card-support-actions {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .card-support-actions .btn-text {
     justify-content: center;
   }
 
