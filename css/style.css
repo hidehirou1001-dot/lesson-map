@@ -2708,6 +2708,48 @@ p {
   margin-top: 0.5rem;
 }
 
+.empty-state-extended {
+  display: grid;
+  gap: 0.9rem;
+  justify-items: center;
+}
+
+.empty-state-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  justify-content: center;
+}
+
+.empty-state-guides {
+  width: 100%;
+  display: grid;
+  gap: 0.7rem;
+  margin-top: 0.15rem;
+}
+
+.empty-state-guide-link {
+  display: grid;
+  gap: 0.18rem;
+  padding: 0.85rem 0.95rem;
+  border-radius: 16px;
+  border: 1px solid rgba(34, 34, 34, 0.08);
+  background: rgba(255, 255, 255, 0.86);
+  text-decoration: none;
+  text-align: left;
+}
+
+.empty-state-guide-link strong {
+  font-size: 0.92rem;
+  color: var(--clr-text-main);
+}
+
+.empty-state-guide-link span {
+  font-size: 0.82rem;
+  color: var(--clr-text-muted);
+  line-height: 1.5;
+}
+
 .card-meta-chips {
   display: flex;
   flex-wrap: wrap;

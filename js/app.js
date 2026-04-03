@@ -156,7 +156,14 @@ function renderStudios(data) {
     grid.innerHTML = ''; // Clear existing
 
     if (data.length === 0) {
-        grid.innerHTML = '<div class="empty-state" style="grid-column: 1/-1;"><strong>条件に一致する教室が見つかりませんでした。</strong><p>カテゴリやエリアを広げるか、キーワードを短くして再検索してください。</p></div>';
+        grid.innerHTML = getNoResultsMarkup();
+        const resetBtn = grid.querySelector('[data-empty-reset]');
+        if (resetBtn) {
+            resetBtn.addEventListener('click', () => {
+                const clearFiltersBtn = document.getElementById('clear-filters-btn');
+                clearFiltersBtn?.click();
+            });
+        }
         return;
     }
 
@@ -238,6 +245,32 @@ function renderStudios(data) {
     if (renderedCount === 0) {
         grid.innerHTML = '<div class="empty-state" style="grid-column: 1/-1;"><strong>教室一覧の表示で問題が発生しました。</strong><p>条件をリセットして再読み込みしてください。改善しない場合は別の条件でもお試しください。</p></div>';
     }
+}
+
+function getNoResultsMarkup() {
+    const guides = getRecommendedGuides();
+    const guideMarkup = guides.length > 0 ? `
+        <div class="empty-state-guides">
+            ${guides.map(guide => `
+                <a class="empty-state-guide-link" href="${guide.href}">
+                    <strong>${guide.title}</strong>
+                    <span>${guide.description}</span>
+                </a>
+            `).join('')}
+        </div>
+    ` : '';
+
+    return `
+        <div class="empty-state empty-state-extended" style="grid-column: 1/-1;">
+            <strong>条件に一致する教室が見つかりませんでした。</strong>
+            <p>カテゴリやエリアを少し広げると見つかりやすくなります。</p>
+            <div class="empty-state-actions">
+                <button class="btn btn-outline" type="button" data-empty-reset>条件をリセット</button>
+                <a class="btn btn-text" href="/recommendations/">特集一覧を見る</a>
+            </div>
+            ${guideMarkup}
+        </div>
+    `;
 }
 
 function formatPricingSummary(pricing) {
