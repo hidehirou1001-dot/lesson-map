@@ -211,7 +211,7 @@ function renderStudios(data) {
           </div>
         </div>
         <div class="card-action-row">
-          <button class="btn btn-primary detail-btn card-detail-btn">パッと見る</button>
+          <button class="btn btn-primary detail-btn card-detail-btn">詳細を見る</button>
           <div class="card-support-actions">
             <button class="btn btn-text favorite-toggle-btn ${favoriteButtonState}" type="button" data-favorite-id="${studio.id}">${favoriteButtonLabel}</button>
             <button class="btn btn-text compare-toggle-btn ${compareButtonState}" type="button" data-studio-id="${studio.id}" ${compareButtonDisabled}>${compareButtonLabel}</button>
