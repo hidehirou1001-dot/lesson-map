@@ -6054,14 +6054,6 @@ p {
   line-height: 1.8;
 }
 
-.modal-guide-section {
-  margin-bottom: 1.1rem;
-  padding: 1rem;
-  border-radius: 18px;
-  border: 1px solid rgba(201, 42, 42, 0.12);
-  background: linear-gradient(180deg, rgba(255, 250, 247, 0.96), rgba(255, 255, 255, 0.98));
-}
-
 .modal-experience-section {
   margin-bottom: 1.1rem;
   padding: 1rem;
@@ -6113,6 +6105,10 @@ p {
 .modal-guide-links {
   display: grid;
   gap: 0.7rem;
+}
+
+.modal-guide-toggle {
+  margin-bottom: 1.1rem;
 }
 
 .modal-guide-link {

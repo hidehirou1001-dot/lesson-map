@@ -2185,21 +2185,19 @@ function openModal(studioId) {
     const compareButtonDisabled = !isComparedStudio(studio.id) && compareMemoIds.length >= COMPARE_MEMO_LIMIT ? 'disabled' : '';
     const favoriteButtonLabel = isFavoriteStudio(studio.id) ? '保存を外す' : 'あとで見返す';
     const relatedGuideMarkup = relatedGuides.length > 0 ? `
-            <section class="modal-guide-section">
-                <div class="modal-guide-head">
-                    <span class="results-kicker">RELATED GUIDE</span>
-                    <strong>必要なら近い特集も見る</strong>
-                    <p class="results-guide-copy">特集導線は検索結果上部がメインです。ここでは近い特集だけを1本だけ置いています。</p>
+            <details class="modal-detail-toggle modal-guide-toggle">
+                <summary>近い特集も見る</summary>
+                <div class="modal-detail-body">
+                    <div class="modal-guide-links">
+                        ${relatedGuides.map(guide => `
+                            <a class="modal-guide-link" href="${guide.href}">
+                                <strong>${guide.title}</strong>
+                                <span>${guide.description}</span>
+                            </a>
+                        `).join('')}
+                    </div>
                 </div>
-                <div class="modal-guide-links">
-                    ${relatedGuides.map(guide => `
-                        <a class="modal-guide-link" href="${guide.href}">
-                            <strong>${guide.title}</strong>
-                            <span>${guide.description}</span>
-                        </a>
-                    `).join('')}
-                </div>
-            </section>
+            </details>
     ` : '';
 
     modalBody.innerHTML = `
