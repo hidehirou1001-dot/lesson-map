@@ -2222,23 +2222,9 @@ function openModal(studioId) {
                 ${locationNoteMarkup}
             </div>
 
-            <div class="modal-summary-grid">
-                <div class="modal-summary-card modal-summary-card-quickview">
-                    <span class="modal-summary-label">チラ見ポイント</span>
-                    <strong>月謝・駐車場・体験の有無を先に確認</strong>
-                </div>
-                <div class="modal-summary-card modal-summary-card-primary">
-                    <span class="modal-summary-label">対象</span>
-                    <strong>${audienceSummary}</strong>
-                </div>
-                <div class="modal-summary-card">
-                    <span class="modal-summary-label">料金</span>
-                    <strong>${pricingSummary}</strong>
-                </div>
-                <div class="modal-summary-card">
-                    <span class="modal-summary-label">通学</span>
-                    <strong>${commuteSummary}</strong>
-                </div>
+            <div class="modal-quickview-head">
+                <span class="results-kicker">QUICK VIEW</span>
+                <strong>パッと見たい3項目</strong>
             </div>
 
             <div class="modal-quickview-grid">
@@ -2253,6 +2239,21 @@ function openModal(studioId) {
                 <div class="modal-quickview-item">
                     <span class="modal-summary-label">体験</span>
                     <strong>${trialStatus}</strong>
+                </div>
+            </div>
+
+            <div class="modal-summary-grid">
+                <div class="modal-summary-card modal-summary-card-primary">
+                    <span class="modal-summary-label">対象</span>
+                    <strong>${audienceSummary}</strong>
+                </div>
+                <div class="modal-summary-card">
+                    <span class="modal-summary-label">料金</span>
+                    <strong>${pricingSummary}</strong>
+                </div>
+                <div class="modal-summary-card">
+                    <span class="modal-summary-label">通学</span>
+                    <strong>${commuteSummary}</strong>
                 </div>
             </div>
 
