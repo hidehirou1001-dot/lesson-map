@@ -2265,8 +2265,10 @@ function openModal(studioId) {
 
             <div class="modal-action-row">
                 <a href="${studio.link}" target="_blank" rel="noopener noreferrer" class="btn btn-primary modal-primary-btn">${getOfficialActionLabel(studio)}</a>
-                <button class="btn btn-outline modal-favorite-btn" type="button" data-modal-favorite-id="${studio.id}">${favoriteButtonLabel}</button>
-                <button class="btn btn-outline modal-compare-btn" type="button" data-modal-studio-id="${studio.id}" ${compareButtonDisabled}>${compareButtonLabel}</button>
+                <div class="modal-secondary-actions">
+                    <button class="btn btn-outline modal-favorite-btn" type="button" data-modal-favorite-id="${studio.id}">${favoriteButtonLabel}</button>
+                    <button class="btn btn-outline modal-compare-btn" type="button" data-modal-studio-id="${studio.id}" ${compareButtonDisabled}>${compareButtonLabel}</button>
+                </div>
             </div>
 
             <details class="modal-detail-toggle">

@@ -5985,9 +5985,8 @@ p {
 
 .modal-action-row {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
-  gap: 0.75rem;
-  align-items: center;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0.55rem;
   margin-bottom: 1.1rem;
 }
 
@@ -5996,6 +5995,18 @@ p {
   border-radius: var(--radius-md);
   padding: 1rem;
   font-size: 1.05rem;
+}
+
+.modal-secondary-actions {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.55rem;
+}
+
+.modal-secondary-actions .btn {
+  width: 100%;
+  min-height: 44px;
+  justify-content: center;
 }
 
 .modal-detail-toggle {
