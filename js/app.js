@@ -211,7 +211,7 @@ function renderStudios(data) {
           </div>
         </div>
         <div class="card-action-row">
-          <button class="btn btn-primary detail-btn card-detail-btn">詳細を見る</button>
+          <button class="btn btn-primary detail-btn card-detail-btn">パッと見る</button>
           <div class="card-support-actions">
             <button class="btn btn-text favorite-toggle-btn ${favoriteButtonState}" type="button" data-favorite-id="${studio.id}">${favoriteButtonLabel}</button>
             <button class="btn btn-text compare-toggle-btn ${compareButtonState}" type="button" data-studio-id="${studio.id}" ${compareButtonDisabled}>${compareButtonLabel}</button>
@@ -2169,6 +2169,8 @@ function openModal(studioId) {
     if (studio.features.beginnerFriendly) features.push(`🔰 初心者歓迎: ${studio.features.beginnerFriendly}`);
 
     const pricingSummary = formatPricingSummary(studio.pricing);
+    const trialStatus = getTrialStatus(studio);
+    const parkingStatus = studio.features.parking ? '駐車場あり' : '駐車場は要確認';
     const audienceSummary = getAudienceSummary(studio.features);
     const featureSummary = getCardFeatureSummary(studio);
     const commuteSummary = getCommuteSummary(studio);
@@ -2221,6 +2223,10 @@ function openModal(studioId) {
             </div>
 
             <div class="modal-summary-grid">
+                <div class="modal-summary-card modal-summary-card-quickview">
+                    <span class="modal-summary-label">チラ見ポイント</span>
+                    <strong>月謝・駐車場・体験の有無を先に確認</strong>
+                </div>
                 <div class="modal-summary-card modal-summary-card-primary">
                     <span class="modal-summary-label">対象</span>
                     <strong>${audienceSummary}</strong>
@@ -2232,6 +2238,21 @@ function openModal(studioId) {
                 <div class="modal-summary-card">
                     <span class="modal-summary-label">通学</span>
                     <strong>${commuteSummary}</strong>
+                </div>
+            </div>
+
+            <div class="modal-quickview-grid">
+                <div class="modal-quickview-item">
+                    <span class="modal-summary-label">月謝・費用感</span>
+                    <strong>${pricingSummary}</strong>
+                </div>
+                <div class="modal-quickview-item">
+                    <span class="modal-summary-label">駐車場</span>
+                    <strong>${parkingStatus}</strong>
+                </div>
+                <div class="modal-quickview-item">
+                    <span class="modal-summary-label">体験</span>
+                    <strong>${trialStatus}</strong>
                 </div>
             </div>
 
