@@ -2201,11 +2201,8 @@ function openModal(studioId) {
     ` : '';
 
     modalBody.innerHTML = `
-        <div style="position: relative;">
+        <div>
           <img src="${studio.imageUrl}" alt="${studio.name}" class="modal-img">
-          <div style="position: absolute; bottom: 0; right: 0; background: rgba(0,0,0,0.5); color: #fff; font-size: 0.7rem; padding: 2px 8px;">
-            画像引用元: ${studio.imageSource || 'フリー素材(Unsplash)'}
-          </div>
         </div>
         <div class="modal-body">
             <div class="modal-head">
