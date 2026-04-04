@@ -2269,24 +2269,28 @@ function openModal(studioId) {
                 <button class="btn btn-outline modal-compare-btn" type="button" data-modal-studio-id="${studio.id}" ${compareButtonDisabled}>${compareButtonLabel}</button>
             </div>
 
-            <p class="modal-desc">${studio.description}</p>
+            <details class="modal-detail-toggle">
+                <summary>さらに詳しく見る</summary>
+                <div class="modal-detail-body">
+                    <p class="modal-desc">${studio.description}</p>
+                    <ul class="modal-info-list">
+                        <li class="modal-info-item">
+                            <span class="modal-info-label">料金</span>
+                            <span>${studio.pricing.system} ${studio.pricing.minPrice > 0 ? `/ 最安 ${studio.pricing.minPrice.toLocaleString()}円〜` : '(料金詳細は公式サイトにて)'} <br><small style="color:var(--clr-text-muted);">${studio.pricing.note}</small></span>
+                        </li>
+                        <li class="modal-info-item">
+                            <span class="modal-info-label">アクセス</span>
+                            <span>${studio.access}</span>
+                        </li>
+                        <li class="modal-info-item">
+                            <span class="modal-info-label">特徴</span>
+                            <span>${features.join(' / ')}</span>
+                        </li>
+                    </ul>
+                </div>
+            </details>
             ${experienceReportMarkup}
             ${relatedGuideMarkup}
-            
-            <ul class="modal-info-list">
-                <li class="modal-info-item">
-                    <span class="modal-info-label">料金</span>
-                    <span>${studio.pricing.system} ${studio.pricing.minPrice > 0 ? `/ 最安 ${studio.pricing.minPrice.toLocaleString()}円〜` : '(料金詳細は公式サイトにて)'} <br><small style="color:var(--clr-text-muted);">${studio.pricing.note}</small></span>
-                </li>
-                <li class="modal-info-item">
-                    <span class="modal-info-label">アクセス</span>
-                    <span>${studio.access}</span>
-                </li>
-                <li class="modal-info-item">
-                    <span class="modal-info-label">特徴</span>
-                    <span>${features.join(' / ')}</span>
-                </li>
-            </ul>
         </div>
     `;
 
