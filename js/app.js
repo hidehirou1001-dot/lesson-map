@@ -660,7 +660,6 @@ function updateCollectionCounts(compareCount = compareMemoIds.length, favoriteCo
     const favoritePanelCount = document.getElementById('favorite-panel-count');
     const floatingCompareBar = document.getElementById('floating-compare-bar');
     const floatingCompareCount = document.getElementById('floating-compare-count');
-    const floatingFavoriteCount = document.getElementById('floating-favorite-count');
     const compareGuideCounts = document.querySelectorAll('[data-compare-count]');
     const favoriteGuideCounts = document.querySelectorAll('[data-favorite-count]');
     const utilityPanel = document.querySelector('.results-utility-panel');
@@ -673,12 +672,14 @@ function updateCollectionCounts(compareCount = compareMemoIds.length, favoriteCo
     });
     if (comparePanelCount) comparePanelCount.textContent = `${compareCount}/${COMPARE_MEMO_LIMIT}`;
     if (floatingCompareCount) floatingCompareCount.textContent = `${compareCount}/${COMPARE_MEMO_LIMIT}`;
-    if (floatingFavoriteCount) floatingFavoriteCount.textContent = `${favoriteCount}件`;
     favoriteGuideCounts.forEach(node => {
         node.textContent = `${favoriteCount}件`;
     });
     if (favoritePanelCount) favoritePanelCount.textContent = `${favoriteCount}件`;
-    if (floatingCompareBar) floatingCompareBar.hidden = !hasSavedItems;
+    if (floatingCompareBar) {
+        floatingCompareBar.hidden = compareCount === 0;
+        floatingCompareBar.setAttribute('aria-label', compareCount > 0 ? `比較中の教室 ${compareCount}件を見る` : '比較中の教室を確認する');
+    }
     if (utilityPanel) {
         utilityPanel.hidden = !hasSavedItems;
         utilityPanel.classList.toggle('is-empty', !hasSavedItems);
@@ -707,6 +708,10 @@ function initFloatingCompareBar() {
         resultsPanelState.utility = true;
         resultsPanelState.utilityTouched = true;
         syncResultsPanelStates();
+        const panel = document.getElementById('results-utility-panel');
+        if (panel) {
+            panel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
     });
 }
 
