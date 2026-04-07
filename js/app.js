@@ -17,6 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
     runSafely('initAnimations', initAnimations);
     runSafely('initFAQ', initFAQ);
     runSafely('initCarousels', initCarousels);
+    runSafely('initImageFallbacks', initImageFallbacks);
     runSafely('initResultsPanels', initResultsPanels);
     runSafely('initCompareMemo', initCompareMemo);
     runSafely('initFavorites', initFavorites);
@@ -37,6 +38,47 @@ document.addEventListener('DOMContentLoaded', () => {
         runSafely('applyFilters', applyFilters); // Apply initial filters
     }
 });
+
+function getFallbackImageForElement(img) {
+    if (img.dataset.fallback) return img.dataset.fallback;
+
+    if (img.closest('.entry-map-hero-media') || img.closest('.article-hero-media')) {
+        return '/assets/og/ehime-local.svg';
+    }
+
+    if (img.closest('.modal-overlay')) {
+        return '/assets/og/recommendations.svg';
+    }
+
+    if (img.closest('.recommendation-entry') || img.closest('.popular-guide-card')) {
+        return '/assets/og/recommendations.svg';
+    }
+
+    return '/assets/og/recommendations.svg';
+}
+
+function applyImageFallback(img) {
+    if (!img || img.dataset.fallbackApplied === 'true') return;
+    img.dataset.fallbackApplied = 'true';
+    img.src = getFallbackImageForElement(img);
+    img.classList.add('is-fallback-image');
+}
+
+function initImageFallbacks(scope = document) {
+    const images = scope.querySelectorAll('img');
+    if (!images.length) return;
+
+    images.forEach((img) => {
+        if (img.dataset.fallbackBound === 'true') return;
+
+        img.dataset.fallbackBound = 'true';
+        img.addEventListener('error', () => applyImageFallback(img), { once: true });
+
+        if (img.complete && img.naturalWidth === 0) {
+            applyImageFallback(img);
+        }
+    });
+}
 
 function initCarousels() {
     const carousels = document.querySelectorAll('[data-carousel]');
@@ -2300,6 +2342,8 @@ function openModal(studioId) {
     if (modalFavoriteBtn) {
         modalFavoriteBtn.addEventListener('click', () => toggleFavorite(studio.id));
     }
+
+    initImageFallbacks(modalBody);
 
     overlay.classList.add('active');
 }
