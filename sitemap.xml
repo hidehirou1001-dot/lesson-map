@@ -157,6 +157,12 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://www.lesson-map.com/recommendations/imabari-aeon-area-lessons/</loc>
+    <lastmod>2026-04-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://www.lesson-map.com/recommendations/niihama-lessons-study-one/</loc>
     <lastmod>2026-04-05</lastmod>
     <changefreq>monthly</changefreq>
@@ -171,6 +177,12 @@
   <url>
     <loc>https://www.lesson-map.com/recommendations/matsuyama-lessons-evening-transport/</loc>
     <lastmod>2026-04-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.lesson-map.com/recommendations/matsuyama-jo-pla-lessons/</loc>
+    <lastmod>2026-04-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
