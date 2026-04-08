@@ -74,6 +74,22 @@ function initImageFallbacks(scope = document) {
         img.dataset.fallbackBound = 'true';
         img.addEventListener('error', () => applyImageFallback(img), { once: true });
 
+        // Some external image hosts can hang without firing an error event.
+        // For visible guide cards, fall back after a short timeout so the UI
+        // does not keep empty image areas.
+        if (
+            typeof img.src === 'string' &&
+            img.src.includes('images.unsplash.com') &&
+            (img.closest('.recommendation-entry') || img.closest('.popular-guide-card') || img.closest('.card'))
+        ) {
+            window.setTimeout(() => {
+                if (img.dataset.fallbackApplied === 'true') return;
+                if (!img.complete || img.naturalWidth === 0) {
+                    applyImageFallback(img);
+                }
+            }, 2500);
+        }
+
         if (img.complete && img.naturalWidth === 0) {
             applyImageFallback(img);
         }
