@@ -1971,10 +1971,13 @@ function updateResultsMeta(filtered) {
     };
     const explain = sortExplainMap[currentFilterState.sort] || sortExplainMap.recommended;
     if (explainPanel && explainTitle && explainCopy && explainChips) {
-        explainPanel.hidden = false;
-        explainTitle.textContent = explain.title;
-        explainCopy.textContent = explain.copy;
-        explainChips.innerHTML = explain.chips.map(chip => `<span class="results-explain-chip">${chip}</span>`).join('');
+        const shouldShowExplainPanel = currentFilterState.sort !== 'recommended' || resultsPanelState.explainTouched;
+        explainPanel.hidden = !shouldShowExplainPanel;
+        if (shouldShowExplainPanel) {
+            explainTitle.textContent = explain.title;
+            explainCopy.textContent = explain.copy;
+            explainChips.innerHTML = explain.chips.map(chip => `<span class="results-explain-chip">${chip}</span>`).join('');
+        }
         if (!resultsPanelState.explainTouched) {
             resultsPanelState.explain = currentFilterState.sort !== 'recommended';
         }
