@@ -1095,11 +1095,11 @@ p {
 }
 
 .top-secondary-accordion {
-  margin-top: 1rem;
-  border: 1px solid rgba(34, 34, 34, 0.08);
+  margin-top: 0.88rem;
+  border: 1px solid rgba(34, 34, 34, 0.06);
   border-radius: calc(var(--radius-xl) + 2px);
-  background: rgba(255, 255, 255, 0.94);
-  box-shadow: var(--shadow-soft);
+  background: rgba(255, 255, 255, 0.88);
+  box-shadow: none;
   overflow: hidden;
 }
 
@@ -1119,7 +1119,7 @@ p {
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
-  padding: 1rem 1.1rem;
+  padding: 0.88rem 0.98rem;
   cursor: pointer;
   list-style: none;
 }
@@ -1133,12 +1133,12 @@ p {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 28px;
-  height: 28px;
+  width: 24px;
+  height: 24px;
   border-radius: 999px;
-  background: rgba(201, 42, 42, 0.08);
-  color: var(--clr-primary-dark);
-  font-size: 1rem;
+  background: rgba(201, 42, 42, 0.06);
+  color: rgba(201, 42, 42, 0.82);
+  font-size: 0.92rem;
   font-weight: 900;
   flex-shrink: 0;
 }
@@ -1154,18 +1154,18 @@ p {
 }
 
 .top-secondary-summary-text strong {
-  font-size: 1rem;
+  font-size: 0.94rem;
   color: var(--clr-text-main);
 }
 
 .top-secondary-summary-text small {
   color: var(--clr-text-muted);
-  font-size: 0.76rem;
+  font-size: 0.72rem;
   font-weight: 600;
 }
 
 .top-secondary-body {
-  padding: 0 1rem 1rem;
+  padding: 0 0.92rem 0.92rem;
 }
 
 .top-secondary-panel-head {
@@ -1266,12 +1266,12 @@ p {
 
 .issue-path-card {
   display: grid;
-  gap: 0.46rem;
-  padding: 0.82rem 0.88rem 0.84rem;
-  border-radius: 20px;
+  gap: 0.36rem;
+  padding: 0.74rem 0.8rem 0.76rem;
+  border-radius: 18px;
   text-decoration: none;
-  background: rgba(255, 255, 255, 0.94);
-  border: 1px solid rgba(34, 34, 34, 0.06);
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(34, 34, 34, 0.05);
   color: var(--clr-text-main);
   transition: transform var(--transition-fast), border-color var(--transition-fast), box-shadow var(--transition-fast);
   scroll-snap-align: start;
@@ -1286,17 +1286,17 @@ p {
 .issue-path-kicker {
   display: inline-flex;
   width: fit-content;
-  padding: 0.2rem 0.52rem;
+  padding: 0.18rem 0.48rem;
   border-radius: var(--radius-full);
-  background: rgba(201, 42, 42, 0.08);
-  color: var(--clr-primary-dark);
-  font-size: 0.68rem;
+  background: rgba(201, 42, 42, 0.06);
+  color: rgba(201, 42, 42, 0.88);
+  font-size: 0.64rem;
   font-weight: 900;
   letter-spacing: 0.04em;
 }
 
 .issue-path-card strong {
-  font-size: 0.93rem;
+  font-size: 0.88rem;
   line-height: 1.45;
 }
 
