@@ -735,8 +735,9 @@ function updateCollectionCounts(compareCount = compareMemoIds.length, favoriteCo
     });
     if (favoritePanelCount) favoritePanelCount.textContent = `${favoriteCount}件`;
     if (floatingCompareBar) {
-        floatingCompareBar.hidden = compareCount === 0;
-        floatingCompareBar.setAttribute('aria-label', compareCount > 0 ? `比較中の教室 ${compareCount}件を見る` : '比較中の教室を確認する');
+        const showFloatingCompareBar = compareCount >= 2;
+        floatingCompareBar.hidden = !showFloatingCompareBar;
+        floatingCompareBar.setAttribute('aria-label', showFloatingCompareBar ? `比較中の教室 ${compareCount}件を見る` : '比較中の教室を確認する');
     }
     if (utilityPanel) {
         utilityPanel.hidden = !hasSavedItems;
