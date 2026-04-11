@@ -1920,6 +1920,7 @@ function updateResultsMeta(filtered) {
     const explainTitle = document.getElementById('results-explain-title');
     const explainCopy = document.getElementById('results-explain-copy');
     const explainChips = document.getElementById('results-explain-chips');
+    const startPathPanel = document.getElementById('start-path-panel');
     const activeChips = [];
 
     if (currentFilterState.category !== 'all') activeChips.push(filterLabelMap[currentFilterState.category] || currentFilterState.category);
@@ -2024,6 +2025,12 @@ function updateResultsMeta(filtered) {
         } else {
             finderResultsCtaBtn.textContent = '検索結果を見る';
         }
+    }
+
+    if (startPathPanel) {
+        const isUsingSearch = activeChips.length > 0 || currentFilterState.searchQuery.length > 0;
+        const shouldShowStartPath = !isUsingSearch || filtered.length <= 2;
+        startPathPanel.hidden = !shouldShowStartPath;
     }
 
     syncResultsPanelStates();
