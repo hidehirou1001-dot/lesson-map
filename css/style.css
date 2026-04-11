@@ -2979,9 +2979,9 @@ p {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 0.3rem 0.75rem;
+  gap: 0.24rem 0.62rem;
   align-items: center;
-  opacity: 0.78;
+  opacity: 0.68;
 }
 
 .compare-toggle-btn {
@@ -2989,13 +2989,13 @@ p {
   padding: 0;
   white-space: nowrap;
   font-weight: 700;
-  font-size: 0.72rem;
+  font-size: 0.7rem;
   justify-content: center;
   border-radius: 0;
   background: transparent;
   color: var(--clr-text-muted);
   text-decoration: underline;
-  text-underline-offset: 0.14em;
+  text-underline-offset: 0.12em;
 }
 
 .favorite-toggle-btn {
@@ -3003,13 +3003,13 @@ p {
   padding: 0;
   white-space: nowrap;
   font-weight: 700;
-  font-size: 0.72rem;
+  font-size: 0.7rem;
   justify-content: center;
   border-radius: 0;
   background: transparent;
   color: var(--clr-text-muted);
   text-decoration: underline;
-  text-underline-offset: 0.14em;
+  text-underline-offset: 0.12em;
 }
 
 .favorite-toggle-btn.active {
@@ -5355,6 +5355,13 @@ p {
 
   .card-support-actions {
     justify-content: center;
+    gap: 0.2rem 0.5rem;
+    opacity: 0.62;
+  }
+
+  .favorite-toggle-btn,
+  .compare-toggle-btn {
+    font-size: 0.66rem;
   }
 
   .hero-stats {
