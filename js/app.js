@@ -1971,15 +1971,19 @@ function updateResultsMeta(filtered) {
     };
     const explain = sortExplainMap[currentFilterState.sort] || sortExplainMap.recommended;
     if (explainPanel && explainTitle && explainCopy && explainChips) {
-        const shouldShowExplainPanel = currentFilterState.sort !== 'recommended' || resultsPanelState.explainTouched;
+        const shouldShowExplainPanel = filtered.length > 0 && currentFilterState.sort !== 'recommended';
         explainPanel.hidden = !shouldShowExplainPanel;
         if (shouldShowExplainPanel) {
             explainTitle.textContent = explain.title;
             explainCopy.textContent = explain.copy;
             explainChips.innerHTML = explain.chips.map(chip => `<span class="results-explain-chip">${chip}</span>`).join('');
         }
-        if (!resultsPanelState.explainTouched) {
-            resultsPanelState.explain = currentFilterState.sort !== 'recommended';
+        if (!shouldShowExplainPanel) {
+            resultsPanelState.explain = false;
+            const explainBody = document.getElementById('results-explain-body');
+            const explainButton = document.getElementById('results-explain-toggle');
+            if (explainBody) explainBody.hidden = true;
+            if (explainButton) explainButton.setAttribute('aria-expanded', 'false');
         }
     }
 
