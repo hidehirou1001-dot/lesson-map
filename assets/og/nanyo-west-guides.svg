@@ -1,20 +1,28 @@
 <svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
   <rect width="1200" height="630" rx="36" fill="#F8F2EB"/>
-  <rect x="32" y="32" width="1136" height="566" rx="28" fill="url(#bg)"/>
-  <rect x="80" y="86" width="286" height="56" rx="28" fill="#FFE7D7"/>
-  <text x="116" y="122" fill="#A34B1E" font-family="Arial, sans-serif" font-size="28" font-weight="700">NANYO WEST GUIDE</text>
-  <text x="80" y="224" fill="#3A2A22" font-family="Arial, sans-serif" font-size="68" font-weight="700">Ozu, Uchiko, Yawatahama</text>
-  <text x="80" y="292" fill="#68493D" font-family="Arial, sans-serif" font-size="32" font-weight="600">Compare west-side routes before going wider across Nanyo.</text>
-  <rect x="80" y="366" width="228" height="74" rx="22" fill="#FFFFFF"/>
-  <rect x="332" y="366" width="228" height="74" rx="22" fill="#FFFFFF"/>
-  <rect x="584" y="366" width="228" height="74" rx="22" fill="#FFFFFF"/>
-  <text x="112" y="412" fill="#3A2A22" font-family="Arial, sans-serif" font-size="28" font-weight="700">West-side moves</text>
-  <text x="364" y="412" fill="#3A2A22" font-family="Arial, sans-serif" font-size="28" font-weight="700">Weekly routes</text>
-  <text x="616" y="412" fill="#3A2A22" font-family="Arial, sans-serif" font-size="28" font-weight="700">Start nearby</text>
+  <rect x="30" y="30" width="1140" height="570" rx="30" fill="url(#bg)"/>
+  <path d="M74 468C176 420 257 372 365 355C469 338 548 365 644 340C740 314 822 250 919 240C995 232 1066 259 1130 307V566H74V468Z" fill="url(#ground)" opacity="0.94"/>
+  <path d="M70 518C161 472 253 442 355 438C456 434 550 466 648 468C727 470 801 452 874 423C961 390 1045 385 1134 414V566H70V518Z" fill="#D9C1B0" opacity="0.92"/>
+  <path d="M120 176C194 128 288 110 367 135C446 160 505 223 591 235C673 247 748 224 826 216C912 208 995 235 1082 298" stroke="#F1DED0" stroke-width="18" stroke-linecap="round"/>
+  <path d="M122 230C214 270 313 288 412 276C494 265 565 227 649 223C728 220 798 248 868 286C938 324 1011 354 1094 360" stroke="#FFF6EF" stroke-width="10" stroke-linecap="round"/>
+  <circle cx="280" cy="188" r="20" fill="#BA6432"/>
+  <circle cx="280" cy="188" r="8" fill="#FFF8F3"/>
+  <circle cx="598" cy="236" r="16" fill="#9F4F23"/>
+  <circle cx="598" cy="236" r="6" fill="#FFF8F3"/>
+  <circle cx="900" cy="248" r="18" fill="#D17F49"/>
+  <circle cx="900" cy="248" r="7" fill="#FFF8F3"/>
+  <rect x="110" y="92" width="170" height="48" rx="24" fill="#FFFFFF" opacity="0.72"/>
+  <rect x="922" y="100" width="150" height="44" rx="22" fill="#FFFFFF" opacity="0.56"/>
+  <rect x="896" y="392" width="192" height="108" rx="28" fill="#FFFFFF" opacity="0.38"/>
+  <rect x="120" y="388" width="218" height="96" rx="28" fill="#FFFFFF" opacity="0.34"/>
   <defs>
-    <linearGradient id="bg" x1="80" y1="80" x2="1120" y2="560" gradientUnits="userSpaceOnUse">
+    <linearGradient id="bg" x1="94" y1="74" x2="1086" y2="562" gradientUnits="userSpaceOnUse">
       <stop stop-color="#FFF8F2"/>
-      <stop offset="1" stop-color="#F0E7E0"/>
+      <stop offset="1" stop-color="#EDE4DC"/>
+    </linearGradient>
+    <linearGradient id="ground" x1="380" y1="236" x2="824" y2="552" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#EBDCCE"/>
+      <stop offset="1" stop-color="#B38972"/>
     </linearGradient>
   </defs>
 </svg>
