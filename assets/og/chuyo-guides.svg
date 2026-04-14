@@ -1,28 +1,20 @@
 <svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
   <rect width="1200" height="630" rx="36" fill="#F6F0E9"/>
-  <rect x="30" y="30" width="1140" height="570" rx="30" fill="url(#bg)"/>
-  <path d="M78 470C164 430 239 380 332 370C430 360 493 392 585 373C695 350 779 274 883 260C973 247 1055 283 1122 341V566H78V470Z" fill="url(#ground)" opacity="0.94"/>
-  <path d="M72 516C167 470 258 446 357 448C449 451 533 491 631 486C706 482 778 453 849 429C938 399 1033 396 1135 431V566H72V516Z" fill="#B8D2D7" opacity="0.92"/>
-  <path d="M128 178C204 123 304 110 386 142C452 168 505 221 584 231C659 240 727 208 798 202C878 195 946 225 1007 279C1049 316 1084 365 1115 418" stroke="#DDE9EB" stroke-width="18" stroke-linecap="round"/>
-  <path d="M136 220C214 266 323 292 423 282C503 274 559 236 633 228C715 220 783 250 850 287C915 322 986 351 1070 351" stroke="#F4F8F8" stroke-width="10" stroke-linecap="round"/>
-  <circle cx="304" cy="192" r="20" fill="#D16F2A"/>
-  <circle cx="304" cy="192" r="8" fill="#FFF8F1"/>
-  <circle cx="606" cy="238" r="16" fill="#B55A22"/>
-  <circle cx="606" cy="238" r="6" fill="#FFF8F1"/>
-  <circle cx="892" cy="258" r="19" fill="#E48A43"/>
-  <circle cx="892" cy="258" r="7" fill="#FFF8F1"/>
-  <rect x="110" y="92" width="160" height="48" rx="24" fill="#FFFFFF" opacity="0.72"/>
-  <rect x="922" y="100" width="150" height="44" rx="22" fill="#FFFFFF" opacity="0.56"/>
-  <rect x="884" y="384" width="198" height="112" rx="28" fill="#FFFFFF" opacity="0.4"/>
-  <rect x="120" y="388" width="222" height="96" rx="28" fill="#FFFFFF" opacity="0.34"/>
+  <rect x="32" y="32" width="1136" height="566" rx="28" fill="url(#bg)"/>
+  <rect x="80" y="86" width="220" height="56" rx="28" fill="#FFECD2"/>
+  <text x="122" y="122" fill="#9B4E11" font-family="Arial, sans-serif" font-size="28" font-weight="700">CHUYO GUIDE</text>
+  <text x="80" y="224" fill="#173B45" font-family="Arial, sans-serif" font-size="72" font-weight="700">Central Ehime</text>
+  <text x="80" y="292" fill="#2E5561" font-family="Arial, sans-serif" font-size="32" font-weight="600">Masaki, Tobe, and nearby routes you can actually use.</text>
+  <rect x="80" y="366" width="228" height="74" rx="22" fill="#FFFFFF"/>
+  <rect x="332" y="366" width="228" height="74" rx="22" fill="#FFFFFF"/>
+  <rect x="584" y="366" width="228" height="74" rx="22" fill="#FFFFFF"/>
+  <text x="112" y="412" fill="#173B45" font-family="Arial, sans-serif" font-size="28" font-weight="700">School routes</text>
+  <text x="364" y="412" fill="#173B45" font-family="Arial, sans-serif" font-size="28" font-weight="700">Car-friendly</text>
+  <text x="616" y="412" fill="#173B45" font-family="Arial, sans-serif" font-size="28" font-weight="700">Expand nearby</text>
   <defs>
-    <linearGradient id="bg" x1="100" y1="72" x2="1088" y2="560" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#FFF8F0"/>
-      <stop offset="1" stop-color="#E4EEF0"/>
-    </linearGradient>
-    <linearGradient id="ground" x1="394" y1="230" x2="816" y2="554" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#E4EEE7"/>
-      <stop offset="1" stop-color="#8CB2B8"/>
+    <linearGradient id="bg" x1="80" y1="80" x2="1120" y2="560" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFF9F0"/>
+      <stop offset="1" stop-color="#E8EFF1"/>
     </linearGradient>
   </defs>
 </svg>

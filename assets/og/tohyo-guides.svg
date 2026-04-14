@@ -1,28 +1,20 @@
 <svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
   <rect width="1200" height="630" rx="36" fill="#F3F2EC"/>
-  <rect x="30" y="30" width="1140" height="570" rx="30" fill="url(#bg)"/>
-  <path d="M70 452C162 402 253 354 351 340C465 325 550 360 647 329C731 301 795 241 876 222C964 202 1054 225 1132 286V566H70V452Z" fill="url(#ground)" opacity="0.94"/>
-  <path d="M66 516C170 474 270 447 372 450C454 452 530 483 612 489C704 495 783 470 865 437C946 404 1038 385 1135 414V566H66V516Z" fill="#BED3D8" opacity="0.92"/>
-  <path d="M118 170C204 124 299 116 379 146C460 177 512 243 603 257C677 269 742 239 815 224C905 205 997 225 1090 297" stroke="#DCE7DC" stroke-width="18" stroke-linecap="round"/>
-  <path d="M122 228C210 256 303 270 397 258C478 248 552 213 634 214C717 216 782 251 855 292C929 334 1002 360 1090 370" stroke="#F4F7F4" stroke-width="10" stroke-linecap="round"/>
-  <circle cx="268" cy="184" r="20" fill="#A4892C"/>
-  <circle cx="268" cy="184" r="8" fill="#FCFBF3"/>
-  <circle cx="574" cy="236" r="16" fill="#83691C"/>
-  <circle cx="574" cy="236" r="6" fill="#FCFBF3"/>
-  <circle cx="888" cy="246" r="18" fill="#B39D4C"/>
-  <circle cx="888" cy="246" r="7" fill="#FCFBF3"/>
-  <rect x="106" y="92" width="160" height="48" rx="24" fill="#FFFFFF" opacity="0.72"/>
-  <rect x="922" y="100" width="150" height="44" rx="22" fill="#FFFFFF" opacity="0.56"/>
-  <rect x="896" y="388" width="192" height="110" rx="28" fill="#FFFFFF" opacity="0.38"/>
-  <rect x="120" y="388" width="216" height="98" rx="28" fill="#FFFFFF" opacity="0.34"/>
+  <rect x="32" y="32" width="1136" height="566" rx="28" fill="url(#bg)"/>
+  <rect x="80" y="86" width="220" height="56" rx="28" fill="#E8E5D3"/>
+  <text x="128" y="122" fill="#6E5A19" font-family="Arial, sans-serif" font-size="28" font-weight="700">TOHYO GUIDE</text>
+  <text x="80" y="224" fill="#223943" font-family="Arial, sans-serif" font-size="72" font-weight="700">Eastern Ehime</text>
+  <text x="80" y="292" fill="#3F5962" font-family="Arial, sans-serif" font-size="32" font-weight="600">Imabari, Niihama, Saijo and the routes between them.</text>
+  <rect x="80" y="366" width="228" height="74" rx="22" fill="#FFFFFF"/>
+  <rect x="332" y="366" width="228" height="74" rx="22" fill="#FFFFFF"/>
+  <rect x="584" y="366" width="228" height="74" rx="22" fill="#FFFFFF"/>
+  <text x="112" y="412" fill="#223943" font-family="Arial, sans-serif" font-size="28" font-weight="700">City clusters</text>
+  <text x="364" y="412" fill="#223943" font-family="Arial, sans-serif" font-size="28" font-weight="700">Kids and adult</text>
+  <text x="616" y="412" fill="#223943" font-family="Arial, sans-serif" font-size="28" font-weight="700">Lesson hubs</text>
   <defs>
-    <linearGradient id="bg" x1="96" y1="74" x2="1086" y2="562" gradientUnits="userSpaceOnUse">
+    <linearGradient id="bg" x1="80" y1="80" x2="1120" y2="560" gradientUnits="userSpaceOnUse">
       <stop stop-color="#FBFAF4"/>
-      <stop offset="1" stop-color="#E4ECEE"/>
-    </linearGradient>
-    <linearGradient id="ground" x1="368" y1="216" x2="820" y2="552" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#E7EAD9"/>
-      <stop offset="1" stop-color="#8DB4BC"/>
+      <stop offset="1" stop-color="#E7EEF0"/>
     </linearGradient>
   </defs>
 </svg>
