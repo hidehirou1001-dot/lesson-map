@@ -1839,6 +1839,26 @@ p {
   margin-top: 0.2rem;
 }
 
+.area-local-panel {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.area-local-panel-head {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  padding: 0.72rem 0.8rem;
+  border-radius: 16px;
+  background: rgba(34, 34, 34, 0.03);
+  border: 1px solid rgba(34, 34, 34, 0.06);
+}
+
+.area-local-panel-copy {
+  display: grid;
+  gap: 0.16rem;
+}
+
 .area-city-panel-head {
   display: flex;
   align-items: center;

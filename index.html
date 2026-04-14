@@ -207,6 +207,7 @@
           <div class="finder-area-flow" aria-label="エリア選択の流れ">
             <span class="finder-area-flow-step is-active" id="finder-area-step-region">1. まず広域を選ぶ</span>
             <span class="finder-area-flow-step" id="finder-area-step-city">2. 必要なら市町まで絞る</span>
+            <span class="finder-area-flow-step" id="finder-area-step-near">3. 家の近くまで絞る</span>
           </div>
           <div class="finder-area-status" id="finder-area-status" aria-live="polite">
             <strong class="finder-area-status-title" id="finder-area-status-title">愛媛県全域を表示中</strong>
@@ -246,6 +247,16 @@
               <div class="filters scrollable-filters city-filter-row">
                 <button class="filter-btn city-btn city-detail-btn" data-city="宇和島市">📍 宇和島市</button>
               </div>
+            </div>
+            <div class="area-local-panel" id="area-local-panel" hidden>
+              <div class="area-local-panel-head">
+                <span class="area-city-panel-kicker">NEAR</span>
+                <div class="area-local-panel-copy">
+                  <strong class="area-city-panel-title" id="area-local-panel-title">近いエリアまで絞る</strong>
+                  <span class="finder-area-status-copy" id="area-local-panel-note">家から近いエリアが決まっているなら、ここまで絞ると比べやすくなります。</span>
+                </div>
+              </div>
+              <div class="filters scrollable-filters city-filter-row" id="area-local-buttons"></div>
             </div>
           </div>
         </div>

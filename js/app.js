@@ -1403,6 +1403,7 @@ let currentFilterState = {
     category: 'all',
     subFilter: 'all', // 'all', 'HIPHOP', 'K-POP', 'POP', 'JAZZ', 'LOCK', 'コンテンポラリー', 'Kids', 'parking'
     city: 'all',       // 'all', '松山市', '今治市', '新居浜市'
+    area: 'all',
     searchQuery: '',   // Search query string
     quickFilters: [],
     sort: 'recommended'
@@ -1478,8 +1479,13 @@ function initFilters() {
     const areaCityGroups = document.querySelectorAll('[data-region-cities]');
     const areaStepRegion = document.getElementById('finder-area-step-region');
     const areaStepCity = document.getElementById('finder-area-step-city');
+    const areaStepNear = document.getElementById('finder-area-step-near');
     const areaStatusTitle = document.getElementById('finder-area-status-title');
     const areaStatusCopy = document.getElementById('finder-area-status-copy');
+    const areaLocalPanel = document.getElementById('area-local-panel');
+    const areaLocalButtons = document.getElementById('area-local-buttons');
+    const areaLocalPanelTitle = document.getElementById('area-local-panel-title');
+    const areaLocalPanelNote = document.getElementById('area-local-panel-note');
     const areaSection = document.getElementById('finder-area-section');
     const areaNote = document.getElementById('finder-area-note');
     const categoryStatusTitle = document.getElementById('finder-category-status-title');
@@ -1494,6 +1500,89 @@ function initFilters() {
     const finderResultsCtaBtn = document.getElementById('finder-results-cta-btn');
     const sortSelect = document.getElementById('sort-select');
     const subFilterGroups = [danceFilters, progFilters, document.getElementById('sub-filters-gym'), document.getElementById('sub-filters-swim')].filter(Boolean);
+
+    function getScopedStudiosForAreaFilter(selectedCity) {
+        if (!window.studiosData || selectedCity === 'all' || cityRegionMap[selectedCity]) return [];
+
+        let scoped = window.studiosData.filter(studio => studio.city === selectedCity);
+
+        if (currentFilterState.category !== 'all') {
+            scoped = scoped.filter(studio => studio.category === currentFilterState.category);
+        }
+
+        if (currentFilterState.subFilter !== 'all') {
+            const sf = currentFilterState.subFilter;
+            if (sf === 'parking') {
+                scoped = scoped.filter(studio => studio.features?.parking);
+            } else if (sf === 'Kids') {
+                scoped = scoped.filter(studio => studio.features?.kidsClass);
+            } else {
+                scoped = scoped.filter(studio => studio.genres.includes(sf));
+            }
+        }
+
+        if (currentFilterState.quickFilters.includes('kids')) {
+            scoped = scoped.filter(studio => studio.features?.kidsClass);
+        }
+
+        if (currentFilterState.quickFilters.includes('adult')) {
+            scoped = scoped.filter(studio => studio.features?.adultClass);
+        }
+
+        if (currentFilterState.quickFilters.includes('beginner')) {
+            scoped = scoped.filter(studio => ['◎', '〇'].includes(studio.features?.beginnerFriendly));
+        }
+
+        if (currentFilterState.quickFilters.includes('parking')) {
+            scoped = scoped.filter(studio => studio.features?.parking);
+        }
+
+        return scoped;
+    }
+
+    function syncAreaLocalPanel(selectedCity) {
+        if (!areaLocalPanel || !areaLocalButtons || !areaLocalPanelTitle || !areaLocalPanelNote) return;
+
+        const scoped = getScopedStudiosForAreaFilter(selectedCity);
+        const isExactCity = selectedCity !== 'all' && !cityRegionMap[selectedCity];
+
+        if (!isExactCity || scoped.length === 0) {
+            areaLocalPanel.hidden = true;
+            areaLocalButtons.innerHTML = '';
+            currentFilterState.area = 'all';
+            return;
+        }
+
+        const areaCounts = scoped.reduce((acc, studio) => {
+            const area = studio.area || '';
+            if (!area) return acc;
+            acc[area] = (acc[area] || 0) + 1;
+            return acc;
+        }, {});
+
+        const areaEntries = Object.entries(areaCounts)
+            .sort((a, b) => {
+                const countDiff = b[1] - a[1];
+                if (countDiff !== 0) return countDiff;
+                return a[0].localeCompare(b[0], 'ja');
+            })
+            .slice(0, 6);
+
+        const validAreas = new Set(areaEntries.map(([area]) => area));
+        if (!validAreas.has(currentFilterState.area)) {
+            currentFilterState.area = 'all';
+        }
+
+        areaLocalPanel.hidden = areaEntries.length === 0;
+        areaLocalPanelTitle.textContent = `${selectedCity}の近いエリア`;
+        areaLocalPanelNote.textContent = '家や学校、職場に近い場所が決まっているなら、周辺まで絞ると続けやすさを見やすくなります。';
+        areaLocalButtons.innerHTML = `
+            <button class="filter-btn area-local-btn ${currentFilterState.area === 'all' ? 'active' : ''}" type="button" data-area="all">近いエリアは未選択</button>
+            ${areaEntries.map(([area, count]) => `
+                <button class="filter-btn area-local-btn ${currentFilterState.area === area ? 'active' : ''}" type="button" data-area="${area}">${area}<span class="filter-count">${count}</span></button>
+            `).join('')}
+        `;
+    }
 
     function syncCategoryStatus(selectedCategory) {
         if (!categoryStatusTitle || !categoryStatusCopy) return;
@@ -1563,6 +1652,10 @@ function initFilters() {
             ? selectedCity
             : Object.keys(cityRegionMap).find(region => cityRegionMap[region].includes(selectedCity)) || 'all';
 
+        if (selectedCity === 'all' || cityRegionMap[selectedCity]) {
+            currentFilterState.area = 'all';
+        }
+
         if (areaCityPanel) {
             areaCityPanel.hidden = activeRegion === 'all';
         }
@@ -1589,16 +1682,20 @@ function initFilters() {
             areaStepCity.classList.toggle('is-active', activeRegion !== 'all');
         }
 
+        if (areaStepNear) {
+            areaStepNear.classList.toggle('is-active', selectedCity !== 'all' && !cityRegionMap[selectedCity]);
+        }
+
         if (areaStatusTitle && areaStatusCopy) {
             if (selectedCity === 'all') {
                 areaStatusTitle.textContent = '愛媛県全域を表示中';
                 areaStatusCopy.textContent = '広く見たいときはこのまま、さらに絞るなら広域を選んでください。';
             } else if (cityRegionMap[selectedCity]) {
                 areaStatusTitle.textContent = `${selectedCity}を表示中`;
-                areaStatusCopy.textContent = `このまま${selectedCity}で比較できます。さらに絞るなら下の市町を選んでください。`;
+                areaStatusCopy.textContent = `このまま${selectedCity}で比較できます。さらに近いところから見たいなら下の市町を選んでください。`;
             } else {
                 areaStatusTitle.textContent = `${selectedCity}を表示中`;
-                areaStatusCopy.textContent = `${activeRegion}からさらに絞った状態です。近い候補だけを見たいときに向いています。`;
+                areaStatusCopy.textContent = `${activeRegion}からさらに絞った状態です。家の近くから探したいなら、この下の周辺エリアまで絞れます。`;
             }
         }
 
@@ -1611,6 +1708,8 @@ function initFilters() {
                 button.classList.toggle('active', buttonCity === selectedCity || (selectedCity !== 'all' && buttonCity === activeRegion));
             }
         });
+
+        syncAreaLocalPanel(selectedCity);
     }
 
     if (categoryExpandBtn && categoryFilterRow) {
@@ -1697,6 +1796,7 @@ function initFilters() {
                 });
             });
 
+            syncAreaSelection(currentFilterState.city);
             applyFilters();
         });
     });
@@ -1711,6 +1811,7 @@ function initFilters() {
             btn.classList.add('active');
 
             currentFilterState.subFilter = btn.getAttribute('data-filter');
+            syncAreaSelection(currentFilterState.city);
             applyFilters();
         });
     });
@@ -1737,6 +1838,7 @@ function initFilters() {
                 category: 'all',
                 subFilter: 'all',
                 city: 'all',
+                area: 'all',
                 searchQuery: '',
                 quickFilters: [],
                 sort: 'recommended'
@@ -1771,6 +1873,16 @@ function initFilters() {
     syncCategoryStatus(currentFilterState.category);
     syncSubfilterStatus(currentFilterState.category);
     syncAreaSelection(currentFilterState.city);
+
+    if (areaLocalButtons) {
+        areaLocalButtons.addEventListener('click', (event) => {
+            const button = event.target.closest('.area-local-btn');
+            if (!button) return;
+            currentFilterState.area = button.getAttribute('data-area') || 'all';
+            syncAreaSelection(currentFilterState.city);
+            applyFilters();
+        });
+    }
 }
 
 function scrollToResultsZone() {
@@ -1838,6 +1950,10 @@ function applyFilters() {
     if (currentFilterState.city !== 'all') {
         const regionCities = cityRegionMap[currentFilterState.city];
         filtered = filtered.filter(s => regionCities ? regionCities.includes(s.city) : s.city === currentFilterState.city);
+    }
+
+    if (currentFilterState.area !== 'all') {
+        filtered = filtered.filter(s => s.area === currentFilterState.area);
     }
 
     if (currentFilterState.quickFilters.includes('kids')) {
@@ -1926,6 +2042,7 @@ function updateResultsMeta(filtered) {
     if (currentFilterState.category !== 'all') activeChips.push(filterLabelMap[currentFilterState.category] || currentFilterState.category);
     if (currentFilterState.subFilter !== 'all') activeChips.push(filterLabelMap[currentFilterState.subFilter] || currentFilterState.subFilter);
     if (currentFilterState.city !== 'all') activeChips.push(currentFilterState.city);
+    if (currentFilterState.area !== 'all') activeChips.push(currentFilterState.area);
     currentFilterState.quickFilters.forEach(filterKey => {
         activeChips.push(filterLabelMap[filterKey] || filterKey);
     });
@@ -1936,10 +2053,11 @@ function updateResultsMeta(filtered) {
             ? '愛媛県全体'
             : (filterLabelMap[currentFilterState.category] || currentFilterState.category);
         const cityText = currentFilterState.city === 'all' ? '愛媛県全域' : currentFilterState.city;
+        const areaText = currentFilterState.area === 'all' ? '' : `の${currentFilterState.area}`;
         const lowCountHint = filtered.length > 0 && filtered.length <= 2
             ? ' 候補が少ないので、近い特集も合わせて見ると比較しやすくなります。'
             : '';
-        summary.textContent = `${filtered.length}件を表示中。${categoryText}を${cityText}で比べられます。${lowCountHint}`;
+        summary.textContent = `${filtered.length}件を表示中。${categoryText}を${cityText}${areaText}で比べられます。${lowCountHint}`;
     }
 
     const sortExplainMap = {
