@@ -57,39 +57,6 @@ function getFallbackImageForElement(img) {
     return '/assets/og/recommendations.svg';
 }
 
-function getStudioImageUrl(studio) {
-    const source = studio?.imageUrl;
-
-    if (typeof source === 'string' && source.startsWith('/')) {
-        return source;
-    }
-
-    switch (studio?.category) {
-        case 'English':
-            return '/assets/og/matsuyama-english.svg';
-        case 'Piano':
-            return '/assets/og/matsuyama-piano.svg';
-        case 'Dance':
-            return '/assets/og/matsuyama-dance.svg';
-        case 'Programming':
-            return '/assets/og/matsuyama-programming.svg';
-        case 'Swimming':
-        case 'Gymnastics':
-            return '/assets/og/ehime-local.svg';
-        case 'Fitness':
-        case 'Boxing':
-        case 'Yoga':
-        case 'Cooking':
-        case 'CramSchool':
-        case 'Calligraphy':
-        case 'Soroban':
-        case 'Art':
-            return '/assets/og/recommendations.svg';
-        default:
-            return '/assets/og/recommendations.svg';
-    }
-}
-
 function applyImageFallback(img) {
     if (!img || img.dataset.fallbackApplied === 'true') return;
     img.dataset.fallbackApplied = 'true';
@@ -267,7 +234,6 @@ function renderStudios(data) {
             const commuteSummary = getCommuteSummary(studio);
             const cardAccessSummary = getCardAccessSummary(studio.access);
             const categoryLabel = getCategoryLabel(studio.category);
-            const studioImageUrl = getStudioImageUrl(studio);
             const compareButtonLabel = isComparedStudio(studio.id) ? '比較中' : '比較する';
             const compareButtonState = isComparedStudio(studio.id) ? 'active' : '';
             const compareButtonDisabled = !isComparedStudio(studio.id) && compareMemoIds.length >= COMPARE_MEMO_LIMIT ? 'disabled' : '';
@@ -280,7 +246,7 @@ function renderStudios(data) {
             card.innerHTML = `
       <div class="card-img-wrap">
         <span class="badge">${studio.city} ${studio.area}</span>
-        <img src="${studioImageUrl}" alt="${studio.name}" class="card-img" loading="lazy">
+        <img src="${studio.imageUrl}" alt="${studio.name}" class="card-img" loading="lazy">
       </div>
         <div class="card-content">
         <div class="card-heading-block">
@@ -2276,7 +2242,6 @@ function openModal(studioId) {
     if (studio.features.beginnerFriendly) features.push(`🔰 初心者歓迎: ${studio.features.beginnerFriendly}`);
 
     const pricingSummary = formatPricingSummary(studio.pricing);
-    const studioImageUrl = getStudioImageUrl(studio);
     const trialStatus = getTrialStatus(studio);
     const parkingStatus = studio.features.parking ? '駐車場あり' : '駐車場は要確認';
     const audienceSummary = getAudienceSummary(studio.features);
@@ -2310,7 +2275,7 @@ function openModal(studioId) {
 
     modalBody.innerHTML = `
         <div>
-          <img src="${studioImageUrl}" alt="${studio.name}" class="modal-img">
+          <img src="${studio.imageUrl}" alt="${studio.name}" class="modal-img">
         </div>
         <div class="modal-body">
             <div class="modal-head">
