@@ -1041,6 +1041,42 @@ p {
   gap: 0.85rem;
 }
 
+.home-section {
+  margin-top: 0.95rem;
+}
+
+.home-section-head {
+  display: grid;
+  gap: 0.32rem;
+  margin-bottom: 0.9rem;
+}
+
+.home-section-head .results-summary {
+  max-width: 42rem;
+}
+
+.home-choice-grid {
+  gap: 0.72rem;
+}
+
+.home-diagnosis-panel {
+  display: grid;
+  gap: 1rem;
+  padding: 1rem;
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.76);
+  border: 1px solid rgba(34, 34, 34, 0.05);
+}
+
+.home-diagnosis-actions {
+  gap: 0.72rem;
+  align-items: center;
+}
+
+.home-final-cta {
+  background: linear-gradient(180deg, rgba(201, 42, 42, 0.06), rgba(255, 255, 255, 0.92));
+}
+
 .start-path-panel {
   display: grid;
   gap: 0.72rem;
