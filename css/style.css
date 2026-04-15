@@ -527,24 +527,25 @@ p {
 
 .hero p {
   font-size: 1.1rem;
-  max-width: 720px;
+  max-width: 640px;
   margin: var(--space-sm) 0 var(--space-lg);
 }
 
 .hero-layout {
   display: grid;
-  grid-template-columns: minmax(0, 1.5fr) minmax(320px, 0.85fr);
-  gap: var(--space-lg);
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0.9rem;
   align-items: start;
-  margin-bottom: var(--space-lg);
+  margin-bottom: 1rem;
 }
 
 .hero-main {
   text-align: left;
+  max-width: 860px;
 }
 
 .hero-main > .h1 {
-  max-width: 12ch;
+  max-width: 13.5ch;
   line-height: 1.14;
   margin-bottom: 0.85rem;
 }
