@@ -537,11 +537,13 @@ p {
   gap: 0.9rem;
   align-items: start;
   margin-bottom: 1rem;
+  justify-items: center;
 }
 
 .hero-main {
   text-align: left;
   max-width: 860px;
+  width: 100%;
 }
 
 .hero-main > .h1 {
