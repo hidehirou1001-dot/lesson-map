@@ -565,6 +565,12 @@ p {
   justify-content: center;
 }
 
+.hero-meta-row {
+  display: grid;
+  gap: 0.85rem;
+  justify-items: center;
+}
+
 .hero-growth-strip {
   display: flex;
   flex-wrap: wrap;
@@ -840,7 +846,7 @@ p {
   flex-wrap: wrap;
   gap: 0.6rem;
   max-width: 760px;
-  margin: 0 0 1rem;
+  margin: 0;
 }
 
 .hero-stat {
@@ -867,6 +873,19 @@ p {
 .hero-stat strong {
   font-size: 1.05rem;
   letter-spacing: -0.03em;
+}
+
+@media (min-width: 900px) {
+  .hero-meta-row {
+    grid-template-columns: auto auto;
+    align-items: center;
+    justify-content: center;
+    gap: 0.9rem 1rem;
+  }
+
+  .hero-stats {
+    justify-content: center;
+  }
 }
 
 .hero-quick-links {
