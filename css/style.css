@@ -1066,16 +1066,32 @@ p {
 
 .home-diagnosis-panel {
   display: grid;
-  gap: 1rem;
-  padding: 1rem;
-  border-radius: 24px;
-  background: rgba(255, 255, 255, 0.76);
-  border: 1px solid rgba(34, 34, 34, 0.05);
+  gap: 0.85rem;
+  padding: 0.9rem 1rem;
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.64);
+  border: 1px solid rgba(34, 34, 34, 0.04);
 }
 
 .home-diagnosis-actions {
   gap: 0.72rem;
   align-items: center;
+}
+
+@media (min-width: 900px) {
+  .home-diagnosis-panel {
+    grid-template-columns: minmax(0, 1.5fr) auto;
+    align-items: center;
+  }
+
+  .home-diagnosis-panel .home-section-head {
+    margin-bottom: 0;
+  }
+
+  .home-diagnosis-actions {
+    justify-content: flex-end;
+    align-self: center;
+  }
 }
 
 .home-final-cta {
