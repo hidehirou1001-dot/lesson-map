@@ -572,23 +572,6 @@ p {
   justify-items: center;
 }
 
-.hero-illustration {
-  width: min(100%, 980px);
-  margin: 0.55rem auto 0;
-  padding: 0;
-  border-radius: 28px;
-  overflow: hidden;
-  border: 1px solid rgba(34, 34, 34, 0.06);
-  box-shadow: 0 20px 42px rgba(34, 34, 34, 0.08);
-  background: rgba(255, 255, 255, 0.92);
-}
-
-.hero-illustration img {
-  display: block;
-  width: 100%;
-  height: auto;
-}
-
 .hero-growth-strip {
   display: flex;
   flex-wrap: wrap;
@@ -5178,11 +5161,6 @@ p {
   .hero-main-subcta {
     width: 100%;
     justify-content: center;
-  }
-
-  .hero-illustration {
-    margin-top: 0.3rem;
-    border-radius: 22px;
   }
 
   .hero-feature-grid {
