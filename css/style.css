@@ -571,6 +571,25 @@ p {
   justify-items: center;
 }
 
+.hero-illustration {
+  width: min(100%, 980px);
+  margin: 0.4rem auto 0;
+  padding: 0;
+  border-radius: 30px;
+  overflow: hidden;
+  border: 1px solid rgba(34, 34, 34, 0.06);
+  box-shadow: 0 20px 40px rgba(34, 34, 34, 0.08);
+  background:
+    radial-gradient(circle at top left, rgba(201, 42, 42, 0.08), transparent 30%),
+    linear-gradient(180deg, rgba(255, 252, 249, 0.98), rgba(255, 255, 255, 0.96));
+}
+
+.hero-illustration img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
 .hero-growth-strip {
   display: flex;
   flex-wrap: wrap;
@@ -5160,6 +5179,11 @@ p {
   .hero-main-subcta {
     width: 100%;
     justify-content: center;
+  }
+
+  .hero-illustration {
+    margin-top: 0.2rem;
+    border-radius: 22px;
   }
 
   .hero-feature-grid {
