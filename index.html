@@ -56,26 +56,47 @@
         <span class="header-brand-note">愛媛の習い事・スクール比較</span>
       </div>
       <nav class="global-nav" aria-label="主要メニュー">
-        <a href="#finder-panel" class="global-nav-link global-nav-link-primary">探す</a>
-        <a href="/recommendations/ehime-local-lessons/" class="global-nav-link">エリア</a>
-        <a href="/recommendations/ehime-kids-lessons/" class="global-nav-link">子ども</a>
-        <a href="/recommendations/ehime-adult-lessons/" class="global-nav-link">大人</a>
-        <a href="/recommendations/" class="global-nav-link">特集</a>
+        <a href="#top-categories" class="global-nav-link">ジャンル</a>
+        <a href="#top-areas" class="global-nav-link">エリア</a>
+        <a href="#top-guides" class="global-nav-link">特集</a>
       </nav>
       <nav class="header-actions">
-        <a href="/contact/" class="btn btn-text header-link-btn header-utility-link" aria-label="お問い合わせ">お問い合わせ</a>
+        <a href="#finder-panel" class="btn btn-primary header-link-btn" aria-label="習い事を探す">習い事を探す</a>
       </nav>
     </div>
   </header>
 
-  <!-- Hero Section -->
-  <section class="hero container reveal">
-    <div class="hero-layout">
-      <div class="hero-main">
+  <section class="home-hero container reveal">
+    <div class="home-hero-shell">
+      <div class="home-hero-copy">
         <div class="hero-eyebrow">自分のペースで、無理なく続く習い事を</div>
-        <h1 class="h1">愛媛で続けやすい<br><span class="hero-emphasis">習い事・スクールを探せる</span></h1>
-        <p>子どもの習い事から大人の学び直し、ジム、プログラミング、資格系まで、愛媛で続けやすい候補を比較できます。</p>
-        <div class="hero-meta-row">
+        <h1 class="h1">自分に合う習い事を、<br><span class="hero-emphasis">無理なく見つける</span></h1>
+        <p class="home-hero-lead">気になる習い事やスクールをまとめて比較。エリアやジャンルから絞りながら、自分のペースで続けやすい選択ができます。</p>
+
+        <div class="home-hero-search-card" aria-label="習い事を探す入口">
+          <div class="home-hero-search-row">
+            <span class="home-hero-search-label">エリア</span>
+            <div class="home-hero-chip-row">
+              <a href="/recommendations/ehime-local-lessons/" class="home-hero-chip">松山・今治・新居浜</a>
+              <a href="#top-areas" class="home-hero-chip">地域から探す</a>
+            </div>
+          </div>
+          <div class="home-hero-search-row">
+            <span class="home-hero-search-label">ジャンル</span>
+            <div class="home-hero-chip-row">
+              <a href="/recommendations/matsuyama-dance/" class="home-hero-chip">ダンス</a>
+              <a href="/recommendations/matsuyama-programming/" class="home-hero-chip">プログラミング</a>
+              <a href="/recommendations/matsuyama-fitness/" class="home-hero-chip">ジム</a>
+              <a href="#top-categories" class="home-hero-chip">もっと見る</a>
+            </div>
+          </div>
+          <div class="home-hero-actions">
+            <a href="#finder-panel" class="btn btn-primary hero-main-cta">習い事を探す</a>
+            <a href="/recommendations/" class="btn btn-outline hero-main-subcta">特集を見る</a>
+          </div>
+        </div>
+
+        <div class="home-hero-foot">
           <div class="hero-stats" id="hero-stats">
             <div class="hero-stat">
               <span class="hero-stat-label">掲載候補</span>
@@ -86,98 +107,139 @@
               <strong id="hero-city-count">-</strong>
             </div>
           </div>
-          <div class="hero-action-row">
-            <a href="#finder-panel" class="btn btn-primary hero-main-cta">教室を探す</a>
+          <div class="home-hero-trust">
+            <span>初心者でも入りやすい入口から探せます</span>
+            <span>比較しながら、自分に合う候補を絞れます</span>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="section container reveal home-section">
-    <div class="home-section-head">
-      <h2 class="h2 finder-title">こんな迷い方をしていませんか？</h2>
-      <p class="results-summary">まずは悩みの近い入口から入ると、候補を絞りやすくなります。</p>
+  <section class="section container reveal top-intent-section">
+    <div class="top-section-heading">
+      <h2 class="h2">こんな迷い方から始められます</h2>
+      <p>なんとなく探し始めても大丈夫です。近い悩みから入ると、次に見るべきページが分かりやすくなります。</p>
     </div>
-    <div class="start-path-grid home-choice-grid">
-      <a class="start-path-card" href="/recommendations/ehime-kids-lessons/">
+    <div class="top-intent-grid">
+      <a class="top-intent-card" href="/recommendations/ehime-kids-lessons/">
+        <span class="top-intent-kicker">迷い</span>
         <strong>何を基準に選べばいいか分からない</strong>
-        <div class="start-path-tags">
-          <span class="start-path-tag">子ども向け</span>
-          <span class="start-path-tag">迷ったとき</span>
-        </div>
+        <p>年齢や始めやすさから入口を整理できます。</p>
       </a>
-      <a class="start-path-card" href="/recommendations/ehime-local-lessons/">
+      <a class="top-intent-card" href="/recommendations/ehime-local-lessons/">
+        <span class="top-intent-kicker">近さ</span>
         <strong>続けやすい距離で選びたい</strong>
-        <div class="start-path-tags">
-          <span class="start-path-tag">エリア</span>
-          <span class="start-path-tag">近さ</span>
-        </div>
+        <p>住んでいる地域から無理なく通える候補を見つけられます。</p>
       </a>
-      <a class="start-path-card" href="/recommendations/ehime-adult-lessons/">
+      <a class="top-intent-card" href="/recommendations/ehime-adult-lessons/">
+        <span class="top-intent-kicker">大人</span>
         <strong>大人でも無理なく始めたい</strong>
-        <div class="start-path-tags">
-          <span class="start-path-tag">学び直し</span>
-          <span class="start-path-tag">続けやすい</span>
-        </div>
+        <p>学び直しや趣味を、続けやすさから探せます。</p>
       </a>
-      <a class="start-path-card" href="/recommendations/ehime-trial-lessons/">
+      <a class="top-intent-card" href="/recommendations/ehime-trial-lessons/">
+        <span class="top-intent-kicker">体験</span>
         <strong>まず1つに絞って始めたい</strong>
-        <div class="start-path-tags">
-          <span class="start-path-tag">体験</span>
-          <span class="start-path-tag">失敗しにくい</span>
+        <p>体験しやすい候補から失敗を減らせます。</p>
+      </a>
+    </div>
+  </section>
+
+  <section class="section container reveal top-category-section" id="top-categories">
+    <div class="top-section-heading">
+      <h2 class="h2">人気のジャンルから見る</h2>
+      <p>よく比較されているジャンルを、短い説明つきでまとめています。</p>
+    </div>
+    <div class="top-category-grid">
+      <a class="top-category-card" href="/recommendations/matsuyama-dance/"><span class="top-category-icon">💃</span><strong>ダンス</strong><span>初心者 / キッズ</span></a>
+      <a class="top-category-card" href="/recommendations/matsuyama-fitness/"><span class="top-category-icon">🏋️</span><strong>ジム</strong><span>運動習慣 / 通いやすさ</span></a>
+      <a class="top-category-card" href="/recommendations/matsuyama-programming/"><span class="top-category-icon">💻</span><strong>プログラミング</strong><span>マイクラ / ロボット</span></a>
+      <a class="top-category-card" href="/recommendations/matsuyama-english/"><span class="top-category-icon">🗣️</span><strong>英会話</strong><span>子ども / 学び直し</span></a>
+      <a class="top-category-card" href="/recommendations/matsuyama-piano/"><span class="top-category-icon">🎹</span><strong>ピアノ</strong><span>子ども / 大人の再開</span></a>
+      <a class="top-category-card" href="/recommendations/ehime-qualification-lessons/"><span class="top-category-icon">📘</span><strong>資格・学び直し</strong><span>実用 / 続けやすさ</span></a>
+    </div>
+  </section>
+
+  <section class="section container reveal top-featured-section">
+    <div class="top-section-heading">
+      <h2 class="h2">おすすめの特集</h2>
+      <p>初心者でも入りやすく、比較しやすい特集を先に見られるようにしています。</p>
+    </div>
+    <div class="top-featured-grid">
+      <a class="top-featured-card" href="/recommendations/matsuyama-english/">
+        <img src="/assets/og/matsuyama-english.svg" alt="松山の英会話教室比較ガイド">
+        <div class="top-featured-copy">
+          <strong>松山の英会話教室比較ガイド</strong>
+          <p>子ども向けから大人の学び直しまで、続けやすさで見比べられます。</p>
+          <div class="top-featured-tags"><span>初心者OK</span><span>体験あり</span></div>
+          <span class="top-featured-cta">特集を見る</span>
+        </div>
+      </a>
+      <a class="top-featured-card" href="/recommendations/matsuyama-piano/">
+        <img src="/assets/og/matsuyama-piano.svg" alt="松山のピアノ教室比較ガイド">
+        <div class="top-featured-copy">
+          <strong>松山のピアノ教室比較ガイド</strong>
+          <p>子どもの導入から大人の再開まで、自分に合う入口を整理できます。</p>
+          <div class="top-featured-tags"><span>子ども向け</span><span>大人向け</span></div>
+          <span class="top-featured-cta">特集を見る</span>
+        </div>
+      </a>
+      <a class="top-featured-card" href="/recommendations/matsuyama-dance/">
+        <img src="/assets/og/matsuyama-dance.svg" alt="松山のダンス教室比較ガイド">
+        <div class="top-featured-copy">
+          <strong>松山のダンス教室比較ガイド</strong>
+          <p>キッズ、初心者、体験など、気になる入口から比較しやすい構成です。</p>
+          <div class="top-featured-tags"><span>キッズ</span><span>初心者OK</span></div>
+          <span class="top-featured-cta">特集を見る</span>
+        </div>
+      </a>
+      <a class="top-featured-card" href="/recommendations/matsuyama-programming/">
+        <img src="/assets/og/matsuyama-programming.svg" alt="松山のプログラミング教室比較ガイド">
+        <div class="top-featured-copy">
+          <strong>松山のプログラミング教室比較ガイド</strong>
+          <p>教材や年齢の違いを見ながら、自分に合う学び方を探せます。</p>
+          <div class="top-featured-tags"><span>マイクラ</span><span>ロボット</span></div>
+          <span class="top-featured-cta">特集を見る</span>
         </div>
       </a>
     </div>
   </section>
 
-  <section class="section container reveal home-section">
-    <div class="home-section-head">
-      <h2 class="h2 finder-title">目的から入口を選ぶ</h2>
-      <p class="results-summary">まずは今の気分や目的に近いものを選ぶと、探しやすくなります。</p>
+  <section class="section container reveal top-area-section" id="top-areas">
+    <div class="top-section-heading">
+      <h2 class="h2">エリアから探す</h2>
+      <p>家や学校、職場から通いやすい地域を起点に選びたい人向けの入口です。</p>
     </div>
-    <div class="start-path-grid home-choice-grid">
-      <a class="start-path-card" href="/recommendations/ehime-kids-lessons/">
-        <strong>子どもの習い事から選ぶ</strong>
-        <div class="start-path-tags">
-          <span class="start-path-tag">年齢</span>
-          <span class="start-path-tag">始めやすさ</span>
-        </div>
-      </a>
-      <a class="start-path-card" href="/recommendations/ehime-adult-lessons/">
-        <strong>趣味や学び直しから選ぶ</strong>
-        <div class="start-path-tags">
-          <span class="start-path-tag">大人向け</span>
-          <span class="start-path-tag">続けやすさ</span>
-        </div>
-      </a>
-      <a class="start-path-card" href="/recommendations/ehime-local-lessons/">
-        <strong>住んでいる地域から選ぶ</strong>
-        <div class="start-path-tags">
-          <span class="start-path-tag">中予・東予・南予</span>
-          <span class="start-path-tag">近い順</span>
-        </div>
-      </a>
-      <a class="start-path-card" href="/recommendations/">
-        <strong>特集から広く見比べる</strong>
-        <div class="start-path-tags">
-          <span class="start-path-tag">人気カテゴリ</span>
-          <span class="start-path-tag">悩み別</span>
-        </div>
-      </a>
+    <div class="top-area-rail">
+      <a class="top-area-card" href="/recommendations/ehime-local-lessons/"><strong>愛媛全体から探す</strong><span>中予・東予・南予を広く見る</span></a>
+      <a class="top-area-card" href="/recommendations/matsuyama-lessons/"><strong>松山で探す</strong><span>主力4ジャンルから入りたい</span></a>
+      <a class="top-area-card" href="/recommendations/imabari-lessons/"><strong>今治で探す</strong><span>生活圏や大人向け入口を見る</span></a>
+      <a class="top-area-card" href="/recommendations/niihama-lessons/"><strong>新居浜で探す</strong><span>子ども向けや学習系を整理する</span></a>
+      <a class="top-area-card" href="/recommendations/uwajima-lessons/"><strong>宇和島で探す</strong><span>最初の1本を絞りたいときに</span></a>
     </div>
   </section>
 
-  <section class="section container reveal home-section">
-    <div class="home-diagnosis-panel">
-      <div class="home-section-head">
-        <h2 class="h2 finder-title">迷ったままでも、ここから始められます</h2>
-        <p class="results-summary">診断のように、ジャンル・エリア・近い場所を 3 ステップで選ぶと、自分に合う候補を見つけやすくなります。</p>
-      </div>
-      <div class="hero-action-row home-diagnosis-actions">
-        <a href="#finder-panel" class="btn btn-primary hero-main-cta">3ステップで探す</a>
-        <a href="/recommendations/" class="btn btn-outline">特集を見る</a>
-      </div>
+  <section class="section container reveal top-how-section">
+    <div class="top-section-heading">
+      <h2 class="h2">使い方はシンプルです</h2>
+      <p>迷ったままでも、3ステップで候補を絞っていけます。</p>
+    </div>
+    <div class="top-how-grid">
+      <article class="top-how-card">
+        <span class="top-how-step">1</span>
+        <strong>探す</strong>
+        <p>エリアやジャンル、悩みに近い入口から候補を持ちます。</p>
+      </article>
+      <article class="top-how-card">
+        <span class="top-how-step">2</span>
+        <strong>比較する</strong>
+        <p>続けやすさ、体験のしやすさ、通いやすさを比べます。</p>
+      </article>
+      <article class="top-how-card">
+        <span class="top-how-step">3</span>
+        <strong>体験する</strong>
+        <p>気になる候補を2〜3件まで絞って、次の一歩へ進みます。</p>
+      </article>
     </div>
   </section>
 
@@ -185,7 +247,8 @@
     <div class="finder-panel" id="finder-panel">
       <div class="finder-panel-header">
         <div>
-          <h2 class="h2 finder-title">無理なく続けやすい方向から探す</h2>
+          <h2 class="h2 finder-title">条件から探す</h2>
+          <p class="results-summary">エリアとジャンルを絞って、気になる教室をそのまま比較できます。</p>
         </div>
       </div>
 
@@ -482,75 +545,12 @@
       </div>
     </section>
 
-    <section class="start-path-panel reveal" id="start-path-panel" aria-labelledby="start-path-title">
-      <div class="start-path-head">
-        <div>
-          <h2 class="h2 finder-title" id="start-path-title">エリアから探す</h2>
-          <p class="results-summary">近い地域から見たいときだけ使える入口です。</p>
-        </div>
-      </div>
-      <div class="start-path-grid">
-        <a class="start-path-card" href="/recommendations/ehime-local-lessons/">
-          <strong>愛媛の地域別ガイドを見る</strong>
-          <div class="start-path-tags">
-            <span class="start-path-tag">中予</span>
-            <span class="start-path-tag">東予</span>
-            <span class="start-path-tag">南予</span>
-          </div>
-        </a>
-        <a class="start-path-card" href="/recommendations/imabari-lessons/">
-          <strong>今治・新居浜など市町から探す</strong>
-          <div class="start-path-tags">
-            <span class="start-path-tag">生活圏</span>
-            <span class="start-path-tag">近い地域</span>
-            <span class="start-path-tag">入口から比較</span>
-          </div>
-        </a>
-      </div>
-    </section>
   </section>
 
-  <section class="section container reveal home-section" aria-labelledby="popular-categories-title">
-    <div class="home-section-head">
-      <h2 class="h2 finder-title" id="popular-categories-title">人気カテゴリ</h2>
-      <p class="results-summary">よく選ばれているカテゴリから見たいときの入口です。</p>
-    </div>
-    <div class="start-path-grid home-choice-grid">
-      <a class="start-path-card" href="/recommendations/matsuyama-english/">
-        <strong>英会話</strong>
-        <div class="start-path-tags">
-          <span class="start-path-tag">子ども・大人</span>
-          <span class="start-path-tag">学び直し</span>
-        </div>
-      </a>
-      <a class="start-path-card" href="/recommendations/matsuyama-piano/">
-        <strong>ピアノ</strong>
-        <div class="start-path-tags">
-          <span class="start-path-tag">子ども</span>
-          <span class="start-path-tag">大人の再開</span>
-        </div>
-      </a>
-      <a class="start-path-card" href="/recommendations/matsuyama-dance/">
-        <strong>ダンス</strong>
-        <div class="start-path-tags">
-          <span class="start-path-tag">初心者</span>
-          <span class="start-path-tag">キッズ</span>
-        </div>
-      </a>
-      <a class="start-path-card" href="/recommendations/matsuyama-programming/">
-        <strong>プログラミング</strong>
-        <div class="start-path-tags">
-          <span class="start-path-tag">マイクラ</span>
-          <span class="start-path-tag">ロボット</span>
-        </div>
-      </a>
-    </div>
-  </section>
-
-  <section class="section container reveal home-section" aria-labelledby="seo-guides-title">
-    <div class="home-section-head">
-      <h2 class="h2 finder-title" id="seo-guides-title">迷い方から選ぶ特集</h2>
-      <p class="results-summary">送迎、続けやすさ、最初の1本。よくある悩みから整理できます。</p>
+  <section class="section container reveal top-guides-section" id="top-guides" aria-labelledby="seo-guides-title">
+    <div class="top-section-heading">
+      <h2 class="h2" id="seo-guides-title">迷い方から選ぶ特集</h2>
+      <p>送迎、続けやすさ、最初の1本。よくある悩みから整理できます。</p>
     </div>
     <div class="issue-path-carousel" data-carousel="issue-path-carousel">
       <div class="top-secondary-panel-head">
@@ -563,26 +563,26 @@
       </div>
       <div class="issue-path-grid" data-carousel-track>
         <a class="issue-path-card" href="/recommendations/ehime-kids-lessons/">
-          <span class="issue-path-kicker">子ども</span>
-          <strong>引っ込み思案でも始めやすい入口から見たい</strong>
+          <span class="issue-path-kicker">子ども向け</span>
+          <strong>何を基準に選べばいいか分からない</strong>
           <div class="start-path-tags">
-            <span class="start-path-tag">家庭目線</span>
-            <span class="start-path-tag">年齢別へ広げる</span>
+            <span class="start-path-tag">年齢</span>
+            <span class="start-path-tag">始めやすさ</span>
           </div>
         </a>
         <a class="issue-path-card" href="/recommendations/ehime-adult-lessons/">
-          <span class="issue-path-kicker">大人</span>
-          <strong>大人になってから趣味や学び直しを始めたい</strong>
+          <span class="issue-path-kicker">大人向け</span>
+          <strong>大人でも無理なく始められる入口から見たい</strong>
           <div class="start-path-tags">
             <span class="start-path-tag">学び直し</span>
             <span class="start-path-tag">続けやすさ</span>
           </div>
         </a>
         <a class="issue-path-card" href="/recommendations/ehime-trial-lessons/">
-          <span class="issue-path-kicker">失敗したくない</span>
-          <strong>まずは体験しやすい教室から見て失敗を減らしたい</strong>
+          <span class="issue-path-kicker">失敗を減らす</span>
+          <strong>まずは体験しやすい候補から見たい</strong>
           <div class="start-path-tags">
-            <span class="start-path-tag">無料体験</span>
+            <span class="start-path-tag">体験</span>
             <span class="start-path-tag">比較しやすい</span>
           </div>
         </a>
@@ -591,14 +591,14 @@
     </div>
   </section>
 
-  <section class="section container reveal home-section">
-    <div class="home-diagnosis-panel home-final-cta">
-      <div class="home-section-head">
-        <h2 class="h2 finder-title">まだ迷っているなら、ここから</h2>
-        <p class="results-summary">診断のように条件から探すか、特集一覧からゆっくり見るか。どちらからでも始められます。</p>
+  <section class="section container reveal top-cta-section">
+    <div class="top-cta-panel">
+      <div class="top-section-heading top-cta-copy">
+        <h2 class="h2">まずは気になる習い事を探してみましょう</h2>
+        <p>エリアやジャンルを選ぶだけでも、次に見るべき候補がぐっと分かりやすくなります。</p>
       </div>
       <div class="hero-action-row home-diagnosis-actions">
-        <a href="#finder-panel" class="btn btn-primary hero-main-cta">条件から探す</a>
+        <a href="#finder-panel" class="btn btn-primary hero-main-cta">習い事を探す</a>
         <a href="/recommendations/" class="btn btn-outline">特集を見る</a>
       </div>
     </div>
