@@ -115,8 +115,20 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://www.lesson-map.com/recommendations/shikokuchuo-lessons/</loc>
+    <lastmod>2026-04-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://www.lesson-map.com/recommendations/toon-english/</loc>
     <lastmod>2026-03-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.lesson-map.com/recommendations/toon-lessons/</loc>
+    <lastmod>2026-04-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -267,6 +279,12 @@
   <url>
     <loc>https://www.lesson-map.com/recommendations/iyo-programming/</loc>
     <lastmod>2026-03-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.lesson-map.com/recommendations/iyo-lessons/</loc>
+    <lastmod>2026-04-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
