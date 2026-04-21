@@ -234,6 +234,8 @@ function renderStudios(data) {
             const commuteSummary = getCommuteSummary(studio);
             const cardAccessSummary = getCardAccessSummary(studio.access);
             const categoryLabel = getCategoryLabel(studio.category);
+            const infoCompletenessMarkup = getInfoCompletenessMarkup(studio);
+            const quickStatusMarkup = getQuickStatusMarkup(studio);
             const compareButtonLabel = isComparedStudio(studio.id) ? '比較中' : '比較する';
             const compareButtonState = isComparedStudio(studio.id) ? 'active' : '';
             const compareButtonDisabled = !isComparedStudio(studio.id) && compareMemoIds.length >= COMPARE_MEMO_LIMIT ? 'disabled' : '';
@@ -268,6 +270,8 @@ function renderStudios(data) {
             <strong>${commuteSummary}</strong>
           </div>
         </div>
+        ${infoCompletenessMarkup}
+        ${quickStatusMarkup}
         <div class="card-action-row">
           <button class="btn btn-primary detail-btn card-detail-btn">詳細を見る</button>
           <div class="card-support-actions">
@@ -438,6 +442,24 @@ function getQuickStatusItems(studio) {
             tone: studio?.features?.parking ? 'good' : 'neutral'
         }
     ];
+}
+
+function getInfoCompletenessMarkup(studio) {
+    const items = getQuickStatusItems(studio);
+    const availableCount = items.filter(item => item.tone === 'good').length;
+
+    if (availableCount < 2) return '';
+
+    const summary = availableCount === items.length
+        ? '料金・体験・通いやすさを確認しやすい'
+        : '比較に必要な情報がそろいやすい';
+
+    return `
+    <div class="card-completeness" data-tone="good" aria-label="掲載情報の充実度">
+      <span class="card-completeness-label">情報充実</span>
+      <strong>${summary}</strong>
+    </div>
+    `;
 }
 
 function getQuickStatusMarkup(studio) {

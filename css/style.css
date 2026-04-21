@@ -2914,6 +2914,29 @@ p {
   font-size: 0.8rem;
 }
 
+.card-completeness {
+  display: grid;
+  gap: 0.18rem;
+  margin-bottom: 0.58rem;
+  padding: 0.72rem 0.82rem;
+  border-radius: 14px;
+  background: rgba(46, 125, 50, 0.06);
+  border: 1px solid rgba(46, 125, 50, 0.14);
+}
+
+.card-completeness-label {
+  font-size: 0.68rem;
+  font-weight: 800;
+  color: rgba(31, 93, 46, 0.9);
+  letter-spacing: 0.04em;
+}
+
+.card-completeness strong {
+  font-size: 0.8rem;
+  line-height: 1.45;
+  color: var(--clr-text-main);
+}
+
 .card-quick-statuses {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
