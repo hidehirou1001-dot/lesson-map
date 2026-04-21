@@ -337,14 +337,14 @@ function getNoResultsMarkup() {
 }
 
 function formatPricingSummary(pricing) {
-    if (!pricing) return '料金は要確認';
+    if (!pricing) return '料金情報の掲載なし';
     if (pricing.minPrice > 0) {
         return `${pricing.system} / 最安 ${pricing.minPrice.toLocaleString()}円〜`;
     }
     if (hasVisiblePricing(pricing)) {
         return pricing.note ? `${pricing.system} / ${pricing.note}` : `${pricing.system} / 公式サイトで確認`;
     }
-    return pricing.note ? `${pricing.system} / ${pricing.note}` : `${pricing.system} / 料金は要確認`;
+    return pricing.note ? `${pricing.system} / ${pricing.note}` : `${pricing.system} / 公式サイトで確認`;
 }
 
 function hasVisiblePricing(pricing) {
@@ -408,7 +408,7 @@ function hasTrialInfo(studio) {
 }
 
 function getTrialStatus(studio) {
-    if (!studio) return '要確認';
+    if (!studio) return '体験案内の記載なし';
 
     const text = [
         studio.description || '',
@@ -418,28 +418,30 @@ function getTrialStatus(studio) {
 
     if (/無料体験/.test(text)) return '無料体験あり';
     if (/体験|見学/.test(text)) return '体験案内あり';
-    return '要確認';
+    return '体験案内の記載なし';
 }
 
 function getQuickStatusItems(studio) {
+    const hasPricing = studio?.pricing?.minPrice > 0 || hasVisiblePricing(studio?.pricing);
+    const hasParkingInfo = Boolean(studio?.features?.parking);
     return [
         {
             key: 'price',
             label: '料金',
-            value: studio?.pricing?.minPrice > 0 ? '公開あり' : '要確認',
-            tone: studio?.pricing?.minPrice > 0 ? 'good' : 'neutral'
+            value: hasPricing ? '公開あり' : '料金表の掲載なし',
+            tone: hasPricing ? 'good' : 'neutral'
         },
         {
             key: 'trial',
             label: '体験',
-            value: hasTrialInfo(studio) ? '案内あり' : '要確認',
+            value: hasTrialInfo(studio) ? '案内あり' : '体験案内の記載なし',
             tone: hasTrialInfo(studio) ? 'good' : 'neutral'
         },
         {
             key: 'access',
             label: '通いやすさ',
-            value: studio?.features?.parking ? '駐車場あり' : 'アクセス確認',
-            tone: studio?.features?.parking ? 'good' : 'neutral'
+            value: hasParkingInfo ? '駐車場あり' : '駐車場案内は未掲載',
+            tone: hasParkingInfo ? 'good' : 'neutral'
         }
     ];
 }
@@ -530,8 +532,8 @@ const resultsPanelState = {
 function getPricingCheckStatus(studio) {
     if (studio?.pricing?.minPrice > 0) return '料金公開を確認済み';
     if (hasVisiblePricing(studio?.pricing)) return '料金表公開を確認済み';
-    if (studio?.pricing?.note) return '料金メモあり・詳細は要確認';
-    return '料金は要確認';
+    if (studio?.pricing?.note) return '料金メモあり・詳細は公式サイトで確認';
+    return '料金情報の掲載なし';
 }
 
 function getVerificationItems(studio) {
@@ -1199,10 +1201,10 @@ function getCommuteSummary(studio) {
 }
 
 function getPricingVisibility(pricing) {
-    if (!pricing) return '料金は要確認';
+    if (!pricing) return '料金情報の掲載なし';
     if (pricing.minPrice > 0) return '料金公開あり';
     if (hasVisiblePricing(pricing)) return '料金表公開あり';
-    return '料金は要確認';
+    return '料金情報の掲載なし';
 }
 
 function getCategoryLabel(category) {
@@ -1226,11 +1228,11 @@ function getCategoryLabel(category) {
 }
 
 function getAudienceSummary(features) {
-    if (!features) return '要確認';
+    if (!features) return '対象案内なし';
     if (features.kidsClass && features.adultClass) return '子ども・大人';
     if (features.kidsClass) return '子ども中心';
     if (features.adultClass) return '大人中心';
-    return '要確認';
+    return '対象案内なし';
 }
 
 function getCardAccessSummary(access) {
@@ -2383,7 +2385,7 @@ function openModal(studioId) {
 
     const pricingSummary = formatPricingSummary(studio.pricing);
     const trialStatus = getTrialStatus(studio);
-    const parkingStatus = studio.features.parking ? '駐車場あり' : '駐車場は要確認';
+    const parkingStatus = studio.features.parking ? '駐車場あり' : '駐車場案内は未掲載';
     const audienceSummary = getAudienceSummary(studio.features);
     const featureSummary = getCardFeatureSummary(studio);
     const commuteSummary = getCommuteSummary(studio);
