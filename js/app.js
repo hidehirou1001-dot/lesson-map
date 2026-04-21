@@ -559,6 +559,20 @@ function getVerificationMarkup(studio, extraClass = '') {
     `;
 }
 
+function getModalPricingDetail(studio) {
+    const pricing = studio?.pricing;
+    if (!pricing) return '料金情報の掲載なし';
+
+    const detail = pricing.minPrice > 0
+        ? `${pricing.system} / 最安 ${pricing.minPrice.toLocaleString()}円〜`
+        : hasVisiblePricing(pricing)
+            ? (pricing.note ? `${pricing.system} / ${pricing.note}` : `${pricing.system} / 公式サイトで確認`)
+            : `${pricing.system || '料金案内'} / 公式サイトで確認`;
+
+    if (!pricing.note || detail.includes(pricing.note)) return detail;
+    return `${detail}<br><small style="color:var(--clr-text-muted);">${pricing.note}</small>`;
+}
+
 function initCompareMemo() {
     compareMemoIds = loadCompareMemo();
 
@@ -2395,6 +2409,8 @@ function openModal(studioId) {
     const curatorLabelMarkup = getCuratorLabelMarkup(studio, 'curator-label-row curator-label-row-modal');
     const localAreaCueMarkup = getLocalAreaCueMarkup(studio, 'local-area-cue local-area-cue-modal');
     const experienceReportMarkup = getExperienceReportMarkup(studio);
+    const modalPricingDetail = getModalPricingDetail(studio);
+    const featureDetail = features.length > 0 ? features.join(' / ') : '特徴案内は未掲載';
     const relatedGuides = getRecommendedGuidesForStudio(studio);
     const compareButtonLabel = isComparedStudio(studio.id) ? '比較メモから外す' : '比較メモに入れる';
     const compareButtonDisabled = !isComparedStudio(studio.id) && compareMemoIds.length >= COMPARE_MEMO_LIMIT ? 'disabled' : '';
@@ -2488,7 +2504,7 @@ function openModal(studioId) {
                     <ul class="modal-info-list">
                         <li class="modal-info-item">
                             <span class="modal-info-label">料金</span>
-                            <span>${studio.pricing.system} ${studio.pricing.minPrice > 0 ? `/ 最安 ${studio.pricing.minPrice.toLocaleString()}円〜` : '(料金詳細は公式サイトにて)'} <br><small style="color:var(--clr-text-muted);">${studio.pricing.note}</small></span>
+                            <span>${modalPricingDetail}</span>
                         </li>
                         <li class="modal-info-item">
                             <span class="modal-info-label">アクセス</span>
@@ -2496,7 +2512,7 @@ function openModal(studioId) {
                         </li>
                         <li class="modal-info-item">
                             <span class="modal-info-label">特徴</span>
-                            <span>${features.join(' / ')}</span>
+                            <span>${featureDetail}</span>
                         </li>
                     </ul>
                 </div>
