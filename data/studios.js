@@ -20,6 +20,26 @@ const studios = [
       kidsClass: true,
       adultClass: true
     },
+    reviewTendencies: [
+      {
+        icon: '🔰',
+        title: '初心者でも通いやすい',
+        description: '初めてでも入りやすい声かけや、緊張しすぎないレッスンの空気感が続けやすさにつながりやすい傾向です。',
+        tags: ['#初心者向け', '#体験しやすい', '#大人も通いやすい']
+      },
+      {
+        icon: '🤝',
+        title: 'アットホームな雰囲気',
+        description: '少人数でも置いていかれにくく、先生や他の受講者との距離感がちょうどよい印象で受け取られやすい教室です。',
+        tags: ['#雰囲気重視', '#少人数感', '#親しみやすい']
+      },
+      {
+        icon: '🗓️',
+        title: '継続しやすいレッスン環境',
+        description: '無料体験と駐車場の両方があり、平日夕方や仕事帰りでも生活に入れやすいと整理しやすい傾向があります。',
+        tags: ['#続けやすい', '#駐車場あり', '#無料体験あり']
+      }
+    ],
     imageUrl: 'https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
     link: 'https://dancestudiotheone.com/'
   },
@@ -231,6 +251,26 @@ const studios = [
       kidsClass: true,
       adultClass: true
     },
+    reviewTendencies: [
+      {
+        icon: '🎹',
+        title: '初心者でも通いやすい',
+        description: '子どもの導入から大人の再開まで想定しやすく、王道の入り口として検討しやすい印象につながりやすい教室です。',
+        tags: ['#初心者向け', '#大人の再開', '#子どもも通える']
+      },
+      {
+        icon: '🏢',
+        title: '落ち着いて通いやすい雰囲気',
+        description: '駅近の通いやすさと老舗ブランドの安心感があり、まずは無難に選びたい人に向く傾向で見られやすいです。',
+        tags: ['#安心感', '#駅近', '#王道']
+      },
+      {
+        icon: '📅',
+        title: '継続しやすいレッスン環境',
+        description: '教室の情報量が多く、通う前にイメージを持ちやすいため、比較しながら自分のペースで始めやすい環境です。',
+        tags: ['#比較しやすい', '#通いやすい', '#続けやすい']
+      }
+    ],
     imageUrl: 'https://images.unsplash.com/photo-1507838153414-b4b713384a76?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
     link: 'https://retailing.jp.yamaha.com/shop/matsuyama'
   },
@@ -377,6 +417,26 @@ const studios = [
       kidsClass: true,
       adultClass: false
     },
+    reviewTendencies: [
+      {
+        icon: '💻',
+        title: '初心者でも入りやすい',
+        description: 'プログラミングだけに絞らず、ロボットやものづくりを入口にできるので、最初の一歩が軽くなりやすい傾向です。',
+        tags: ['#初心者向け', '#子ども向け', '#体験しやすい']
+      },
+      {
+        icon: '🧩',
+        title: '興味を広げやすい雰囲気',
+        description: '作品づくりの幅があるぶん、勉強感だけでなく楽しさから入りたい家庭に向く印象で受け取られやすい教室です。',
+        tags: ['#ものづくり', '#興味を広げやすい', '#楽しく学ぶ']
+      },
+      {
+        icon: '🚗',
+        title: '継続しやすい学習環境',
+        description: '車で通いやすく、通学そのものの負担を抑えやすいので、週1で続ける前提の比較に向いています。',
+        tags: ['#駐車場あり', '#通いやすい', '#続けやすい']
+      }
+    ],
     imageUrl: 'https://images.unsplash.com/photo-1515879218367-8466d910aaa4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
     link: 'https://tech-progress.net/'
   },
@@ -1000,6 +1060,26 @@ const studios = [
       kidsClass: true,
       adultClass: true
     },
+    reviewTendencies: [
+      {
+        icon: '🗣️',
+        title: '初心者でも通いやすい',
+        description: '少人数で進みやすく、英語が久しぶりでも身構えすぎずに入りやすい教室として整理しやすい傾向があります。',
+        tags: ['#初心者向け', '#少人数', '#体験しやすい']
+      },
+      {
+        icon: '🌿',
+        title: 'アットホームな雰囲気',
+        description: '幼児から大人まで受け入れる教室なので、堅すぎず日常の延長で通いやすい空気感として受け取られやすいです。',
+        tags: ['#アットホーム', '#社会人向け', '#親子で検討しやすい']
+      },
+      {
+        icon: '📍',
+        title: '継続しやすいレッスン環境',
+        description: '生活圏に寄せやすい立地で、送迎でも仕事帰りでも無理なく組み込みやすい比較軸を持ちやすい教室です。',
+        tags: ['#駐車場あり', '#生活に入れやすい', '#続けやすさ重視']
+      }
+    ],
     imageUrl: 'https://images.unsplash.com/photo-1543269865-cbf427effbad?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
     link: 'https://www.eccjr.com/'
   },
@@ -1355,6 +1435,26 @@ const studios = [
       kidsClass: false,
       adultClass: true
     },
+    reviewTendencies: [
+      {
+        icon: '🏋️',
+        title: '初心者でも通いやすい',
+        description: 'マシンだけでなくプールやスタジオもあるため、運動の入口を自分のペースで選びやすい施設として見られやすいです。',
+        tags: ['#初心者向け', '#大人向け', '#運動習慣']
+      },
+      {
+        icon: '🏢',
+        title: '通い方を選びやすい雰囲気',
+        description: '本格派すぎる印象よりも、まず生活に運動を入れたい人が入りやすい総合型施設として整理しやすい傾向があります。',
+        tags: ['#総合型ジム', '#通いやすい', '#無理なく始める']
+      },
+      {
+        icon: '🚗',
+        title: '継続しやすいレッスン環境',
+        description: '駐車場があり、設備の選択肢も多いので、通う曜日や気分に合わせて続けやすい比較軸を持ちやすいです。',
+        tags: ['#駐車場あり', '#設備が多い', '#続けやすい']
+      }
+    ],
     imageUrl: 'https://images.unsplash.com/photo-1518611012118-696072aa579a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
     link: 'https://www.fitta.jp/matsuyama/'
   },
@@ -1505,6 +1605,26 @@ const studios = [
       kidsClass: false,
       adultClass: true
     },
+    reviewTendencies: [
+      {
+        icon: '🥊',
+        title: '初心者でも通いやすい',
+        description: 'フィットネス利用から入りやすく、いきなり本格的な会員ばかりの空気ではない点が一歩目の安心感につながりやすいです。',
+        tags: ['#初心者向け', '#社会人向け', '#フィットネス利用']
+      },
+      {
+        icon: '💬',
+        title: '相談しやすい雰囲気',
+        description: '目的を伝えてから始めやすく、運動不足解消か技術志向かで相談しながら選びやすい傾向で見られやすいジムです。',
+        tags: ['#相談しやすい', '#目的別に選べる', '#大人向け']
+      },
+      {
+        icon: '🗓️',
+        title: '継続しやすいレッスン環境',
+        description: '見学や体験から入りやすく、月会費もイメージしやすいため、続ける前提で比較しやすい環境として整理できます。',
+        tags: ['#体験しやすい', '#料金が見やすい', '#続けやすさ重視']
+      }
+    ],
     imageUrl: 'https://images.unsplash.com/photo-1549719386-74dfcbf7dbed?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
     link: 'https://www.new-boxing.com/'
   },
