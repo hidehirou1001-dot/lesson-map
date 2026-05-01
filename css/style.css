@@ -6231,6 +6231,89 @@ p {
   color: var(--clr-text-muted);
 }
 
+.modal-review-section {
+  margin-bottom: 1.1rem;
+  padding: 1rem;
+  border-radius: 18px;
+  border: 1px solid rgba(34, 34, 34, 0.08);
+  background: rgba(255, 255, 255, 0.96);
+}
+
+.modal-review-head {
+  display: grid;
+  gap: 0.28rem;
+  margin-bottom: 0.8rem;
+}
+
+.modal-review-head strong {
+  font-size: 1rem;
+  color: var(--clr-text-main);
+}
+
+.modal-review-head p {
+  font-size: 0.86rem;
+  color: var(--clr-text-muted);
+  line-height: 1.7;
+}
+
+.modal-review-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+
+.modal-review-card {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.7rem;
+  align-items: start;
+  padding: 0.95rem 1rem;
+  border-radius: 16px;
+  border: 1px solid rgba(34, 34, 34, 0.08);
+  background: rgba(34, 34, 34, 0.025);
+}
+
+.modal-review-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 999px;
+  background: rgba(201, 42, 42, 0.08);
+  font-size: 1rem;
+  line-height: 1;
+}
+
+.modal-review-body {
+  display: grid;
+  gap: 0.38rem;
+}
+
+.modal-review-title {
+  font-size: 0.93rem;
+  font-weight: 800;
+  color: var(--clr-text-main);
+  line-height: 1.45;
+}
+
+.modal-review-copy {
+  font-size: 0.82rem;
+  color: var(--clr-text-muted);
+  line-height: 1.7;
+}
+
+.modal-review-tags {
+  margin-top: 0.15rem;
+}
+
+.modal-review-note {
+  margin-top: 0.85rem;
+  font-size: 0.76rem;
+  color: var(--clr-text-muted);
+  line-height: 1.65;
+}
+
 .modal-guide-head {
   display: grid;
   gap: 0.25rem;
@@ -6306,6 +6389,10 @@ p {
   }
 
   .modal-quickview-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .modal-review-grid {
     grid-template-columns: 1fr;
   }
 

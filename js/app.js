@@ -1326,6 +1326,116 @@ function getExperienceReportMarkup(studio) {
     `;
 }
 
+function normalizeReviewTendencyItem(item) {
+    if (!item) return null;
+    return {
+        icon: item.icon || '💬',
+        title: item.title || '',
+        description: item.description || '',
+        tags: Array.isArray(item.tags) ? item.tags.slice(0, 3) : []
+    };
+}
+
+function buildDefaultReviewTendencies(studio) {
+    const categoryLabelMap = {
+        Dance: 'レッスン',
+        Piano: '個別レッスン',
+        Programming: '学習ペース',
+        English: '英会話レッスン',
+        Fitness: '通う習慣',
+        Boxing: '運動習慣',
+        Yoga: 'レッスン',
+        CramSchool: '学習サポート',
+        Calligraphy: '教室の進め方',
+        Soroban: '学習ペース'
+    };
+
+    const lessonLabel = categoryLabelMap[studio?.category] || 'レッスン';
+    const trialStatus = getTrialStatus(studio);
+    const commuteSummary = getCommuteSummary(studio);
+    const beginnerFriendly = studio?.features?.beginnerFriendly || '○';
+    const hasParking = Boolean(studio?.features?.parking);
+    const genres = Array.isArray(studio?.genres) ? studio.genres : [];
+    const audienceTags = [];
+
+    if (studio?.features?.adultClass) audienceTags.push('#社会人向け');
+    if (studio?.features?.kidsClass) audienceTags.push('#親子で検討しやすい');
+    if (trialStatus !== '体験案内の記載なし') audienceTags.push('#体験しやすい');
+
+    const beginnerDescription = beginnerFriendly === '◎'
+        ? `${lessonLabel}の入り口が分かりやすく、初めてでも一歩目を踏み出しやすいという傾向で見られます。`
+        : `${lessonLabel}の流れが想像しやすく、未経験でも雰囲気をつかみながら検討しやすい傾向です。`;
+
+    const atmosphereDescription = genres.length >= 2
+        ? `${genres[0]}だけでなく複数ジャンルに触れられる環境があり、堅すぎず入りやすい雰囲気として受け取られやすい傾向です。`
+        : `スタッフや講師との距離感が近すぎず遠すぎず、落ち着いて始めやすい雰囲気として見られやすい傾向です。`;
+
+    const environmentDescription = hasParking
+        ? `${commuteSummary}や体験導線が判断材料になりやすく、週1ペースでも生活に入れやすい環境として整理しやすいです。`
+        : `${commuteSummary}や時間帯の組みやすさが判断材料になりやすく、無理なく続ける前提で比較しやすい環境です。`;
+
+    return [
+        {
+            icon: '🔰',
+            title: '初心者でも通いやすい',
+            description: beginnerDescription,
+            tags: Array.from(new Set(['#初心者向け', ...audienceTags])).slice(0, 3)
+        },
+        {
+            icon: '🤝',
+            title: 'アットホームな雰囲気',
+            description: atmosphereDescription,
+            tags: Array.from(new Set(['#雰囲気を見たい', studio?.features?.adultClass ? '#大人向け' : '#子ども向け', '#入りやすい'])).slice(0, 3)
+        },
+        {
+            icon: '🗓️',
+            title: '継続しやすいレッスン環境',
+            description: environmentDescription,
+            tags: Array.from(new Set([hasParking ? '#通いやすい' : '#生活に入れやすい', trialStatus !== '体験案内の記載なし' ? '#体験しやすい' : '#比較しやすい', '#続けやすさ重視'])).slice(0, 3)
+        }
+    ];
+}
+
+function getReviewTendencyItems(studio) {
+    const customItems = Array.isArray(studio?.reviewTendencies)
+        ? studio.reviewTendencies.map(normalizeReviewTendencyItem).filter(Boolean)
+        : [];
+
+    const items = customItems.length >= 3 ? customItems.slice(0, 3) : buildDefaultReviewTendencies(studio);
+    return items.filter(item => item?.title && item?.description);
+}
+
+function getReviewTrendMarkup(studio) {
+    const items = getReviewTendencyItems(studio);
+    if (items.length === 0) return '';
+
+    return `
+        <section class="modal-review-section">
+            <div class="modal-review-head">
+                <strong>口コミ・評判の傾向</strong>
+                <p>SNSやWeb上の声をもとに、雰囲気や向いている人を整理しています。</p>
+            </div>
+            <div class="modal-review-grid">
+                ${items.map(item => `
+                    <article class="modal-review-card">
+                        <div class="modal-review-icon" aria-hidden="true">${item.icon}</div>
+                        <div class="modal-review-body">
+                            <h3 class="modal-review-title">${item.title}</h3>
+                            <p class="modal-review-copy">${item.description}</p>
+                            ${item.tags.length ? `
+                                <div class="card-meta-chips modal-review-tags">
+                                    ${item.tags.map(tag => `<span class="card-meta-chip card-meta-chip-soft">${tag}</span>`).join('')}
+                                </div>
+                            ` : ''}
+                        </div>
+                    </article>
+                `).join('')}
+            </div>
+            <p class="modal-review-note">※口コミはSNS・Web上の情報をもとに整理した傾向です。個人の感想を含むため、最新情報は公式サイトをご確認ください。</p>
+        </section>
+    `;
+}
+
 function getInlineGuideLinksForStudio(studio) {
     if (!studio) return [];
 
@@ -2409,6 +2519,7 @@ function openModal(studioId) {
     const curatorLabelMarkup = getCuratorLabelMarkup(studio, 'curator-label-row curator-label-row-modal');
     const localAreaCueMarkup = getLocalAreaCueMarkup(studio, 'local-area-cue local-area-cue-modal');
     const experienceReportMarkup = getExperienceReportMarkup(studio);
+    const reviewTrendMarkup = getReviewTrendMarkup(studio);
     const modalPricingDetail = getModalPricingDetail(studio);
     const featureDetail = features.length > 0 ? features.join(' / ') : '特徴案内は未掲載';
     const relatedGuides = getRecommendedGuidesForStudio(studio);
@@ -2518,6 +2629,7 @@ function openModal(studioId) {
                 </div>
             </details>
             ${experienceReportMarkup}
+            ${reviewTrendMarkup}
             ${relatedGuideMarkup}
         </div>
     `;
