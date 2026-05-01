@@ -3662,6 +3662,31 @@ p {
   margin-bottom: var(--space-lg);
 }
 
+.article-hero-media {
+  display: grid;
+  gap: 0.75rem;
+  margin: 0 0 var(--space-lg);
+  padding: 0.8rem;
+  border-radius: 24px;
+  background: linear-gradient(180deg, rgba(255, 252, 249, 0.98), rgba(255, 255, 255, 0.94));
+  border: 1px solid rgba(34, 34, 34, 0.07);
+  box-shadow: var(--shadow-sm);
+}
+
+.article-hero-media img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 18px;
+}
+
+.article-hero-media figcaption {
+  margin: 0;
+  color: var(--clr-text-muted);
+  font-size: 0.9rem;
+  line-height: 1.7;
+}
+
 .article-keypoints {
   margin: 0 0 0.9rem;
   padding: 0.85rem 1rem;
