@@ -6666,6 +6666,14 @@ p {
   line-height: 1.72;
 }
 
+.top-subsection-heading {
+  margin-top: 1.4rem;
+}
+
+.top-subsection-heading .h3 {
+  font-size: 1.05rem;
+}
+
 .top-intent-section,
 .top-category-section,
 .top-featured-section,
