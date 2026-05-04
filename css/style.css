@@ -5760,6 +5760,29 @@ p {
     display: none;
   }
 
+  .header {
+    height: 72px;
+  }
+
+  .header nav {
+    min-width: 0;
+    max-width: 52%;
+    overflow-x: auto;
+    gap: 0.45rem !important;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .header nav::-webkit-scrollbar {
+    display: none;
+  }
+
+  .header nav .btn-outline,
+  .header nav .btn-text {
+    flex: 0 0 auto;
+    white-space: nowrap;
+  }
+
   .recommendation-grid-label {
     margin-top: 0.1rem;
     margin-bottom: 0;
@@ -5802,6 +5825,19 @@ p {
     vertical-align: top;
   }
 
+  .comparison-table-wrapper {
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .comparison-table {
+    min-width: 680px;
+  }
+
+  .comparison-table th:first-child,
+  .comparison-table td:first-child {
+    min-width: 168px;
+  }
+
 }
 
 @media (max-width: 480px) {
@@ -5819,6 +5855,10 @@ p {
     gap: 0.45rem;
   }
 
+  .header nav {
+    max-width: 48%;
+  }
+
   .global-nav-link {
     padding: 0.32rem 0.46rem;
     font-size: 0.64rem;
@@ -5828,6 +5868,15 @@ p {
   .header .btn-text {
     padding: 0.35rem 0.45rem !important;
     font-size: 0.65rem !important;
+  }
+
+  .comparison-table {
+    min-width: 620px;
+  }
+
+  .comparison-table th:first-child,
+  .comparison-table td:first-child {
+    min-width: 148px;
   }
 
   .hero-eyebrow {
