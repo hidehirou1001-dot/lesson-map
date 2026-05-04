@@ -202,6 +202,48 @@ function initFAQ() {
             }
         });
     });
+
+    const articleFaqLists = document.querySelectorAll('.article-faq-list');
+    articleFaqLists.forEach((list) => {
+        if (list.dataset.faqEnhanced === 'true') return;
+
+        const directItems = Array.from(list.children).filter((child) => child.classList?.contains('article-faq-item'));
+        if (!directItems.length) {
+            list.dataset.faqEnhanced = 'true';
+            return;
+        }
+
+        directItems.forEach((item) => {
+            if (item.tagName.toLowerCase() === 'details') return;
+
+            const heading = item.querySelector(':scope > h3, :scope > .h3');
+            if (!heading) return;
+
+            const bodyNodes = Array.from(item.children).filter((child) => child !== heading);
+            if (!bodyNodes.length) return;
+
+            const details = document.createElement('details');
+            details.className = 'compact-accordion-item article-faq-item article-faq-accordion-item';
+
+            const summary = document.createElement('summary');
+            summary.className = 'compact-accordion-trigger article-faq-trigger';
+
+            const summaryText = document.createElement('span');
+            summaryText.innerHTML = heading.innerHTML;
+            summary.appendChild(summaryText);
+
+            const body = document.createElement('div');
+            body.className = 'compact-accordion-body article-faq-body';
+            bodyNodes.forEach((node) => body.appendChild(node));
+
+            details.appendChild(summary);
+            details.appendChild(body);
+            item.replaceWith(details);
+        });
+
+        list.classList.add('compact-accordion-list');
+        list.dataset.faqEnhanced = 'true';
+    });
 }
 
 /**
