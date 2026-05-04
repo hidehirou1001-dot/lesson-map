@@ -184,25 +184,6 @@ function initAnimations() {
  * FAQ Accordion Logic
  */
 function initFAQ() {
-    const faqItems = document.querySelectorAll('.faq-item');
-
-    faqItems.forEach(item => {
-        const question = item.querySelector('.faq-question');
-        if (!question) return;
-        question.addEventListener('click', () => {
-            // Toggle active class
-            const isActive = item.classList.contains('active');
-
-            // Close all other items (optional)
-            faqItems.forEach(i => i.classList.remove('active'));
-
-            // If wasn't active, open it
-            if (!isActive) {
-                item.classList.add('active');
-            }
-        });
-    });
-
     const articleFaqLists = document.querySelectorAll('.article-faq-list');
     articleFaqLists.forEach((list) => {
         if (list.dataset.faqEnhanced === 'true') return;
@@ -243,6 +224,49 @@ function initFAQ() {
 
         list.classList.add('compact-accordion-list');
         list.dataset.faqEnhanced = 'true';
+    });
+
+    const legacyFaqContainers = document.querySelectorAll('.faq-container');
+    legacyFaqContainers.forEach((container) => {
+        if (container.dataset.faqEnhanced === 'true') return;
+
+        const directItems = Array.from(container.children).filter((child) => child.classList?.contains('faq-item'));
+        if (!directItems.length) {
+            container.dataset.faqEnhanced = 'true';
+            return;
+        }
+
+        directItems.forEach((item) => {
+            if (item.tagName.toLowerCase() === 'details') return;
+
+            const question = item.querySelector(':scope > .faq-question');
+            const answer = item.querySelector(':scope > .faq-answer');
+            if (!question || !answer) return;
+
+            const details = document.createElement('details');
+            details.className = 'compact-accordion-item faq-item article-faq-accordion-item';
+
+            const summary = document.createElement('summary');
+            summary.className = 'compact-accordion-trigger article-faq-trigger';
+
+            const summaryText = document.createElement('span');
+            summaryText.textContent = question.textContent.replace(/\+/g, '').replace(/^Q\.\s*/, '').trim();
+            summary.appendChild(summaryText);
+
+            const body = document.createElement('div');
+            body.className = 'compact-accordion-body article-faq-body';
+
+            const paragraph = document.createElement('p');
+            paragraph.textContent = answer.textContent.replace(/^A\.\s*/, '').trim();
+            body.appendChild(paragraph);
+
+            details.appendChild(summary);
+            details.appendChild(body);
+            item.replaceWith(details);
+        });
+
+        container.classList.add('compact-accordion-list');
+        container.dataset.faqEnhanced = 'true';
     });
 }
 
