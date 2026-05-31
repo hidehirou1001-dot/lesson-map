@@ -63,6 +63,7 @@
 - TOPと `recommendations` のヘッダー・入口導線の見た目統一
 - 主要7ページの `title / description / H1 / dateModified / sitemap lastmod` を、料金・体験・通いやすさなど検索結果で伝わりやすい比較軸へ調整
 - TOPから直接入る `松山ダンス / 松山ジム` の `title / description / H1 / 冒頭文` を、体験・通いやすさ・24時間・駐車場などの比較軸へ調整
+- `松山ボクシング / 松山ヨガ・ピラティス` の `title / description / H1 / 冒頭文 / Breadcrumb` を、初心者・体験・生活動線などの比較軸へ調整
 
 ### 進行中
 
