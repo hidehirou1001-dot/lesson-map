@@ -4060,6 +4060,10 @@ p {
   color: var(--clr-text-main);
 }
 
+.recommendations-hero-search-card {
+  margin-bottom: 0.9rem;
+}
+
 .recommendations-growth-strip {
   justify-content: center;
   margin-bottom: 0.85rem;
@@ -4136,35 +4140,6 @@ p {
   color: var(--clr-text-muted);
   font-size: 0.84rem;
   line-height: 1.65;
-}
-
-.recommendation-section-nav {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.65rem;
-  margin-bottom: 1rem;
-}
-
-.recommendation-section-nav a {
-  display: inline-flex;
-  align-items: center;
-  min-height: 42px;
-  padding: 0.62rem 0.92rem;
-  border-radius: var(--radius-full);
-  background: rgba(255, 255, 255, 0.92);
-  border: 1px solid rgba(34, 34, 34, 0.08);
-  color: var(--clr-text-main);
-  font-size: 0.84rem;
-  font-weight: 700;
-  text-decoration: none;
-  box-shadow: var(--shadow-sm);
-  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
-}
-
-.recommendation-section-nav a:hover {
-  transform: translateY(-1px);
-  border-color: rgba(201, 42, 42, 0.18);
-  box-shadow: 0 10px 18px rgba(34, 34, 34, 0.08);
 }
 
 .recent-guides-panel {
@@ -5684,15 +5659,6 @@ p {
     flex-direction: column;
     align-items: stretch;
     padding: 0.9rem 0.95rem;
-  }
-
-  .recommendation-section-nav {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .recommendation-section-nav a {
-    justify-content: center;
   }
 
   .recommendations-hero {

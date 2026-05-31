@@ -37,7 +37,7 @@
           "url": "https://www.lesson-map.com/recommendations/",
           "description": "愛媛で子どもの習い事、大人の学び直し、ジム、プログラミング、資格系の入口を探したい人向けの特集一覧です。地域別・悩み別に、自分のペースで無理なく続けやすい比較ガイドを探せます。",
           "inLanguage": "ja",
-          "dateModified": "2026-03-28",
+          "dateModified": "2026-05-31",
           "isPartOf": {
             "@type": "WebSite",
             "name": "LessonMap",
@@ -136,20 +136,26 @@
           ]
         }
     </script>
-    <link rel="stylesheet" href="/css/style.css?v=7">
+    <link rel="stylesheet" href="/css/style.css?v=11">
 </head>
 
 <body>
 
     <!-- Header -->
     <header class="header">
-        <div class="container" style="display: flex; justify-content: space-between; align-items: center;">
-            <a href="/" class="logo "
-                style="font-size: 1.5rem; font-weight: 900; letter-spacing: -0.02em;">LessonMap</a>
-            <nav style="display: flex; gap: 1rem; align-items: center;">
-                <a href="/contact/" class="btn btn-text" style="font-size: 0.875rem;">お問い合わせ</a>
-                <a href="/recommendations/" class="btn btn-outline active"
-                    style="border-radius: var(--radius-full); padding: 0.5rem 1rem; font-size: 0.875rem;">特集一覧を見る</a>
+        <div class="container">
+            <div class="header-brand">
+                <a href="/" class="logo">LessonMap</a>
+                <span class="header-brand-note">愛媛の習い事・スクール比較</span>
+            </div>
+            <nav class="global-nav" aria-label="主要メニュー">
+                <a href="#popular-zone" class="global-nav-link">人気</a>
+                <a href="#area-zone" class="global-nav-link">エリア</a>
+                <a href="#issue-zone" class="global-nav-link">悩み</a>
+                <a href="#genre-zone" class="global-nav-link">ジャンル</a>
+            </nav>
+            <nav class="header-actions">
+                <a href="/" class="btn btn-primary header-link-btn" aria-label="一覧検索へ戻る">一覧検索へ</a>
             </nav>
         </div>
     </header>
@@ -158,31 +164,40 @@
     <main class="container recommendations-shell">
 
         <section class="recommendations-hero reveal">
-            <div class="hero-eyebrow">自分のペースで、無理なく続く習い事を</div>
-            <h1 class="h1">愛媛の特集から<br>続けやすい入口を選べる</h1>
-            <p>地域、悩み、ジャンルの入口から、今の自分に合う特集を選べます。</p>
-            <div class="hero-action-row recommendations-hero-actions">
-                <a href="#recommendations-start-title" class="btn btn-primary hero-main-cta">まずはここから見る</a>
-                <a href="/" class="btn btn-outline hero-main-subcta">一覧検索へ</a>
+            <h1 class="h1">愛媛の特集から<br><span class="hero-emphasis">自分に合う入口を選ぶ</span></h1>
+            <p>地域、悩み、ジャンルから、今の自分に近い入口を選べます。教室を直接比べたいときは一覧検索へ戻れます。</p>
+            <div class="home-hero-search-card recommendations-hero-search-card" aria-label="特集を探す入口">
+                <div class="home-hero-search-main">
+                    <a href="#area-zone" class="home-hero-search-slot">
+                        <span class="home-hero-search-kicker">どこで探す？</span>
+                        <strong>松山・今治・新居浜</strong>
+                        <small>地域の入口を見る</small>
+                    </a>
+                    <a href="#issue-zone" class="home-hero-search-slot">
+                        <span class="home-hero-search-kicker">何に迷っている？</span>
+                        <strong>子ども・大人・体験</strong>
+                        <small>悩みや目的から見る</small>
+                    </a>
+                    <a href="#popular-zone" class="btn btn-primary home-hero-search-submit">人気特集を見る</a>
+                </div>
+                <div class="home-hero-quick-row" aria-label="よく使う入口">
+                    <a href="/recommendations/ehime-local-lessons/" class="home-hero-chip">地域から見る</a>
+                    <a href="/recommendations/ehime-kids-lessons/" class="home-hero-chip">子ども向け</a>
+                    <a href="/recommendations/ehime-adult-lessons/" class="home-hero-chip">大人向け</a>
+                    <a href="/" class="home-hero-chip">教室を一覧検索</a>
+                </div>
             </div>
             <div class="hero-stats recommendations-stats">
                 <div class="hero-stat">
-                    <span class="hero-stat-label">公開中の特集</span>
-                    <strong>59本</strong>
+                    <span class="hero-stat-label">一覧掲載の入口</span>
+                    <strong>76本</strong>
                 </div>
                 <div class="hero-stat">
-                    <span class="hero-stat-label">主なテーマ</span>
-                    <strong>20テーマ</strong>
+                    <span class="hero-stat-label">探し方</span>
+                    <strong>4つ</strong>
                 </div>
             </div>
         </section>
-
-        <nav class="recommendation-section-nav" aria-label="特集一覧の移動">
-            <a href="#popular-zone">人気</a>
-            <a href="#area-zone">地域</a>
-            <a href="#issue-zone">悩み</a>
-            <a href="#genre-zone">ジャンル</a>
-        </nav>
 
         <section class="recent-guides-panel reveal" id="recent-guides-panel" aria-labelledby="recent-guides-title" hidden>
             <div class="start-path-head">
@@ -276,7 +291,7 @@
                 <h2 class="h2">まず見ておきたい人気特集</h2>
                 <div class="recommendation-grid-meta">
                     <span>最初の1本に向く記事を厳選</span>
-                    <span>7本</span>
+                    <span>4本</span>
                 </div>
             </div>
 
@@ -617,7 +632,7 @@
                 <h2 class="h2">悩み・目的から探す</h2>
                 <div class="recommendation-grid-meta">
                     <span>失敗しにくい入口から見る</span>
-                    <span>33本</span>
+                    <span>34本</span>
                 </div>
             </div>
 
@@ -1273,7 +1288,7 @@
                 <h2 class="h2">ジャンルから探す</h2>
             <div class="recommendation-grid-meta">
                     <span>目的が決まっている人向け</span>
-                    <span>22本</span>
+                    <span>26本</span>
                 </div>
             </div>
 
@@ -1899,7 +1914,7 @@
     </div>
   </footer>
 
-    <script src="/js/app.js?v=7"></script>
+    <script src="/js/app.js?v=22"></script>
 </body>
 
 </html>
