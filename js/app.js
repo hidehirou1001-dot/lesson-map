@@ -32,6 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
         runSafely('renderStudios', () => renderStudios(window.studiosData));
         runSafely('initSearch', initSearch);
         runSafely('initFilters', initFilters);
+        runSafely('initHeroQuickSearch', initHeroQuickSearch);
         runSafely('initModal', initModal);
         runSafely('renderCompareMemo', renderCompareMemo);
         runSafely('renderFavorites', renderFavorites);
@@ -1960,6 +1961,7 @@ function initFilters() {
 
             const cat = btn.getAttribute('data-category');
             currentFilterState.category = cat;
+            syncHeroQuickSearchControls();
             syncCategoryStatus(cat);
             syncSubfilterStatus(cat);
 
@@ -2032,6 +2034,7 @@ function initFilters() {
     cityBtns.forEach(btn => {
         btn.addEventListener('click', () => {
             currentFilterState.city = btn.getAttribute('data-city');
+            syncHeroQuickSearchControls();
             syncAreaSelection(currentFilterState.city);
             applyFilters();
         });
@@ -2059,6 +2062,7 @@ function initFilters() {
             const searchInput = document.getElementById('search-input');
             if (searchInput) searchInput.value = '';
             if (sortSelect) sortSelect.value = 'recommended';
+            syncHeroQuickSearchControls();
 
             categoryBtns.forEach(button => {
                 button.classList.toggle('active', button.getAttribute('data-category') === 'all');
@@ -2095,6 +2099,54 @@ function initFilters() {
             applyFilters();
         });
     }
+}
+
+function syncHeroQuickSearchControls() {
+    const citySelect = document.getElementById('hero-quick-city');
+    const categorySelect = document.getElementById('hero-quick-category');
+    const audience = currentFilterState.quickFilters.includes('kids')
+        ? 'kids'
+        : currentFilterState.quickFilters.includes('adult')
+            ? 'adult'
+            : 'all';
+
+    if (citySelect && Array.from(citySelect.options).some(option => option.value === currentFilterState.city)) {
+        citySelect.value = currentFilterState.city;
+    }
+
+    if (categorySelect && Array.from(categorySelect.options).some(option => option.value === currentFilterState.category)) {
+        categorySelect.value = currentFilterState.category;
+    }
+
+    const audienceInput = document.querySelector(`input[name="hero-quick-audience"][value="${audience}"]`);
+    if (audienceInput) audienceInput.checked = true;
+}
+
+function initHeroQuickSearch() {
+    const form = document.getElementById('hero-quick-search');
+    const citySelect = document.getElementById('hero-quick-city');
+    const categorySelect = document.getElementById('hero-quick-category');
+    if (!form || !citySelect || !categorySelect) return;
+
+    syncHeroQuickSearchControls();
+
+    form.addEventListener('submit', (event) => {
+        event.preventDefault();
+
+        const audienceInput = form.querySelector('input[name="hero-quick-audience"]:checked');
+        const audience = audienceInput ? audienceInput.value : 'all';
+        currentFilterState.quickFilters = audience === 'all' ? [] : [audience];
+
+        const categoryButton = document.querySelector(`.category-btn[data-category="${categorySelect.value}"]`);
+        const cityButton = document.querySelector(`.city-btn[data-city="${citySelect.value}"]`);
+
+        if (categoryButton) categoryButton.click();
+        if (cityButton) cityButton.click();
+
+        syncHeroQuickSearchControls();
+        applyFilters();
+        window.requestAnimationFrame(scrollToResultsZone);
+    });
 }
 
 function scrollToResultsZone() {

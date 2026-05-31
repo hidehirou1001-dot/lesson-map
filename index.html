@@ -43,7 +43,7 @@
       }
     }
   </script>
-  <link rel="stylesheet" href="/css/style.css?v=10">
+  <link rel="stylesheet" href="/css/style.css?v=12">
 </head>
 
 <body>
@@ -73,19 +73,72 @@
         <p class="home-hero-lead">気になる習い事やスクールを、エリアやジャンルから絞って比較。自分のペースで無理なく続けやすい候補を見つけられます。</p>
 
         <div class="home-hero-search-card" aria-label="習い事を探す入口">
-          <div class="home-hero-search-main">
-            <a href="#top-areas" class="home-hero-search-slot">
-              <span class="home-hero-search-kicker">どこで探す？</span>
-              <strong>松山・今治・新居浜</strong>
-              <small>地域から選ぶ</small>
-            </a>
-            <a href="#top-categories" class="home-hero-search-slot">
-              <span class="home-hero-search-kicker">何を始めたい？</span>
-              <strong>ダンス・英会話・ジム</strong>
-              <small>ジャンルから選ぶ</small>
-            </a>
-            <a href="#finder-panel" class="btn btn-primary home-hero-search-submit">探し始める</a>
-          </div>
+          <form class="home-hero-quick-search" id="hero-quick-search" aria-label="条件を選んで教室を検索">
+            <div class="home-hero-quick-fields">
+              <label class="home-hero-quick-field" for="hero-quick-city">
+                <span class="home-hero-search-kicker">エリア</span>
+                <select class="home-hero-quick-select" id="hero-quick-city">
+                  <option value="all">愛媛県全域</option>
+                  <optgroup label="中予">
+                    <option value="中予">中予全域</option>
+                    <option value="松山市">松山市</option>
+                    <option value="松前町">松前町</option>
+                    <option value="東温市">東温市</option>
+                    <option value="伊予市">伊予市</option>
+                  </optgroup>
+                  <optgroup label="東予">
+                    <option value="東予">東予全域</option>
+                    <option value="今治市">今治市</option>
+                    <option value="新居浜市">新居浜市</option>
+                    <option value="西条市">西条市</option>
+                    <option value="四国中央市">四国中央市</option>
+                  </optgroup>
+                  <optgroup label="南予">
+                    <option value="南予">南予全域</option>
+                    <option value="宇和島市">宇和島市</option>
+                  </optgroup>
+                </select>
+              </label>
+              <label class="home-hero-quick-field" for="hero-quick-category">
+                <span class="home-hero-search-kicker">ジャンル</span>
+                <select class="home-hero-quick-select" id="hero-quick-category">
+                  <option value="all">すべてのジャンル</option>
+                  <option value="Dance">ダンス</option>
+                  <option value="English">英会話</option>
+                  <option value="Programming">プログラミング</option>
+                  <option value="Piano">ピアノ</option>
+                  <option value="Swimming">水泳</option>
+                  <option value="Gymnastics">体操</option>
+                  <option value="Fitness">スポーツジム</option>
+                  <option value="Boxing">ボクシング</option>
+                  <option value="Yoga">ヨガ・ピラティス</option>
+                  <option value="Cooking">料理教室</option>
+                  <option value="CramSchool">学習塾</option>
+                  <option value="Calligraphy">書道</option>
+                  <option value="Soroban">そろばん</option>
+                  <option value="Art">アート・絵画</option>
+                </select>
+              </label>
+              <fieldset class="home-hero-quick-audience">
+                <legend class="home-hero-search-kicker">対象</legend>
+                <div class="home-hero-quick-tabs">
+                  <label class="home-hero-quick-tab">
+                    <input type="radio" name="hero-quick-audience" value="all" checked>
+                    <span>すべて</span>
+                  </label>
+                  <label class="home-hero-quick-tab">
+                    <input type="radio" name="hero-quick-audience" value="kids">
+                    <span>子ども</span>
+                  </label>
+                  <label class="home-hero-quick-tab">
+                    <input type="radio" name="hero-quick-audience" value="adult">
+                    <span>大人</span>
+                  </label>
+                </div>
+              </fieldset>
+            </div>
+            <button class="btn btn-primary home-hero-quick-submit" type="submit">この条件で教室を見る</button>
+          </form>
           <div class="home-hero-quick-row" aria-label="人気の入口">
             <a href="/recommendations/matsuyama-lessons/" class="home-hero-chip">松山から見る</a>
             <a href="/recommendations/ehime-adult-lessons/" class="home-hero-chip">大人向けから見る</a>
@@ -627,7 +680,7 @@
 
   <!-- Scripts -->
   <script src="/data/studios.js?v=14"></script>
-  <script src="/js/app.js?v=22"></script>
+  <script src="/js/app.js?v=23"></script>
 </body>
 
 </html>

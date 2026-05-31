@@ -6629,6 +6629,95 @@ p {
   box-shadow: none;
 }
 
+.home-hero-quick-search {
+  display: grid;
+  gap: 0.85rem;
+}
+
+.home-hero-quick-fields {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(220px, 1fr);
+  gap: 0.7rem;
+  align-items: end;
+}
+
+.home-hero-quick-field,
+.home-hero-quick-audience {
+  display: grid;
+  gap: 0.38rem;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  text-align: left;
+}
+
+.home-hero-quick-select {
+  width: 100%;
+  min-height: 48px;
+  padding: 0.7rem 0.8rem;
+  border: 1px solid rgba(34, 34, 34, 0.12);
+  border-radius: 14px;
+  background: #fff;
+  color: var(--clr-text-main);
+  font: inherit;
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.home-hero-quick-select:focus-visible {
+  outline: 3px solid rgba(201, 42, 42, 0.22);
+  outline-offset: 2px;
+}
+
+.home-hero-quick-tabs {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.3rem;
+}
+
+.home-hero-quick-tab {
+  position: relative;
+  min-width: 0;
+}
+
+.home-hero-quick-tab input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.home-hero-quick-tab span {
+  display: grid;
+  min-height: 48px;
+  place-items: center;
+  padding: 0.55rem 0.45rem;
+  border: 1px solid rgba(34, 34, 34, 0.12);
+  border-radius: 14px;
+  background: #fff;
+  color: var(--clr-text-muted);
+  font-size: 0.84rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: border-color var(--transition-fast), background-color var(--transition-fast), color var(--transition-fast);
+}
+
+.home-hero-quick-tab input:checked + span {
+  border-color: rgba(201, 42, 42, 0.42);
+  background: rgba(201, 42, 42, 0.08);
+  color: var(--clr-primary);
+}
+
+.home-hero-quick-tab input:focus-visible + span {
+  outline: 3px solid rgba(201, 42, 42, 0.22);
+  outline-offset: 2px;
+}
+
+.home-hero-quick-submit {
+  min-height: 52px;
+  border-radius: 14px;
+}
+
 .home-hero-quick-row {
   display: flex;
   flex-wrap: wrap;
@@ -7013,6 +7102,10 @@ p {
   .home-hero-search-submit {
     border-radius: 0 0 24px 24px;
     min-height: 52px;
+  }
+
+  .home-hero-quick-fields {
+    grid-template-columns: 1fr;
   }
 
   .home-hero-trust {
