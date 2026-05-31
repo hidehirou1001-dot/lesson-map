@@ -3105,8 +3105,9 @@ p {
 .card-action-row {
   display: grid;
   grid-template-columns: minmax(0, 1fr);
-  gap: 0.42rem;
+  gap: 0.54rem;
   align-items: stretch;
+  margin-top: auto;
 }
 
 .card-detail-btn {
@@ -3116,48 +3117,50 @@ p {
 }
 
 .card-support-actions {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 0.24rem 0.62rem;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.45rem;
   align-items: center;
-  opacity: 0.68;
 }
 
 .compare-toggle-btn {
-  min-height: auto;
-  padding: 0;
+  min-height: 38px;
+  padding: 0.48rem 0.62rem;
   white-space: nowrap;
   font-weight: 700;
-  font-size: 0.7rem;
+  font-size: 0.76rem;
   justify-content: center;
-  border-radius: 0;
-  background: transparent;
-  color: var(--clr-text-muted);
-  text-decoration: underline;
-  text-underline-offset: 0.12em;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(34, 34, 34, 0.1);
+  color: rgba(34, 34, 34, 0.72);
+  text-decoration: none;
 }
 
 .favorite-toggle-btn {
-  min-height: auto;
-  padding: 0;
+  min-height: 38px;
+  padding: 0.48rem 0.62rem;
   white-space: nowrap;
   font-weight: 700;
-  font-size: 0.7rem;
+  font-size: 0.76rem;
   justify-content: center;
-  border-radius: 0;
-  background: transparent;
-  color: var(--clr-text-muted);
-  text-decoration: underline;
-  text-underline-offset: 0.12em;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(34, 34, 34, 0.1);
+  color: rgba(34, 34, 34, 0.72);
+  text-decoration: none;
 }
 
 .favorite-toggle-btn.active {
   color: var(--clr-primary-dark);
+  background: rgba(201, 42, 42, 0.06);
+  border-color: rgba(201, 42, 42, 0.18);
 }
 
 .compare-toggle-btn.active {
   color: var(--clr-primary-dark);
+  background: rgba(201, 42, 42, 0.06);
+  border-color: rgba(201, 42, 42, 0.18);
 }
 
 .compare-toggle-btn:disabled {
@@ -5560,14 +5563,13 @@ p {
   }
 
   .card-support-actions {
-    justify-content: center;
-    gap: 0.2rem 0.5rem;
-    opacity: 0.62;
+    gap: 0.42rem;
   }
 
   .favorite-toggle-btn,
   .compare-toggle-btn {
-    font-size: 0.66rem;
+    min-height: 38px;
+    font-size: 0.72rem;
   }
 
   .hero-stats {

@@ -301,11 +301,10 @@ function renderStudios(data) {
             const cardAccessSummary = getCardAccessSummary(studio.access);
             const categoryLabel = getCategoryLabel(studio.category);
             const infoCompletenessMarkup = getInfoCompletenessMarkup(studio);
-            const quickStatusMarkup = getQuickStatusMarkup(studio);
-            const compareButtonLabel = isComparedStudio(studio.id) ? '比較中' : '比較する';
+            const compareButtonLabel = isComparedStudio(studio.id) ? '比較中' : '比較に追加';
             const compareButtonState = isComparedStudio(studio.id) ? 'active' : '';
             const compareButtonDisabled = !isComparedStudio(studio.id) && compareMemoIds.length >= COMPARE_MEMO_LIMIT ? 'disabled' : '';
-            const favoriteButtonLabel = isFavoriteStudio(studio.id) ? '保存済み' : '保存する';
+            const favoriteButtonLabel = isFavoriteStudio(studio.id) ? '保存済み' : 'あとで見る';
             const favoriteButtonState = isFavoriteStudio(studio.id) ? 'active' : '';
 
             const card = document.createElement('article');
@@ -337,12 +336,11 @@ function renderStudios(data) {
           </div>
         </div>
         ${infoCompletenessMarkup}
-        ${quickStatusMarkup}
         <div class="card-action-row">
           <button class="btn btn-primary detail-btn card-detail-btn">詳細を見る</button>
           <div class="card-support-actions">
-            <button class="btn btn-text favorite-toggle-btn ${favoriteButtonState}" type="button" data-favorite-id="${studio.id}">${favoriteButtonLabel}</button>
-            <button class="btn btn-text compare-toggle-btn ${compareButtonState}" type="button" data-studio-id="${studio.id}" ${compareButtonDisabled}>${compareButtonLabel}</button>
+            <button class="btn btn-text favorite-toggle-btn ${favoriteButtonState}" type="button" data-favorite-id="${studio.id}" aria-label="${studio.name}をあとで見る候補に保存する">${favoriteButtonLabel}</button>
+            <button class="btn btn-text compare-toggle-btn ${compareButtonState}" type="button" data-studio-id="${studio.id}" aria-label="${studio.name}を比較メモに追加する" ${compareButtonDisabled}>${compareButtonLabel}</button>
           </div>
         </div>
       </div>
@@ -2263,15 +2261,17 @@ function updateResultsMeta(filtered) {
     if (currentFilterState.searchQuery) activeChips.push(`"${currentFilterState.searchQuery}"`);
 
     if (summary) {
-        const categoryText = currentFilterState.category === 'all'
-            ? '愛媛県全体'
-            : (filterLabelMap[currentFilterState.category] || currentFilterState.category);
-        const cityText = currentFilterState.city === 'all' ? '愛媛県全域' : currentFilterState.city;
-        const areaText = currentFilterState.area === 'all' ? '' : `の${currentFilterState.area}`;
+        const scopeParts = [];
+        if (currentFilterState.city !== 'all') scopeParts.push(currentFilterState.city);
+        if (currentFilterState.area !== 'all') scopeParts.push(currentFilterState.area);
+        if (currentFilterState.category !== 'all') {
+            scopeParts.push(filterLabelMap[currentFilterState.category] || currentFilterState.category);
+        }
+        const scopeText = scopeParts.length > 0 ? scopeParts.join(' / ') : '愛媛県内';
         const lowCountHint = filtered.length > 0 && filtered.length <= 2
-            ? ' 候補が少ないので、近い特集も合わせて見ると比較しやすくなります。'
+            ? ' 少ないときは条件を広げると見つけやすくなります。'
             : '';
-        summary.textContent = `${filtered.length}件を表示中。${categoryText}を${cityText}${areaText}で比べられます。${lowCountHint}`;
+        summary.textContent = `${filtered.length}件表示中。${scopeText}の候補を、対象・料金・通いやすさで比べられます。${lowCountHint}`;
     }
 
     const sortExplainMap = {
