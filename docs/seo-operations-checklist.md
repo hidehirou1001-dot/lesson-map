@@ -62,6 +62,7 @@
 - `recommendations` 上部導線と記事カード密度の調整
 - TOPと `recommendations` のヘッダー・入口導線の見た目統一
 - TOPヒーローに `エリア / ジャンル / 対象` のクイック検索パネルを追加
+- Search Consoleの日別データで露出増加を確認し、主要ハブ4ページ（特集一覧 / 子ども向け / 大人向け / 松山市入口）の検索意図と冒頭導線を強化
 - 主要7ページの `title / description / H1 / dateModified / sitemap lastmod` を、料金・体験・通いやすさなど検索結果で伝わりやすい比較軸へ調整
 - TOPから直接入る `松山ダンス / 松山ジム` の `title / description / H1 / 冒頭文` を、体験・通いやすさ・24時間・駐車場などの比較軸へ調整
 - `松山ボクシング / 松山ヨガ・ピラティス` の `title / description / H1 / 冒頭文 / Breadcrumb` を、初心者・体験・生活動線などの比較軸へ調整
