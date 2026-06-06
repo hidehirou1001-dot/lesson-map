@@ -5878,12 +5878,125 @@ p {
     -webkit-overflow-scrolling: touch;
   }
 
-  .comparison-table {
+  .comparison-table--mobile-cards {
+    min-width: 0;
+    border-collapse: separate;
+    border-spacing: 0;
+  }
+
+  .comparison-table--mobile-cards thead {
+    display: none;
+  }
+
+  .comparison-table--mobile-cards,
+  .comparison-table--mobile-cards tbody,
+  .comparison-table--mobile-cards tr,
+  .comparison-table--mobile-cards td {
+    display: block;
+    width: 100%;
+  }
+
+  .comparison-table--mobile-cards tr {
+    padding: 1rem;
+    border-bottom: 1px solid var(--clr-border);
+    background: #fff;
+  }
+
+  .comparison-table--mobile-cards tr:nth-child(even) {
+    background: #fafafa;
+  }
+
+  .comparison-table--mobile-cards td {
+    display: grid;
+    grid-template-columns: minmax(5.5rem, 34%) 1fr;
+    gap: 0.75rem;
+    align-items: start;
+    padding: 0.58rem 0;
+    border-bottom: 1px solid rgba(34, 34, 34, 0.08);
+    font-size: 0.9rem;
+  }
+
+  .comparison-table--mobile-cards td::before {
+    content: attr(data-label);
+    color: var(--clr-text-muted);
+    font-size: 0.74rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+  }
+
+  .comparison-table--mobile-cards td:nth-child(2)::before {
+    content: "料金";
+  }
+
+  .comparison-table--mobile-cards td:nth-child(3)::before {
+    content: "対象";
+  }
+
+  .comparison-table--mobile-cards td:nth-child(4)::before {
+    content: "特徴";
+  }
+
+  .comparison-table--mobile-cards td:nth-child(5)::before {
+    content: "体験";
+  }
+
+  .comparison-table--mobile-cards td:nth-child(6)::before {
+    content: "場所";
+  }
+
+  .comparison-table--skill-score td:nth-child(2)::before {
+    content: "対象";
+  }
+
+  .comparison-table--skill-score td:nth-child(3)::before {
+    content: "おすすめ度";
+  }
+
+  .comparison-table--skill-score td:nth-child(4)::before {
+    content: "初心者向け";
+  }
+
+  .comparison-table--skill-score td:nth-child(5)::before {
+    content: "技術指導";
+  }
+
+  .comparison-table--skill-score td:nth-child(6)::before {
+    content: "通いやすさ";
+  }
+
+  .comparison-table--mobile-cards td:first-child {
+    position: static;
+    display: block;
+    min-width: 0;
+    padding-top: 0;
+    padding-bottom: 0.75rem;
+    background: transparent;
+    box-shadow: none;
+    font-size: 1rem;
+  }
+
+  .comparison-table--mobile-cards td:first-child::before {
+    display: none;
+  }
+
+  .comparison-table--mobile-cards td:last-child {
+    border-bottom: 0;
+    padding-bottom: 0;
+  }
+
+  .comparison-table--mobile-cards tr:hover td,
+  .comparison-table--mobile-cards tr:hover td:first-child,
+  .comparison-table--mobile-cards tbody tr:nth-child(even) td,
+  .comparison-table--mobile-cards tbody tr:nth-child(even) td:first-child {
+    background: transparent;
+  }
+
+  .comparison-table:not(.comparison-table--mobile-cards) {
     min-width: 680px;
   }
 
-  .comparison-table th:first-child,
-  .comparison-table td:first-child {
+  .comparison-table:not(.comparison-table--mobile-cards) th:first-child,
+  .comparison-table:not(.comparison-table--mobile-cards) td:first-child {
     min-width: 168px;
   }
 
@@ -5919,12 +6032,12 @@ p {
     font-size: 0.65rem !important;
   }
 
-  .comparison-table {
+  .comparison-table:not(.comparison-table--mobile-cards) {
     min-width: 620px;
   }
 
-  .comparison-table th:first-child,
-  .comparison-table td:first-child {
+  .comparison-table:not(.comparison-table--mobile-cards) th:first-child,
+  .comparison-table:not(.comparison-table--mobile-cards) td:first-child {
     min-width: 148px;
   }
 
