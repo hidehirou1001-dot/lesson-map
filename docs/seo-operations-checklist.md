@@ -4,6 +4,8 @@
 
 ## 目的別の見方
 
+Search Console の改善前後比較は [Search Console 改善トラッカー](./search-console-improvement-tracker.md) に記録する。
+
 ### UX改善
 
 - 完了
