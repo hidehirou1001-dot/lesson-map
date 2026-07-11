@@ -301,6 +301,9 @@ function renderStudios(data) {
             const commuteSummary = getCommuteSummary(studio);
             const cardAccessSummary = getCardAccessSummary(studio.access);
             const categoryLabel = getCategoryLabel(studio.category);
+            const listingType = getListingType(studio);
+            const listingTypeLabel = getListingTypeLabel(studio);
+            const cardEyebrow = listingType === 'school' ? categoryLabel : `${categoryLabel} / ${listingTypeLabel}`;
             const infoCompletenessMarkup = getInfoCompletenessMarkup(studio);
             const compareButtonLabel = isComparedStudio(studio.id) ? '比較中' : '比較に追加';
             const compareButtonState = isComparedStudio(studio.id) ? 'active' : '';
@@ -318,7 +321,7 @@ function renderStudios(data) {
       </div>
         <div class="card-content">
         <div class="card-heading-block">
-          <span class="card-eyebrow">${categoryLabel}</span>
+          <span class="card-eyebrow">${cardEyebrow}</span>
           <h3 class="h3">${studio.name}</h3>
           <p class="card-location">${cardAccessSummary}</p>
         </div>
@@ -1098,6 +1101,17 @@ function getTrialCheckpoints(studio) {
 function getOfficialActionLabel(studio) {
     const pricing = getPricingVisibility(studio?.pricing);
     const trialStatus = getTrialStatus(studio);
+    const listingType = getListingType(studio);
+
+    if (listingType !== 'school') {
+        if (listingType === 'event') return '公式ページでイベントを見る';
+        if (listingType === 'seminar') return '公式ページでセミナーを見る';
+        if (listingType === 'study_group') return '公式ページで勉強会を見る';
+        if (listingType === 'workshop') return '公式ページでワークショップを見る';
+        if (listingType === 'online_course') return '公式ページでオンライン講座を見る';
+        if (listingType === 'certification_course') return '公式ページで資格講座を見る';
+        return '公式ページで詳細を見る';
+    }
 
     if (trialStatus === '無料体験あり' || trialStatus === '体験案内あり') {
         return 'まずは体験の有無を見る';
@@ -1306,6 +1320,46 @@ function getCategoryLabel(category) {
     return labels[category] || category;
 }
 
+function getListingType(studio) {
+    return studio?.listingType || 'school';
+}
+
+function getListingTypeLabel(studioOrType) {
+    const type = typeof studioOrType === 'string' ? studioOrType : getListingType(studioOrType);
+    const labels = {
+        school: '教室・スクール',
+        seminar: 'セミナー',
+        study_group: '勉強会',
+        workshop: 'ワークショップ',
+        online_course: 'オンライン講座',
+        event: 'イベント',
+        certification_course: '資格講座'
+    };
+    return labels[type] || '学び情報';
+}
+
+function normalizeRelatedGuide(guide) {
+    if (!guide) return null;
+
+    if (typeof guide === 'string') {
+        return {
+            href: guide,
+            title: '関連ガイドを見る',
+            description: 'この掲載情報に近い既存記事です。'
+        };
+    }
+
+    if (typeof guide === 'object' && guide.href) {
+        return {
+            href: guide.href,
+            title: guide.title || '関連ガイドを見る',
+            description: guide.description || 'この掲載情報に近い既存記事です。'
+        };
+    }
+
+    return null;
+}
+
 function getAudienceSummary(features) {
     if (!features) return '対象案内なし';
     if (features.kidsClass && features.adultClass) return '子ども・大人';
@@ -1511,6 +1565,12 @@ function getInlineGuideLinksForStudio(studio) {
         seen.add(guide.href);
         guides.push(guide);
     };
+
+    if (Array.isArray(studio.relatedGuides)) {
+        studio.relatedGuides
+            .map(normalizeRelatedGuide)
+            .forEach(pushGuide);
+    }
 
     const cityGuideMap = {
         '今治市': { href: '/recommendations/imabari-lessons/', title: '今治の習い事ガイド', description: '地域全体で候補を広げて見られます。' },
@@ -2175,6 +2235,8 @@ function applyFilters() {
         filtered = filtered.filter(s => {
             const regionLabel = Object.keys(cityRegionMap).find(region => cityRegionMap[region].includes(s.city)) || '';
             const categoryLabel = getCategoryLabel(s.category);
+            const listingType = getListingType(s);
+            const listingTypeLabel = getListingTypeLabel(s);
             const genreLabels = s.genres.map(genre => filterLabelMap[genre] || genre).join(' ');
             // Search in visible user-facing fields
             const text = [
@@ -2185,6 +2247,8 @@ function applyFilters() {
                 s.access,
                 categoryLabel,
                 s.category,
+                listingType,
+                listingTypeLabel,
                 s.genres.join(' '),
                 genreLabels,
                 regionLabel
@@ -2616,7 +2680,9 @@ function openModal(studioId) {
     const modalBody = document.getElementById('modal-body-content');
     const overlay = document.getElementById('studio-modal');
 
-    const genreTags = studio.genres.map(g => `<span class="tag">${g}</span>`).join('');
+    const listingType = getListingType(studio);
+    const listingTypeTag = listingType === 'school' ? '' : `<span class="tag">${getListingTypeLabel(studio)}</span>`;
+    const genreTags = `${listingTypeTag}${studio.genres.map(g => `<span class="tag">${g}</span>`).join('')}`;
 
     // Feature formatting
     const features = [];

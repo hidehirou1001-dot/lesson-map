@@ -1,3 +1,9 @@
+// LessonMap learning listings.
+// The legacy file name and `studios` variable are kept for compatibility with
+// the existing top page and article scripts. New records may represent schools,
+// seminars, study groups, workshops, online courses, events, or certification
+// courses by adding `listingType`; records without it are treated as schools.
+// See docs/learning-listing-content-model.md before adding non-school listings.
 const studios = [
   // ================= 松山市（実在するスタジオ） =================
   {
