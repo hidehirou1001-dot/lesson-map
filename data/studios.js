@@ -1769,6 +1769,167 @@ const studios = [
     },
     imageUrl: 'https://images.unsplash.com/photo-1543269865-cbf427effbad?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
     link: 'https://www.peppy-kids.com/classroom/713/'
+  },
+  {
+    id: 'studio-english-imabari-nova',
+    name: 'NOVA今治馬越そよら校',
+    description: '今治市馬越町にある英会話スクール。子どもから大人まで対応していて、今治市内で英会話を総合的に比較したいときの候補です。',
+    category: 'English',
+    city: '今治市',
+    area: '馬越町周辺',
+    access: '今治市馬越町（そよら今治馬越周辺）',
+    genres: ['English', 'Conversation', 'Kids'],
+    pricing: {
+      system: '不明',
+      minPrice: 0,
+      note: '詳細は公式サイトへ'
+    },
+    features: {
+      parking: true,
+      beginnerFriendly: '◎',
+      kidsClass: true,
+      adultClass: true
+    },
+    imageUrl: 'https://images.unsplash.com/photo-1523580846011-d3a5bc25702b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+    link: 'https://www.nova.co.jp/schools/chugoku_shikoku/ehime/imabari.html'
+  },
+  {
+    id: 'studio-english-imabari-scott',
+    name: 'スコット英語アカデミー',
+    description: '今治市内で子どもから大人まで対応する英語教室。少人数でじっくり学びたい人や、地域密着型の英会話を探す人に向いています。',
+    category: 'English',
+    city: '今治市',
+    area: '今治市内',
+    access: '今治市内（詳細は公式サイトへ）',
+    genres: ['English', 'Conversation', 'Kids'],
+    pricing: {
+      system: '不明',
+      minPrice: 0,
+      note: '詳細は公式サイトへ'
+    },
+    features: {
+      parking: false,
+      beginnerFriendly: '◎',
+      kidsClass: true,
+      adultClass: true
+    },
+    imageUrl: 'https://images.unsplash.com/photo-1497633762265-9d179a990aa6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+    link: 'https://www.scotteigo-ac.com/'
+  },
+  {
+    id: 'studio-english-imabari-peppy-minami',
+    name: 'ペッピーキッズクラブ 今治南教室',
+    description: '今治市内にある子ども向け英会話教室。1歳から高校生まで対応していて、低年齢から英語に触れたい家庭の候補になります。',
+    category: 'English',
+    city: '今治市',
+    area: '今治市内',
+    access: '今治市内（詳細は公式サイトへ）',
+    genres: ['English', 'Kids'],
+    pricing: {
+      system: '不明',
+      minPrice: 0,
+      note: '詳細は公式サイトへ'
+    },
+    features: {
+      parking: false,
+      beginnerFriendly: '◎',
+      kidsClass: true,
+      adultClass: false
+    },
+    imageUrl: 'https://images.unsplash.com/photo-1543269865-cbf427effbad?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+    link: 'https://www.peppy-kids.com/classroom/143/'
+  },
+  {
+    id: 'studio-english-niihama-nova',
+    name: 'NOVA新居浜イオンモール校',
+    description: 'イオンモール新居浜周辺で通いやすい英会話スクール。子どもから大人まで対応していて、買い物動線と合わせて検討しやすい候補です。',
+    category: 'English',
+    city: '新居浜市',
+    area: 'イオンモール新居浜周辺',
+    access: '新居浜市前田町（イオンモール新居浜）',
+    genres: ['English', 'Conversation', 'Kids'],
+    pricing: {
+      system: '不明',
+      minPrice: 0,
+      note: '詳細は公式サイトへ'
+    },
+    features: {
+      parking: true,
+      beginnerFriendly: '◎',
+      kidsClass: true,
+      adultClass: true
+    },
+    imageUrl: 'https://images.unsplash.com/photo-1523580846011-d3a5bc25702b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+    link: 'https://www.nova.co.jp/schools/chugoku_shikoku/ehime/niihama.html'
+  },
+  {
+    id: 'studio-english-niihama-jade',
+    name: 'ジェイド英会話',
+    description: '新居浜市内の地域密着型英会話教室。ネイティブ講師のいる教室として、じっくり英会話を学びたい人に向いています。',
+    category: 'English',
+    city: '新居浜市',
+    area: '新居浜市内',
+    access: '新居浜市内（詳細は公式サイトへ）',
+    genres: ['English', 'Conversation'],
+    pricing: {
+      system: '不明',
+      minPrice: 0,
+      note: '詳細は公式サイトへ'
+    },
+    features: {
+      parking: false,
+      beginnerFriendly: '◎',
+      kidsClass: true,
+      adultClass: true
+    },
+    imageUrl: 'https://images.unsplash.com/photo-1497633762265-9d179a990aa6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+    link: 'https://www.jadeeikaiwaniihama.com/'
+  },
+  {
+    id: 'studio-english-niihama-gem',
+    name: 'GEM SCHOOL 新居浜校',
+    description: '新居浜市内で子ども英会話にも対応する英語スクール。幼児から英語に触れたい家庭や、楽しく始めたい子ども向けの候補です。',
+    category: 'English',
+    city: '新居浜市',
+    area: '新居浜市内',
+    access: '新居浜市内（詳細は公式サイトへ）',
+    genres: ['English', 'Kids'],
+    pricing: {
+      system: '不明',
+      minPrice: 0,
+      note: '詳細は公式サイトへ'
+    },
+    features: {
+      parking: false,
+      beginnerFriendly: '◎',
+      kidsClass: true,
+      adultClass: false
+    },
+    imageUrl: 'https://images.unsplash.com/photo-1513258496099-48168024aec0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+    link: 'https://www.gemschool.com/niihama'
+  },
+  {
+    id: 'studio-english-shikokuchuo-nova-doi',
+    name: 'NOVAバイリンガルKIDS 四国中央土居校',
+    description: '四国中央市土居町にある子ども向け英会話教室。3歳から12歳を対象に、少人数制で英語を始めたい家庭が比較しやすい候補です。',
+    category: 'English',
+    city: '四国中央市',
+    area: '土居町津根周辺',
+    access: '四国中央市土居町津根',
+    genres: ['English', 'Kids'],
+    pricing: {
+      system: '不明',
+      minPrice: 0,
+      note: '詳細は公式サイトへ'
+    },
+    features: {
+      parking: false,
+      beginnerFriendly: '◎',
+      kidsClass: true,
+      adultClass: false
+    },
+    imageUrl: 'https://images.unsplash.com/photo-1513258496099-48168024aec0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+    link: 'https://www.nova.co.jp/junior/schools/chugoku_shikoku/ehime/shikokuchuodoi.html'
   }
 ];
 
