@@ -31,6 +31,10 @@ LessonMapの既存記事は「学びのガイド」として維持し、掲載�
 | `area` | 必須 | 詳細エリア。オンラインのみの場合は `オンライン` |
 | `access` | 必須 | 会場・アクセス・受講方法の説明 |
 | `genres` | 必須 | 絞り込み用タグ |
+| `learningNeeds` | 任意 | 学習ニーズ。例: `kids_lessons`, `ai_it`, `career` |
+| `decisionFactors` | 任意 | 意思決定の判断軸。例: `beginner_friendly`, `schedule_fit`, `career_outcome` |
+| `fitSummary` | 任意 | どんな人に合うかを短く説明 |
+| `checkpoints` | 任意 | 体験・申込前に確認したい項目 |
 | `pricing` | 必須 | 料金情報。無料・未定・要問い合わせもここで表現 |
 | `features` | 必須 | 対象・初心者向け・駐車場など既存UIで使う特徴 |
 | `imageUrl` | 必須 | カード画像 |
@@ -42,6 +46,42 @@ LessonMapの既存記事は「学びのガイド」として維持し、掲載�
 ## 固有項目
 
 掲載種別ごとに必要なときだけ追加する項目。未指定でも既存の教室表示は壊さない。
+
+## 学習ニーズ
+
+`learningNeeds` は、検索カテゴリよりも「なぜ学ぶか」に近い分類として使う。
+
+| ニーズ | 値 |
+| --- | --- |
+| 子どもの習い事 | `kids_lessons` |
+| 大人の習い事 | `adult_lessons` |
+| セミナー | `seminar_learning` |
+| 勉強会 | `study_group_learning` |
+| ワークショップ | `workshop_learning` |
+| オンライン講座 | `online_learning` |
+| 資格学習 | `certification` |
+| AI・IT学習 | `ai_it` |
+| ビジネススキル | `business_skill` |
+| 語学学習 | `language_learning` |
+| 副業・キャリア学習 | `side_job_career` |
+
+## 意思決定の判断軸
+
+`decisionFactors` は、LessonMap独自の価値を作るための比較軸として使う。
+
+| 判断軸 | 値 |
+| --- | --- |
+| 初心者でも入りやすい | `beginner_friendly` |
+| 子どもの年齢に合う | `age_fit` |
+| 大人が続けやすい | `adult_friendly` |
+| 送迎・通いやすさ | `commute_fit` |
+| 平日夜・週末に合う | `schedule_fit` |
+| 料金の見通しがある | `price_clarity` |
+| 体験・見学しやすい | `trial_available` |
+| オンラインで受けやすい | `online_fit` |
+| 資格・成果につながる | `credential_outcome` |
+| キャリア・副業に近い | `career_outcome` |
+| 仲間や交流がある | `community_fit` |
 
 ### 教室・スクール
 
@@ -105,6 +145,10 @@ LessonMapの既存記事は「学びのガイド」として維持し、掲載�
   area: '松山市中心部',
   access: '会場は公式ページを確認',
   genres: ['Dance', 'Beginner', 'Trial'],
+  learningNeeds: ['adult_lessons', 'workshop_learning'],
+  decisionFactors: ['beginner_friendly', 'trial_available', 'schedule_fit'],
+  fitSummary: '未経験からダンスの雰囲気を試したい大人向け',
+  checkpoints: ['当日の持ち物', '初心者だけでも参加しやすいか', '継続クラスへの案内があるか'],
   pricing: {
     system: '参加費',
     minPrice: 1000,

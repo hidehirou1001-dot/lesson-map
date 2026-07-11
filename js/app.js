@@ -1706,6 +1706,28 @@ const filterLabelMap = {
     kids: '子ども向け',
     adult: '大人向け',
     beginner: '初心者向け',
+    kids_lessons: '子どもの習い事',
+    adult_lessons: '大人の習い事',
+    seminar_learning: 'セミナー',
+    study_group_learning: '勉強会',
+    workshop_learning: 'ワークショップ',
+    online_learning: 'オンライン講座',
+    certification: '資格学習',
+    ai_it: 'AI・IT学習',
+    business_skill: 'ビジネススキル',
+    language_learning: '語学学習',
+    side_job_career: '副業・キャリア学習',
+    beginner_friendly: '初心者でも入りやすい',
+    age_fit: '年齢に合う',
+    adult_friendly: '大人が続けやすい',
+    commute_fit: '通いやすい',
+    schedule_fit: '時間帯が合う',
+    price_clarity: '料金が分かりやすい',
+    trial_available: '体験しやすい',
+    online_fit: 'オンライン対応',
+    credential_outcome: '資格につながる',
+    career_outcome: 'キャリアにつながる',
+    community_fit: '仲間と学べる',
     HIPHOP: 'HIPHOP',
     'K-POP': 'K-POP',
     POP: 'POP',
@@ -2238,10 +2260,16 @@ function applyFilters() {
             const listingType = getListingType(s);
             const listingTypeLabel = getListingTypeLabel(s);
             const genreLabels = s.genres.map(genre => filterLabelMap[genre] || genre).join(' ');
+            const learningNeeds = Array.isArray(s.learningNeeds) ? s.learningNeeds : [];
+            const decisionFactors = Array.isArray(s.decisionFactors) ? s.decisionFactors : [];
+            const learningNeedLabels = learningNeeds.map(need => filterLabelMap[need] || need).join(' ');
+            const decisionFactorLabels = decisionFactors.map(factor => filterLabelMap[factor] || factor).join(' ');
+            const checkpoints = Array.isArray(s.checkpoints) ? s.checkpoints.join(' ') : '';
             // Search in visible user-facing fields
             const text = [
                 s.name,
                 s.description,
+                s.fitSummary,
                 s.city,
                 s.area,
                 s.access,
@@ -2251,6 +2279,11 @@ function applyFilters() {
                 listingTypeLabel,
                 s.genres.join(' '),
                 genreLabels,
+                learningNeeds.join(' '),
+                learningNeedLabels,
+                decisionFactors.join(' '),
+                decisionFactorLabels,
+                checkpoints,
                 regionLabel
             ].join(' ').toLowerCase();
             return text.includes(query);
