@@ -67,6 +67,50 @@ Search Console のページ別データを、改善前後で比較するため�
 | `/recommendations/matsuyama-fitness/` | `matsuyama-24h-gym`, `matsuyama-gym-price` | 24時間・料金・駐車場の検索意図へ分岐 |
 | `/recommendations/matsuyama-programming/` | `matsuyama-minecraft-programming`, `matsuyama-robot-programming` | 教材別に深掘り |
 
+## 2026-07-15 Search Console スナップショット
+
+対象: Search Console エクスポート `過去 28 日間`
+
+### ページ別の判断
+
+| 優先 | ページ | クリック | 表示 | CTR | 順位 | 判断 | 次アクション |
+| --- | --- | ---: | ---: | ---: | ---: | --- | --- |
+| S | `/recommendations/matsuyama-dance-beginner/` | 29 | 191 | 15.18% | 6.91 | 勝ちページ | TOP、松山ダンス、大人向け記事から内部リンク元として活用 |
+| A | `/recommendations/ehime-adult-lessons/` | 9 | 198 | 4.55% | 20.82 | 表示最大だが順位が低い | 本文強化、比較表、FAQ、内部リンク追加を優先 |
+| A | `/recommendations/matsuyama-soccer/` | 2 | 99 | 2.02% | 17.84 | クリック発生、CTRは低い | title/descriptionと冒頭カードを再調整 |
+| A | `/recommendations/matsuyama-english/` | 0 | 67 | 0% | 39.94 | 表示はあるがクリックなし | 検索意図の再点検と本文強化が先 |
+| A | `/recommendations/matsuyama-dance/` | 0 | 35 | 0% | 17.71 | 派生ページに負けている | 初心者/大人/キッズへの分岐を冒頭で明確化 |
+| B | `/` | 1 | 35 | 2.86% | 9.09 | 1ページ目付近 | 勝ちページへの導線を上部で強める |
+| B | `/recommendations/matsuyama-piano/` | 0 | 18 | 0% | 26.17 | 低順位 | 比較表とFAQを強化してからCTR調整 |
+| B | `/recommendations/matsuyama-programming/` | 0 | 12 | 0% | 45.5 | 低順位 | 教材別深掘りか内部リンク強化を優先 |
+
+### クエリ別の判断
+
+| 優先 | クエリ | クリック | 表示 | CTR | 順位 | 判断 | 次アクション |
+| --- | --- | ---: | ---: | ---: | ---: | --- | --- |
+| S | `松山 ダンス 大人 初心者` | 10 | 56 | 17.86% | 3.23 | 強い勝ちクエリ | 同じ型を大人向け/初心者向け記事へ横展開 |
+| S | `松山 ダンススクール 大人` | 3 | 37 | 8.11% | 7.78 | クリックあり | 松山ダンス記事から初心者ダンス記事への導線を強化 |
+| A | `趣味 愛媛` | 0 | 110 | 0% | 23.98 | 表示最大だが未クリック | 大人向け入口で趣味・学び直し訴求を強化 |
+| A | `サッカースクール` | 0 | 52 | 0% | 19.17 | 汎用語で表示あり | 松山サッカーの対象地域と小学生/初心者軸を明確化 |
+| A | `イーオン 松山` | 0 | 29 | 0% | 19.93 | 固有名検索で表示あり | 松山英会話の教室比較表と個別導線を見直す |
+| B | `習い事 大人` | 0 | 11 | 0% | 11.36 | 1ページ目付近 | 大人向け記事のtitle/descriptionをCTR寄りに再調整 |
+| B | `松山 社会 人 習い事` | 0 | 10 | 0% | 11.8 | 1ページ目付近 | 社会人向けの冒頭導線とFAQを追加 |
+
+### デバイス別メモ
+
+| デバイス | クリック | 表示 | CTR | 順位 | 判断 |
+| --- | ---: | ---: | ---: | ---: | --- |
+| モバイル | 47 | 557 | 8.44% | 13.29 | 主戦場。スマホの冒頭導線と比較表の読みやすさを優先 |
+| PC | 5 | 222 | 2.25% | 27.05 | 順位もCTRも弱い。PC向けよりモバイル改善を優先 |
+| タブレット | 1 | 32 | 3.12% | 17.31 | 母数が少ないため優先度低 |
+
+### 次にやること
+
+1. `/recommendations/ehime-adult-lessons/` を、`趣味 愛媛` と `習い事 大人` の検索意図に寄せて強化する
+2. `/recommendations/matsuyama-dance/` から `/recommendations/matsuyama-dance-beginner/` への導線を強める
+3. `/recommendations/matsuyama-soccer/` のタイトル、description、冒頭カードを `サッカースクール` の検索意図に寄せて再調整する
+4. `/recommendations/matsuyama-english/` はCTR改善より先に、順位改善のため本文・比較表・内部リンクを強化する
+
 ## 次回チェックメモ
 
 次回のSearch Console確認時に見ること:

@@ -5964,6 +5964,38 @@ p {
     content: "通いやすさ";
   }
 
+  .comparison-table--adult-purpose td:nth-child(2)::before {
+    content: "向く目的";
+  }
+
+  .comparison-table--adult-purpose td:nth-child(3)::before {
+    content: "一人参加";
+  }
+
+  .comparison-table--adult-purpose td:nth-child(4)::before {
+    content: "続けやすさ";
+  }
+
+  .comparison-table--adult-purpose td:nth-child(5)::before {
+    content: "次に見る記事";
+  }
+
+  .comparison-table--reskilling td:nth-child(2)::before {
+    content: "向く目的";
+  }
+
+  .comparison-table--reskilling td:nth-child(3)::before {
+    content: "仕事への活かし方";
+  }
+
+  .comparison-table--reskilling td:nth-child(4)::before {
+    content: "続けやすさ";
+  }
+
+  .comparison-table--reskilling td:nth-child(5)::before {
+    content: "次に見る記事";
+  }
+
   .comparison-table--mobile-cards td:first-child {
     position: static;
     display: block;
