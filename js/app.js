@@ -15,6 +15,7 @@ function runSafely(label, callback) {
 
 document.addEventListener('DOMContentLoaded', () => {
     runSafely('initAnimations', initAnimations);
+    runSafely('initBreadcrumbTrail', initBreadcrumbTrail);
     runSafely('initFAQ', initFAQ);
     runSafely('initCarousels', initCarousels);
     runSafely('initImageFallbacks', initImageFallbacks);
@@ -23,6 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
     runSafely('initFavorites', initFavorites);
     runSafely('initRecentGuides', initRecentGuides);
     runSafely('initShareTools', initShareTools);
+    runSafely('initArticleStickyToc', initArticleStickyToc);
 
     // Render studios if a container exists (e.g., on index.html)
     const studiosGrid = document.getElementById('studios-grid');
@@ -32,6 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
         runSafely('renderStudios', () => renderStudios(window.studiosData));
         runSafely('initSearch', initSearch);
         runSafely('initFilters', initFilters);
+        runSafely('initHeroKeywordSearch', initHeroKeywordSearch);
         runSafely('initHeroQuickSearch', initHeroQuickSearch);
         runSafely('initModal', initModal);
         runSafely('renderCompareMemo', renderCompareMemo);
@@ -39,6 +42,87 @@ document.addEventListener('DOMContentLoaded', () => {
         runSafely('applyFilters', applyFilters); // Apply initial filters
     }
 });
+
+function initBreadcrumbTrail() {
+    if (document.querySelector('.breadcrumb-trail')) return;
+
+    const breadcrumbData = getBreadcrumbListFromJsonLd();
+    if (!breadcrumbData || breadcrumbData.length < 2) return;
+
+    const target = document.querySelector('main');
+    if (!target) return;
+
+    const nav = document.createElement('nav');
+    nav.className = 'breadcrumb-trail';
+    nav.setAttribute('aria-label', 'パンくずリスト');
+
+    const label = document.createElement('span');
+    label.className = 'breadcrumb-trail-label';
+    label.textContent = '現在地';
+
+    const list = document.createElement('ol');
+    list.className = 'breadcrumb-list';
+
+    breadcrumbData.forEach((entry, index) => {
+        const item = document.createElement('li');
+        item.className = 'breadcrumb-item';
+
+        const isCurrent = index === breadcrumbData.length - 1 || !entry.item;
+        if (isCurrent) {
+            const current = document.createElement('span');
+            current.className = 'breadcrumb-current';
+            current.setAttribute('aria-current', 'page');
+            current.textContent = entry.name;
+            item.appendChild(current);
+        } else {
+            const link = document.createElement('a');
+            link.href = entry.item;
+            link.textContent = entry.name;
+            item.appendChild(link);
+        }
+
+        list.appendChild(item);
+    });
+
+    nav.appendChild(label);
+    nav.appendChild(list);
+    target.prepend(nav);
+}
+
+function getBreadcrumbListFromJsonLd() {
+    const scripts = document.querySelectorAll('script[type="application/ld+json"]');
+
+    for (const script of scripts) {
+        try {
+            const data = JSON.parse(script.textContent);
+            const breadcrumb = findBreadcrumbList(data);
+            if (!breadcrumb?.itemListElement?.length) continue;
+
+            return breadcrumb.itemListElement
+                .map((item) => ({
+                    name: item?.name || item?.item?.name || '',
+                    item: typeof item?.item === 'string' ? item.item : item?.item?.['@id'] || item?.item?.url || ''
+                }))
+                .filter((item) => item.name);
+        } catch (error) {
+            // Ignore invalid JSON-LD blocks so one bad script does not block page setup.
+        }
+    }
+
+    return [];
+}
+
+function findBreadcrumbList(data) {
+    if (!data) return null;
+    if (Array.isArray(data)) {
+        return data.map(findBreadcrumbList).find(Boolean) || null;
+    }
+    if (data['@type'] === 'BreadcrumbList') return data;
+    if (Array.isArray(data['@graph'])) {
+        return data['@graph'].map(findBreadcrumbList).find(Boolean) || null;
+    }
+    return null;
+}
 
 function getFallbackImageForElement(img) {
     if (img.dataset.fallback) return img.dataset.fallback;
@@ -304,11 +388,12 @@ function renderStudios(data) {
             const listingType = getListingType(studio);
             const listingTypeLabel = getListingTypeLabel(studio);
             const cardEyebrow = listingType === 'school' ? categoryLabel : `${categoryLabel} / ${listingTypeLabel}`;
-            const infoCompletenessMarkup = getInfoCompletenessMarkup(studio);
+            const quickStatusMarkup = getQuickStatusMarkup(studio);
+            const lessonMapCardScoreMarkup = getLessonMapCardScoreMarkup(studio);
             const compareButtonLabel = isComparedStudio(studio.id) ? '比較中' : '比較に追加';
             const compareButtonState = isComparedStudio(studio.id) ? 'active' : '';
             const compareButtonDisabled = !isComparedStudio(studio.id) && compareMemoIds.length >= COMPARE_MEMO_LIMIT ? 'disabled' : '';
-            const favoriteButtonLabel = isFavoriteStudio(studio.id) ? '保存済み' : 'あとで見る';
+            const favoriteButtonLabel = isFavoriteStudio(studio.id) ? '保存済み' : '保存する';
             const favoriteButtonState = isFavoriteStudio(studio.id) ? 'active' : '';
 
             const card = document.createElement('article');
@@ -339,11 +424,12 @@ function renderStudios(data) {
             <strong>${commuteSummary}</strong>
           </div>
         </div>
-        ${infoCompletenessMarkup}
+        ${quickStatusMarkup}
+        ${lessonMapCardScoreMarkup}
         <div class="card-action-row">
           <button class="btn btn-primary detail-btn card-detail-btn">詳細を見る</button>
           <div class="card-support-actions">
-            <button class="btn btn-text favorite-toggle-btn ${favoriteButtonState}" type="button" data-favorite-id="${studio.id}" aria-label="${studio.name}をあとで見る候補に保存する">${favoriteButtonLabel}</button>
+            <button class="btn btn-text favorite-toggle-btn ${favoriteButtonState}" type="button" data-favorite-id="${studio.id}" aria-label="${studio.name}を保存リストに追加する">${favoriteButtonLabel}</button>
             <button class="btn btn-text compare-toggle-btn ${compareButtonState}" type="button" data-studio-id="${studio.id}" aria-label="${studio.name}を比較メモに追加する" ${compareButtonDisabled}>${compareButtonLabel}</button>
           </div>
         </div>
@@ -514,24 +600,6 @@ function getQuickStatusItems(studio) {
     ];
 }
 
-function getInfoCompletenessMarkup(studio) {
-    const items = getQuickStatusItems(studio);
-    const availableCount = items.filter(item => item.tone === 'good').length;
-
-    if (availableCount < 2) return '';
-
-    const summary = availableCount === items.length
-        ? '料金・体験・通いやすさを確認しやすい'
-        : '比較に必要な情報がそろいやすい';
-
-    return `
-    <div class="card-completeness" data-tone="good" aria-label="掲載情報の充実度">
-      <span class="card-completeness-label">情報充実</span>
-      <strong>${summary}</strong>
-    </div>
-    `;
-}
-
 function getQuickStatusMarkup(studio) {
     const items = getQuickStatusItems(studio);
     return `
@@ -543,6 +611,109 @@ function getQuickStatusMarkup(studio) {
         </span>
       `).join('')}
     </div>
+    `;
+}
+
+function getLessonMapEvaluationItems(studio) {
+    const text = getStudioFilterText(studio);
+    const trialStatus = getTrialStatus(studio);
+    const hasKids = Boolean(studio?.features?.kidsClass);
+    const hasParking = Boolean(studio?.features?.parking);
+    const beginner = studio?.features?.beginnerFriendly;
+    const hasReviewTendencies = Array.isArray(studio?.reviewTendencies) && studio.reviewTendencies.length > 0;
+    const hasPreschoolCue = /幼児|未就学|ベビー|園児|年少|年中|年長|1歳|2歳|3歳|4歳|5歳|6歳|Baby/.test(text);
+    const hasLargeParkingCue = /駐車場完備|大型駐車場|商業施設|ショッピング|フジ|イオン|エミフル|ジョー・プラ|ワールドプラザ/.test(text);
+    const hasSmallGroupCue = /少人数|個別|マンツーマン|一人ひとり|アットホーム|親切|丁寧/.test(text);
+    const hasAtmosphereCue = hasReviewTendencies || /アットホーム|雰囲気|楽しく|親しみ|安心|丁寧/.test(text);
+
+    return [
+        {
+            key: 'kids_retention',
+            label: '子どもが続けやすい',
+            value: hasKids && ['◎', '〇'].includes(beginner) ? '続けやすさを見やすい' : hasKids ? '体験で相性確認' : '大人向け中心',
+            tone: hasKids && ['◎', '〇'].includes(beginner) ? 'good' : 'neutral',
+            note: hasKids ? '対象年齢・初心者対応・体験導線から判断' : '子ども向け情報は少なめ'
+        },
+        {
+            key: 'guardian_pickup',
+            label: '保護者の送迎しやすさ',
+            value: hasParking ? '送迎しやすい候補' : '公共交通・周辺確認',
+            tone: hasParking ? 'good' : 'neutral',
+            note: hasParking ? '駐車場案内があるため送迎時に確認しやすい' : '駐車場や待機場所は公式情報で確認'
+        },
+        {
+            key: 'parking_capacity',
+            label: '駐車場の広さ',
+            value: hasLargeParkingCue ? '広めの可能性あり' : hasParking ? '駐車場あり' : '要確認',
+            tone: hasLargeParkingCue || hasParking ? 'good' : 'neutral',
+            note: hasLargeParkingCue ? '商業施設・完備表記などから判断' : hasParking ? '台数や混雑時間は体験前に確認' : '駐車場案内は未掲載'
+        },
+        {
+            key: 'teacher_distance',
+            label: '先生との距離感',
+            value: hasSmallGroupCue ? '距離感をつかみやすい' : ['◎', '〇'].includes(beginner) ? '初心者が相談しやすい' : '体験で確認',
+            tone: hasSmallGroupCue || ['◎', '〇'].includes(beginner) ? 'good' : 'neutral',
+            note: hasSmallGroupCue ? '少人数・丁寧さに関する記載あり' : '初回相談や体験時の声かけを確認'
+        },
+        {
+            key: 'atmosphere',
+            label: '教室の雰囲気',
+            value: hasAtmosphereCue ? '雰囲気を想像しやすい' : '見学で確認',
+            tone: hasAtmosphereCue ? 'good' : 'neutral',
+            note: hasReviewTendencies ? '口コミ傾向・掲載情報から整理' : '写真・体験・見学で確認したい項目'
+        },
+        {
+            key: 'trial_satisfaction',
+            label: '体験レッスン満足度',
+            value: trialStatus === '無料体験あり' ? '無料体験で判断しやすい' : trialStatus === '体験案内あり' ? '体験で確認しやすい' : '体験案内は要確認',
+            tone: trialStatus === '体験案内の記載なし' ? 'neutral' : 'good',
+            note: trialStatus === '体験案内の記載なし' ? '初回の流れは公式サイトで確認' : '初回で講師・雰囲気・続けやすさを確認'
+        }
+    ];
+}
+
+function getLessonMapCardScoreMarkup(studio) {
+    const items = getLessonMapEvaluationItems(studio)
+        .filter(item => ['kids_retention', 'guardian_pickup', 'trial_satisfaction'].includes(item.key));
+
+    return `
+    <div class="lessonmap-score-card" aria-label="LessonMap独自の評価軸">
+      <div class="lessonmap-score-head">
+        <span>LessonMap評価</span>
+        <strong>通う前に見たい実感軸</strong>
+      </div>
+      <div class="lessonmap-score-mini-grid">
+        ${items.map(item => `
+          <span class="lessonmap-score-mini" data-tone="${item.tone}">
+            <span>${item.label}</span>
+            <strong>${item.value}</strong>
+          </span>
+        `).join('')}
+      </div>
+    </div>
+    `;
+}
+
+function getLessonMapEvaluationMarkup(studio) {
+    const items = getLessonMapEvaluationItems(studio);
+
+    return `
+    <section class="lessonmap-evaluation-panel" aria-label="LessonMap独自の評価軸">
+      <div class="lessonmap-evaluation-head">
+        <span class="results-kicker">LESSONMAP VIEW</span>
+        <strong>通う人が知りたい6つの評価軸</strong>
+        <p>公式情報・掲載情報・口コミ傾向から、体験前に確認したいポイントを共通フォーマットで整理しています。</p>
+      </div>
+      <div class="lessonmap-evaluation-grid">
+        ${items.map(item => `
+          <article class="lessonmap-evaluation-item" data-tone="${item.tone}">
+            <span class="lessonmap-evaluation-label">${item.label}</span>
+            <strong>${item.value}</strong>
+            <p>${item.note}</p>
+          </article>
+        `).join('')}
+      </div>
+    </section>
     `;
 }
 
@@ -824,6 +995,8 @@ function updateCollectionCounts(compareCount = compareMemoIds.length, favoriteCo
     const favoritePanelCount = document.getElementById('favorite-panel-count');
     const floatingCompareBar = document.getElementById('floating-compare-bar');
     const floatingCompareCount = document.getElementById('floating-compare-count');
+    const floatingFavoriteBar = document.getElementById('floating-favorite-bar');
+    const floatingFavoriteCount = document.getElementById('floating-favorite-count');
     const compareGuideCounts = document.querySelectorAll('[data-compare-count]');
     const favoriteGuideCounts = document.querySelectorAll('[data-favorite-count]');
     const utilityPanel = document.querySelector('.results-utility-panel');
@@ -840,10 +1013,17 @@ function updateCollectionCounts(compareCount = compareMemoIds.length, favoriteCo
         node.textContent = `${favoriteCount}件`;
     });
     if (favoritePanelCount) favoritePanelCount.textContent = `${favoriteCount}件`;
+    if (floatingFavoriteCount) floatingFavoriteCount.textContent = `${favoriteCount}件`;
     if (floatingCompareBar) {
         const showFloatingCompareBar = compareCount >= 2;
         floatingCompareBar.hidden = !showFloatingCompareBar;
+        floatingCompareBar.classList.toggle('is-stacked', favoriteCount > 0);
         floatingCompareBar.setAttribute('aria-label', showFloatingCompareBar ? `比較中の教室 ${compareCount}件を見る` : '比較中の教室を確認する');
+    }
+    if (floatingFavoriteBar) {
+        const showFloatingFavoriteBar = favoriteCount > 0;
+        floatingFavoriteBar.hidden = !showFloatingFavoriteBar;
+        floatingFavoriteBar.setAttribute('aria-label', showFloatingFavoriteBar ? `保存した教室 ${favoriteCount}件を見る` : '保存した教室を確認する');
     }
     if (utilityPanel) {
         utilityPanel.hidden = !hasSavedItems;
@@ -862,11 +1042,27 @@ function initResultsPanels() {
     bindResultsPanelToggle('results-explain-toggle', 'results-explain-body', 'explain');
     bindResultsPanelToggle('results-utility-toggle', 'results-utility-body', 'utility');
     initFloatingCompareBar();
+    initFloatingFavoriteBar();
     syncResultsPanelStates();
 }
 
 function initFloatingCompareBar() {
     const button = document.getElementById('floating-compare-bar');
+    if (!button) return;
+
+    button.addEventListener('click', () => {
+        resultsPanelState.utility = true;
+        resultsPanelState.utilityTouched = true;
+        syncResultsPanelStates();
+        const panel = document.getElementById('results-utility-panel');
+        if (panel) {
+            panel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+    });
+}
+
+function initFloatingFavoriteBar() {
+    const button = document.getElementById('floating-favorite-bar');
     if (!button) return;
 
     button.addEventListener('click', () => {
@@ -900,8 +1096,10 @@ function applyResultsPanelState(panelKey, body, button) {
     if (panelKey === 'utility') {
         const utilityPanel = document.getElementById('results-utility-panel');
         const floatingCompareBar = document.getElementById('floating-compare-bar');
+        const floatingFavoriteBar = document.getElementById('floating-favorite-bar');
         if (utilityPanel) utilityPanel.classList.toggle('is-open', expanded);
         if (floatingCompareBar) floatingCompareBar.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+        if (floatingFavoriteBar) floatingFavoriteBar.setAttribute('aria-expanded', expanded ? 'true' : 'false');
     }
 }
 
@@ -1178,6 +1376,64 @@ function renderFavorites() {
 function initShareTools() {
     initArticleSharePanel();
     initCompareSharePanel();
+}
+
+function initArticleStickyToc() {
+    const articleShell = document.querySelector('.article-shell');
+    const nav = document.querySelector('.article-section-nav');
+    if (!articleShell || !nav) return;
+
+    const links = Array.from(nav.querySelectorAll('a[href^="#"]'));
+    if (links.length < 3) return;
+
+    const targets = links
+        .map(link => {
+            const id = decodeURIComponent(link.getAttribute('href').slice(1));
+            const target = document.getElementById(id);
+            return target ? { link, target } : null;
+        })
+        .filter(Boolean);
+
+    if (targets.length < 3) return;
+
+    const isLongArticle = articleShell.scrollHeight > window.innerHeight * 1.8 || targets.length >= 4;
+    if (!isLongArticle) return;
+
+    nav.classList.add('article-section-nav-sticky');
+    nav.setAttribute('aria-label', nav.getAttribute('aria-label') || '記事内目次');
+
+    const label = document.createElement('span');
+    label.className = 'article-section-nav-label';
+    label.textContent = '目次';
+    nav.prepend(label);
+
+    const setActiveLink = (activeLink) => {
+        links.forEach(link => {
+            const active = link === activeLink;
+            link.classList.toggle('is-active', active);
+            if (active) {
+                link.setAttribute('aria-current', 'true');
+            } else {
+                link.removeAttribute('aria-current');
+            }
+        });
+    };
+
+    setActiveLink(targets[0].link);
+
+    const observer = new IntersectionObserver((entries) => {
+        const visible = entries
+            .filter(entry => entry.isIntersecting)
+            .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+        if (!visible) return;
+        const match = targets.find(item => item.target === visible.target);
+        if (match) setActiveLink(match.link);
+    }, {
+        rootMargin: '-110px 0px -62% 0px',
+        threshold: [0.1, 0.35, 0.6]
+    });
+
+    targets.forEach(({ target }) => observer.observe(target));
 }
 
 function buildXShareUrl(text, url) {
@@ -1631,6 +1887,7 @@ function initSearch() {
     const performSearch = () => {
         const query = searchInput.value.toLowerCase().trim();
         currentFilterState.searchQuery = query;
+        syncSearchInputs(query);
         applyFilters();
         scrollToResultsZone();
     };
@@ -1667,6 +1924,14 @@ function initSearch() {
         // hide button if API unavailable
         document.getElementById('voice-btn').style.display = 'none';
     }
+}
+
+function syncSearchInputs(query) {
+    const normalized = query || '';
+    const searchInput = document.getElementById('search-input');
+    const heroKeywordInput = document.getElementById('hero-keyword-input');
+    if (searchInput && searchInput.value !== normalized) searchInput.value = normalized;
+    if (heroKeywordInput && heroKeywordInput.value !== normalized) heroKeywordInput.value = normalized;
 }
 
 /**
@@ -1706,6 +1971,11 @@ const filterLabelMap = {
     kids: '子ども向け',
     adult: '大人向け',
     beginner: '初心者向け',
+    price_under_5000: '5,000円以下',
+    preschool: '幼児向け',
+    free_trial: '無料体験あり',
+    weekend: '土日・週末',
+    female_teacher: '女性講師',
     kids_lessons: '子どもの習い事',
     adult_lessons: '大人の習い事',
     seminar_learning: 'セミナー',
@@ -1737,6 +2007,8 @@ const filterLabelMap = {
     all: 'すべて'
 };
 
+const audienceQuickFilters = new Set(['kids', 'adult']);
+
 function initHeroStats(data) {
     const totalCount = document.getElementById('hero-total-count');
     const categoryCount = document.getElementById('hero-category-count');
@@ -1759,12 +2031,66 @@ function initCategoryCounts(data) {
         const label = button.textContent.trim();
         button.innerHTML = `${label}<span class="filter-count">${count}</span>`;
     });
+
+    document.querySelectorAll('[data-quick-filter]').forEach(button => {
+        const filterKey = button.getAttribute('data-quick-filter');
+        const count = data.filter(studio => matchesQuickFilter(studio, filterKey)).length;
+        const existingCount = button.querySelector('.filter-count');
+        if (existingCount) existingCount.remove();
+        const countEl = document.createElement('span');
+        countEl.className = 'filter-count';
+        countEl.textContent = count;
+        button.appendChild(countEl);
+    });
+}
+
+function getStudioFilterText(studio) {
+    return [
+        studio?.name || '',
+        studio?.description || '',
+        studio?.access || '',
+        studio?.area || '',
+        studio?.pricing?.system || '',
+        studio?.pricing?.note || '',
+        Array.isArray(studio?.genres) ? studio.genres.join(' ') : '',
+        Array.isArray(studio?.checkpoints) ? studio.checkpoints.join(' ') : '',
+        Array.isArray(studio?.learningNeeds) ? studio.learningNeeds.join(' ') : '',
+        Array.isArray(studio?.decisionFactors) ? studio.decisionFactors.join(' ') : ''
+    ].join(' ');
+}
+
+function matchesQuickFilter(studio, filterKey) {
+    const text = getStudioFilterText(studio);
+
+    switch (filterKey) {
+        case 'kids':
+            return Boolean(studio?.features?.kidsClass);
+        case 'adult':
+            return Boolean(studio?.features?.adultClass);
+        case 'beginner':
+            return ['◎', '〇'].includes(studio?.features?.beginnerFriendly);
+        case 'parking':
+            return Boolean(studio?.features?.parking);
+        case 'price_under_5000':
+            return Number(studio?.pricing?.minPrice || 0) > 0 && Number(studio.pricing.minPrice) <= 5000;
+        case 'preschool':
+            return /幼児|未就学|ベビー|園児|年少|年中|年長|1歳|2歳|3歳|4歳|5歳|6歳|Baby/.test(text);
+        case 'free_trial':
+            return /無料体験/.test(text);
+        case 'weekend':
+            return /土日|土曜|日曜|週末|土・日|土日月/.test(text);
+        case 'female_teacher':
+            return /女性講師|女性の先生|女の先生|女性インストラクター|女性トレーナー/.test(text);
+        default:
+            return true;
+    }
 }
 
 function initFilters() {
     const categoryBtns = document.querySelectorAll('.category-btn');
     const subBtns = document.querySelectorAll('.sub-btn');
     const cityBtns = document.querySelectorAll('.city-btn');
+    const advancedFilterBtns = document.querySelectorAll('.advanced-filter-btn');
     const categoryFilterRow = document.getElementById('category-filter-row');
     const categoryExpandBtn = document.getElementById('category-expand-btn');
     const danceSubfilterExpandBtn = document.getElementById('dance-subfilter-expand-btn');
@@ -1816,23 +2142,20 @@ function initFilters() {
             }
         }
 
-        if (currentFilterState.quickFilters.includes('kids')) {
-            scoped = scoped.filter(studio => studio.features?.kidsClass);
-        }
-
-        if (currentFilterState.quickFilters.includes('adult')) {
-            scoped = scoped.filter(studio => studio.features?.adultClass);
-        }
-
-        if (currentFilterState.quickFilters.includes('beginner')) {
-            scoped = scoped.filter(studio => ['◎', '〇'].includes(studio.features?.beginnerFriendly));
-        }
-
-        if (currentFilterState.quickFilters.includes('parking')) {
-            scoped = scoped.filter(studio => studio.features?.parking);
-        }
+        currentFilterState.quickFilters.forEach(filterKey => {
+            scoped = scoped.filter(studio => matchesQuickFilter(studio, filterKey));
+        });
 
         return scoped;
+    }
+
+    function syncAdvancedFilterButtons() {
+        advancedFilterBtns.forEach(button => {
+            const filterKey = button.getAttribute('data-quick-filter');
+            const active = currentFilterState.quickFilters.includes(filterKey);
+            button.classList.toggle('active', active);
+            button.setAttribute('aria-pressed', String(active));
+        });
     }
 
     function syncAreaLocalPanel(selectedCity) {
@@ -2129,6 +2452,24 @@ function initFilters() {
         });
     }
 
+    advancedFilterBtns.forEach(button => {
+        button.setAttribute('aria-pressed', 'false');
+        button.addEventListener('click', () => {
+            const filterKey = button.getAttribute('data-quick-filter');
+            if (!filterKey) return;
+
+            const active = currentFilterState.quickFilters.includes(filterKey);
+            currentFilterState.quickFilters = active
+                ? currentFilterState.quickFilters.filter(item => item !== filterKey)
+                : [...currentFilterState.quickFilters, filterKey];
+
+            syncAdvancedFilterButtons();
+            syncHeroQuickSearchControls();
+            syncAreaSelection(currentFilterState.city);
+            applyFilters();
+        });
+    });
+
     if (clearFiltersBtn) {
         clearFiltersBtn.addEventListener('click', () => {
             currentFilterState = {
@@ -2143,6 +2484,7 @@ function initFilters() {
 
             const searchInput = document.getElementById('search-input');
             if (searchInput) searchInput.value = '';
+            syncSearchInputs('');
             if (sortSelect) sortSelect.value = 'recommended';
             syncHeroQuickSearchControls();
 
@@ -2161,6 +2503,7 @@ function initFilters() {
                 });
             });
 
+            syncAdvancedFilterButtons();
             syncAreaSelection('all');
             syncCategoryStatus('all');
             syncSubfilterStatus('all');
@@ -2170,6 +2513,7 @@ function initFilters() {
 
     syncCategoryStatus(currentFilterState.category);
     syncSubfilterStatus(currentFilterState.category);
+    syncAdvancedFilterButtons();
     syncAreaSelection(currentFilterState.city);
 
     if (areaLocalButtons) {
@@ -2204,6 +2548,23 @@ function syncHeroQuickSearchControls() {
     if (audienceInput) audienceInput.checked = true;
 }
 
+function initHeroKeywordSearch() {
+    const form = document.getElementById('hero-keyword-search');
+    const input = document.getElementById('hero-keyword-input');
+    if (!form || !input) return;
+
+    input.value = currentFilterState.searchQuery || '';
+
+    form.addEventListener('submit', (event) => {
+        event.preventDefault();
+        const query = input.value.toLowerCase().trim();
+        currentFilterState.searchQuery = query;
+        syncSearchInputs(query);
+        applyFilters();
+        window.requestAnimationFrame(scrollToResultsZone);
+    });
+}
+
 function initHeroQuickSearch() {
     const form = document.getElementById('hero-quick-search');
     const citySelect = document.getElementById('hero-quick-city');
@@ -2217,7 +2578,10 @@ function initHeroQuickSearch() {
 
         const audienceInput = form.querySelector('input[name="hero-quick-audience"]:checked');
         const audience = audienceInput ? audienceInput.value : 'all';
-        currentFilterState.quickFilters = audience === 'all' ? [] : [audience];
+        const preservedFilters = currentFilterState.quickFilters.filter(filterKey => !audienceQuickFilters.has(filterKey));
+        currentFilterState.quickFilters = audience === 'all'
+            ? preservedFilters
+            : [...preservedFilters, audience];
 
         const categoryButton = document.querySelector(`.category-btn[data-category="${categorySelect.value}"]`);
         const cityButton = document.querySelector(`.city-btn[data-city="${citySelect.value}"]`);
@@ -2317,21 +2681,9 @@ function applyFilters() {
         filtered = filtered.filter(s => s.area === currentFilterState.area);
     }
 
-    if (currentFilterState.quickFilters.includes('kids')) {
-        filtered = filtered.filter(s => s.features?.kidsClass);
-    }
-
-    if (currentFilterState.quickFilters.includes('adult')) {
-        filtered = filtered.filter(s => s.features?.adultClass);
-    }
-
-    if (currentFilterState.quickFilters.includes('beginner')) {
-        filtered = filtered.filter(s => ['◎', '〇'].includes(s.features?.beginnerFriendly));
-    }
-
-    if (currentFilterState.quickFilters.includes('parking')) {
-        filtered = filtered.filter(s => s.features?.parking);
-    }
+    currentFilterState.quickFilters.forEach(filterKey => {
+        filtered = filtered.filter(studio => matchesQuickFilter(studio, filterKey));
+    });
 
     filtered = sortStudios(filtered, currentFilterState.sort);
 
@@ -2420,7 +2772,7 @@ function updateResultsMeta(filtered) {
         const lowCountHint = filtered.length > 0 && filtered.length <= 2
             ? ' 少ないときは条件を広げると見つけやすくなります。'
             : '';
-        summary.textContent = `${filtered.length}件表示中。${scopeText}の候補を、対象・料金・通いやすさで比べられます。${lowCountHint}`;
+        summary.textContent = `${filtered.length}件表示中。${scopeText}の候補を、対象・料金・体験・通いやすさで比べられます。${lowCountHint}`;
     }
 
     const sortExplainMap = {
@@ -2731,6 +3083,7 @@ function openModal(studioId) {
     const featureSummary = getCardFeatureSummary(studio);
     const commuteSummary = getCommuteSummary(studio);
     const quickStatusMarkup = getQuickStatusMarkup(studio);
+    const lessonMapEvaluationMarkup = getLessonMapEvaluationMarkup(studio);
     const verificationMarkup = getVerificationMarkup(studio, 'modal-verification-block');
     const locationNoteMarkup = getLocationNoteMarkup(studio, 'location-note location-note-modal');
     const curatorLabelMarkup = getCuratorLabelMarkup(studio, 'curator-label-row curator-label-row-modal');
@@ -2814,6 +3167,7 @@ function openModal(studioId) {
             <div class="modal-quick-status-wrap">
                 ${quickStatusMarkup}
             </div>
+            ${lessonMapEvaluationMarkup}
             ${verificationMarkup}
             <div class="card-meta-chips modal-feature-chips">${featureSummary}</div>
 
