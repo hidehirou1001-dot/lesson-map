@@ -22,6 +22,7 @@ const studios = [
     },
     features: {
       parking: true,
+      parkingCapacity: 'standard',
       beginnerFriendly: '◎',
       kidsClass: true,
       adultClass: true
@@ -323,6 +324,7 @@ const studios = [
     },
     features: {
       parking: true,
+      parkingCapacity: 'standard',
       beginnerFriendly: '◎',
       kidsClass: true,
       adultClass: false
@@ -419,6 +421,7 @@ const studios = [
     },
     features: {
       parking: true,
+      parkingCapacity: 'standard',
       beginnerFriendly: '◎',
       kidsClass: true,
       adultClass: false
@@ -462,6 +465,7 @@ const studios = [
     },
     features: {
       parking: true,
+      parkingCapacity: 'standard',
       beginnerFriendly: '◎',
       kidsClass: true,
       adultClass: false
@@ -531,6 +535,7 @@ const studios = [
     },
     features: {
       parking: true,
+      parkingCapacity: 'large',
       beginnerFriendly: '◎',
       kidsClass: true,
       adultClass: false
@@ -822,6 +827,8 @@ const studios = [
     },
     features: {
       parking: true,
+      weekendOpen: true,
+      parkingCapacity: 'standard',
       beginnerFriendly: '◎',
       kidsClass: true,
       adultClass: false
@@ -847,6 +854,7 @@ const studios = [
     },
     features: {
       parking: true,
+      parkingCapacity: 'large',
       beginnerFriendly: '◎',
       kidsClass: false,
       adultClass: true
@@ -870,6 +878,7 @@ const studios = [
     },
     features: {
       parking: true,
+      parkingCapacity: 'standard',
       beginnerFriendly: '◎',
       kidsClass: false,
       adultClass: true
@@ -943,6 +952,7 @@ const studios = [
     },
     features: {
       parking: true,
+      parkingCapacity: 'large',
       beginnerFriendly: '◎',
       kidsClass: false,
       adultClass: true
@@ -966,6 +976,7 @@ const studios = [
     },
     features: {
       parking: true,
+      parkingCapacity: 'large',
       beginnerFriendly: '◎',
       kidsClass: true,
       adultClass: false
@@ -1014,6 +1025,7 @@ const studios = [
     },
     features: {
       parking: true,
+      parkingCapacity: 'standard',
       beginnerFriendly: '◎',
       kidsClass: false,
       adultClass: true
@@ -1437,6 +1449,7 @@ const studios = [
     },
     features: {
       parking: true,
+      parkingCapacity: 'standard',
       beginnerFriendly: '◎',
       kidsClass: false,
       adultClass: true
@@ -1482,6 +1495,7 @@ const studios = [
     },
     features: {
       parking: true,
+      parkingCapacity: 'standard',
       beginnerFriendly: '◎',
       kidsClass: false,
       adultClass: true
@@ -1507,6 +1521,8 @@ const studios = [
     },
     features: {
       parking: true,
+      weekendOpen: true,
+      parkingCapacity: 'standard',
       beginnerFriendly: '◎',
       kidsClass: false,
       adultClass: true
@@ -1532,6 +1548,7 @@ const studios = [
     },
     features: {
       parking: true,
+      parkingCapacity: 'standard',
       beginnerFriendly: '◎',
       kidsClass: false,
       adultClass: true
@@ -1557,6 +1574,8 @@ const studios = [
     },
     features: {
       parking: true,
+      weekendOpen: true,
+      parkingCapacity: 'standard',
       beginnerFriendly: '◎',
       kidsClass: false,
       adultClass: true
@@ -1582,6 +1601,8 @@ const studios = [
     },
     features: {
       parking: true,
+      weekendOpen: true,
+      parkingCapacity: 'large',
       beginnerFriendly: '◎',
       kidsClass: false,
       adultClass: true
@@ -1607,6 +1628,7 @@ const studios = [
     },
     features: {
       parking: false,
+      weekendOpen: true,
       beginnerFriendly: '◎',
       kidsClass: false,
       adultClass: true
@@ -1650,6 +1672,7 @@ const studios = [
     },
     features: {
       parking: true,
+      parkingCapacity: 'standard',
       beginnerFriendly: '◎',
       kidsClass: true,
       adultClass: true
@@ -1698,6 +1721,7 @@ const studios = [
     },
     features: {
       parking: true,
+      parkingCapacity: 'standard',
       beginnerFriendly: '◎',
       kidsClass: true,
       adultClass: true

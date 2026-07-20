@@ -131,6 +131,10 @@ LessonMapの既存記事は「学びのガイド」として維持し、掲載�
 - 公式サイト、公式申込ページ、公式告知ページが確認できるものを優先する。
 - 期間限定イベントは `status` と `eventDate` を入れ、終了後に表示制御しやすくする。
 - 既存UIの互換性のため、教室以外でも `features.kidsClass`, `features.adultClass`, `features.beginnerFriendly`, `features.parking` は持たせる。
+- 条件検索で使う `features.weekendOpen`, `features.femaleTeacher`, `features.parkingCapacity` は、公式情報や掲載文で確認できる場合に追加する。未確認の場合は推定で `true` にしない。
+- `features.weekendOpen` は土曜・日曜・週末・24時間営業など、週末利用が明示できる場合のみ `true` にする。
+- `features.femaleTeacher` は女性講師・女性インストラクターなどの明記がある場合のみ `true` にする。未掲載は項目自体を省略する。
+- `features.parkingCapacity` は `large`, `standard`, `unknown`, `none` のいずれか。商業施設内・大型駐車場など広さを比較しやすい根拠がある場合は `large`、駐車場ありだが規模不明の場合は `standard` にする。
 
 ## 例
 

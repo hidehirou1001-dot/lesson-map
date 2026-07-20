@@ -577,7 +577,8 @@ function getTrialStatus(studio) {
 
 function getQuickStatusItems(studio) {
     const hasPricing = studio?.pricing?.minPrice > 0 || hasVisiblePricing(studio?.pricing);
-    const hasParkingInfo = Boolean(studio?.features?.parking);
+    const parkingCapacity = getParkingCapacity(studio);
+    const weekendOpen = hasWeekendOpen(studio);
     return [
         {
             key: 'price',
@@ -594,8 +595,14 @@ function getQuickStatusItems(studio) {
         {
             key: 'access',
             label: '通いやすさ',
-            value: hasParkingInfo ? '駐車場あり' : '駐車場案内は未掲載',
-            tone: hasParkingInfo ? 'good' : 'neutral'
+            value: getParkingStatusLabel(studio),
+            tone: parkingCapacity === 'large' || parkingCapacity === 'standard' ? 'good' : 'neutral'
+        },
+        {
+            key: 'schedule',
+            label: '曜日',
+            value: weekendOpen ? '土日利用OK' : '曜日は要確認',
+            tone: weekendOpen ? 'good' : 'neutral'
         }
     ];
 }
@@ -619,10 +626,10 @@ function getLessonMapEvaluationItems(studio) {
     const trialStatus = getTrialStatus(studio);
     const hasKids = Boolean(studio?.features?.kidsClass);
     const hasParking = Boolean(studio?.features?.parking);
+    const parkingCapacity = getParkingCapacity(studio);
     const beginner = studio?.features?.beginnerFriendly;
     const hasReviewTendencies = Array.isArray(studio?.reviewTendencies) && studio.reviewTendencies.length > 0;
     const hasPreschoolCue = /幼児|未就学|ベビー|園児|年少|年中|年長|1歳|2歳|3歳|4歳|5歳|6歳|Baby/.test(text);
-    const hasLargeParkingCue = /駐車場完備|大型駐車場|商業施設|ショッピング|フジ|イオン|エミフル|ジョー・プラ|ワールドプラザ/.test(text);
     const hasSmallGroupCue = /少人数|個別|マンツーマン|一人ひとり|アットホーム|親切|丁寧/.test(text);
     const hasAtmosphereCue = hasReviewTendencies || /アットホーム|雰囲気|楽しく|親しみ|安心|丁寧/.test(text);
 
@@ -644,9 +651,9 @@ function getLessonMapEvaluationItems(studio) {
         {
             key: 'parking_capacity',
             label: '駐車場の広さ',
-            value: hasLargeParkingCue ? '広めの可能性あり' : hasParking ? '駐車場あり' : '要確認',
-            tone: hasLargeParkingCue || hasParking ? 'good' : 'neutral',
-            note: hasLargeParkingCue ? '商業施設・完備表記などから判断' : hasParking ? '台数や混雑時間は体験前に確認' : '駐車場案内は未掲載'
+            value: parkingCapacity === 'large' ? '広めに使いやすい' : parkingCapacity === 'standard' ? '駐車場あり' : '要確認',
+            tone: parkingCapacity === 'large' || parkingCapacity === 'standard' ? 'good' : 'neutral',
+            note: parkingCapacity === 'large' ? '商業施設内など駐車場規模を見やすい候補' : parkingCapacity === 'standard' ? '台数や混雑時間は体験前に確認' : '駐車場案内は未掲載'
         },
         {
             key: 'teacher_distance',
@@ -1242,7 +1249,8 @@ function getCompareMemoDiffMap(items) {
         commute: items.map(studio => getCommuteSummary(studio)),
         status_price: items.map(studio => getQuickStatusItems(studio)[0]?.value || ''),
         status_trial: items.map(studio => getQuickStatusItems(studio)[1]?.value || ''),
-        status_access: items.map(studio => getQuickStatusItems(studio)[2]?.value || '')
+        status_access: items.map(studio => getQuickStatusItems(studio)[2]?.value || ''),
+        status_schedule: items.map(studio => getQuickStatusItems(studio)[3]?.value || '')
     };
 
     return Object.fromEntries(
@@ -2009,6 +2017,15 @@ const filterLabelMap = {
 
 const audienceQuickFilters = new Set(['kids', 'adult']);
 
+function getQuickFilterCount(filterKey, data = window.studiosData || []) {
+    if (!filterKey || !Array.isArray(data)) return 0;
+    return data.filter(studio => matchesQuickFilter(studio, filterKey)).length;
+}
+
+function isQuickFilterAvailable(filterKey, data = window.studiosData || []) {
+    return getQuickFilterCount(filterKey, data) > 0;
+}
+
 function initHeroStats(data) {
     const totalCount = document.getElementById('hero-total-count');
     const categoryCount = document.getElementById('hero-category-count');
@@ -2034,13 +2051,16 @@ function initCategoryCounts(data) {
 
     document.querySelectorAll('[data-quick-filter]').forEach(button => {
         const filterKey = button.getAttribute('data-quick-filter');
-        const count = data.filter(studio => matchesQuickFilter(studio, filterKey)).length;
+        const count = getQuickFilterCount(filterKey, data);
         const existingCount = button.querySelector('.filter-count');
         if (existingCount) existingCount.remove();
         const countEl = document.createElement('span');
         countEl.className = 'filter-count';
         countEl.textContent = count;
         button.appendChild(countEl);
+        button.classList.toggle('is-unavailable', count === 0);
+        button.toggleAttribute('disabled', count === 0);
+        button.setAttribute('aria-disabled', String(count === 0));
     });
 }
 
@@ -2059,6 +2079,52 @@ function getStudioFilterText(studio) {
     ].join(' ');
 }
 
+function hasWeekendOpen(studio) {
+    if (typeof studio?.features?.weekendOpen === 'boolean') {
+        return studio.features.weekendOpen;
+    }
+
+    const text = getStudioFilterText(studio);
+    return /土日|土曜|日曜|週末|土・日|土日月|24時間|24h/.test(text);
+}
+
+function hasFemaleTeacher(studio) {
+    if (typeof studio?.features?.femaleTeacher === 'boolean') {
+        return studio.features.femaleTeacher;
+    }
+
+    return /女性講師|女性の先生|女の先生|女性インストラクター|女性トレーナー/.test(getStudioFilterText(studio));
+}
+
+function getParkingCapacity(studio) {
+    const capacity = studio?.features?.parkingCapacity;
+    if (['large', 'standard', 'unknown', 'none'].includes(capacity)) {
+        return capacity;
+    }
+
+    if (!studio?.features?.parking) {
+        return 'none';
+    }
+
+    const text = getStudioFilterText(studio);
+    if (/大型駐車場|商業施設|ショッピング|フジ|イオン|エミフル|ジョー・プラ|ワールドプラザ/.test(text)) {
+        return 'large';
+    }
+
+    if (/駐車場完備|無料駐車場|駐車場あり|駐車場付き/.test(text)) {
+        return 'standard';
+    }
+
+    return 'unknown';
+}
+
+function getParkingStatusLabel(studio) {
+    const parkingCapacity = getParkingCapacity(studio);
+    if (parkingCapacity === 'large') return '駐車場広め';
+    if (parkingCapacity === 'standard') return '駐車場あり';
+    return '駐車場要確認';
+}
+
 function matchesQuickFilter(studio, filterKey) {
     const text = getStudioFilterText(studio);
 
@@ -2071,6 +2137,8 @@ function matchesQuickFilter(studio, filterKey) {
             return ['◎', '〇'].includes(studio?.features?.beginnerFriendly);
         case 'parking':
             return Boolean(studio?.features?.parking);
+        case 'parking_large':
+            return getParkingCapacity(studio) === 'large';
         case 'price_under_5000':
             return Number(studio?.pricing?.minPrice || 0) > 0 && Number(studio.pricing.minPrice) <= 5000;
         case 'preschool':
@@ -2078,9 +2146,9 @@ function matchesQuickFilter(studio, filterKey) {
         case 'free_trial':
             return /無料体験/.test(text);
         case 'weekend':
-            return /土日|土曜|日曜|週末|土・日|土日月/.test(text);
+            return hasWeekendOpen(studio);
         case 'female_teacher':
-            return /女性講師|女性の先生|女の先生|女性インストラクター|女性トレーナー/.test(text);
+            return hasFemaleTeacher(studio);
         default:
             return true;
     }
@@ -2150,10 +2218,15 @@ function initFilters() {
     }
 
     function syncAdvancedFilterButtons() {
+        currentFilterState.quickFilters = currentFilterState.quickFilters.filter(filterKey => isQuickFilterAvailable(filterKey));
         advancedFilterBtns.forEach(button => {
             const filterKey = button.getAttribute('data-quick-filter');
             const active = currentFilterState.quickFilters.includes(filterKey);
+            const available = isQuickFilterAvailable(filterKey);
             button.classList.toggle('active', active);
+            button.classList.toggle('is-unavailable', !available);
+            button.toggleAttribute('disabled', !available);
+            button.setAttribute('aria-disabled', String(!available));
             button.setAttribute('aria-pressed', String(active));
         });
     }
@@ -2455,8 +2528,10 @@ function initFilters() {
     advancedFilterBtns.forEach(button => {
         button.setAttribute('aria-pressed', 'false');
         button.addEventListener('click', () => {
+            if (button.disabled) return;
             const filterKey = button.getAttribute('data-quick-filter');
             if (!filterKey) return;
+            if (!isQuickFilterAvailable(filterKey)) return;
 
             const active = currentFilterState.quickFilters.includes(filterKey);
             currentFilterState.quickFilters = active
@@ -3071,14 +3146,21 @@ function openModal(studioId) {
 
     // Feature formatting
     const features = [];
-    if (studio.features.parking) features.push('🚗 駐車場あり');
+    const parkingCapacity = getParkingCapacity(studio);
+    if (parkingCapacity === 'large') {
+        features.push('🚗 駐車場広め');
+    } else if (parkingCapacity === 'standard') {
+        features.push('🚗 駐車場あり');
+    }
+    if (hasWeekendOpen(studio)) features.push('🗓️ 土日利用OK');
+    if (hasFemaleTeacher(studio)) features.push('👩 女性講師');
     if (studio.features.kidsClass) features.push('👶 キッズ対応');
     if (studio.features.adultClass) features.push('🧑 大人対応');
     if (studio.features.beginnerFriendly) features.push(`🔰 初心者歓迎: ${studio.features.beginnerFriendly}`);
 
     const pricingSummary = formatPricingSummary(studio.pricing);
     const trialStatus = getTrialStatus(studio);
-    const parkingStatus = studio.features.parking ? '駐車場あり' : '駐車場案内は未掲載';
+    const parkingStatus = getParkingStatusLabel(studio);
     const audienceSummary = getAudienceSummary(studio.features);
     const featureSummary = getCardFeatureSummary(studio);
     const commuteSummary = getCommuteSummary(studio);
