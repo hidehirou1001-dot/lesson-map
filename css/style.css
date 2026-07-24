@@ -141,6 +141,10 @@ p {
   color: var(--clr-text-muted);
 }
 
+[hidden] {
+  display: none !important;
+}
+
 /* ==========================================================================
    Layout & Components
    ========================================================================== */
@@ -7914,13 +7918,24 @@ p {
   }
 
   .home-hero-compare-row {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     width: 100%;
     max-width: 100%;
+    gap: 0.55rem;
   }
 
   .home-hero-compare-card {
     min-height: 0;
+    padding: 0.72rem;
+  }
+
+  .home-hero-compare-card strong {
+    font-size: 0.9rem;
+  }
+
+  .home-hero-compare-card small {
+    font-size: 0.72rem;
+    line-height: 1.45;
   }
 
   .home-hero-compare-card,
