@@ -44,7 +44,7 @@
       }
     }
   </script>
-  <link rel="stylesheet" href="/css/style.css?v=23">
+  <link rel="stylesheet" href="/css/style.css?v=24">
 </head>
 
 <body>
@@ -57,10 +57,9 @@
         <span class="header-brand-note">愛媛の習い事・スクール比較</span>
       </div>
       <nav class="global-nav" aria-label="主要メニュー">
-        <a href="#top-purpose" class="global-nav-link">目的</a>
-        <a href="#top-categories" class="global-nav-link">ジャンル</a>
-        <a href="#top-areas" class="global-nav-link">エリア</a>
-        <a href="#top-guides" class="global-nav-link">特集</a>
+        <a href="#finder-panel" class="global-nav-link">探す</a>
+        <a href="#top-guides" class="global-nav-link">学ぶ</a>
+        <a href="#results-zone" class="global-nav-link">保存</a>
       </nav>
       <nav class="header-actions">
         <a href="#finder-panel" class="btn btn-primary header-link-btn" aria-label="習い事を探す">習い事を探す</a>
@@ -71,8 +70,8 @@
   <section class="home-hero container reveal">
     <div class="home-hero-shell">
       <div class="home-hero-copy">
-        <h1 class="h1">愛媛の習い事を、<br><span class="hero-emphasis">地域・料金・口コミ・<br class="mobile-only">体験で比較。</span></h1>
-        <p class="home-hero-lead">松山・今治・新居浜などの地域、月謝や総額感、口コミを見るときの注意点、体験レッスンのしやすさから、子ども向け・大人向けの教室や講座を整理できます。</p>
+        <h1 class="h1">愛媛の習い事を探す</h1>
+        <p class="home-hero-lead">地域・ジャンル・対象から、自分や家族に合う教室を比較できます。</p>
 
         <div class="home-hero-compare-row" aria-label="LessonMapで比較できること">
           <a class="home-hero-compare-card" href="/recommendations/ehime-local-lessons/">
@@ -152,19 +151,28 @@
                 </select>
               </label>
               <fieldset class="home-hero-quick-audience">
-                <legend class="home-hero-search-kicker">対象</legend>
+                <legend class="home-hero-search-kicker">だれの習い事を探しますか？</legend>
                 <div class="home-hero-quick-tabs">
                   <label class="home-hero-quick-tab">
-                    <input type="radio" name="hero-quick-audience" value="all" checked>
-                    <span>すべて</span>
-                  </label>
-                  <label class="home-hero-quick-tab">
                     <input type="radio" name="hero-quick-audience" value="kids">
-                    <span>子ども</span>
+                    <span>
+                      <strong>子どもの習い事</strong>
+                      <small>年齢・通いやすさで探す</small>
+                    </span>
                   </label>
                   <label class="home-hero-quick-tab">
                     <input type="radio" name="hero-quick-audience" value="adult">
-                    <span>大人</span>
+                    <span>
+                      <strong>大人の習い事</strong>
+                      <small>目的・続けやすさで探す</small>
+                    </span>
+                  </label>
+                  <label class="home-hero-quick-tab">
+                    <input type="radio" name="hero-quick-audience" value="all" checked>
+                    <span>
+                      <strong>すべて見る</strong>
+                      <small>対象を決めずに探す</small>
+                    </span>
                   </label>
                 </div>
               </fieldset>
@@ -776,8 +784,8 @@
 
   <section class="section container reveal top-guides-section" id="top-guides" aria-labelledby="seo-guides-title">
     <div class="top-section-heading">
-      <h2 class="h2" id="seo-guides-title">迷い方から選ぶ特集</h2>
-      <p>送迎、続けやすさ、最初の1本。よくある迷いから整理できます。</p>
+      <h2 class="h2" id="seo-guides-title">選び方を知る</h2>
+      <p>教室を決める前に知っておきたいポイントを、3つのガイドに絞りました。</p>
     </div>
     <div class="issue-path-carousel" data-carousel="issue-path-carousel">
       <div class="top-secondary-panel-head">
@@ -847,7 +855,7 @@
 
   <!-- Scripts -->
   <script src="/data/studios.js?v=15"></script>
-  <script src="/js/app.js?v=30"></script>
+  <script src="/js/app.js?v=31"></script>
 </body>
 
 </html>

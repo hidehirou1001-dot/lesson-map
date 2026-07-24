@@ -4604,6 +4604,37 @@ p {
   gap: 1.35rem 1.15rem;
 }
 
+.recommendation-more-controls {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: center;
+  padding: 0.25rem 0 1.25rem;
+}
+
+.recommendation-more-button {
+  min-width: min(100%, 240px);
+  justify-content: center;
+}
+
+/* Keep the top page focused on search, comparison, and a short learning path. */
+.home-hero-compare-row,
+.home-hero-quick-row,
+.home-hero-foot,
+.top-purpose-section,
+.top-intent-section,
+.top-category-section,
+.top-featured-section,
+.top-area-section,
+.top-how-section,
+.top-cta-section {
+  display: none !important;
+}
+
+.top-guides-section .carousel-controls,
+.top-guides-section .carousel-dots {
+  display: none !important;
+}
+
 .recommendation-discovery-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -7410,24 +7441,41 @@ p {
   pointer-events: none;
 }
 
-.home-hero-quick-tab span {
+.home-hero-quick-tab > span {
   display: grid;
-  min-height: 48px;
-  place-items: center;
-  padding: 0.55rem 0.45rem;
+  min-height: 64px;
+  align-content: center;
+  justify-items: start;
+  gap: 0.12rem;
+  padding: 0.62rem 0.7rem;
   border: 1px solid rgba(34, 34, 34, 0.12);
   border-radius: 14px;
   background: #fff;
   color: var(--clr-text-muted);
-  font-size: 0.84rem;
-  font-weight: 700;
   cursor: pointer;
   transition: border-color var(--transition-fast), background-color var(--transition-fast), color var(--transition-fast);
+}
+
+.home-hero-quick-tab > span strong {
+  color: var(--clr-text-main);
+  font-size: 0.82rem;
+  line-height: 1.35;
+}
+
+.home-hero-quick-tab > span small {
+  color: var(--clr-text-muted);
+  font-size: 0.68rem;
+  font-weight: 600;
+  line-height: 1.35;
 }
 
 .home-hero-quick-tab input:checked + span {
   border-color: rgba(201, 42, 42, 0.42);
   background: rgba(201, 42, 42, 0.08);
+  color: var(--clr-primary);
+}
+
+.home-hero-quick-tab input:checked + span strong {
   color: var(--clr-primary);
 }
 

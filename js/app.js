@@ -23,6 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
     runSafely('initCompareMemo', initCompareMemo);
     runSafely('initFavorites', initFavorites);
     runSafely('initRecentGuides', initRecentGuides);
+    runSafely('initRecommendationProgressiveDisclosure', initRecommendationProgressiveDisclosure);
     runSafely('initShareTools', initShareTools);
     runSafely('initArticleStickyToc', initArticleStickyToc);
 
@@ -995,6 +996,57 @@ function renderRecentGuides() {
 function initRecentGuides() {
     trackCurrentGuide();
     renderRecentGuides();
+}
+
+function initRecommendationProgressiveDisclosure() {
+    const grid = document.querySelector('.recommendations-grid');
+    if (!grid) return;
+
+    const sectionLabels = [...grid.querySelectorAll('.recommendation-grid-label')]
+        .filter(label => label.id !== 'popular-zone');
+
+    sectionLabels.forEach(label => {
+        const entries = [];
+        let node = label.nextElementSibling;
+
+        while (node && !node.classList.contains('recommendation-grid-label')) {
+            if (node.classList.contains('recommendation-entry')) entries.push(node);
+            node = node.nextElementSibling;
+        }
+
+        const visibleLimit = 4;
+        if (entries.length <= visibleLimit) return;
+
+        const hiddenEntries = entries.slice(visibleLimit);
+        hiddenEntries.forEach(entry => {
+            entry.hidden = true;
+        });
+
+        const controls = document.createElement('div');
+        controls.className = 'recommendation-more-controls';
+
+        const button = document.createElement('button');
+        button.className = 'btn btn-outline recommendation-more-button';
+        button.type = 'button';
+        button.setAttribute('aria-expanded', 'false');
+        button.textContent = `もっと見る（あと${hiddenEntries.length}本）`;
+
+        button.addEventListener('click', () => {
+            const expanded = button.getAttribute('aria-expanded') === 'true';
+            hiddenEntries.forEach(entry => {
+                entry.hidden = expanded;
+            });
+            button.setAttribute('aria-expanded', expanded ? 'false' : 'true');
+            button.textContent = expanded ? `もっと見る（あと${hiddenEntries.length}本）` : '表示を減らす';
+
+            if (expanded) {
+                label.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        });
+
+        controls.appendChild(button);
+        entries[entries.length - 1].after(controls);
+    });
 }
 
 function updateCollectionCounts(compareCount = compareMemoIds.length, favoriteCount = favoriteIds.length) {
