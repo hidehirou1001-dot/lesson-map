@@ -2745,6 +2745,7 @@ function applyFilters() {
     // Apply Search Filter
     if (currentFilterState.searchQuery) {
         const query = currentFilterState.searchQuery;
+        const queryTerms = query.split(/[\s\u3000]+/).filter(Boolean);
         filtered = filtered.filter(s => {
             const regionLabel = Object.keys(cityRegionMap).find(region => cityRegionMap[region].includes(s.city)) || '';
             const categoryLabel = getCategoryLabel(s.category);
@@ -2777,7 +2778,7 @@ function applyFilters() {
                 checkpoints,
                 regionLabel
             ].join(' ').toLowerCase();
-            return text.includes(query);
+            return queryTerms.every(term => text.includes(term));
         });
     }
 
