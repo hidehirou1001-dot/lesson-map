@@ -6432,6 +6432,22 @@ p {
     content: "向いている家庭";
   }
 
+  .comparison-table--dance-overview td:first-child {
+    display: block;
+  }
+
+  .comparison-table--dance-overview td:first-child::before {
+    display: none;
+  }
+
+  .comparison-table--boxing td:first-child {
+    display: block;
+  }
+
+  .comparison-table--boxing td:first-child::before {
+    display: none;
+  }
+
   .comparison-table--adult-purpose td:nth-child(2)::before {
     content: "向く目的";
   }
