@@ -6360,6 +6360,30 @@ p {
     content: "場所";
   }
 
+  .comparison-table--dance-beginner td:first-child {
+    display: block;
+  }
+
+  .comparison-table--dance-beginner td:first-child::before {
+    display: none;
+  }
+
+  .comparison-table--dance-beginner td:nth-child(2)::before {
+    content: "対象";
+  }
+
+  .comparison-table--dance-beginner td:nth-child(3)::before {
+    content: "月謝・料金";
+  }
+
+  .comparison-table--dance-beginner td:nth-child(4)::before {
+    content: "体験";
+  }
+
+  .comparison-table--dance-beginner td:nth-child(5)::before {
+    content: "場所・駐車場";
+  }
+
   .comparison-table--skill-score td:nth-child(2)::before {
     content: "対象";
   }
