@@ -6404,6 +6404,34 @@ p {
     content: "通いやすさ";
   }
 
+  .comparison-table--soccer td:first-child {
+    display: block;
+  }
+
+  .comparison-table--soccer td:first-child::before {
+    display: none;
+  }
+
+  .comparison-table--soccer td:nth-child(2)::before {
+    content: "対象";
+  }
+
+  .comparison-table--soccer td:nth-child(3)::before {
+    content: "料金";
+  }
+
+  .comparison-table--soccer td:nth-child(4)::before {
+    content: "体験";
+  }
+
+  .comparison-table--soccer td:nth-child(5)::before {
+    content: "会場・送迎";
+  }
+
+  .comparison-table--soccer td:nth-child(6)::before {
+    content: "向いている家庭";
+  }
+
   .comparison-table--adult-purpose td:nth-child(2)::before {
     content: "向く目的";
   }
