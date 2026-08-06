@@ -6484,6 +6484,34 @@ p {
     content: "大人の受け入れ";
   }
 
+  .comparison-table--cheap-english td:first-child {
+    display: block;
+  }
+
+  .comparison-table--cheap-english td:first-child::before {
+    display: none;
+  }
+
+  .comparison-table--cheap-english td:nth-child(2)::before {
+    content: "月額目安";
+  }
+
+  .comparison-table--cheap-english td:nth-child(3)::before {
+    content: "月額以外";
+  }
+
+  .comparison-table--cheap-english td:nth-child(4)::before {
+    content: "対象";
+  }
+
+  .comparison-table--cheap-english td:nth-child(5)::before {
+    content: "通いやすさ";
+  }
+
+  .comparison-table--cheap-english td:nth-child(6)::before {
+    content: "補足";
+  }
+
   .comparison-table--adult-purpose td:nth-child(2)::before {
     content: "向く目的";
   }
