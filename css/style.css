@@ -6512,6 +6512,30 @@ p {
     content: "補足";
   }
 
+  .comparison-table--masaki-english td:first-child {
+    display: block;
+  }
+
+  .comparison-table--masaki-english td:first-child::before {
+    display: none;
+  }
+
+  .comparison-table--masaki-english td:nth-child(2)::before {
+    content: "対象";
+  }
+
+  .comparison-table--masaki-english td:nth-child(3)::before {
+    content: "時間";
+  }
+
+  .comparison-table--masaki-english td:nth-child(4)::before {
+    content: "月謝（税込）";
+  }
+
+  .comparison-table--masaki-english td:nth-child(5)::before {
+    content: "確認ポイント";
+  }
+
   .comparison-table--adult-purpose td:nth-child(2)::before {
     content: "向く目的";
   }
