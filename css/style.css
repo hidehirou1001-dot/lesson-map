@@ -6564,6 +6564,34 @@ p {
     content: "場所";
   }
 
+  .comparison-table--uwajima-lessons td:first-child {
+    display: block;
+  }
+
+  .comparison-table--uwajima-lessons td:first-child::before {
+    display: none;
+  }
+
+  .comparison-table--uwajima-lessons td:nth-child(2)::before {
+    content: "料金";
+  }
+
+  .comparison-table--uwajima-lessons td:nth-child(3)::before {
+    content: "対象";
+  }
+
+  .comparison-table--uwajima-lessons td:nth-child(4)::before {
+    content: "特徴";
+  }
+
+  .comparison-table--uwajima-lessons td:nth-child(5)::before {
+    content: "体験";
+  }
+
+  .comparison-table--uwajima-lessons td:nth-child(6)::before {
+    content: "場所";
+  }
+
   .comparison-table--adult-purpose td:nth-child(2)::before {
     content: "向く目的";
   }
