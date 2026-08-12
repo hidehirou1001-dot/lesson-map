@@ -6592,6 +6592,30 @@ p {
     content: "場所";
   }
 
+  .comparison-table--saijo-dance td:first-child {
+    display: block;
+  }
+
+  .comparison-table--saijo-dance td:first-child::before {
+    display: none;
+  }
+
+  .comparison-table--saijo-dance td:nth-child(2)::before {
+    content: "対象・方針";
+  }
+
+  .comparison-table--saijo-dance td:nth-child(3)::before {
+    content: "ジャンル";
+  }
+
+  .comparison-table--saijo-dance td:nth-child(4)::before {
+    content: "住所";
+  }
+
+  .comparison-table--saijo-dance td:nth-child(5)::before {
+    content: "料金・体験";
+  }
+
   .comparison-table--adult-purpose td:nth-child(2)::before {
     content: "向く目的";
   }
