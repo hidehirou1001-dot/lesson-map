@@ -6616,6 +6616,26 @@ p {
     content: "料金・体験";
   }
 
+  .comparison-table--uwajima-dance td:first-child {
+    display: block;
+  }
+
+  .comparison-table--uwajima-dance td:first-child::before {
+    display: none;
+  }
+
+  .comparison-table--uwajima-dance td:nth-child(2)::before {
+    content: "対象・レベル";
+  }
+
+  .comparison-table--uwajima-dance td:nth-child(3)::before {
+    content: "曜日・時間";
+  }
+
+  .comparison-table--uwajima-dance td:nth-child(4)::before {
+    content: "月謝";
+  }
+
   .comparison-table--adult-purpose td:nth-child(2)::before {
     content: "向く目的";
   }
