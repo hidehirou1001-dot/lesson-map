@@ -6384,6 +6384,34 @@ p {
     content: "場所・駐車場";
   }
 
+  .comparison-table--adult-english td:first-child {
+    display: block;
+  }
+
+  .comparison-table--adult-english td:first-child::before {
+    display: none;
+  }
+
+  .comparison-table--adult-english td:nth-child(2)::before {
+    content: "公開料金";
+  }
+
+  .comparison-table--adult-english td:nth-child(3)::before {
+    content: "形式・通い方";
+  }
+
+  .comparison-table--adult-english td:nth-child(4)::before {
+    content: "体験";
+  }
+
+  .comparison-table--adult-english td:nth-child(5)::before {
+    content: "アクセス・開校";
+  }
+
+  .comparison-table--adult-english td:nth-child(6)::before {
+    content: "公式情報";
+  }
+
   .comparison-table--skill-score td:nth-child(2)::before {
     content: "対象";
   }
