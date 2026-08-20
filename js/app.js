@@ -754,7 +754,7 @@ function getCuratorLabelMarkup(studio, className = 'curator-label-row') {
     `;
 }
 
-const SITE_REVIEW_DATE = '2026-03-22';
+const SITE_REVIEW_DATE = '2026-08-20';
 const COMPARE_MEMO_KEY = 'lessonmap_compare_memo';
 const COMPARE_MEMO_LIMIT = 3;
 const RECENT_GUIDES_KEY = 'lessonmap_recent_guides';
@@ -765,7 +765,9 @@ let favoriteIds = [];
 const cityRegionMap = {
     中予: ['松山市', '松前町', '東温市', '伊予市'],
     東予: ['今治市', '新居浜市', '西条市', '四国中央市'],
-    南予: ['宇和島市']
+    南予: ['宇和島市'],
+    愛媛県: ['松山市', '松前町', '東温市', '伊予市', '今治市', '新居浜市', '西条市', '四国中央市', '宇和島市'],
+    香川県: ['高松市']
 };
 const resultsPanelState = {
     guide: false,
@@ -2431,8 +2433,8 @@ function initFilters() {
 
         if (areaStatusTitle && areaStatusCopy) {
             if (selectedCity === 'all') {
-                areaStatusTitle.textContent = '愛媛県全域を表示中';
-                areaStatusCopy.textContent = '広く見たいときはこのまま、さらに絞るなら広域を選んでください。';
+                areaStatusTitle.textContent = '愛媛・香川の全候補を表示中';
+                areaStatusCopy.textContent = '都道府県を選ぶと、地域や市町まで絞れます。';
             } else if (cityRegionMap[selectedCity]) {
                 areaStatusTitle.textContent = `${selectedCity}を表示中`;
                 areaStatusCopy.textContent = `このまま${selectedCity}で比較できます。さらに近いところから見たいなら下の市町を選んでください。`;
@@ -2896,7 +2898,7 @@ function updateResultsMeta(filtered) {
         if (currentFilterState.category !== 'all') {
             scopeParts.push(filterLabelMap[currentFilterState.category] || currentFilterState.category);
         }
-        const scopeText = scopeParts.length > 0 ? scopeParts.join(' / ') : '愛媛県内';
+        const scopeText = scopeParts.length > 0 ? scopeParts.join(' / ') : '愛媛県・香川県';
         const lowCountHint = filtered.length > 0 && filtered.length <= 2
             ? ' 少ないときは条件を広げると見つけやすくなります。'
             : '';
@@ -3005,6 +3007,9 @@ function updateResultsMeta(filtered) {
 }
 
 function getRecommendedGuides() {
+    const isKagawaScope = ['香川県', '高松市'].includes(currentFilterState.city);
+    if (isKagawaScope) return [];
+
     const cityGuideMap = {
         中予: { href: '/recommendations/ehime-local-lessons/', title: '中予から見たい特集', description: '松山、松前町、東温市、伊予市の入口から探せます。' },
         東予: { href: '/recommendations/ehime-local-lessons/', title: '東予から見たい特集', description: '今治、新居浜、西条市、四国中央市の入口から探せます。' },
@@ -3092,6 +3097,7 @@ function getRecommendedGuides() {
 
 function getRecommendedGuidesForStudio(studio) {
     if (!studio) return [];
+    if (studio.city === '高松市') return [];
 
     const guides = [];
     const seen = new Set();
