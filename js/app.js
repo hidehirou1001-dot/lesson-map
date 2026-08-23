@@ -3126,7 +3126,13 @@ function updateResultsMeta(filtered) {
 
 function getRecommendedGuides() {
     const isKagawaScope = ['香川県', '高松市'].includes(currentFilterState.city);
-    if (isKagawaScope) return [];
+    if (isKagawaScope) {
+        return [{
+            href: '/recommendations/takamatsu-adult-english/',
+            title: '高松の大人向け英会話3校舎',
+            description: '駅近、車での通いやすさ、料金、オンラインとの違いを比較できます。'
+        }];
+    }
 
     const cityGuideMap = {
         中予: { href: '/recommendations/ehime-local-lessons/', title: '中予から見たい特集', description: '松山、松前町、東温市、伊予市の入口から探せます。' },
@@ -3215,7 +3221,14 @@ function getRecommendedGuides() {
 
 function getRecommendedGuidesForStudio(studio) {
     if (!studio) return [];
-    if (studio.city === '高松市') return [];
+    if (studio.city === '高松市') {
+        if (studio.category !== 'English') return [];
+        return [{
+            href: '/recommendations/takamatsu-adult-english/',
+            title: '高松の大人向け英会話3校舎',
+            description: '高松市内の英会話を、立地、料金、体験から比較できます。'
+        }];
+    }
 
     const guides = [];
     const seen = new Set();
