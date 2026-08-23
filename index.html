@@ -44,7 +44,7 @@
       }
     }
   </script>
-  <link rel="stylesheet" href="/css/style.css?v=39">
+  <link rel="stylesheet" href="/css/style.css?v=40">
 </head>
 
 <body>
@@ -73,15 +73,18 @@
       <div class="home-hero-copy">
         <div class="home-hero-stage">
           <figure class="home-hero-visual">
-            <img
-              src="/assets/hero/lessonmap-fv-960.png?v=2"
-              srcset="/assets/hero/lessonmap-fv-640.png?v=2 640w, /assets/hero/lessonmap-fv-960.png?v=2 960w, /lessonmap_fv.png?v=2 1717w"
-              sizes="(max-width: 768px) calc(100vw - 48px), 860px"
-              width="1717"
-              height="916"
-              alt="ピアノ、ヨガ、学び直し、料理、陶芸など多様な学びを楽しむ人たち"
-              fetchpriority="high"
-              decoding="async">
+            <picture>
+              <source media="(max-width: 768px)" srcset="/lessonmap_fv_sp.png?v=1">
+              <img
+                src="/assets/hero/lessonmap-fv-960.png?v=2"
+                srcset="/assets/hero/lessonmap-fv-960.png?v=2 960w, /lessonmap_fv.png?v=2 1717w"
+                sizes="860px"
+                width="1717"
+                height="916"
+                alt="ピアノ、ヨガ、学び直し、料理など多様な学びを楽しむ人たち"
+                fetchpriority="high"
+                decoding="async">
+            </picture>
           </figure>
           <div class="home-hero-message">
             <p class="brand-tagline">次の「できた。」へ。</p>
