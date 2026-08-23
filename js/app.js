@@ -27,6 +27,8 @@ document.addEventListener('DOMContentLoaded', () => {
     runSafely('initFavorites', initFavorites);
     runSafely('initRecentGuides', initRecentGuides);
     runSafely('initRecommendationProgressiveDisclosure', initRecommendationProgressiveDisclosure);
+    runSafely('initRecommendationCategoryFilter', initRecommendationCategoryFilter);
+    runSafely('initGuideCategoryContext', initGuideCategoryContext);
     runSafely('initShareTools', initShareTools);
     runSafely('initArticleStickyToc', initArticleStickyToc);
 
@@ -1151,6 +1153,109 @@ function initRecommendationProgressiveDisclosure() {
         controls.appendChild(button);
         entries[entries.length - 1].after(controls);
     });
+}
+
+const GUIDE_CATEGORY_DEFINITIONS = {
+    english: {
+        label: '英会話・語学',
+        href: '/recommendations/english-guides/',
+        patterns: [/english/]
+    },
+    qualification: {
+        label: '資格・学び直し',
+        href: '/recommendations/qualification-relearning-guides/',
+        patterns: [/qualification/, /relearning/, /reskilling/, /adult-study/, /adult-lessons/, /study-one/]
+    },
+    music: {
+        label: '音楽',
+        href: '/recommendations/music-guides/',
+        patterns: [/piano/]
+    },
+    sports: {
+        label: 'ダンス・スポーツ',
+        href: '/recommendations/dance-sports-guides/',
+        patterns: [/dance/, /ballet/, /fitness/, /boxing/, /yoga/, /swimming/, /gymnastics/, /soccer/]
+    },
+    it: {
+        label: 'IT・AI',
+        href: '/recommendations/it-ai-guides/',
+        patterns: [/programming/, /ai-it/, /ai-self/, /reskilling/]
+    }
+};
+
+function getGuideCategories(pathname) {
+    return Object.entries(GUIDE_CATEGORY_DEFINITIONS)
+        .filter(([, definition]) => definition.patterns.some(pattern => pattern.test(pathname)))
+        .map(([key]) => key);
+}
+
+function initRecommendationCategoryFilter() {
+    const panel = document.getElementById('recommendation-category-filter');
+    const grid = document.querySelector('.recommendations-grid');
+    if (!panel || !grid) return;
+
+    const entries = [...grid.querySelectorAll('.recommendation-entry')];
+    const controls = [...grid.querySelectorAll('.recommendation-more-controls')];
+    const summary = document.getElementById('recommendation-category-summary');
+    const shell = document.querySelector('.recommendations-shell');
+
+    entries.forEach(entry => {
+        const href = entry.getAttribute('href') || '';
+        const categories = getGuideCategories(href);
+        entry.dataset.guideCategories = categories.join(' ');
+        entry.dataset.categoryOriginalHidden = String(entry.hidden);
+    });
+
+    panel.addEventListener('click', event => {
+        const button = event.target.closest('[data-guide-category-filter]');
+        if (!button) return;
+        const category = button.dataset.guideCategoryFilter;
+
+        panel.querySelectorAll('[data-guide-category-filter]').forEach(item => {
+            const active = item === button;
+            item.classList.toggle('is-active', active);
+            item.setAttribute('aria-pressed', String(active));
+        });
+
+        const isAll = category === 'all';
+        const visibleHrefs = new Set();
+        entries.forEach(entry => {
+            const matches = isAll || entry.dataset.guideCategories.split(' ').includes(category);
+            entry.hidden = isAll ? entry.dataset.categoryOriginalHidden === 'true' : !matches;
+            if (matches) visibleHrefs.add(entry.getAttribute('href') || '');
+        });
+        controls.forEach(control => { control.hidden = !isAll; });
+        shell?.classList.toggle('is-category-filtered', !isAll);
+
+        if (summary) {
+            summary.textContent = isAll
+                ? 'すべての記事を地域・目的別のまとまりで表示しています。'
+                : `${GUIDE_CATEGORY_DEFINITIONS[category].label}の記事を${visibleHrefs.size}本表示しています。`;
+        }
+    });
+}
+
+function initGuideCategoryContext() {
+    const pathname = window.location.pathname;
+    if (!pathname.startsWith('/recommendations/') || pathname === '/recommendations/') return;
+    if (pathname.endsWith('-guides/')) return;
+
+    const categories = getGuideCategories(pathname);
+    if (!categories.length) return;
+    const articleHeader = document.querySelector('.article-header');
+    if (!articleHeader || articleHeader.querySelector('.article-category-links')) return;
+
+    const nav = document.createElement('nav');
+    nav.className = 'article-category-links';
+    nav.setAttribute('aria-label', 'この記事のカテゴリ');
+    categories.forEach(category => {
+        const definition = GUIDE_CATEGORY_DEFINITIONS[category];
+        const link = document.createElement('a');
+        link.href = definition.href;
+        link.textContent = definition.label;
+        nav.appendChild(link);
+    });
+    articleHeader.appendChild(nav);
 }
 
 function updateCollectionCounts(compareCount = compareMemoIds.length, favoriteCount = favoriteIds.length) {

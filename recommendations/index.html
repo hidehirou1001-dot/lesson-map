@@ -136,7 +136,7 @@
           ]
         }
     </script>
-    <link rel="stylesheet" href="/css/style.css?v=27">
+    <link rel="stylesheet" href="/css/style.css?v=31">
 </head>
 
 <body>
@@ -192,7 +192,7 @@
             <div class="hero-stats recommendations-stats">
                 <div class="hero-stat">
                     <span class="hero-stat-label">比較ガイド</span>
-                    <strong>80本</strong>
+                    <strong>90本以上</strong>
                 </div>
                 <div class="hero-stat">
                     <span class="hero-stat-label">探し方</span>
@@ -250,6 +250,31 @@
                         <span class="start-path-tag">直接探す</span>
                     </div>
                 </a>
+            </div>
+        </section>
+
+        <section class="recommendation-category-panel reveal" id="recommendation-category-filter" aria-labelledby="recommendation-category-title">
+            <div class="start-path-head">
+                <div>
+                    <span class="featured-strip-kicker">CATEGORY</span>
+                    <h2 class="h2 finder-title" id="recommendation-category-title">カテゴリから特集を絞り込む</h2>
+                    <p id="recommendation-category-summary">すべての記事を地域・目的別のまとまりで表示しています。</p>
+                </div>
+            </div>
+            <div class="recommendation-category-tabs" role="group" aria-label="特集カテゴリ">
+                <button type="button" class="is-active" data-guide-category-filter="all" aria-pressed="true">すべて</button>
+                <button type="button" data-guide-category-filter="english" aria-pressed="false">英会話・語学</button>
+                <button type="button" data-guide-category-filter="qualification" aria-pressed="false">資格・学び直し</button>
+                <button type="button" data-guide-category-filter="music" aria-pressed="false">音楽</button>
+                <button type="button" data-guide-category-filter="sports" aria-pressed="false">ダンス・スポーツ</button>
+                <button type="button" data-guide-category-filter="it" aria-pressed="false">IT・AI</button>
+            </div>
+            <div class="recommendation-category-hubs">
+                <a href="/recommendations/english-guides/">英会話・語学のまとめ</a>
+                <a href="/recommendations/qualification-relearning-guides/">資格・学び直しのまとめ</a>
+                <a href="/recommendations/music-guides/">音楽のまとめ</a>
+                <a href="/recommendations/dance-sports-guides/">ダンス・スポーツのまとめ</a>
+                <a href="/recommendations/it-ai-guides/">IT・AIのまとめ</a>
             </div>
         </section>
 
@@ -2014,7 +2039,7 @@
     </div>
   </footer>
 
-    <script src="/js/app.js?v=38"></script>
+    <script src="/js/app.js?v=39"></script>
 </body>
 
 </html>

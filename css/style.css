@@ -4599,6 +4599,75 @@ p {
   box-shadow: 0 10px 18px rgba(34, 34, 34, 0.08);
 }
 
+.recommendation-category-panel {
+  display: grid;
+  gap: 1rem;
+  margin-bottom: 1.4rem;
+  padding: 1.25rem;
+  border: 1px solid rgba(34, 34, 34, 0.08);
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.94);
+  box-shadow: var(--shadow-sm);
+}
+
+.recommendation-category-panel p {
+  margin: 0.35rem 0 0;
+  color: var(--clr-text-muted);
+  font-size: 0.9rem;
+}
+
+.recommendation-category-tabs,
+.recommendation-category-hubs,
+.article-category-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.recommendation-category-tabs button,
+.recommendation-category-hubs a,
+.article-category-links a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 40px;
+  padding: 0.55rem 0.85rem;
+  border: 1px solid rgba(34, 34, 34, 0.1);
+  border-radius: 999px;
+  background: #fff;
+  color: var(--clr-text-main);
+  font: inherit;
+  font-size: 0.82rem;
+  font-weight: 800;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.recommendation-category-tabs button.is-active {
+  border-color: var(--clr-primary);
+  background: var(--clr-primary);
+  color: #fff;
+}
+
+.recommendation-category-hubs a,
+.article-category-links a {
+  color: var(--clr-primary-dark);
+  background: rgba(201, 42, 42, 0.06);
+}
+
+.recommendations-shell.is-category-filtered .recommendation-grid-label {
+  display: none;
+}
+
+.article-category-links {
+  margin-top: 0.6rem;
+}
+
+.article-category-links a {
+  min-height: 32px;
+  padding: 0.35rem 0.7rem;
+  font-size: 0.74rem;
+}
+
 .recommendations-grid {
   grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
   gap: 1.35rem 1.15rem;
@@ -7459,20 +7528,18 @@ p {
 }
 
 .home-hero-shell {
-  max-width: 980px;
+  max-width: 1120px;
   margin: 0 auto;
-  padding: 2rem;
-  border-radius: 32px;
-  background:
-    radial-gradient(circle at top right, rgba(201, 42, 42, 0.08), transparent 26%),
-    linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(250, 250, 250, 0.94));
-  border: 1px solid rgba(34, 34, 34, 0.06);
-  box-shadow: 0 18px 40px rgba(34, 34, 34, 0.06);
+  padding: 0;
+  border-radius: 0;
+  background: transparent;
+  border: 0;
+  box-shadow: none;
 }
 
 .home-hero-copy {
   display: grid;
-  gap: 1rem;
+  gap: 1.5rem;
   text-align: center;
   min-width: 0;
 }
@@ -7534,14 +7601,14 @@ p {
 .home-hero-stage {
   position: relative;
   display: grid;
-  width: min(100%, 900px);
+  width: min(100%, 1060px);
   aspect-ratio: 1717 / 916;
   margin: 0 auto 0.25rem;
   overflow: hidden;
   border: 1px solid rgba(201, 42, 42, 0.08);
-  border-radius: 26px;
+  border-radius: 22px;
   background: #fffafa;
-  box-shadow: 0 14px 30px rgba(34, 34, 34, 0.08);
+  box-shadow: 0 18px 42px rgba(34, 34, 34, 0.09);
 }
 
 .home-hero-visual {
@@ -7582,12 +7649,12 @@ p {
 .home-hero-goal-panel {
   display: grid;
   gap: 0.9rem;
-  max-width: 860px;
-  margin: 0.4rem auto 0;
-  padding: 1.15rem;
+  max-width: 980px;
+  margin: 1.25rem auto 0;
+  padding: 1.4rem;
   border-radius: 24px;
-  background: linear-gradient(135deg, rgba(201, 42, 42, 0.08), rgba(255, 248, 242, 0.82));
-  border: 1px solid rgba(201, 42, 42, 0.1);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(255, 248, 242, 0.88));
+  border: 1px solid rgba(201, 42, 42, 0.12);
   text-align: left;
 }
 
@@ -8649,16 +8716,16 @@ p {
   .home-hero-shell {
     width: 100%;
     max-width: 100%;
-    overflow: hidden;
-    padding: 1rem;
-    border-radius: 24px;
+    overflow: visible;
+    padding: 0;
+    border-radius: 0;
   }
 
   .home-hero-visual {
     position: relative;
     inset: auto;
     width: 100%;
-    height: clamp(190px, 55vw, 260px);
+    height: clamp(165px, 48vw, 220px);
     grid-row: 2;
     overflow: hidden;
     border-radius: 0 0 18px 18px;
@@ -8673,6 +8740,7 @@ p {
     aspect-ratio: auto;
     grid-template-rows: auto auto;
     border-radius: 18px;
+    box-shadow: 0 12px 28px rgba(34, 34, 34, 0.08);
   }
 
   .home-hero-message {
@@ -8701,6 +8769,7 @@ p {
 
   .home-hero-goal-panel {
     width: 100%;
+    margin-top: 0.65rem;
     padding: 0.9rem;
   }
 
