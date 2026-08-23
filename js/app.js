@@ -2454,6 +2454,7 @@ function initFilters() {
     const entryParams = new URLSearchParams(window.location.search);
     const entryCity = entryParams.get('city');
     const entryCategory = entryParams.get('category');
+    const entryAudience = entryParams.get('audience');
     const availableCities = new Set(Array.from(cityBtns).map(button => button.getAttribute('data-city')));
     const availableCategories = new Set(Array.from(categoryBtns).map(button => button.getAttribute('data-category')));
 
@@ -2462,6 +2463,12 @@ function initFilters() {
     }
     if (entryCategory && availableCategories.has(entryCategory)) {
         currentFilterState.category = entryCategory;
+    }
+    if (entryAudience && audienceQuickFilters.has(entryAudience)) {
+        currentFilterState.quickFilters = [
+            ...currentFilterState.quickFilters.filter(filterKey => !audienceQuickFilters.has(filterKey)),
+            entryAudience
+        ];
     }
 
     function getScopedStudiosForAreaFilter(selectedCity) {
