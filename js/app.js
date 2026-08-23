@@ -3127,6 +3127,13 @@ function updateResultsMeta(filtered) {
 function getRecommendedGuides() {
     const isKagawaScope = ['香川県', '高松市'].includes(currentFilterState.city);
     if (isKagawaScope) {
+        if (currentFilterState.city === '香川県') {
+            return [{
+                href: '/recommendations/kagawa-lessons/',
+                title: '香川県の習い事ガイド',
+                description: '高松を起点に、地域、ジャンル、対象から習い事を探せます。'
+            }];
+        }
         return [{
             href: '/recommendations/takamatsu-adult-english/',
             title: '高松の大人向け英会話3校舎',
