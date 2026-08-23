@@ -4642,6 +4642,133 @@ p {
   cursor: pointer;
 }
 
+.school-listing-page {
+  max-width: 1040px;
+  padding-top: calc(96px + var(--space-xl));
+  padding-bottom: var(--space-2xl);
+}
+
+.school-listing-hero {
+  display: grid;
+  justify-items: center;
+  gap: 1rem;
+  padding: clamp(2rem, 6vw, 4.5rem);
+  border: 1px solid rgba(201, 42, 42, 0.12);
+  border-radius: 32px;
+  background: linear-gradient(145deg, #fff, #fff7f4);
+  text-align: center;
+  box-shadow: 0 20px 48px rgba(34, 34, 34, 0.07);
+}
+
+.school-listing-eyebrow,
+.school-listing-heading > span {
+  color: var(--clr-primary);
+  font-size: 0.76rem;
+  font-weight: 900;
+  letter-spacing: 0.14em;
+}
+
+.school-listing-hero h1 {
+  max-width: 800px;
+  margin: 0;
+  font-size: clamp(2rem, 5vw, 3.7rem);
+  line-height: 1.28;
+}
+
+.school-listing-hero > p {
+  max-width: 700px;
+  margin: 0;
+  color: var(--clr-text-muted);
+  font-size: 1.03rem;
+  line-height: 1.8;
+}
+
+.school-listing-hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem;
+}
+
+.school-listing-free-note {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem 0.9rem;
+  color: var(--clr-text-muted);
+  font-size: 0.88rem;
+}
+
+.school-listing-free-note strong { color: var(--clr-primary-dark); }
+.school-listing-section { padding-top: clamp(3rem, 7vw, 5rem); }
+.school-listing-heading { display: grid; gap: 0.5rem; max-width: 760px; margin-bottom: 1.4rem; }
+.school-listing-heading .h2, .school-listing-heading p { margin: 0; }
+.school-listing-heading p { color: var(--clr-text-muted); line-height: 1.75; }
+
+.school-listing-benefit-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.school-listing-benefit-grid article {
+  padding: 1.35rem;
+  border: 1px solid var(--clr-border);
+  border-radius: 22px;
+  background: #fff;
+}
+
+.school-listing-benefit-grid article > span { color: var(--clr-primary); font-weight: 900; }
+.school-listing-benefit-grid h3 { margin: 0.45rem 0; font-size: 1.08rem; }
+.school-listing-benefit-grid p { margin: 0; color: var(--clr-text-muted); line-height: 1.7; }
+
+.school-listing-flow ol {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  padding: 0;
+  list-style: none;
+  counter-reset: listing-step;
+}
+
+.school-listing-flow li { display: grid; gap: 0.4rem; padding: 1.2rem; border-radius: 20px; background: rgba(201,42,42,.055); counter-increment: listing-step; }
+.school-listing-flow li::before { content: "STEP " counter(listing-step); color: var(--clr-primary); font-size: .72rem; font-weight: 900; letter-spacing: .1em; }
+.school-listing-flow li span { color: var(--clr-text-muted); font-size: .9rem; line-height: 1.65; }
+.school-listing-form { padding: clamp(1rem, 4vw, 2rem); }
+.school-listing-form-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 1rem; }
+.school-listing-form-wide { grid-column: 1 / -1; }
+.school-listing-consent { display: flex; align-items: flex-start; gap: .7rem; margin: .5rem 0 1rem; color: var(--clr-text-muted); font-size: .86rem; line-height: 1.65; }
+.school-listing-consent input { margin-top: .3rem; }
+.school-listing-submit { width: 100%; justify-content: center; padding: 1rem; }
+.school-listing-form-note { margin: .9rem 0 0; color: var(--clr-text-muted); font-size: .78rem; line-height: 1.65; }
+.form-honeypot { position: absolute !important; left: -9999px !important; width: 1px !important; height: 1px !important; }
+
+.school-owner-home-cta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  margin-bottom: var(--space-xl);
+  padding: 1.5rem;
+  border: 1px solid rgba(201,42,42,.12);
+  border-radius: 24px;
+  background: linear-gradient(135deg, #fff, #fff7f4);
+}
+.school-owner-home-cta span { color: var(--clr-primary); font-size: .76rem; font-weight: 900; }
+.school-owner-home-cta .h2 { margin: .3rem 0; font-size: clamp(1.25rem, 3vw, 1.8rem); }
+.school-owner-home-cta p { margin: 0; color: var(--clr-text-muted); }
+
+@media (max-width: 768px) {
+  .school-listing-page { padding-top: calc(80px + var(--space-lg)); }
+  .school-listing-hero { padding: 2rem 1rem; border-radius: 24px; }
+  .school-listing-hero-actions, .school-listing-hero-actions .btn { width: 100%; }
+  .school-listing-hero-actions .btn { justify-content: center; }
+  .school-listing-benefit-grid, .school-listing-flow ol, .school-listing-form-grid { grid-template-columns: 1fr; }
+  .school-listing-form-wide { grid-column: auto; }
+  .school-owner-home-cta { align-items: stretch; flex-direction: column; }
+  .school-owner-home-cta .btn { justify-content: center; }
+}
+
 .recommendation-category-tabs button.is-active {
   border-color: var(--clr-primary);
   background: var(--clr-primary);
