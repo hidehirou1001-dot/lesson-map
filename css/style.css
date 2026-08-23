@@ -4705,6 +4705,58 @@ p {
 .school-listing-heading .h2, .school-listing-heading p { margin: 0; }
 .school-listing-heading p { color: var(--clr-text-muted); line-height: 1.75; }
 
+.school-owner-challenge-list {
+  display: grid;
+  gap: 0.8rem;
+}
+
+.school-owner-challenge-list article {
+  display: grid;
+  grid-template-columns: minmax(220px, 0.9fr) auto minmax(320px, 1.4fr);
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 1.15rem;
+  border: 1px solid rgba(34, 34, 34, 0.08);
+  border-radius: 20px;
+  background: #fff;
+}
+
+.school-owner-challenge-problem,
+.school-owner-challenge-benefit {
+  display: grid;
+  gap: 0.35rem;
+}
+
+.school-owner-challenge-problem > span,
+.school-owner-challenge-benefit > span {
+  color: var(--clr-primary);
+  font-size: 0.7rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+}
+
+.school-owner-challenge-problem strong {
+  font-size: 1rem;
+  line-height: 1.55;
+}
+
+.school-owner-challenge-benefit p {
+  margin: 0;
+  color: var(--clr-text-muted);
+  line-height: 1.7;
+}
+
+.school-owner-challenge-arrow {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: rgba(201,42,42,.08);
+  color: var(--clr-primary);
+  font-weight: 900;
+}
+
 .school-listing-benefit-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -4764,6 +4816,8 @@ p {
   .school-listing-hero-actions, .school-listing-hero-actions .btn { width: 100%; }
   .school-listing-hero-actions .btn { justify-content: center; }
   .school-listing-benefit-grid, .school-listing-flow ol, .school-listing-form-grid { grid-template-columns: 1fr; }
+  .school-owner-challenge-list article { grid-template-columns: 1fr; gap: .65rem; }
+  .school-owner-challenge-arrow { transform: rotate(90deg); }
   .school-listing-form-wide { grid-column: auto; }
   .school-owner-home-cta { align-items: stretch; flex-direction: column; }
   .school-owner-home-cta .btn { justify-content: center; }
