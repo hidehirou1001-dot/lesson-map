@@ -8907,7 +8907,8 @@ p {
     position: relative;
     inset: auto;
     width: 100%;
-    height: clamp(240px, 72vw, 420px);
+    height: auto;
+    aspect-ratio: 16 / 10;
     grid-row: 2;
     overflow: hidden;
     border-radius: 0 0 18px 18px;
