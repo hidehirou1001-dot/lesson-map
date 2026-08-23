@@ -336,6 +336,16 @@ p {
   color: var(--clr-primary-dark);
 }
 
+.school-listing-nav-mobile {
+  display: none;
+}
+
+.header-school-listing-btn {
+  border-color: rgba(201, 42, 42, 0.22);
+  color: var(--clr-primary-dark);
+  background: rgba(255, 255, 255, 0.92);
+}
+
 .header-actions {
   display: flex;
   align-items: center;
@@ -5745,6 +5755,10 @@ p {
 
   .global-nav {
     gap: 0.3rem;
+  }
+
+  .school-listing-nav-mobile {
+    display: inline-flex;
   }
 
   .global-nav-link {
