@@ -31,6 +31,18 @@ window.affiliatePrograms = [
     active: false
   },
   {
+    id: 'ucan-lifelong-learning',
+    name: '生涯学習のユーキャン',
+    category: '資格・通信講座',
+    audience: '資格取得や趣味の学びを自宅で進めたい方',
+    description: '資格・実用・趣味など幅広い通信講座から、目的や生活時間に合う学びを探せるサービスです。受講期間、教材、添削・質問対応、試験要件を確認してから検討できます。',
+    ctaLabel: '講座の内容を確認する',
+    affiliateUrl: '',
+    asp: 'A8.net',
+    programId: 's00000018254001',
+    active: false
+  },
+  {
     id: 'dmm-generative-ai-camp',
     name: 'DMM 生成AI CAMP',
     category: '生成AI・リスキリング',
