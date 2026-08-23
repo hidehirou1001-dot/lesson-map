@@ -31,6 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
     runSafely('initGuideCategoryContext', initGuideCategoryContext);
     runSafely('initShareTools', initShareTools);
     runSafely('initArticleStickyToc', initArticleStickyToc);
+    runSafely('initLearningFinderCta', initLearningFinderCta);
 
     // Render studios if a container exists (e.g., on index.html)
     const studiosGrid = document.getElementById('studios-grid');
@@ -48,6 +49,22 @@ document.addEventListener('DOMContentLoaded', () => {
         runSafely('applyFilters', applyFilters); // Apply initial filters
     }
 });
+
+function initLearningFinderCta() {
+    if (window.location.pathname.startsWith('/for-schools')) return;
+
+    let cta = document.querySelector('.mobile-learning-cta');
+    if (!cta) {
+        cta = document.createElement('a');
+        cta.className = 'mobile-learning-cta';
+        cta.href = '/#finder-panel';
+        cta.setAttribute('aria-label', '条件から自分に合う学びを探す');
+        cta.innerHTML = '<span>自分に合う学びを見つける</span><strong>条件から探す <span aria-hidden="true">→</span></strong>';
+        document.body.appendChild(cta);
+    }
+
+    document.body.classList.add('has-learning-cta');
+}
 
 function initHomeSectionOrder() {
     const resultsZone = document.getElementById('results-zone');
