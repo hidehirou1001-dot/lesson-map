@@ -44,7 +44,7 @@
       }
     }
   </script>
-  <link rel="stylesheet" href="/css/style.css?v=27">
+  <link rel="stylesheet" href="/css/style.css?v=30">
 </head>
 
 <body>
@@ -54,7 +54,6 @@
     <div class="container">
       <div class="header-brand">
         <a href="/" class="logo">LessonMap</a>
-        <span class="header-brand-note">次の「できた。」へ。</span>
       </div>
       <nav class="global-nav" aria-label="主要メニュー">
         <a href="#finder-panel" class="global-nav-link">探す</a>
@@ -62,7 +61,7 @@
         <a href="#results-zone" class="global-nav-link">保存</a>
       </nav>
       <nav class="header-actions">
-        <a href="#finder-panel" class="btn btn-primary header-link-btn" aria-label="習い事を探す">習い事を探す</a>
+        <a href="#finder-panel" class="btn btn-primary header-link-btn" aria-label="自分に合う学びを探す">学びを探す</a>
       </nav>
     </div>
   </header>
@@ -70,42 +69,52 @@
   <section class="home-hero container reveal">
     <div class="home-hero-shell">
       <div class="home-hero-copy">
-        <p class="brand-tagline">次の「できた。」へ。</p>
-        <h1 class="h1">学びとの出会いが、<br>人生を動かす。</h1>
-        <p class="home-hero-lead">愛媛・香川の習い事を、地域・ジャンル・対象から比較。自分や家族に合う学びとの出会いを見つけられます。</p>
-
-        <div class="home-hero-compare-row" aria-label="LessonMapで比較できること">
-          <a class="home-hero-compare-card" href="/recommendations/ehime-local-lessons/">
-            <span>地域</span>
-            <strong>近くで通えるか</strong>
-            <small>松山・今治・新居浜など生活圏で探す</small>
-          </a>
-          <a class="home-hero-compare-card" href="/recommendations/ehime-price-lessons/">
-            <span>料金</span>
-            <strong>月謝・総額感</strong>
-            <small>入会金・教材費も含めて比べる</small>
-          </a>
-          <a class="home-hero-compare-card" href="#finder-panel">
-            <span>口コミ</span>
-            <strong>評判の見方</strong>
-            <small>雰囲気・講師・続けやすさを見る</small>
-          </a>
-          <a class="home-hero-compare-card" href="/recommendations/ehime-trial-lessons/">
-            <span>体験</span>
-            <strong>試して決める</strong>
-            <small>体験レッスンや初回相談を確認</small>
-          </a>
+        <div class="home-hero-stage">
+          <figure class="home-hero-visual">
+            <img
+              src="/assets/hero/lessonmap-fv-960.png?v=2"
+              srcset="/assets/hero/lessonmap-fv-640.png?v=2 640w, /assets/hero/lessonmap-fv-960.png?v=2 960w, /lessonmap_fv.png?v=2 1717w"
+              sizes="(max-width: 768px) calc(100vw - 48px), 860px"
+              width="1717"
+              height="916"
+              alt="ピアノ、ヨガ、学び直し、料理、陶芸など多様な学びを楽しむ人たち"
+              fetchpriority="high"
+              decoding="async">
+          </figure>
+          <div class="home-hero-message">
+            <p class="brand-tagline">次の「できた。」へ。</p>
+            <h1 class="h1">学びとの出会いが、<br>人生を動かす。</h1>
+            <p class="home-hero-lead">愛媛・香川から、自分や家族に合う学びを見つけよう。やってみたいことや、なりたい姿から次の一歩を探せます。</p>
+            <a class="btn btn-primary home-hero-stage-cta" href="#finder-panel">自分に合う学びを探す</a>
+          </div>
         </div>
 
-        <div class="home-hero-search-card" aria-label="習い事を探す入口">
-          <form class="home-hero-keyword-search" id="hero-keyword-search" aria-label="地域名や習い事を検索">
+        <div class="home-hero-goal-panel" aria-labelledby="home-goal-title">
+          <div class="home-hero-goal-heading">
+            <span>YOUR NEXT STEP</span>
+            <h2 id="home-goal-title">次は、何ができるようになりたいですか？</h2>
+            <p>今の気持ちに近いものから、学びの入口を選べます。</p>
+          </div>
+          <div class="home-hero-goal-grid" id="home-hero-goal-list">
+            <a href="/?category=English#results-zone"><span>🗣️</span><strong>英語で話したい</strong></a>
+            <a href="/recommendations/ehime-adult-lessons/"><span>🌱</span><strong>新しい趣味を始めたい</strong></a>
+            <a href="/recommendations/ehime-qualification-lessons/"><span>📘</span><strong>仕事に役立てたい</strong></a>
+            <a href="/?category=Fitness#results-zone"><span>🏃</span><strong>楽しく身体を動かしたい</strong></a>
+            <a href="/recommendations/ehime-kids-lessons/"><span>✨</span><strong>子どもの得意を伸ばしたい</strong></a>
+            <a href="#finder-panel"><span>🧭</span><strong>まだ決まっていない</strong></a>
+          </div>
+          <button class="home-hero-goal-toggle" id="home-hero-goal-toggle" type="button" aria-expanded="false" aria-controls="home-hero-goal-list">ほかの目的を見る</button>
+        </div>
+
+        <div class="home-hero-search-card" aria-label="自分に合う学びを探す入口">
+          <form class="home-hero-keyword-search" id="hero-keyword-search" aria-label="地域名や学びを検索">
             <label class="home-hero-keyword-field" for="hero-keyword-input">
-              <span class="home-hero-search-kicker">まず検索したい方はこちら</span>
-              <input type="search" id="hero-keyword-input" class="home-hero-keyword-input" placeholder="地域名や習い事を検索 例：松山 英会話 / 今治 英会話" aria-label="地域名や習い事を検索">
+              <span class="home-hero-search-kicker">探したいものが決まっている方</span>
+              <input type="search" id="hero-keyword-input" class="home-hero-keyword-input" placeholder="地域名や学びを検索 例：松山 英会話 / 高松 ピアノ" aria-label="地域名や学びを検索">
             </label>
-            <button class="btn btn-primary home-hero-keyword-submit" type="submit">検索</button>
+            <button class="btn btn-primary home-hero-keyword-submit" type="submit">学びを探す</button>
           </form>
-          <form class="home-hero-quick-search" id="hero-quick-search" aria-label="条件を選んで教室を検索">
+          <form class="home-hero-quick-search" id="hero-quick-search" aria-label="条件を選んで学びを検索">
             <div class="home-hero-quick-fields">
               <label class="home-hero-quick-field" for="hero-quick-city">
                 <span class="home-hero-search-kicker">エリア</span>
@@ -159,19 +168,19 @@
                 </select>
               </label>
               <fieldset class="home-hero-quick-audience">
-                <legend class="home-hero-search-kicker">だれの習い事を探しますか？</legend>
+                <legend class="home-hero-search-kicker">だれの学びを探しますか？</legend>
                 <div class="home-hero-quick-tabs">
                   <label class="home-hero-quick-tab">
                     <input type="radio" name="hero-quick-audience" value="kids">
                     <span>
-                      <strong>子どもの習い事</strong>
+                      <strong>子どもの学び</strong>
                       <small>年齢・通いやすさで探す</small>
                     </span>
                   </label>
                   <label class="home-hero-quick-tab">
                     <input type="radio" name="hero-quick-audience" value="adult">
                     <span>
-                      <strong>大人の習い事</strong>
+                      <strong>大人の学び</strong>
                       <small>目的・続けやすさで探す</small>
                     </span>
                   </label>
@@ -185,20 +194,49 @@
                 </div>
               </fieldset>
             </div>
-            <button class="btn btn-primary home-hero-quick-submit" type="submit">この条件で教室を見る</button>
+            <button class="btn btn-primary home-hero-quick-submit" type="submit">この条件で学びを見つける</button>
           </form>
           <div class="home-hero-quick-row" aria-label="人気の入口">
             <a href="/recommendations/matsuyama-lessons/" class="home-hero-chip">松山から見る</a>
+            <a href="/?city=高松市#results-zone" class="home-hero-chip">高松から見る</a>
             <a href="/recommendations/ehime-adult-lessons/" class="home-hero-chip">大人向けから見る</a>
             <a href="/recommendations/ehime-kids-lessons/" class="home-hero-chip">子ども向けから見る</a>
-            <a href="/recommendations/" class="home-hero-chip">特集を見る</a>
+          </div>
+        </div>
+
+        <div class="home-hero-assurance" aria-labelledby="home-assurance-title">
+          <div class="home-hero-assurance-heading">
+            <span>安心して選ぶために</span>
+            <h2 id="home-assurance-title">始めたあとを想像できる情報を整理しています</h2>
+          </div>
+          <div class="home-hero-compare-row">
+          <a class="home-hero-compare-card" href="/recommendations/ehime-local-lessons/">
+            <span>通いやすさ</span>
+            <strong>無理なく通えるか</strong>
+            <small>生活圏や移動時間から確認する</small>
+          </a>
+          <a class="home-hero-compare-card" href="/recommendations/ehime-price-lessons/">
+            <span>続けやすさ</span>
+            <strong>無理のない料金か</strong>
+            <small>月謝・入会金・教材費を確認する</small>
+          </a>
+          <a class="home-hero-compare-card" href="#finder-panel">
+            <span>相性</span>
+            <strong>自分に合いそうか</strong>
+            <small>対象・雰囲気・学び方を見る</small>
+          </a>
+          <a class="home-hero-compare-card" href="/recommendations/ehime-trial-lessons/">
+            <span>体験</span>
+            <strong>試してから決められるか</strong>
+            <small>体験や初回相談の有無を確認する</small>
+          </a>
           </div>
         </div>
 
         <div class="home-hero-foot">
           <div class="hero-stats" id="hero-stats">
             <div class="hero-stat">
-              <span class="hero-stat-label">比較候補</span>
+              <span class="hero-stat-label">学びの候補</span>
               <strong id="hero-total-count">-</strong>
             </div>
             <div class="hero-stat">
@@ -207,113 +245,48 @@
             </div>
           </div>
           <div class="home-hero-trust">
-            <span>愛媛県・香川県の習い事を地域・ジャンル・対象から比較できます。</span>
-            <span>候補を比べながら、選ぶ理由を整理できます</span>
+            <span>愛媛県・香川県の学びを、地域・ジャンル・対象から探せます。</span>
+            <span>公式情報や体験の有無を確認しながら、次の一歩を選べます</span>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="section container reveal top-purpose-section" id="top-purpose" aria-labelledby="top-purpose-title">
-    <div class="top-section-heading">
-      <h2 class="h2" id="top-purpose-title">目的から探す</h2>
-      <p>「何を習うか」より先に、「何のために学ぶか」から入口を選べます。近い目的を選ぶと、比較しやすいガイドへ進めます。</p>
-    </div>
-    <div class="top-purpose-grid">
-      <a class="top-purpose-card top-purpose-card-primary" href="/recommendations/ehime-kids-lessons/">
-        <span class="top-purpose-kicker">子ども</span>
-        <strong>子どもに合う習い事を選びたい</strong>
-        <p>年齢、送迎、始めやすさから、最初の候補を整理できます。</p>
-        <div class="top-purpose-tags">
-          <span>年齢</span>
-          <span>送迎</span>
-          <span>体験</span>
-        </div>
-      </a>
-      <a class="top-purpose-card" href="/recommendations/ehime-adult-lessons/">
-        <span class="top-purpose-kicker">大人</span>
-        <strong>大人でも無理なく始めたい</strong>
-        <p>仕事や家事の合間でも続けやすい学び直し・趣味を探せます。</p>
-        <div class="top-purpose-tags">
-          <span>初心者</span>
-          <span>夜・週末</span>
-          <span>趣味</span>
-        </div>
-      </a>
-      <a class="top-purpose-card" href="/recommendations/ehime-qualification-lessons/">
-        <span class="top-purpose-kicker">資格・キャリア</span>
-        <strong>仕事や将来につながる学びを探したい</strong>
-        <p>資格、実用スキル、キャリアのための学び方を整理できます。</p>
-        <div class="top-purpose-tags">
-          <span>資格</span>
-          <span>実用</span>
-          <span>キャリア</span>
-        </div>
-      </a>
-      <a class="top-purpose-card" href="/recommendations/ehime-ai-it-learning/">
-        <span class="top-purpose-kicker">AI・IT</span>
-        <strong>AI・ITを初心者から学びたい</strong>
-        <p>子どものプログラミングから大人のIT学習まで、目的別に見られます。</p>
-        <div class="top-purpose-tags">
-          <span>IT基礎</span>
-          <span>子ども</span>
-          <span>リスキリング</span>
-        </div>
-      </a>
-      <a class="top-purpose-card" href="/recommendations/matsuyama-english/">
-        <span class="top-purpose-kicker">語学</span>
-        <strong>英会話や語学を目的別に比べたい</strong>
-        <p>子ども英語、大人の学び直し、料金や体験の見やすさで選べます。</p>
-        <div class="top-purpose-tags">
-          <span>英会話</span>
-          <span>子ども</span>
-          <span>大人</span>
-        </div>
-      </a>
-      <a class="top-purpose-card" href="/recommendations/ehime-trial-lessons/">
-        <span class="top-purpose-kicker">体験</span>
-        <strong>まず試してから決めたい</strong>
-        <p>体験・見学・ワークショップから、失敗しにくい入口を探せます。</p>
-        <div class="top-purpose-tags">
-          <span>体験</span>
-          <span>見学</span>
-          <span>単発</span>
-        </div>
-      </a>
+  <section class="section container reveal top-outcome-section" aria-labelledby="top-outcome-title">
+    <div class="top-outcome-shell">
+      <div class="top-section-heading top-outcome-heading">
+        <span class="top-outcome-eyebrow">次の「できた。」へ。</span>
+        <h2 class="h2" id="top-outcome-title">こんな「できた。」につながる学び</h2>
+        <p>学ぶことは目的ではなく、毎日を少し動かすきっかけ。叶えたい変化に近い入口から探してみませんか。</p>
+      </div>
+      <div class="top-outcome-grid">
+        <a class="top-outcome-card" href="/?category=English#results-zone">
+          <span class="top-outcome-before">英語に自信がない</span>
+          <strong>旅行先で、自分の言葉で話せた。</strong>
+          <span class="top-outcome-link">語学の学びを探す →</span>
+        </a>
+        <a class="top-outcome-card" href="/recommendations/ehime-adult-lessons/">
+          <span class="top-outcome-before">毎日が仕事と家の往復</span>
+          <strong>週末に、楽しみな予定ができた。</strong>
+          <span class="top-outcome-link">大人の趣味を探す →</span>
+        </a>
+        <a class="top-outcome-card" href="/recommendations/ehime-ai-it-learning/">
+          <span class="top-outcome-before">新しい技術が難しく感じる</span>
+          <strong>AIを、仕事で一つ使えるようになった。</strong>
+          <span class="top-outcome-link">AI・ITの学びを探す →</span>
+        </a>
+        <a class="top-outcome-card" href="/recommendations/ehime-kids-lessons/">
+          <span class="top-outcome-before">子どもの得意がまだ分からない</span>
+          <strong>夢中になれることを、一つ見つけた。</strong>
+          <span class="top-outcome-link">子どもの学びを探す →</span>
+        </a>
+      </div>
+      <p class="top-outcome-note">※上記は、学びから生まれる変化の例です。利用者の口コミではありません。</p>
     </div>
   </section>
 
-  <section class="section container reveal top-intent-section">
-    <div class="top-section-heading">
-      <h2 class="h2">こんな悩みから探せます</h2>
-      <p>なんとなく探し始めても大丈夫です。近い悩みから入ると、次に見るページを決めやすくなります。</p>
-    </div>
-    <div class="top-intent-grid">
-      <a class="top-intent-card" href="/recommendations/ehime-kids-lessons/">
-        <span class="top-intent-kicker">迷い</span>
-        <strong>何を基準に選べばいいか分からない</strong>
-        <p>年齢や始めやすさから入口を整理できます。</p>
-      </a>
-      <a class="top-intent-card" href="/recommendations/ehime-local-lessons/">
-        <span class="top-intent-kicker">近さ</span>
-        <strong>続けやすい距離で選びたい</strong>
-        <p>住んでいる地域から無理なく通える候補を見つけられます。</p>
-      </a>
-      <a class="top-intent-card" href="/recommendations/ehime-adult-lessons/">
-        <span class="top-intent-kicker">大人</span>
-        <strong>大人でも無理なく始めたい</strong>
-        <p>学び直しや趣味を、続けやすさから探せます。</p>
-      </a>
-      <a class="top-intent-card" href="/recommendations/ehime-trial-lessons/">
-        <span class="top-intent-kicker">体験</span>
-        <strong>まず1つに絞って始めたい</strong>
-        <p>体験しやすい候補から失敗を減らせます。</p>
-      </a>
-    </div>
-  </section>
-
-  <section class="section container reveal top-intent-section" aria-label="人気記事への近道">
+  <section class="section container reveal top-popular-section" aria-label="人気記事への近道">
     <div class="top-section-heading">
       <h2 class="h2">今よく見られている入口</h2>
       <p>迷ったら、表示回数が伸びている特集から見ると候補を絞りやすいです。</p>
@@ -322,8 +295,6 @@
       <a class="article-quick-card" href="/recommendations/matsuyama-dance-beginner/"><span class="article-quick-label">伸びている記事</span><strong>松山の大人向けダンススクール</strong><span>初心者・社会人が未経験から始める入口</span></a>
       <a class="article-quick-card" href="/recommendations/ehime-adult-lessons/"><span class="article-quick-label">大人初心者</span><strong>愛媛の大人向け習い事</strong><span>一人でも始めやすい学び直し・趣味を探す</span></a>
       <a class="article-quick-card" href="/recommendations/matsuyama-dance/"><span class="article-quick-label">総合比較</span><strong>松山のダンス教室</strong><span>キッズ・初心者・K-POPをまとめて比較</span></a>
-      <a class="article-quick-card" href="/recommendations/matsuyama-soccer/"><span class="article-quick-label">子ども向け</span><strong>松山のサッカースクール</strong><span>小学生・初心者・送迎しやすさで見る</span></a>
-      <a class="article-quick-card" href="/recommendations/matsuyama-english/"><span class="article-quick-label">料金・体験</span><strong>松山の英会話教室</strong><span>子ども・大人初心者・料金から選ぶ</span></a>
     </div>
   </section>
 
@@ -344,8 +315,8 @@
 
   <section class="section container reveal top-featured-section">
     <div class="top-section-heading">
-      <h2 class="h2">おすすめの特集</h2>
-      <p>初心者でも入りやすく、最初に見ておきたい特集をまとめています。</p>
+      <h2 class="h2">まず読みたい学び選びガイド</h2>
+      <p>料金や体験、対象など、始める前に確認したい情報をジャンル別にまとめています。</p>
     </div>
     <div class="top-featured-grid">
       <a class="top-featured-card" href="/recommendations/matsuyama-english/">
@@ -395,6 +366,7 @@
     <div class="top-area-rail">
       <a class="top-area-card" href="/recommendations/ehime-local-lessons/"><strong>愛媛全体から探す</strong><span>中予・東予・南予を広く見る</span></a>
       <a class="top-area-card" href="/recommendations/matsuyama-lessons/"><strong>松山で探す</strong><span>主力4ジャンルから入りたい</span></a>
+      <a class="top-area-card" href="/?city=高松市#results-zone"><strong>高松で探す</strong><span>香川の掲載候補をまとめて見る</span></a>
       <a class="top-area-card" href="/recommendations/imabari-lessons/"><strong>今治で探す</strong><span>生活圏や初心者向けダンス入口を見る</span></a>
       <a class="top-area-card" href="/recommendations/niihama-lessons/"><strong>新居浜で探す</strong><span>子ども向けや初心者向けダンスを整理する</span></a>
       <a class="top-area-card" href="/recommendations/uwajima-lessons/"><strong>宇和島で探す</strong><span>最初の1本や初心者向けダンスを見たいときに</span></a>
@@ -410,36 +382,12 @@
     </div>
   </section>
 
-  <section class="section container reveal top-how-section">
-    <div class="top-section-heading">
-      <h2 class="h2">使い方はシンプルです</h2>
-      <p>迷ったままでも、3ステップで候補を絞れます。</p>
-    </div>
-    <div class="top-how-grid">
-      <article class="top-how-card">
-        <span class="top-how-step">1</span>
-        <strong>探す</strong>
-        <p>エリアやジャンル、悩みに近い入口から候補を持ちます。</p>
-      </article>
-      <article class="top-how-card">
-        <span class="top-how-step">2</span>
-        <strong>比較する</strong>
-        <p>地域、料金、口コミの見方、体験のしやすさを比べます。</p>
-      </article>
-      <article class="top-how-card">
-        <span class="top-how-step">3</span>
-        <strong>体験する</strong>
-        <p>気になる候補を2〜3件まで絞って、次の一歩へ進みます。</p>
-      </article>
-    </div>
-  </section>
-
   <section class="section container reveal home-section">
     <div class="finder-panel" id="finder-panel">
       <div class="finder-panel-header">
         <div>
-          <h2 class="h2 finder-title">条件から探す</h2>
-          <p class="results-summary">エリア・ジャンル・料金・体験などを絞って、気になる教室をそのまま比較できます。</p>
+          <h2 class="h2 finder-title">自分に合う学びを探す</h2>
+          <p class="results-summary">エリア・ジャンル・対象などから、続けやすい学びの候補を見つけられます。</p>
         </div>
       </div>
 
@@ -680,14 +628,14 @@
   <section class="section container" id="results-zone">
     <div class="results-toolbar">
       <div class="results-toolbar-copy">
-        <h2 class="results-title">候補を比べる</h2>
-        <p class="results-summary" id="results-summary">対象・料金・通いやすさ・体験のしやすさを中心に表示します。</p>
+        <h2 class="results-title">あなたに合いそうな学び</h2>
+        <p class="results-summary" id="results-summary">対象・料金・通いやすさ・体験のしやすさを、安心して選ぶための情報として表示します。</p>
       </div>
       <div class="results-toolbar-actions">
         <label class="sort-control" for="sort-select">
           <span class="sort-label">SORT</span>
           <select id="sort-select" class="sort-select">
-            <option value="recommended">おすすめ順</option>
+            <option value="recommended">条件に合う順</option>
             <option value="beginner">初心者向け順</option>
             <option value="kids">キッズ対応順</option>
             <option value="price">料金がわかる順</option>
@@ -745,7 +693,7 @@
             <div class="results-panel-header">
               <div class="results-guide-head">
                 <span class="results-kicker">並びの見方</span>
-                <strong id="results-explain-title">おすすめ順の見方</strong>
+                <strong id="results-explain-title">条件に合う順の見方</strong>
               </div>
               <button id="results-explain-toggle" class="btn btn-text results-panel-toggle" type="button" aria-expanded="false" aria-controls="results-explain-body">開く</button>
             </div>
@@ -803,6 +751,20 @@
 
   </section>
 
+  <section class="section container affiliate-learning-section" id="online-learning" aria-labelledby="affiliate-learning-title" hidden>
+    <div class="affiliate-learning-shell">
+      <div class="affiliate-learning-heading">
+        <div>
+          <span class="affiliate-learning-label">PR・オンラインの選択肢</span>
+          <h2 class="h2" id="affiliate-learning-title">近くで見つからないときは、オンラインの学びも</h2>
+          <p>地域に関係なく始められる講座の中から、LessonMapの掲載基準に沿って情報を整理します。</p>
+        </div>
+        <p class="affiliate-learning-disclosure">この枠にはアフィリエイト広告を含みます。広告提携の有無は、通常の教室一覧や表示順位に影響しません。</p>
+      </div>
+      <div class="affiliate-learning-grid" id="affiliate-learning-grid"></div>
+    </div>
+  </section>
+
   <section class="section container reveal top-guides-section" id="top-guides" aria-labelledby="seo-guides-title">
     <div class="top-section-heading">
       <h2 class="h2" id="seo-guides-title">選び方を知る</h2>
@@ -854,11 +816,16 @@
         <p>エリアやジャンルから見始めるだけでも、次に見る候補を絞りやすくなります。</p>
       </div>
       <div class="hero-action-row home-diagnosis-actions">
-        <a href="#finder-panel" class="btn btn-primary hero-main-cta">習い事を探す</a>
+        <a href="#finder-panel" class="btn btn-primary hero-main-cta">自分に合う学びを探す</a>
         <a href="/recommendations/" class="btn btn-outline">特集を見る</a>
       </div>
     </div>
   </section>
+
+  <a class="mobile-learning-cta" href="#finder-panel" aria-label="自分に合う学びを探す">
+    <span>次の「できた。」へ。</span>
+    <strong>学びを探す</strong>
+  </a>
 
   <!-- Footer -->
     <footer class="footer">
@@ -876,7 +843,8 @@
 
   <!-- Scripts -->
   <script src="/data/studios.js?v=16"></script>
-  <script src="/js/app.js?v=33"></script>
+  <script src="/data/affiliate-programs.js?v=1"></script>
+  <script src="/js/app.js?v=36"></script>
 </body>
 
 </html>

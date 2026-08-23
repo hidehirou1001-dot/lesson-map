@@ -14,6 +14,9 @@ function runSafely(label, callback) {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
+    runSafely('initHomeSectionOrder', initHomeSectionOrder);
+    runSafely('initHomeGoalToggle', initHomeGoalToggle);
+    runSafely('renderAffiliatePrograms', renderAffiliatePrograms);
     runSafely('initAnimations', initAnimations);
     runSafely('initBreadcrumbTrail', initBreadcrumbTrail);
     runSafely('initFAQ', initFAQ);
@@ -43,6 +46,105 @@ document.addEventListener('DOMContentLoaded', () => {
         runSafely('applyFilters', applyFilters); // Apply initial filters
     }
 });
+
+function initHomeSectionOrder() {
+    const resultsZone = document.getElementById('results-zone');
+    if (!resultsZone) return;
+
+    const sectionsAfterResults = [
+        document.querySelector('.affiliate-learning-section'),
+        document.querySelector('.top-outcome-section'),
+        document.querySelector('.top-popular-section'),
+        document.querySelector('.top-featured-section'),
+        document.querySelector('.top-category-section'),
+        document.querySelector('.top-area-section')
+    ].filter(Boolean);
+
+    let insertionPoint = resultsZone;
+    sectionsAfterResults.forEach(section => {
+        insertionPoint.insertAdjacentElement('afterend', section);
+        insertionPoint = section;
+    });
+}
+
+function renderAffiliatePrograms() {
+    const section = document.getElementById('online-learning');
+    const grid = document.getElementById('affiliate-learning-grid');
+
+    const programs = Array.isArray(window.affiliatePrograms)
+        ? window.affiliatePrograms.filter(program => program && program.active && program.affiliateUrl)
+        : [];
+
+    if (section && grid) {
+        if (programs.length === 0) {
+            section.hidden = true;
+            grid.replaceChildren();
+        } else {
+            const fragment = document.createDocumentFragment();
+            programs.forEach(program => fragment.append(createAffiliateCard(program)));
+            grid.replaceChildren(fragment);
+            section.hidden = false;
+        }
+    }
+
+    document.querySelectorAll('[data-affiliate-program]').forEach(placement => {
+        const programId = placement.getAttribute('data-affiliate-program');
+        const program = programs.find(item => item.id === programId);
+        if (!program) {
+            placement.hidden = true;
+            placement.replaceChildren();
+            return;
+        }
+
+        placement.replaceChildren(createAffiliateCard(program));
+        placement.hidden = false;
+    });
+}
+
+function createAffiliateCard(program) {
+    const card = document.createElement('article');
+    card.className = 'affiliate-learning-card';
+
+    const meta = document.createElement('div');
+    meta.className = 'affiliate-learning-meta';
+    const pr = document.createElement('span');
+    pr.className = 'affiliate-pr-badge';
+    pr.textContent = 'PR';
+    const category = document.createElement('span');
+    category.textContent = program.category || 'オンライン講座';
+    meta.append(pr, category);
+
+    const title = document.createElement('h3');
+    title.textContent = program.name;
+    const audience = document.createElement('p');
+    audience.className = 'affiliate-learning-audience';
+    audience.textContent = program.audience ? `対象：${program.audience}` : 'オンラインで受講できます';
+    const description = document.createElement('p');
+    description.className = 'affiliate-learning-description';
+    description.textContent = program.description || '';
+
+    const link = document.createElement('a');
+    link.className = 'btn btn-primary affiliate-learning-link';
+    link.href = program.affiliateUrl;
+    link.target = '_blank';
+    link.rel = 'sponsored noopener noreferrer';
+    link.textContent = program.ctaLabel || '公式サイトで確認する';
+
+    card.append(meta, title, audience, description, link);
+    return card;
+}
+
+function initHomeGoalToggle() {
+    const goalGrid = document.querySelector('.home-hero-goal-grid');
+    const toggle = document.getElementById('home-hero-goal-toggle');
+    if (!goalGrid || !toggle) return;
+
+    toggle.addEventListener('click', () => {
+        const expanded = goalGrid.classList.toggle('is-expanded');
+        toggle.setAttribute('aria-expanded', String(expanded));
+        toggle.textContent = expanded ? '目的を閉じる' : 'ほかの目的を見る';
+    });
+}
 
 function initBreadcrumbTrail() {
     if (document.querySelector('.breadcrumb-trail')) return;
@@ -2244,6 +2346,19 @@ function initFilters() {
     const sortSelect = document.getElementById('sort-select');
     const subFilterGroups = [danceFilters, progFilters, document.getElementById('sub-filters-gym'), document.getElementById('sub-filters-swim')].filter(Boolean);
 
+    const entryParams = new URLSearchParams(window.location.search);
+    const entryCity = entryParams.get('city');
+    const entryCategory = entryParams.get('category');
+    const availableCities = new Set(Array.from(cityBtns).map(button => button.getAttribute('data-city')));
+    const availableCategories = new Set(Array.from(categoryBtns).map(button => button.getAttribute('data-category')));
+
+    if (entryCity && availableCities.has(entryCity)) {
+        currentFilterState.city = entryCity;
+    }
+    if (entryCategory && availableCategories.has(entryCategory)) {
+        currentFilterState.category = entryCategory;
+    }
+
     function getScopedStudiosForAreaFilter(selectedCity) {
         if (!window.studiosData || selectedCity === 'all' || cityRegionMap[selectedCity]) return [];
 
@@ -2640,6 +2755,9 @@ function initFilters() {
         });
     }
 
+    categoryBtns.forEach(button => {
+        button.classList.toggle('active', button.getAttribute('data-category') === currentFilterState.category);
+    });
     syncCategoryStatus(currentFilterState.category);
     syncSubfilterStatus(currentFilterState.category);
     syncAdvancedFilterButtons();
@@ -2902,13 +3020,13 @@ function updateResultsMeta(filtered) {
         const lowCountHint = filtered.length > 0 && filtered.length <= 2
             ? ' 少ないときは条件を広げると見つけやすくなります。'
             : '';
-        summary.textContent = `${filtered.length}件表示中。${scopeText}の候補を、対象・料金・体験・通いやすさで比べられます。${lowCountHint}`;
+        summary.textContent = `${filtered.length}件表示中。${scopeText}で、自分に合う学びを選ぶための対象・料金・体験・通いやすさを確認できます。${lowCountHint}`;
     }
 
     const sortExplainMap = {
         recommended: {
-            title: 'おすすめ順の見方',
-            copy: '初心者の始めやすさ、キッズ対応、駐車場あり、料金公開ありをもとに、比較しやすい候補を上にしています。',
+            title: '条件に合う順の見方',
+            copy: '初心者の始めやすさ、キッズ対応、駐車場、料金公開など、選ぶときに役立つ情報が揃った候補を上にしています。',
             chips: ['初心者の始めやすさ', 'キッズ対応', '駐車場あり', '料金公開あり']
         },
         beginner: {
