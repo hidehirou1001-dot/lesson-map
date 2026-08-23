@@ -8907,7 +8907,7 @@ p {
     position: relative;
     inset: auto;
     width: 100%;
-    height: clamp(165px, 48vw, 220px);
+    height: clamp(240px, 72vw, 420px);
     grid-row: 2;
     overflow: hidden;
     border-radius: 0 0 18px 18px;
@@ -8915,7 +8915,7 @@ p {
 
   .home-hero-visual img {
     object-fit: cover;
-    object-position: 76% center;
+    object-position: right center;
   }
 
   .home-hero-stage {
