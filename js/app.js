@@ -494,7 +494,6 @@ function renderStudios(data) {
             const listingTypeLabel = getListingTypeLabel(studio);
             const cardEyebrow = listingType === 'school' ? categoryLabel : `${categoryLabel} / ${listingTypeLabel}`;
             const quickStatusMarkup = getQuickStatusMarkup(studio);
-            const lessonMapCardScoreMarkup = getLessonMapCardScoreMarkup(studio);
             const compareButtonLabel = isComparedStudio(studio.id) ? '比較中' : '比較に追加';
             const compareButtonState = isComparedStudio(studio.id) ? 'active' : '';
             const compareButtonDisabled = !isComparedStudio(studio.id) && compareMemoIds.length >= COMPARE_MEMO_LIMIT ? 'disabled' : '';
@@ -530,7 +529,6 @@ function renderStudios(data) {
           </div>
         </div>
         ${quickStatusMarkup}
-        ${lessonMapCardScoreMarkup}
         <div class="card-action-row">
           <button class="btn btn-primary detail-btn card-detail-btn">詳細を見る</button>
           <div class="card-support-actions">
@@ -723,109 +721,6 @@ function getQuickStatusMarkup(studio) {
         </span>
       `).join('')}
     </div>
-    `;
-}
-
-function getLessonMapEvaluationItems(studio) {
-    const text = getStudioFilterText(studio);
-    const trialStatus = getTrialStatus(studio);
-    const hasKids = Boolean(studio?.features?.kidsClass);
-    const hasParking = Boolean(studio?.features?.parking);
-    const parkingCapacity = getParkingCapacity(studio);
-    const beginner = studio?.features?.beginnerFriendly;
-    const hasReviewTendencies = Array.isArray(studio?.reviewTendencies) && studio.reviewTendencies.length > 0;
-    const hasPreschoolCue = /幼児|未就学|ベビー|園児|年少|年中|年長|1歳|2歳|3歳|4歳|5歳|6歳|Baby/.test(text);
-    const hasSmallGroupCue = /少人数|個別|マンツーマン|一人ひとり|アットホーム|親切|丁寧/.test(text);
-    const hasAtmosphereCue = hasReviewTendencies || /アットホーム|雰囲気|楽しく|親しみ|安心|丁寧/.test(text);
-
-    return [
-        {
-            key: 'kids_retention',
-            label: '子どもが続けやすい',
-            value: hasKids && ['◎', '〇'].includes(beginner) ? '続けやすさを見やすい' : hasKids ? '体験で相性確認' : '大人向け中心',
-            tone: hasKids && ['◎', '〇'].includes(beginner) ? 'good' : 'neutral',
-            note: hasKids ? '対象年齢・初心者対応・体験導線から判断' : '子ども向け情報は少なめ'
-        },
-        {
-            key: 'guardian_pickup',
-            label: '保護者の送迎しやすさ',
-            value: hasParking ? '送迎しやすい候補' : '公共交通・周辺確認',
-            tone: hasParking ? 'good' : 'neutral',
-            note: hasParking ? '駐車場案内があるため送迎時に確認しやすい' : '駐車場や待機場所は公式情報で確認'
-        },
-        {
-            key: 'parking_capacity',
-            label: '駐車場の広さ',
-            value: parkingCapacity === 'large' ? '広めに使いやすい' : parkingCapacity === 'standard' ? '駐車場あり' : '要確認',
-            tone: parkingCapacity === 'large' || parkingCapacity === 'standard' ? 'good' : 'neutral',
-            note: parkingCapacity === 'large' ? '商業施設内など駐車場規模を見やすい候補' : parkingCapacity === 'standard' ? '台数や混雑時間は体験前に確認' : '駐車場案内は未掲載'
-        },
-        {
-            key: 'teacher_distance',
-            label: '先生との距離感',
-            value: hasSmallGroupCue ? '距離感をつかみやすい' : ['◎', '〇'].includes(beginner) ? '初心者が相談しやすい' : '体験で確認',
-            tone: hasSmallGroupCue || ['◎', '〇'].includes(beginner) ? 'good' : 'neutral',
-            note: hasSmallGroupCue ? '少人数・丁寧さに関する記載あり' : '初回相談や体験時の声かけを確認'
-        },
-        {
-            key: 'atmosphere',
-            label: '教室の雰囲気',
-            value: hasAtmosphereCue ? '雰囲気を想像しやすい' : '見学で確認',
-            tone: hasAtmosphereCue ? 'good' : 'neutral',
-            note: hasReviewTendencies ? '口コミ傾向・掲載情報から整理' : '写真・体験・見学で確認したい項目'
-        },
-        {
-            key: 'trial_satisfaction',
-            label: '体験レッスン満足度',
-            value: trialStatus === '無料体験あり' ? '無料体験で判断しやすい' : trialStatus === '体験案内あり' ? '体験で確認しやすい' : '体験案内は要確認',
-            tone: trialStatus === '体験案内の記載なし' ? 'neutral' : 'good',
-            note: trialStatus === '体験案内の記載なし' ? '初回の流れは公式サイトで確認' : '初回で講師・雰囲気・続けやすさを確認'
-        }
-    ];
-}
-
-function getLessonMapCardScoreMarkup(studio) {
-    const items = getLessonMapEvaluationItems(studio)
-        .filter(item => ['kids_retention', 'guardian_pickup', 'trial_satisfaction'].includes(item.key));
-
-    return `
-    <div class="lessonmap-score-card" aria-label="LessonMap独自の評価軸">
-      <div class="lessonmap-score-head">
-        <span>LessonMap評価</span>
-        <strong>通う前に見たい実感軸</strong>
-      </div>
-      <div class="lessonmap-score-mini-grid">
-        ${items.map(item => `
-          <span class="lessonmap-score-mini" data-tone="${item.tone}">
-            <span>${item.label}</span>
-            <strong>${item.value}</strong>
-          </span>
-        `).join('')}
-      </div>
-    </div>
-    `;
-}
-
-function getLessonMapEvaluationMarkup(studio) {
-    const items = getLessonMapEvaluationItems(studio);
-
-    return `
-    <section class="lessonmap-evaluation-panel" aria-label="LessonMap独自の評価軸">
-      <div class="lessonmap-evaluation-head">
-        <span class="results-kicker">LESSONMAP VIEW</span>
-        <strong>通う人が知りたい6つの評価軸</strong>
-        <p>公式情報・掲載情報・口コミ傾向から、体験前に確認したいポイントを共通フォーマットで整理しています。</p>
-      </div>
-      <div class="lessonmap-evaluation-grid">
-        ${items.map(item => `
-          <article class="lessonmap-evaluation-item" data-tone="${item.tone}">
-            <span class="lessonmap-evaluation-label">${item.label}</span>
-            <strong>${item.value}</strong>
-            <p>${item.note}</p>
-          </article>
-        `).join('')}
-      </div>
-    </section>
     `;
 }
 
@@ -3520,7 +3415,6 @@ function openModal(studioId) {
     const featureSummary = getCardFeatureSummary(studio);
     const commuteSummary = getCommuteSummary(studio);
     const quickStatusMarkup = getQuickStatusMarkup(studio);
-    const lessonMapEvaluationMarkup = getLessonMapEvaluationMarkup(studio);
     const verificationMarkup = getVerificationMarkup(studio, 'modal-verification-block');
     const locationNoteMarkup = getLocationNoteMarkup(studio, 'location-note location-note-modal');
     const curatorLabelMarkup = getCuratorLabelMarkup(studio, 'curator-label-row curator-label-row-modal');
@@ -3604,7 +3498,6 @@ function openModal(studioId) {
             <div class="modal-quick-status-wrap">
                 ${quickStatusMarkup}
             </div>
-            ${lessonMapEvaluationMarkup}
             ${verificationMarkup}
             <div class="card-meta-chips modal-feature-chips">${featureSummary}</div>
 
