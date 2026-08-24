@@ -2529,6 +2529,78 @@ const studios = [
     pricing: { system: '月謝制', minPrice: 0, note: '料金は教室へ問い合わせ' },
     features: { parking: false, beginnerFriendly: '◎', kidsClass: true, adultClass: false }, trial: '体験学習あり',
     imageUrl: 'https://images.unsplash.com/photo-1542831371-29b0f74f9713?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', link: 'https://www.soroban.or.jp/school/%E3%82%A2%E3%83%BC%E3%83%AB%E3%82%BA%E5%9B%BD%E8%AA%9E%E3%81%9D%E3%82%8D%E3%81%B0%E3%82%93%E6%95%99%E5%AE%A4/', sourceNote: '全国珠算教育連盟公式教室ページを2026-08-25確認'
+  },
+
+  // ================= 香川県宇多津町 =================
+  {
+    id: 'school-english-utazu-gem', listingType: 'school', name: '英会話のジェムスクール 宇多津校',
+    description: 'イオンタウン宇多津2階にある英会話教室。0歳から大人まで、年齢と目的に合うクラスを相談できます。',
+    category: 'English', city: '宇多津町', area: '浜二番丁周辺', access: '宇多津町浜二番丁16 イオンタウン宇多津2F',
+    genres: ['English', 'Conversation', 'Kids'], learningNeeds: ['kids_lessons', 'adult_lessons', 'language_learning'], decisionFactors: ['age_fit', 'trial_available', 'parking'],
+    fitSummary: '買い物や送迎と合わせて子ども・大人の英会話を続けたい人向け', checkpoints: ['対象クラス', '開講曜日', '月謝と教材費'],
+    pricing: { system: '月謝制', minPrice: 0, note: '入会金・年会費・施設管理費なし / 月謝は公式サイトで確認' },
+    features: { parking: true, parkingCapacity: 'large', beginnerFriendly: '◎', kidsClass: true, adultClass: true }, trial: '無料体験レッスンあり',
+    imageUrl: 'https://images.unsplash.com/photo-1543269865-cbf427effbad?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', link: 'https://www.gemschool.com/utazu', sourceNote: '公式宇多津校ページを2026-08-25確認'
+  },
+  {
+    id: 'school-english-utazu-kumon', listingType: 'school', name: '公文式 綾歌宇多津南教室',
+    description: '宇多津町にある公文式教室。英語・算数数学・国語を、一人ひとりの進度に合わせて学べます。',
+    category: 'English', city: '宇多津町', area: '宇多津南周辺', access: '宇多津町164-1 YSロードビル2F',
+    genres: ['English', 'Kids', 'Study'], learningNeeds: ['kids_lessons', 'language_learning'], decisionFactors: ['age_fit', 'schedule_fit', 'beginner_friendly'],
+    fitSummary: '英語と基礎学力を自分の進度で積み上げたい家庭向け', checkpoints: ['対象学年', '学習曜日', '会費・教材'],
+    pricing: { system: '月額制', minPrice: 0, note: '会費は学年・教科により公式サイトで確認' },
+    features: { parking: false, beginnerFriendly: '◎', kidsClass: true, adultClass: false }, trial: '学習相談・体験案内は公式ページで確認',
+    imageUrl: 'https://images.unsplash.com/photo-1513258496099-48168024aec0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', link: 'https://www.kumon.ne.jp/enter/search/classroom/1555610210/index.html', sourceNote: '公文式公式教室ページを2026-08-25確認'
+  },
+  {
+    id: 'school-piano-utazu-mion', listingType: 'school', name: 'ミオンミュージックスクール 宇多津教室',
+    description: '宇多津町浜五番丁にある初心者向け音楽教室。子ども・大人のピアノ、ギター、ボーカルなどを学べます。',
+    category: 'Piano', city: '宇多津町', area: '浜五番丁周辺', access: '宇多津町浜五番丁65 ニューオーヨシステートリーマンションS3',
+    genres: ['Piano', 'Music', 'Guitar', 'Vocal'], learningNeeds: ['kids_lessons', 'adult_lessons'], decisionFactors: ['beginner_friendly', 'genre_fit', 'trial_available'],
+    fitSummary: '初心者が好きな曲からピアノや音楽を始めたい人向け', checkpoints: ['楽器別コース', '個人レッスン時間', '料金・体験条件'],
+    pricing: { system: 'コース別', minPrice: 0, note: 'コース別料金は公式サイトで確認' },
+    features: { parking: false, beginnerFriendly: '◎', kidsClass: true, adultClass: true, weekendOpen: true }, trial: '体験レッスン申込みあり',
+    imageUrl: 'https://images.unsplash.com/photo-1520523839897-bd0b52f945a0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', link: 'https://mion-utazu.com/', sourceNote: '公式サイトを2026-08-25確認'
+  },
+  {
+    id: 'school-piano-utazu-reveur', listingType: 'school', name: 'レヴール ピアノ教室',
+    description: '宇多津町浜九番丁にある個人ピアノ教室。教室の方針や約束を確認して問い合わせできます。',
+    category: 'Piano', city: '宇多津町', area: '浜九番丁周辺', access: '宇多津町浜九番丁、詳細は公式サイトへ問い合わせ',
+    genres: ['Piano', 'Kids', 'Music'], learningNeeds: ['kids_lessons'], decisionFactors: ['teacher_fit', 'commute_fit', 'beginner_friendly'],
+    fitSummary: '浜九番丁周辺で個人ピアノ教室を探している家庭向け', checkpoints: ['対象年齢', '空き曜日', '月謝・体験条件'],
+    pricing: { system: '月謝制', minPrice: 0, note: '料金は教室へ問い合わせ' },
+    features: { parking: false, beginnerFriendly: '◎', kidsClass: true, adultClass: false }, trial: '体験条件は教室へ問い合わせ',
+    imageUrl: 'https://images.unsplash.com/photo-1520523839897-bd0b52f945a0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', link: 'https://5acxw.crayonsite.net/', sourceNote: '公式サイトを2026-08-25確認'
+  },
+  {
+    id: 'school-programming-utazu-qureo', listingType: 'school', name: 'QUREOプログラミング教室 ベスト個別 イオンタウン宇多津教室',
+    description: 'イオンタウン宇多津2階にある小学3〜6年生向け教室。ゲーム制作を通してプログラミングの基礎を学べます。',
+    category: 'Programming', city: '宇多津町', area: '浜二番丁周辺', access: '宇多津町浜二番丁16 イオンタウン宇多津2F',
+    genres: ['Programming', 'Kids', 'Game'], learningNeeds: ['kids_lessons', 'it_learning'], decisionFactors: ['age_fit', 'trial_available', 'parking'],
+    fitSummary: '小学3〜6年生が買い物動線でプログラミングを始めたい家庭向け', checkpoints: ['授業曜日', '授業料', '無料体験の条件'],
+    pricing: { system: '月謝制', minPrice: 0, note: '授業料は公式教室ページから問い合わせ' },
+    features: { parking: true, parkingCapacity: 'large', beginnerFriendly: '◎', kidsClass: true, adultClass: false }, trial: '無料プログラミング体験受付あり',
+    imageUrl: 'https://images.unsplash.com/photo-1515879218367-8466d910aaa4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', link: 'https://qureo.jp/class/bestkobetsu_aeontownutazu', sourceNote: 'QUREO公式教室ページを2026-08-25確認'
+  },
+  {
+    id: 'school-dance-utazu-hiro', listingType: 'school', name: 'ヒロダンススタジオ',
+    description: '宇多津町にある社交ダンス教室。5〜15歳のジュニアから未経験の大人、競技選手までレベル別に学べます。',
+    category: 'Dance', city: '宇多津町', area: '宇多津町役場東側', access: '宇多津町宇多津2566-2、宇多津町役場から東へ約2分',
+    genres: ['Dance', 'Ballroom', 'Kids', 'Adult'], learningNeeds: ['kids_lessons', 'adult_lessons'], decisionFactors: ['age_fit', 'beginner_friendly', 'teacher_fit'],
+    fitSummary: '社交ダンスを未経験から個人指導で始めたい子ども・大人向け', checkpoints: ['クラス区分', '個人・グループ', '料金・見学条件'],
+    pricing: { system: 'コース別', minPrice: 0, note: '料金は公式サイトへ問い合わせ' },
+    features: { parking: false, beginnerFriendly: '◎', kidsClass: true, adultClass: true }, trial: '見学・体験条件は公式サイトへ問い合わせ',
+    imageUrl: 'https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', link: 'https://www.hirodance.com/', sourceNote: '公式サイトを2026-08-25確認'
+  },
+  {
+    id: 'school-dance-utazu-ys', listingType: 'school', name: "Y's Move & Dance オッペンギンキッズ",
+    description: '宇多津町のオッペンカルチャークラブで開講するキッズダンスクラス。木曜日にレッスンを行っています。',
+    category: 'Dance', city: '宇多津町', area: '宇多津町内', access: '宇多津町2376-2 オッペンカルチャークラブ',
+    genres: ['Dance', 'Kids'], learningNeeds: ['kids_lessons'], decisionFactors: ['age_fit', 'schedule_fit', 'genre_fit'],
+    fitSummary: '宇多津町内で子どもがダンスを始めたい家庭向け', checkpoints: ['対象年齢', '木曜の開始時間', '料金・体験条件'],
+    pricing: { system: '月謝制', minPrice: 0, note: '料金は公式サイトへ問い合わせ' },
+    features: { parking: false, beginnerFriendly: '◎', kidsClass: true, adultClass: false }, scheduleNote: '木曜日17:15〜、対象別の詳細は公式サイトで確認', trial: '体験条件は公式サイトへ問い合わせ',
+    imageUrl: 'https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', link: 'https://ys-move-dance.com/', sourceNote: '公式サイトを2026-08-25確認'
   }
 ];
 

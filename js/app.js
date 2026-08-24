@@ -3249,13 +3249,13 @@ function updateResultsMeta(filtered) {
 }
 
 function getRecommendedGuides() {
-    const isKagawaScope = ['香川県', '高松市', '丸亀市', '坂出市'].includes(currentFilterState.city);
+    const isKagawaScope = ['香川県', '高松市', '丸亀市', '坂出市', '宇多津町'].includes(currentFilterState.city);
     if (isKagawaScope) {
         if (currentFilterState.city === '香川県') {
             return [{
                 href: '/recommendations/kagawa-lessons/',
                 title: '香川県の習い事ガイド',
-                description: '高松・丸亀・坂出を起点に、地域、ジャンル、対象から習い事を探せます。'
+                description: '高松・丸亀・坂出・宇多津を起点に、地域、ジャンル、対象から習い事を探せます。'
             }];
         }
         if (currentFilterState.city === '丸亀市') {
@@ -3271,6 +3271,9 @@ function getRecommendedGuides() {
                 title: '坂出市の習い事8教室ガイド',
                 description: '英会話、ピアノ、プログラミング、ダンス、そろばんを比較できます。'
             }];
+        }
+        if (currentFilterState.city === '宇多津町') {
+            return [{ href: '/recommendations/utazu-lessons/', title: '宇多津町の習い事7教室ガイド', description: '英語、ピアノ、プログラミング、ダンスを生活動線から比較できます。' }];
         }
         return [{
             href: '/recommendations/takamatsu-adult-english/',
@@ -3379,6 +3382,9 @@ function getRecommendedGuidesForStudio(studio) {
             title: '坂出市の習い事8教室ガイド',
             description: '坂出市の5ジャンルを、対象、体験、通いやすさから比較できます。'
         }];
+    }
+    if (studio.city === '宇多津町') {
+        return [{ href: '/recommendations/utazu-lessons/', title: '宇多津町の習い事7教室ガイド', description: '宇多津町の4ジャンルを、対象、体験、通いやすさから比較できます。' }];
     }
     if (studio.city === '高松市') {
         if (studio.category !== 'English') return [];
