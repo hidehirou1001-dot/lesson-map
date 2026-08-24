@@ -3249,19 +3249,26 @@ function updateResultsMeta(filtered) {
 }
 
 function getRecommendedGuides() {
-    const isKagawaScope = ['香川県', '高松市', '丸亀市'].includes(currentFilterState.city);
+    const isKagawaScope = ['香川県', '高松市', '丸亀市', '坂出市'].includes(currentFilterState.city);
     if (isKagawaScope) {
         if (currentFilterState.city === '香川県') {
             return [{
                 href: '/recommendations/kagawa-lessons/',
                 title: '香川県の習い事ガイド',
-                description: '高松・丸亀を起点に、地域、ジャンル、対象から習い事を探せます。'
+                description: '高松・丸亀・坂出を起点に、地域、ジャンル、対象から習い事を探せます。'
             }];
         }
         if (currentFilterState.city === '丸亀市') {
             return [{
                 href: '/recommendations/marugame-lessons/',
                 title: '丸亀市の習い事12教室ガイド',
+                description: '英会話、ピアノ、プログラミング、ダンス、そろばんを比較できます。'
+            }];
+        }
+        if (currentFilterState.city === '坂出市') {
+            return [{
+                href: '/recommendations/sakaide-lessons/',
+                title: '坂出市の習い事8教室ガイド',
                 description: '英会話、ピアノ、プログラミング、ダンス、そろばんを比較できます。'
             }];
         }
@@ -3364,6 +3371,13 @@ function getRecommendedGuidesForStudio(studio) {
             href: '/recommendations/marugame-lessons/',
             title: '丸亀市の習い事12教室ガイド',
             description: '丸亀市の5ジャンルを、対象、料金、体験、通いやすさから比較できます。'
+        }];
+    }
+    if (studio.city === '坂出市') {
+        return [{
+            href: '/recommendations/sakaide-lessons/',
+            title: '坂出市の習い事8教室ガイド',
+            description: '坂出市の5ジャンルを、対象、体験、通いやすさから比較できます。'
         }];
     }
     if (studio.city === '高松市') {

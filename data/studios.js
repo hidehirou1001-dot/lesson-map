@@ -2447,6 +2447,88 @@ const studios = [
     pricing: { system: '月謝制', minPrice: 0, note: '料金は教室へ問い合わせ' },
     features: { parking: false, beginnerFriendly: '◎', kidsClass: true, adultClass: false }, trial: '体験・見学条件は教室へ確認',
     imageUrl: 'https://images.unsplash.com/photo-1542831371-29b0f74f9713?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', link: 'https://www.soroban.or.jp/area/kagawa_002/', sourceNote: '全国珠算教育連盟の丸亀市教室一覧を2026-08-25確認'
+  },
+
+  // ================= 香川県坂出市 =================
+  {
+    id: 'school-english-sakaide-gem', listingType: 'school', name: '英会話のジェムスクール 坂出校',
+    description: '坂出市京町にある英会話教室。0歳から大人まで、年齢と目的に合うクラスを相談できます。',
+    category: 'English', city: '坂出市', area: '京町周辺', access: '坂出市京町3-7-25 ルミナスMIZUHO京町1F',
+    genres: ['English', 'Conversation', 'Kids'], learningNeeds: ['kids_lessons', 'adult_lessons', 'language_learning'], decisionFactors: ['age_fit', 'trial_available', 'schedule_fit'],
+    fitSummary: '子どもから大人まで無料体験から英会話を始めたい人向け', checkpoints: ['対象クラス', '開講曜日', '月謝と教材費'],
+    pricing: { system: '月謝制', minPrice: 0, note: 'クラス別料金は公式サイトで確認' },
+    features: { parking: false, beginnerFriendly: '◎', kidsClass: true, adultClass: true }, trial: '無料体験レッスンあり',
+    imageUrl: 'https://images.unsplash.com/photo-1543269865-cbf427effbad?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', link: 'https://www.gemschool.com/sakaide', sourceNote: '公式坂出校ページを2026-08-25確認'
+  },
+  {
+    id: 'school-english-sakaide-seiha', listingType: 'school', name: 'セイハ英語学院 坂出学園通り教室',
+    description: '坂出市池園町にある子ども英会話教室。幼児、小学生、中学生向けの年齢別コースがあります。',
+    category: 'English', city: '坂出市', area: '池園町周辺', access: '坂出市池園町6-4 1F',
+    genres: ['English', 'Kids', 'Qualification'], learningNeeds: ['kids_lessons', 'language_learning'], decisionFactors: ['age_fit', 'trial_available', 'schedule_fit'],
+    fitSummary: '年齢別の子ども英会話と英検対策を検討したい家庭向け', checkpoints: ['対象年齢', '開講曜日', '教材費を含む総額'],
+    pricing: { system: '月謝制', minPrice: 0, note: '年齢別料金と別途費用は公式サイトで確認' },
+    features: { parking: false, beginnerFriendly: '◎', kidsClass: true, adultClass: false }, trial: '体験案内は公式サイトで確認',
+    imageUrl: 'https://images.unsplash.com/photo-1513258496099-48168024aec0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', link: 'https://english-academy.seiha.com/classroom/915042/', sourceNote: 'セイハ公式教室ページを2026-08-25確認'
+  },
+  {
+    id: 'school-piano-sakaide-takahashi', listingType: 'school', name: '髙橋ピアノ教室',
+    description: '坂出市の個人ピアノ教室。演奏する喜び、自信、音楽を通した豊かな心を大切に指導しています。',
+    category: 'Piano', city: '坂出市', area: '坂出市内', access: '所在地の詳細は公式サイトへ問い合わせ',
+    genres: ['Piano', 'Kids', 'Music'], learningNeeds: ['kids_lessons'], decisionFactors: ['teacher_fit', 'beginner_friendly', 'trial_available'],
+    fitSummary: '個人指導で表現する楽しさと自信を育てたい家庭向け', checkpoints: ['対象年齢', 'レッスン曜日', '料金・体験条件'],
+    pricing: { system: '月謝制', minPrice: 0, note: '料金は教室へ問い合わせ' },
+    features: { parking: false, beginnerFriendly: '◎', kidsClass: true, adultClass: false }, trial: '体験条件は教室へ問い合わせ',
+    imageUrl: 'https://images.unsplash.com/photo-1520523839897-bd0b52f945a0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', link: 'https://www.sakaide-pianoschool.com/', sourceNote: '公式サイトを2026-08-25確認'
+  },
+  {
+    id: 'school-piano-sakaide-yamaha', listingType: 'school', name: 'ヤマハ音楽教室 坂出本店',
+    description: '坂出市京町にあるヤマハ音楽教室。幼児期の音感育成を中心としたコースを確認できます。',
+    category: 'Piano', city: '坂出市', area: '京町周辺', access: '坂出市京町3-7-51',
+    genres: ['Piano', 'Music', 'Kids'], learningNeeds: ['kids_lessons'], decisionFactors: ['age_fit', 'trial_available', 'commute_fit'],
+    fitSummary: '幼児期から総合的な音楽教育を始めたい家庭向け', checkpoints: ['募集中コース', '個人・グループ', '教材費を含む総額'],
+    pricing: { system: 'コース別', minPrice: 0, note: 'コース別料金は公式サイトで確認' },
+    features: { parking: false, beginnerFriendly: '◎', kidsClass: true, adultClass: false }, trial: '体験・見学はコース別に確認',
+    imageUrl: 'https://images.unsplash.com/photo-1520523839897-bd0b52f945a0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', link: 'https://www.yamaha-ongaku.com/music-school/room/room_detail.php?shopcode=20700400&venuecode=P35', sourceNote: 'ヤマハ公式会場ページを2026-08-25確認'
+  },
+  {
+    id: 'school-piano-sakaide-kawai', listingType: 'school', name: 'カワイ音楽教室 坂出',
+    description: '坂出市にあるカワイ音楽教室。ピアノとリトミックのコースを年齢から検討できます。',
+    category: 'Piano', city: '坂出市', area: '坂出市内', access: '所在地・開講曜日は公式教室ページで確認',
+    genres: ['Piano', 'Music', 'Kids'], learningNeeds: ['kids_lessons', 'adult_lessons'], decisionFactors: ['age_fit', 'trial_available', 'beginner_friendly'],
+    fitSummary: 'ピアノやリトミックを体験から検討したい家庭向け', checkpoints: ['開講コース', '入会金・管理費', '体験日程'],
+    pricing: { system: '月謝制', minPrice: 0, note: 'コース別料金は公式教室ページで確認' },
+    features: { parking: false, beginnerFriendly: '◎', kidsClass: true, adultClass: true }, trial: '無料体験・おためし案内は公式ページで確認',
+    imageUrl: 'https://images.unsplash.com/photo-1520523839897-bd0b52f945a0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', link: 'https://music.kawai.jp/search/detail/00E870', sourceNote: 'カワイ公式教室ページを2026-08-25確認'
+  },
+  {
+    id: 'school-programming-sakaide-qureo', listingType: 'school', name: 'QUREOプログラミング教室 個別指導フォレスト坂出駅南口校',
+    description: '坂出駅南口から徒歩4分の小学生向けプログラミング教室。ゲーム制作を通して基礎を学べます。',
+    category: 'Programming', city: '坂出市', area: '駒止町周辺', access: '坂出市駒止町1-2-18、坂出駅徒歩4分',
+    genres: ['Programming', 'Kids', 'Game'], learningNeeds: ['kids_lessons', 'it_learning'], decisionFactors: ['age_fit', 'trial_available', 'commute_fit'],
+    fitSummary: '小学2〜6年生が駅近でプログラミングを始めたい家庭向け', checkpoints: ['授業曜日', '授業料', '無料体験の条件'],
+    pricing: { system: '月謝制', minPrice: 0, note: '授業料は公式教室ページから問い合わせ' },
+    features: { parking: false, beginnerFriendly: '◎', kidsClass: true, adultClass: false }, trial: '1か月無料体験の対象表示あり・最新条件を確認',
+    imageUrl: 'https://images.unsplash.com/photo-1515879218367-8466d910aaa4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', link: 'https://qureo.jp/class/kagawa/sakaide', sourceNote: 'QUREO公式坂出市教室一覧を2026-08-25確認'
+  },
+  {
+    id: 'school-dance-sakaide-aqua', listingType: 'school', name: 'Aqua Dance School 香川坂出校',
+    description: '坂出市久米町にあるダンススクール。専用スタジオで開講クラスを確認できます。',
+    category: 'Dance', city: '坂出市', area: '久米町周辺', access: '坂出市久米町1-15-60 ヴェールクレール久米町1F',
+    genres: ['Dance', 'Kids'], learningNeeds: ['kids_lessons', 'adult_lessons'], decisionFactors: ['genre_fit', 'schedule_fit', 'trial_available'],
+    fitSummary: '坂出市内の専用スタジオでダンスを始めたい人向け', checkpoints: ['対象年齢', 'ジャンル別クラス', '料金・体験条件'],
+    pricing: { system: '月謝制', minPrice: 0, note: '料金は公式サイトで確認' },
+    features: { parking: false, beginnerFriendly: '◎', kidsClass: true, adultClass: true }, trial: '体験条件は公式サイトへ問い合わせ',
+    imageUrl: 'https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', link: 'https://www.logos-dance.com/school/school_10.php', sourceNote: '公式校舎ページを2026-08-25確認'
+  },
+  {
+    id: 'school-soroban-sakaide-arls', listingType: 'school', name: 'アールズ国語そろばん教室',
+    description: '坂出市駒止町にあるそろばん教室。全国珠算教育連盟に登録され、体験学習にも対応しています。',
+    category: 'Soroban', city: '坂出市', area: '駒止町周辺', access: '坂出市駒止町1-2-18 2F',
+    genres: ['Soroban', 'Mental Arithmetic', 'Kids'], learningNeeds: ['kids_lessons'], decisionFactors: ['trial_available', 'commute_fit', 'beginner_friendly'],
+    fitSummary: '坂出駅周辺で体験からそろばんを始めたい家庭向け', checkpoints: ['対象年齢', '練習曜日', '料金・体験条件'],
+    pricing: { system: '月謝制', minPrice: 0, note: '料金は教室へ問い合わせ' },
+    features: { parking: false, beginnerFriendly: '◎', kidsClass: true, adultClass: false }, trial: '体験学習あり',
+    imageUrl: 'https://images.unsplash.com/photo-1542831371-29b0f74f9713?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', link: 'https://www.soroban.or.jp/school/%E3%82%A2%E3%83%BC%E3%83%AB%E3%82%BA%E5%9B%BD%E8%AA%9E%E3%81%9D%E3%82%8D%E3%81%B0%E3%82%93%E6%95%99%E5%AE%A4/', sourceNote: '全国珠算教育連盟公式教室ページを2026-08-25確認'
   }
 ];
 
