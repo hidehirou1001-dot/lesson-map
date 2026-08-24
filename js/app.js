@@ -858,7 +858,7 @@ function getCuratorLabelMarkup(studio, className = 'curator-label-row') {
     `;
 }
 
-const SITE_REVIEW_DATE = '2026-08-20';
+const SITE_REVIEW_DATE = '2026-08-25';
 const COMPARE_MEMO_KEY = 'lessonmap_compare_memo';
 const COMPARE_MEMO_LIMIT = 3;
 const RECENT_GUIDES_KEY = 'lessonmap_recent_guides';
@@ -871,7 +871,7 @@ const cityRegionMap = {
     東予: ['今治市', '新居浜市', '西条市', '四国中央市'],
     南予: ['宇和島市'],
     愛媛県: ['松山市', '松前町', '東温市', '伊予市', '今治市', '新居浜市', '西条市', '四国中央市', '宇和島市'],
-    香川県: ['高松市']
+    香川県: ['高松市', '丸亀市']
 };
 const resultsPanelState = {
     guide: false,
@@ -3249,13 +3249,20 @@ function updateResultsMeta(filtered) {
 }
 
 function getRecommendedGuides() {
-    const isKagawaScope = ['香川県', '高松市'].includes(currentFilterState.city);
+    const isKagawaScope = ['香川県', '高松市', '丸亀市'].includes(currentFilterState.city);
     if (isKagawaScope) {
         if (currentFilterState.city === '香川県') {
             return [{
                 href: '/recommendations/kagawa-lessons/',
                 title: '香川県の習い事ガイド',
-                description: '高松を起点に、地域、ジャンル、対象から習い事を探せます。'
+                description: '高松・丸亀を起点に、地域、ジャンル、対象から習い事を探せます。'
+            }];
+        }
+        if (currentFilterState.city === '丸亀市') {
+            return [{
+                href: '/recommendations/marugame-lessons/',
+                title: '丸亀市の習い事12教室ガイド',
+                description: '英会話、ピアノ、プログラミング、ダンス、そろばんを比較できます。'
             }];
         }
         return [{
@@ -3352,6 +3359,13 @@ function getRecommendedGuides() {
 
 function getRecommendedGuidesForStudio(studio) {
     if (!studio) return [];
+    if (studio.city === '丸亀市') {
+        return [{
+            href: '/recommendations/marugame-lessons/',
+            title: '丸亀市の習い事12教室ガイド',
+            description: '丸亀市の5ジャンルを、対象、料金、体験、通いやすさから比較できます。'
+        }];
+    }
     if (studio.city === '高松市') {
         if (studio.category !== 'English') return [];
         return [{

@@ -2325,6 +2325,128 @@ const studios = [
     imageUrl: 'https://images.unsplash.com/photo-1542831371-29b0f74f9713?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
     link: 'https://www.soroban.or.jp/area/kagawa_001/',
     sourceNote: '全国珠算教育連盟の高松市教室一覧を2026-08-20確認'
+  },
+
+  // ================= 香川県丸亀市 =================
+  {
+    id: 'school-english-marugame-gem', listingType: 'school', name: '英会話のジェムスクール 丸亀校',
+    description: '丸亀市土器町東にある英会話教室。0歳から大人までを対象に、年齢と目的に合わせて学べます。',
+    category: 'English', city: '丸亀市', area: '土器町東周辺', access: '丸亀市土器町東7-754',
+    genres: ['English', 'Conversation', 'Kids'], learningNeeds: ['kids_lessons', 'adult_lessons', 'language_learning'], decisionFactors: ['age_fit', 'trial_available', 'schedule_fit'],
+    fitSummary: '子どもから大人まで、年齢に合う英会話を相談したい人向け', checkpoints: ['対象クラス', '開講曜日', '月謝と教材費'],
+    pricing: { system: '月謝制', minPrice: 0, note: '入会金・年会費・施設管理費なし / 月謝は公式サイトで確認' },
+    features: { parking: true, beginnerFriendly: '◎', kidsClass: true, adultClass: true }, trial: '体験レッスンは公式サイトで確認',
+    imageUrl: 'https://images.unsplash.com/photo-1543269865-cbf427effbad?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', link: 'https://www.gemschool.com/marugame', sourceNote: '公式丸亀校ページを2026-08-25確認'
+  },
+  {
+    id: 'school-english-marugame-private', listingType: 'school', name: '丸亀英会話 Marugame English',
+    description: '丸亀市にある少人数・プライベート英会話教室。子ども向け、オンライン、英語料理など目的に応じたコースがあります。',
+    category: 'English', city: '丸亀市', area: '丸亀市内', access: '所在地の詳細は公式サイトで確認',
+    genres: ['English', 'Conversation', 'Kids', 'Online'], learningNeeds: ['kids_lessons', 'adult_lessons', 'language_learning'], decisionFactors: ['small_group', 'schedule_fit', 'beginner_friendly'],
+    fitSummary: '少人数やマンツーマンで会話を練習したい人向け', checkpoints: ['教室所在地', 'グループと個別の違い', '料金・体験条件'],
+    pricing: { system: 'コース制', minPrice: 0, note: 'コース別料金は公式サイトへ問い合わせ' },
+    features: { parking: false, beginnerFriendly: '◎', kidsClass: true, adultClass: true }, trial: '体験条件は公式サイトへ問い合わせ',
+    imageUrl: 'https://images.unsplash.com/photo-1543269865-cbf427effbad?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', link: 'https://marugame-english.com/', sourceNote: '公式サイトを2026-08-25確認'
+  },
+  {
+    id: 'school-english-marugame-lepton', listingType: 'school', name: '学研CAIスクールLepton丸亀校',
+    description: '丸亀市川西町北にある個別指導型の子ども英語教室。小学生から4技能を自分の進度で学べます。',
+    category: 'English', city: '丸亀市', area: '川西町北周辺', access: '丸亀市川西町北2220-1F、春日の辻バス停から約10m',
+    genres: ['English', 'Kids', 'Qualification'], learningNeeds: ['kids_lessons', 'language_learning'], decisionFactors: ['age_fit', 'trial_available', 'schedule_fit'],
+    fitSummary: '小学生が個別進度で英語4技能を学びたい家庭向け', checkpoints: ['週1回と週2回', '教材費', '入会金・年会費'],
+    pricing: { system: '月謝制', minPrice: 7810, note: '週1回の公式目安 / 教材費・入会金等は別途確認' },
+    features: { parking: false, beginnerFriendly: '◎', kidsClass: true, adultClass: false }, trial: '無料体験レッスンあり',
+    imageUrl: 'https://images.unsplash.com/photo-1513258496099-48168024aec0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', link: 'https://www.lepton.co.jp/374001', sourceNote: 'Lepton公式教室ページを2026-08-25確認'
+  },
+  {
+    id: 'school-english-marugame-seiha', listingType: 'school', name: 'セイハ英語学院 ゆめタウン丸亀教室',
+    description: 'ゆめタウン丸亀3階にある子ども英会話教室。乳幼児から中学生まで年齢別コースを用意しています。',
+    category: 'English', city: '丸亀市', area: '新田町周辺', access: '丸亀市新田町150、ゆめタウン丸亀3F',
+    genres: ['English', 'Kids', 'Qualification'], learningNeeds: ['kids_lessons', 'language_learning'], decisionFactors: ['age_fit', 'commute_fit', 'trial_available'],
+    fitSummary: '買い物動線で子どもの英会話を続けたい家庭向け', checkpoints: ['対象年齢', '振替条件', '教材費を含む総額'],
+    pricing: { system: '月謝制', minPrice: 5940, note: '0〜3歳親子コースの公式掲載額〜 / 年齢別料金・別途費用を確認' },
+    features: { parking: true, parkingCapacity: 'large', weekendOpen: true, beginnerFriendly: '◎', kidsClass: true, adultClass: false }, trial: '体験レッスン案内あり',
+    imageUrl: 'https://images.unsplash.com/photo-1513258496099-48168024aec0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', link: 'https://english-academy.seiha.com/classroom/81200/', sourceNote: 'セイハ公式教室ページを2026-08-25確認'
+  },
+  {
+    id: 'school-piano-marugame-kawai-center', listingType: 'school', name: 'カワイ音楽教室 丸亀センター',
+    description: '丸亀市幸町にある音楽教室。4歳・小学生からのピアノや、おためしコースなどを確認できます。',
+    category: 'Piano', city: '丸亀市', area: '幸町周辺', access: '丸亀市幸町2丁目6-18、丸亀聖母幼稚園前',
+    genres: ['Piano', 'Kids', 'Vocal'], learningNeeds: ['kids_lessons', 'adult_lessons'], decisionFactors: ['age_fit', 'trial_available', 'commute_fit'],
+    fitSummary: '体験から子どもの個人ピアノを検討したい家庭向け', checkpoints: ['開講曜日', '入会金・管理費', '駐車位置'],
+    pricing: { system: '月謝制', minPrice: 0, note: 'コース別料金は公式教室ページで確認' },
+    features: { parking: true, beginnerFriendly: '◎', kidsClass: true, adultClass: true }, trial: '無料体験・おためし3回案内あり',
+    imageUrl: 'https://images.unsplash.com/photo-1520523839897-bd0b52f945a0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', link: 'https://music.kawai.jp/search/detail/001448', sourceNote: 'カワイ公式教室ページを2026-08-25確認'
+  },
+  {
+    id: 'school-piano-marugame-kawai-fuji', listingType: 'school', name: 'カワイ音楽教室 フジグラン丸亀',
+    description: 'フジグラン丸亀内にある音楽教室。4歳・小学生からの個人ピアノや子ども向け楽器コースがあります。',
+    category: 'Piano', city: '丸亀市', area: '川西町南周辺', access: '丸亀市川西町南1280-1、フジグラン丸亀内',
+    genres: ['Piano', 'Kids', 'Music'], learningNeeds: ['kids_lessons'], decisionFactors: ['commute_fit', 'trial_available', 'age_fit'],
+    fitSummary: '買い物と合わせて子どものピアノを続けたい家庭向け', checkpoints: ['授業料と管理費', '開講曜日', '体験日程'],
+    pricing: { system: '月謝制', minPrice: 8250, note: '4歳からのピアノ公式授業料 / 入会金・運営管理費は別途' },
+    features: { parking: true, parkingCapacity: 'large', beginnerFriendly: '◎', kidsClass: true, adultClass: false }, trial: '無料体験・おためし案内あり',
+    imageUrl: 'https://images.unsplash.com/photo-1520523839897-bd0b52f945a0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', link: 'https://music.kawai.jp/search/detail/006555', sourceNote: 'カワイ公式丸亀市教室一覧・教室ページを2026-08-25確認'
+  },
+  {
+    id: 'school-piano-marugame-yamaha', listingType: 'school', name: 'ヤマハ音楽教室 ミュージックパーク丸亀',
+    description: '丸亀市川西町南にある音楽教室。1歳から小学生の総合音楽教育と、小学生から大人の楽器・歌を検討できます。',
+    category: 'Piano', city: '丸亀市', area: '川西町南周辺', access: '丸亀市川西町南1166、フジグランから徒歩約5分',
+    genres: ['Piano', 'Music', 'Kids', 'Adult'], learningNeeds: ['kids_lessons', 'adult_lessons'], decisionFactors: ['age_fit', 'parking', 'trial_available'],
+    fitSummary: '幼児の総合音楽教育から大人の楽器まで相談したい人向け', checkpoints: ['募集中コース', '個人とグループ', '教材費を含む総額'],
+    pricing: { system: 'コース別', minPrice: 0, note: 'コース別料金は公式サイトで確認' },
+    features: { parking: true, parkingCapacity: 'large', beginnerFriendly: '◎', kidsClass: true, adultClass: true }, trial: '体験・見学はコース別に確認',
+    imageUrl: 'https://images.unsplash.com/photo-1520523839897-bd0b52f945a0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', link: 'https://school.jp.yamaha.com/music/venue/detail/?id=207004T32', sourceNote: 'ヤマハ公式会場ページを2026-08-25確認'
+  },
+  {
+    id: 'school-programming-marugame-qureo-ayauta', listingType: 'school', name: 'QUREOプログラミング教室 ベスト個別 綾歌教室',
+    description: '丸亀市綾歌町にある小学生向けプログラミング教室。初級コースでゲーム制作を通じて基礎を学べます。',
+    category: 'Programming', city: '丸亀市', area: '綾歌町周辺', access: '丸亀市綾歌町栗熊東476-3、ことでん栗熊駅徒歩1分',
+    genres: ['Programming', 'Kids', 'Game'], learningNeeds: ['kids_lessons', 'it_learning'], decisionFactors: ['age_fit', 'trial_available', 'commute_fit'],
+    fitSummary: '小学3〜6年生が駅近でプログラミングを始めたい家庭向け', checkpoints: ['授業曜日', '授業料', '無料体験の実施期間'],
+    pricing: { system: '月謝制', minPrice: 0, note: '授業料は公式教室ページから問い合わせ' },
+    features: { parking: false, beginnerFriendly: '◎', kidsClass: true, adultClass: false }, trial: '無料体験受付あり・実施内容は時期により確認',
+    imageUrl: 'https://images.unsplash.com/photo-1515879218367-8466d910aaa4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', link: 'https://qureo.jp/class/bestkobetsu_ayauta', sourceNote: 'QUREO公式教室ページを2026-08-25確認'
+  },
+  {
+    id: 'school-dance-marugame-pullup', listingType: 'school', name: 'プルアップダンススタジオ 丸亀校',
+    description: '丸亀市六番丁にあるダンススタジオ。幼児から大人までのクラスがあり、見学・無料体験を受け付けています。',
+    category: 'Dance', city: '丸亀市', area: '六番丁周辺', access: '丸亀市六番丁4-48',
+    genres: ['Dance', 'HIPHOP', 'JAZZ', 'Kids'], learningNeeds: ['kids_lessons', 'adult_lessons'], decisionFactors: ['age_fit', 'trial_available', 'schedule_fit'],
+    fitSummary: '幼児から大人までクラス表を見てダンスを選びたい人向け', checkpoints: ['年齢別クラス', '最新スケジュール', '月謝・体験条件'],
+    pricing: { system: '月謝制', minPrice: 0, note: '料金は公式サイトへ確認' },
+    features: { parking: false, beginnerFriendly: '◎', kidsClass: true, adultClass: true }, trial: '見学・無料体験レッスンあり',
+    imageUrl: 'https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', link: 'https://pullup-dance.com/', sourceNote: '公式サイト・スケジュールページを2026-08-25確認'
+  },
+  {
+    id: 'school-dance-marugame-fly', listingType: 'school', name: 'FLY dance studio 丸亀駅前校',
+    description: '丸亀駅前にあるストリート系ダンススタジオ。HIPHOPやK-POPなどを通じて仲間と学べます。',
+    category: 'Dance', city: '丸亀市', area: '浜町周辺', access: '丸亀市浜町45-1 第2フロントビル4F、丸亀駅前',
+    genres: ['Dance', 'HIPHOP', 'KPOP', 'Kids'], learningNeeds: ['kids_lessons', 'adult_lessons'], decisionFactors: ['commute_fit', 'genre_fit', 'beginner_friendly'],
+    fitSummary: '丸亀駅前でストリートダンスを始めたい子ども・大人向け', checkpoints: ['対象年齢', 'クラス別曜日', '料金・体験条件'],
+    pricing: { system: '月謝制', minPrice: 0, note: '料金は公式サイトへ問い合わせ' },
+    features: { parking: false, beginnerFriendly: '◎', kidsClass: true, adultClass: true }, trial: '体験条件は公式サイトへ問い合わせ',
+    imageUrl: 'https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', link: 'https://fly3939.wixsite.com/fly-dance-studio', sourceNote: '公式サイトを2026-08-25確認'
+  },
+  {
+    id: 'school-soroban-marugame-aonoyama', listingType: 'school', name: '青の山珠算塾',
+    description: '丸亀市土器町東にあるそろばん教室。手作り教材を使い、基礎を大切に指導しています。',
+    category: 'Soroban', city: '丸亀市', area: '土器町東周辺', access: '丸亀市土器町東5丁目720',
+    genres: ['Soroban', 'Mental Arithmetic', 'Kids'], learningNeeds: ['kids_lessons'], decisionFactors: ['commute_fit', 'schedule_fit', 'beginner_friendly'],
+    fitSummary: '土器町周辺で曜日を選んでそろばんを続けたい家庭向け', checkpoints: ['対象年齢', '月謝', '体験・見学条件'],
+    pricing: { system: '月謝制', minPrice: 0, note: '料金は教室へ問い合わせ' },
+    features: { parking: false, beginnerFriendly: '◎', kidsClass: true, adultClass: false }, scheduleNote: '火・水・木・土 16:00〜19:30', trial: '体験・見学条件は教室へ確認',
+    imageUrl: 'https://images.unsplash.com/photo-1542831371-29b0f74f9713?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', link: 'https://www.soroban.or.jp/school/%E9%9D%92%E3%81%AE%E5%B1%B1%E7%8F%A0%E7%AE%97%E5%A1%BE/', sourceNote: '全国珠算教育連盟公式教室ページを2026-08-25確認'
+  },
+  {
+    id: 'school-soroban-marugame-arls', listingType: 'school', name: 'アールズそろばん教室',
+    description: '丸亀市金倉町にある、全国珠算教育連盟の教室検索に掲載されたそろばん教室です。',
+    category: 'Soroban', city: '丸亀市', area: '金倉町周辺', access: '丸亀市金倉町1709-8',
+    genres: ['Soroban', 'Mental Arithmetic', 'Kids'], learningNeeds: ['kids_lessons'], decisionFactors: ['commute_fit', 'beginner_friendly'],
+    fitSummary: '金倉町周辺でそろばん教室を探している家庭向け', checkpoints: ['対象年齢', '練習曜日', '料金・体験条件'],
+    pricing: { system: '月謝制', minPrice: 0, note: '料金は教室へ問い合わせ' },
+    features: { parking: false, beginnerFriendly: '◎', kidsClass: true, adultClass: false }, trial: '体験・見学条件は教室へ確認',
+    imageUrl: 'https://images.unsplash.com/photo-1542831371-29b0f74f9713?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', link: 'https://www.soroban.or.jp/area/kagawa_002/', sourceNote: '全国珠算教育連盟の丸亀市教室一覧を2026-08-25確認'
   }
 ];
 
