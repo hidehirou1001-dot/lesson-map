@@ -679,27 +679,13 @@ function getTrialStatus(studio) {
 }
 
 function getQuickStatusItems(studio) {
-    const hasPricing = studio?.pricing?.minPrice > 0 || hasVisiblePricing(studio?.pricing);
-    const parkingCapacity = getParkingCapacity(studio);
     const weekendOpen = hasWeekendOpen(studio);
     return [
-        {
-            key: 'price',
-            label: '料金',
-            value: hasPricing ? '公開あり' : '料金表の掲載なし',
-            tone: hasPricing ? 'good' : 'neutral'
-        },
         {
             key: 'trial',
             label: '体験',
             value: hasTrialInfo(studio) ? '案内あり' : '体験案内の記載なし',
             tone: hasTrialInfo(studio) ? 'good' : 'neutral'
-        },
-        {
-            key: 'access',
-            label: '通いやすさ',
-            value: getParkingStatusLabel(studio),
-            tone: parkingCapacity === 'large' || parkingCapacity === 'standard' ? 'good' : 'neutral'
         },
         {
             key: 'schedule',
