@@ -2775,6 +2775,84 @@ const studios = [
     fitSummary: '楽器店の教室で個人ピアノレッスンを始めたい子ども・大人向け', checkpoints: ['対象年齢', '開講曜日', '月謝・教材費'],
     pricing: { system: 'コース別', minPrice: 0, note: '料金は公式サイトで確認' }, features: { parking: false, beginnerFriendly: '◎', kidsClass: true, adultClass: true }, trial: '体験・見学は教室へ問い合わせ',
     imageUrl: 'https://images.unsplash.com/photo-1520523839897-bd0b52f945a0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', link: 'https://www.kurosaki-gakki.jp/lesson_info/lesson_info_index/original/piano_kojin/', sourceNote: '黒崎楽器公式サイトを2026-08-25確認'
+  },
+
+  // ================= 徳島県藍住町 =================
+  {
+    id: 'school-english-aizumi-ecc', listingType: 'school', name: 'ECCジュニア 藍住教室',
+    description: '藍住町矢上にある2歳から高校生まで通える英語教室。英会話、英検、受験や国際交流まで継続的に学べます。',
+    category: 'English', city: '藍住町', area: '矢上周辺', access: '板野郡藍住町矢上字北分82-1',
+    genres: ['English', 'Kids', 'Exam'], learningNeeds: ['kids_lessons', 'english_learning'], decisionFactors: ['age_fit', 'goal_fit', 'schedule_fit'],
+    fitSummary: '幼児期から高校まで英語学習を継続したい家庭向け', checkpoints: ['年齢別コース', '時間割', '授業料・教材費'],
+    pricing: { system: 'コース別', minPrice: 0, note: 'コース別料金は公式サイトで確認' }, features: { parking: false, beginnerFriendly: '◎', kidsClass: true, adultClass: false }, trial: '体験・問い合わせは公式サイトから',
+    imageUrl: 'https://images.unsplash.com/photo-1509062522246-3755977927d7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', link: 'https://tokushima-ecc.com/', sourceNote: '公式サイトを2026-08-25確認'
+  },
+  {
+    id: 'school-programming-aizumi-sunnygarden', listingType: 'school', name: 'サニーガーデンアカデミー',
+    description: '藍住町富吉にあるプログラミング、音楽、英語、デジタルものづくりの教室。興味に合わせて複数分野から選べます。',
+    category: 'Programming', city: '藍住町', area: '富吉周辺', access: '板野郡藍住町富吉字地神60-3',
+    genres: ['Programming', 'Music', 'English', 'Kids'], learningNeeds: ['kids_lessons', 'it_learning', 'music_learning'], decisionFactors: ['goal_fit', 'trial_available', 'genre_fit'],
+    fitSummary: 'プログラミングと音楽・英語を横断して学びたい子ども向け', checkpoints: ['対象年齢', 'コース内容', '曜日・料金'],
+    pricing: { system: 'コース別', minPrice: 0, note: '料金は公式サイトで確認' }, features: { parking: false, beginnerFriendly: '◎', kidsClass: true, adultClass: false }, trial: '無料体験案内あり',
+    imageUrl: 'https://images.unsplash.com/photo-1515879218367-8466d910aaa4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', link: 'https://sunnygarden-academy.com/?page_id=478', sourceNote: '公式サイトを2026-08-25確認'
+  },
+  {
+    id: 'school-art-aizumi-ashio', listingType: 'school', name: '芦尾節子こども絵画教室',
+    description: '藍住町で開講する子ども向けの絵画・工作教室。描くことや作ることを通して自由な表現を楽しめます。',
+    category: 'Art', city: '藍住町', area: '藍住町内', access: '板野郡藍住町、詳細は公式サイトで確認',
+    genres: ['Art', 'Craft', 'Kids'], learningNeeds: ['kids_lessons', 'creative_learning'], decisionFactors: ['teacher_fit', 'schedule_fit', 'genre_fit'],
+    fitSummary: '絵や工作が好きな子どもの表現力を伸ばしたい家庭向け', checkpoints: ['対象年齢', '開催場所', '月謝・材料費'],
+    pricing: { system: '問い合わせ', minPrice: 0, note: '料金は公式サイトで確認' }, features: { parking: false, beginnerFriendly: '◎', kidsClass: true, adultClass: false }, trial: '見学・体験条件は公式サイトへ問い合わせ',
+    imageUrl: 'https://images.unsplash.com/photo-1541961017774-22349e4a1262?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', link: 'https://kodomo-art.jp/guidance', sourceNote: '公式サイトを2026-08-25確認'
+  },
+  {
+    id: 'class-sports-aizumi-ok', listingType: 'class', name: 'OKスポーツクラブ藍住',
+    description: '藍住町奥野にあるフィットネス＆コミュニティ施設。子ども向け短期教室など、時期に応じたスポーツ講座を案内しています。',
+    category: 'Fitness', city: '藍住町', area: '奥野周辺', access: '板野郡藍住町奥野字乾5-7',
+    genres: ['Sports', 'Swimming', 'Kids', 'Adult'], learningNeeds: ['kids_lessons', 'adult_lessons', 'sports_learning'], decisionFactors: ['schedule_fit', 'parking', 'trial_available'],
+    fitSummary: '地域のスポーツ施設で運動習慣をつくりたい子ども・大人向け', checkpoints: ['募集中の教室', '対象年齢', '受講料・開催期間'],
+    pricing: { system: '講座・会員別', minPrice: 0, note: '最新料金は公式サイトで確認' }, features: { parking: true, beginnerFriendly: '◎', kidsClass: true, adultClass: true }, trial: '体験・短期教室は最新案内を確認',
+    imageUrl: 'https://images.unsplash.com/photo-1538805060514-97d9cc17730c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', link: 'https://www.oksportsclub.co.jp/aok', sourceNote: '公式サイトを2026-08-25確認'
+  },
+
+  // ================= 徳島県北島町 =================
+  {
+    id: 'school-english-kitajima-ecc', listingType: 'school', name: 'ECCジュニア 北島中央教室',
+    description: '北島町で幼児から高校生までを対象に英語を学べる教室。英会話、英検、受験を見据えた継続学習に対応しています。',
+    category: 'English', city: '北島町', area: '北島町内', access: '板野郡北島町、詳細は公式サイトで確認',
+    genres: ['English', 'Kids', 'Exam'], learningNeeds: ['kids_lessons', 'english_learning'], decisionFactors: ['age_fit', 'goal_fit', 'teacher_fit'],
+    fitSummary: '北島町で幼児期から英語を長く続けたい家庭向け', checkpoints: ['所在地', '年齢別コース', '時間割・料金'],
+    pricing: { system: 'コース別', minPrice: 0, note: 'コース別料金は公式サイトで確認' }, features: { parking: false, beginnerFriendly: '◎', kidsClass: true, adultClass: false }, trial: '体験・問い合わせは公式サイトから',
+    imageUrl: 'https://images.unsplash.com/photo-1509062522246-3755977927d7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', link: 'https://tokushima-ecc.com/', sourceNote: '公式サイトを2026-08-25確認'
+  },
+  {
+    id: 'class-mixed-kitajima-roufuk', listingType: 'class', name: 'サンライフ北島・サンビレッジ北島 教室',
+    description: '北島町の公共施設で開講される各種教室。キッズ英会話・ダンスから、大人のバレエ、卓球、バドミントンまで選べます。',
+    category: 'Fitness', city: '北島町', area: '北島町内公共施設', access: 'サンライフ北島・サンビレッジ北島ほか。教室ごとの会場は公式サイトで確認',
+    genres: ['Sports', 'English', 'Dance', 'Kids', 'Adult'], learningNeeds: ['kids_lessons', 'adult_lessons', 'sports_learning'], decisionFactors: ['age_fit', 'schedule_fit', 'price_clarity'],
+    fitSummary: '公共施設の期間講座から家族に合う学びを選びたい人向け', checkpoints: ['募集期間', '会場', '受講回数・料金'],
+    pricing: { system: '期間講座', minPrice: 0, note: '教室別の受講料は公式一覧で確認' }, features: { parking: true, beginnerFriendly: '◎', kidsClass: true, adultClass: true }, trial: '募集状況・体験可否は施設へ確認',
+    imageUrl: 'https://images.unsplash.com/photo-1538805060514-97d9cc17730c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', link: 'https://www.roufukkyou.jp/class.php', sourceNote: '公式教室案内を2026-08-25確認'
+  },
+  {
+    id: 'school-karate-kitajima-cuore', listingType: 'school', name: 'クオレ北島スクール',
+    description: '北島町高房で開講する子ども向け空手教室。礼儀や基礎体力を身につけながら、初心者から参加できます。',
+    category: 'Fitness', city: '北島町', area: '高房周辺', access: '板野郡北島町高房、詳細会場は公式サイトで確認',
+    genres: ['Karate', 'Sports', 'Kids'], learningNeeds: ['kids_lessons', 'sports_learning'], decisionFactors: ['age_fit', 'trial_available', 'teacher_fit'],
+    fitSummary: '空手を通して礼儀と運動習慣を身につけたい子ども向け', checkpoints: ['対象年齢', '練習曜日', '月謝・会場'],
+    pricing: { system: '月謝制', minPrice: 0, note: '料金は公式スクールページで確認' }, features: { parking: false, beginnerFriendly: '◎', kidsClass: true, adultClass: false }, trial: '無料体験受付あり',
+    imageUrl: 'https://images.unsplash.com/photo-1555597673-b21d5c935865?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', link: 'https://cuore.sport-school.com/school/%E5%8C%97%E5%B3%B6-3', sourceNote: '公式スクールページを2026-08-25確認'
+  },
+
+  // ================= 徳島県松茂町 =================
+  {
+    id: 'class-taichi-matsushige-association', listingType: 'class', name: '徳島県太極拳協会 松茂教室',
+    description: '松茂町広島で開講する太極拳教室。健康づくりや仲間づくりを目的に、段級への挑戦もできます。',
+    category: 'Fitness', city: '松茂町', area: '広島周辺', access: '板野郡松茂町広島、松茂吉永道場',
+    genres: ['TaiChi', 'Sports', 'Adult'], learningNeeds: ['adult_lessons', 'sports_learning'], decisionFactors: ['schedule_fit', 'beginner_friendly', 'teacher_fit'],
+    fitSummary: '無理のない運動で健康づくりと仲間づくりをしたい大人向け', checkpoints: ['開催日時', '参加条件', '会費・体験'],
+    pricing: { system: '問い合わせ', minPrice: 0, note: '会費は協会へ問い合わせ' }, features: { parking: false, beginnerFriendly: '◎', kidsClass: false, adultClass: true }, scheduleNote: '火曜13:00〜15:00', trial: '見学・体験条件は協会へ確認',
+    imageUrl: 'https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', link: 'https://tokushima-taijiquan.com/schools/%E6%9D%BE%E8%8C%82%E6%95%99%E5%AE%A4-2/', sourceNote: '徳島県太極拳協会公式ページを2026-08-25確認'
   }
 ];
 
