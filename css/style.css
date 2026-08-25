@@ -8480,8 +8480,11 @@ p {
 }
 
 .article-affiliate-placement .affiliate-learning-card {
-  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-columns: minmax(280px, 1fr) 300px;
   align-items: center;
+  column-gap: clamp(1.25rem, 3vw, 2.5rem);
+  width: min(100%, 760px);
+  margin-inline: auto;
   padding: 1.15rem;
   border-color: rgba(34, 112, 130, 0.18);
   background: linear-gradient(135deg, #fff, rgba(239, 250, 249, 0.92));
@@ -8498,6 +8501,7 @@ p {
   grid-column: 2;
   grid-row: 1 / span 4;
   min-width: 220px;
+  justify-self: end;
 }
 
 .top-purpose-grid {
