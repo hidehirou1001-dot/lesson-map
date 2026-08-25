@@ -53,7 +53,7 @@
       ]
     }
   </script>
-  <link rel="stylesheet" href="/css/style.css?v=33">
+  <link rel="stylesheet" href="/css/style.css?v=47">
 </head>
 
 <body>
@@ -90,41 +90,13 @@
       </div>
     </section>
 
-    <form class="card fixed-form"
-      action="https://formspree.io/f/xnjgpykb" method="POST">
-      <div class="fixed-form-field">
-        <label for="name" class="fixed-form-label">お名前 <span class="fixed-form-required">*</span></label>
-        <input type="text" id="name" name="name" required placeholder="例: 松山 太郎"
-          class="fixed-form-control">
-      </div>
-
-      <div class="fixed-form-field">
-        <label for="email" class="fixed-form-label">メールアドレス <span class="fixed-form-required">*</span></label>
-        <input type="email" id="email" name="email" required placeholder="例: info@example.com"
-          class="fixed-form-control">
-      </div>
-
-      <div class="fixed-form-field">
-        <label for="type" class="fixed-form-label">お問い合わせ種別 <span class="fixed-form-required">*</span></label>
-        <select id="type" name="type" required class="fixed-form-control">
-          <option value="">選択してください</option>
-          <option value="掲載依頼">教室の掲載依頼</option>
-          <option value="情報修正">掲載情報の修正</option>
-          <option value="その他">その他・ご質問</option>
-        </select>
-      </div>
-
-      <div class="fixed-form-field">
-        <label for="message" class="fixed-form-label">お問い合わせ内容 <span class="fixed-form-required">*</span></label>
-        <textarea id="message" name="message" required rows="6" placeholder="掲載希望の教室名、料金・体験情報の有無、対象年齢、通いやすさなど分かる範囲でご記入ください。"
-          class="fixed-form-control"></textarea>
-      </div>
-
-      <input type="hidden" name="_next" value="/thanks/">
-
-      <button type="submit" class="btn btn-primary"
-        style="margin-top: var(--space-sm); width: 100%; justify-content: center; padding: 1rem;">送信する</button>
-    </form>
+    <section class="school-listing-google-form-cta" aria-labelledby="contact-google-form-title">
+      <span class="school-listing-google-form-cta-label">お問い合わせフォーム</span>
+      <h2 id="contact-google-form-title">Googleフォームからお問い合わせ</h2>
+      <p>掲載情報の修正、掲載終了のご依頼、サイトに関するご質問などを受け付けています。</p>
+      <a class="btn btn-primary school-listing-google-form-button" href="https://forms.gle/w9otdD16TmZW7VE4A" target="_blank" rel="noopener noreferrer">お問い合わせフォームを開く <span aria-hidden="true">↗</span></a>
+      <small>Googleフォームが別画面で開きます。</small>
+    </section>
   </main>
 
     <footer class="footer">
