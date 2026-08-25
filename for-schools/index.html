@@ -20,7 +20,7 @@
   <meta name="twitter:card" content="summary_large_image">
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"教室を無料掲載｜習い事・スクール運営者の方へ","url":"https://www.lesson-map.com/for-schools/","description":"LessonMapの教室無料掲載受付ページ","dateModified":"2026-08-23","inLanguage":"ja","isPartOf":{"@type":"WebSite","name":"LessonMap","url":"https://www.lesson-map.com/"}}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"教室の掲載に費用はかかりますか？","acceptedAnswer":{"@type":"Answer","text":"通常の教室情報掲載に、掲載料・初期費用・月額費用はかかりません。"}},{"@type":"Question","name":"掲載依頼には何が必要ですか？","acceptedAnswer":{"@type":"Answer","text":"教室名、所在地、カテゴリ、公式サイトまたは公式SNS、連絡先などをフォームへ入力してください。料金や体験情報は分かる範囲で構いません。"}},{"@type":"Question","name":"送信すれば必ず掲載されますか？","acceptedAnswer":{"@type":"Answer","text":"掲載前に運営者情報と公式情報を確認するため、すべての依頼の掲載を保証するものではありません。掲載基準に沿って確認・編集したうえで掲載します。"}}]}</script>
-  <link rel="stylesheet" href="/css/style.css?v=34">
+  <link rel="stylesheet" href="/css/style.css?v=46">
 </head>
 <body>
   <header class="header"><div class="container" style="display:flex;justify-content:space-between;align-items:center;"><a href="/" class="logo">LessonMap</a><nav style="display:flex;gap:1rem;align-items:center;"><a href="/contact/" class="btn btn-text">お問い合わせ</a><a href="#school-listing-form" class="btn btn-primary">無料掲載を申し込む</a></nav></div></header>
@@ -81,25 +81,17 @@
 
     <section class="school-listing-section school-listing-form-section" id="school-listing-form" aria-labelledby="school-listing-form-title">
       <div class="school-listing-heading"><span>FREE LISTING</span><h2 class="h2" id="school-listing-form-title">無料掲載フォーム</h2><p>必須項目だけでも送信できます。料金・体験情報などは、分かる範囲でご記入ください。</p></div>
-      <form class="card fixed-form school-listing-form" action="https://formspree.io/f/xnjgpykb" method="POST">
-        <input type="hidden" name="type" value="教室無料掲載依頼">
-        <input type="hidden" name="_subject" value="LessonMap 教室無料掲載依頼">
-        <input type="text" name="_gotcha" class="form-honeypot" tabindex="-1" autocomplete="off" aria-hidden="true">
-        <div class="school-listing-form-grid">
-          <div class="fixed-form-field"><label for="school-name" class="fixed-form-label">教室・スクール名 <span class="fixed-form-required">*</span></label><input class="fixed-form-control" id="school-name" name="school_name" required autocomplete="organization" placeholder="例：LessonMap英会話教室"></div>
-          <div class="fixed-form-field"><label for="operator-name" class="fixed-form-label">ご担当者名 <span class="fixed-form-required">*</span></label><input class="fixed-form-control" id="operator-name" name="name" required autocomplete="name" placeholder="例：松山 花子"></div>
-          <div class="fixed-form-field"><label for="operator-email" class="fixed-form-label">メールアドレス <span class="fixed-form-required">*</span></label><input class="fixed-form-control" type="email" id="operator-email" name="email" required autocomplete="email" placeholder="例：info@example.com"></div>
-          <div class="fixed-form-field"><label for="school-url" class="fixed-form-label">公式サイト・公式SNS <span class="fixed-form-required">*</span></label><input class="fixed-form-control" type="url" id="school-url" name="official_url" required inputmode="url" placeholder="https://..."></div>
-          <div class="fixed-form-field"><label for="school-prefecture" class="fixed-form-label">都道府県 <span class="fixed-form-required">*</span></label><select class="fixed-form-control" id="school-prefecture" name="prefecture" required><option value="">選択してください</option><option>愛媛県</option><option>香川県</option><option>徳島県</option><option>高知県</option><option>その他</option></select></div>
-          <div class="fixed-form-field"><label for="school-city" class="fixed-form-label">市区町村・所在地 <span class="fixed-form-required">*</span></label><input class="fixed-form-control" id="school-city" name="address" required autocomplete="street-address" placeholder="例：松山市〇〇町1-2-3"></div>
-          <div class="fixed-form-field school-listing-form-wide"><label for="school-category" class="fixed-form-label">教室カテゴリ <span class="fixed-form-required">*</span></label><select class="fixed-form-control" id="school-category" name="category" required><option value="">選択してください</option><option>英会話・語学</option><option>ピアノ・音楽</option><option>ダンス</option><option>スポーツ・フィットネス</option><option>プログラミング・IT</option><option>学習塾・資格</option><option>書道・そろばん</option><option>料理・文化・その他</option></select></div>
-          <div class="fixed-form-field school-listing-form-wide"><label for="school-details" class="fixed-form-label">掲載したい情報（任意）</label><textarea class="fixed-form-control" id="school-details" name="message" rows="6" placeholder="対象年齢、料金、無料体験、開講曜日、駐車場、教室の特徴など、分かる範囲でご記入ください。"></textarea></div>
+      <div class="school-listing-google-form">
+        <iframe
+          src="https://docs.google.com/forms/d/e/1FAIpQLSdaToabYnIRIDkyV5ztL5Q49KkJQzqvkCeIb9coUKjPrSN44A/viewform?embedded=true"
+          title="LessonMap 教室無料掲載フォーム"
+          loading="lazy"
+          referrerpolicy="strict-origin-when-cross-origin">読み込んでいます…</iframe>
+        <div class="school-listing-google-form-fallback">
+          <p>フォームが表示されない場合は、Googleフォームを別画面で開いてご入力ください。</p>
+          <a class="btn btn-primary" href="https://forms.gle/CmLTaGB8kAXqXCCK9" target="_blank" rel="noopener noreferrer">Googleフォームを開く</a>
         </div>
-        <label class="school-listing-consent"><input type="checkbox" name="consent" value="同意" required><span>教室の運営者または掲載を依頼できる関係者であり、入力情報の確認・掲載に同意します。<a href="/privacy/">個人情報の取り扱い</a>も確認しました。</span></label>
-        <input type="hidden" name="_next" value="/thanks/">
-        <button type="submit" class="btn btn-primary school-listing-submit">無料掲載を依頼する</button>
-        <p class="school-listing-form-note">掲載前に内容を確認します。送信によって掲載を保証するものではなく、掲載基準に沿って文章の調整や掲載を見送る場合があります。通常掲載に順位優遇はありません。</p>
-      </form>
+      </div>
     </section>
 
     <section class="school-listing-section"><div class="school-listing-heading"><span>FAQ</span><h2 class="h2">よくある質問</h2></div><div class="faq-container"><div class="faq-item"><div class="faq-question">Q. 本当に無料ですか？<span class="faq-icon">+</span></div><div class="faq-answer">A. 通常の教室情報掲載に、掲載料・初期費用・月額費用はかかりません。</div></div><div class="faq-item"><div class="faq-question">Q. 入力後は何をすればよいですか？<span class="faq-icon">+</span></div><div class="faq-answer">A. LessonMapで公式情報を確認します。追加確認が必要な場合は、ご入力のメールアドレスへご連絡します。</div></div><div class="faq-item"><div class="faq-question">Q. 掲載内容を後から直せますか？<span class="faq-icon">+</span></div><div class="faq-answer">A. はい。料金、クラス、所在地などが変わった場合は、お問い合わせフォームから修正をご依頼いただけます。</div></div></div></section>

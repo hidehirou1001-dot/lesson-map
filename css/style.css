@@ -8479,6 +8479,58 @@ p {
   margin-top: 1rem;
 }
 
+.school-listing-google-form {
+  display: grid;
+  gap: 1rem;
+  width: 100%;
+  padding: clamp(0.4rem, 2vw, 1rem);
+  border: 1px solid rgba(201, 42, 42, 0.12);
+  border-radius: 24px;
+  background: #f8f5f2;
+}
+
+.school-listing-google-form iframe {
+  display: block;
+  width: 100%;
+  min-height: 1280px;
+  border: 0;
+  border-radius: 18px;
+  background: #fff;
+}
+
+.school-listing-google-form-fallback {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.8rem 1rem;
+}
+
+.school-listing-google-form-fallback p {
+  margin: 0;
+  color: var(--clr-text-muted);
+  font-size: 0.86rem;
+}
+
+@media (max-width: 768px) {
+  .school-listing-google-form {
+    padding: 0;
+    overflow: hidden;
+    border-radius: 18px;
+  }
+
+  .school-listing-google-form iframe {
+    min-height: 1420px;
+    border-radius: 0;
+  }
+
+  .school-listing-google-form-fallback {
+    flex-direction: column;
+    align-items: stretch;
+    text-align: center;
+  }
+}
+
 .article-affiliate-placement .affiliate-learning-card {
   grid-template-columns: minmax(280px, 1fr) 300px;
   align-items: center;
