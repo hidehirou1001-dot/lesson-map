@@ -785,7 +785,8 @@ const cityRegionMap = {
     愛媛県: ['松山市', '松前町', '東温市', '伊予市', '今治市', '新居浜市', '西条市', '四国中央市', '宇和島市'],
     香川県: ['高松市', '丸亀市', '坂出市', '宇多津町', '観音寺市', '三豊市', 'さぬき市', '東かがわ市'],
     徳島県: ['徳島市', '鳴門市', '阿南市', '藍住町', '北島町', '松茂町'],
-    高知県: ['高知市']
+    高知県: ['高知市'],
+    岡山県: ['岡山市']
 };
 const resultsPanelState = {
     guide: false,
@@ -2885,7 +2886,8 @@ const searchableCityCoordinates = {
     '今治市': [34.0662, 132.9978], '新居浜市': [33.9603, 133.2834], '西条市': [33.9195, 133.1812], '四国中央市': [33.9808, 133.5492], '宇和島市': [33.2233, 132.5606],
     '高松市': [34.3428, 134.0466], '丸亀市': [34.2894, 133.7977], '坂出市': [34.3163, 133.8605], '宇多津町': [34.3104, 133.8255], '観音寺市': [34.1277, 133.6613], '三豊市': [34.1825, 133.7151], 'さぬき市': [34.3252, 134.1722], '東かがわ市': [34.2430, 134.3586],
     '徳島市': [34.0703, 134.5548], '鳴門市': [34.1726, 134.6089], '阿南市': [33.9218, 134.6595], '藍住町': [34.1266, 134.4958], '北島町': [34.1255, 134.5469], '松茂町': [34.1338, 134.5801],
-    '高知市': [33.5597, 133.5311]
+    '高知市': [33.5597, 133.5311],
+    '岡山市': [34.6551, 133.9195]
 };
 
 function getCoordinateDistanceSquared(latitude, longitude, coordinates) {
@@ -3137,7 +3139,7 @@ function updateResultsMeta(filtered) {
         if (currentFilterState.category !== 'all') {
             scopeParts.push(filterLabelMap[currentFilterState.category] || currentFilterState.category);
         }
-        const scopeText = scopeParts.length > 0 ? scopeParts.join(' / ') : '四国の掲載地域';
+        const scopeText = scopeParts.length > 0 ? scopeParts.join(' / ') : '掲載地域全体';
         const lowCountHint = filtered.length > 0 && filtered.length <= 2
             ? ' 少ないときは条件を広げると見つけやすくなります。'
             : '';
