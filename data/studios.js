@@ -2601,6 +2601,86 @@ const studios = [
     pricing: { system: '月謝制', minPrice: 0, note: '料金は公式サイトへ問い合わせ' },
     features: { parking: false, beginnerFriendly: '◎', kidsClass: true, adultClass: false }, scheduleNote: '木曜日17:15〜、対象別の詳細は公式サイトで確認', trial: '体験条件は公式サイトへ問い合わせ',
     imageUrl: 'https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', link: 'https://ys-move-dance.com/', sourceNote: '公式サイトを2026-08-25確認'
+  },
+  {
+    id: 'school-english-ozu-aishinjuku-lepton', listingType: 'school', name: '愛真塾Lepton大洲駅前教室',
+    description: '伊予大洲駅から徒歩1分の個別指導型子ども英語教室。聞く・話す・読む・書くを、自分の進度に合わせて学べます。',
+    category: 'English', city: '大洲市', area: '若宮・大洲駅周辺', access: '大洲市若宮457-5、JR伊予大洲駅から徒歩1分',
+    genres: ['English', 'Kids'], learningNeeds: ['kids_lessons', 'english_learning'], decisionFactors: ['station_access', 'trial_available', 'schedule_fit'],
+    fitSummary: '大洲駅周辺で子どもが個別進度の英語学習を始めたい家庭向け', checkpoints: ['対象学年', '週の受講回数', '教材費・入会金'],
+    pricing: { system: '月謝制', minPrice: 7810, note: '公式掲載目安：週1回7,810円〜。入会金・教材費等は要確認' },
+    features: { parking: false, beginnerFriendly: '◎', kidsClass: true, adultClass: false }, trial: '無料体験レッスン受付あり',
+    imageUrl: 'https://images.unsplash.com/photo-1509062522246-3755977927d7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', link: 'https://www.lepton.co.jp/628001', sourceNote: 'Lepton公式教室ページを2026-08-25確認'
+  },
+  {
+    id: 'school-piano-ozu-rmusic', listingType: 'school', name: 'R.music',
+    description: '大洲市大洲にあるリトミック・ピアノ教室。子どもの成長や個性に合わせた個別指導を行い、オンラインレッスンにも対応しています。',
+    category: 'Piano', city: '大洲市', area: '大洲城・おはなはん通り周辺', access: '大洲市大洲398-2',
+    genres: ['Piano', 'Rhythmic', 'Kids', 'Online'], learningNeeds: ['kids_lessons', 'music_learning'], decisionFactors: ['teacher_fit', 'beginner_friendly', 'online_available'],
+    fitSummary: '大洲市内でリトミックまたは個別ピアノを始めたい家庭向け', checkpoints: ['対象年齢', '開講時間', '料金・体験条件'],
+    pricing: { system: '問い合わせ', minPrice: 0, note: '料金は公式サイトへ問い合わせ' },
+    features: { parking: false, beginnerFriendly: '◎', kidsClass: true, adultClass: false }, trial: '入会までの案内は公式サイトで確認',
+    imageUrl: 'https://images.unsplash.com/photo-1520523839897-bd0b52f945a0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', link: 'https://www.rdotmusic.net/', sourceNote: '公式サイトを2026-08-25確認'
+  },
+  {
+    id: 'school-music-ozu-coeur', listingType: 'school', name: 'Coeur a Coeur Music School',
+    description: '大洲市若宮にあるクラリネット・ピアノ・リトミック教室。小さな子どもから大人まで、目標に合わせたレッスンを行っています。',
+    category: 'Piano', city: '大洲市', area: '若宮・大洲駅周辺', access: '大洲市若宮、JR伊予大洲駅から徒歩約3分',
+    genres: ['Piano', 'Clarinet', 'Rhythmic', 'Kids', 'Adult'], learningNeeds: ['kids_lessons', 'adult_lessons', 'music_learning'], decisionFactors: ['station_access', 'teacher_fit', 'trial_available'],
+    fitSummary: 'ピアノやクラリネットを年齢・目標に合わせて学びたい人向け', checkpoints: ['楽器別の時間', '固定・不定期レッスン', '料金'],
+    pricing: { system: '問い合わせ', minPrice: 0, note: '料金は教室へ問い合わせ' },
+    features: { parking: true, parkingCapacity: 'small', beginnerFriendly: '◎', kidsClass: true, adultClass: true }, trial: '体験レッスンあり',
+    imageUrl: 'https://images.unsplash.com/photo-1520523839897-bd0b52f945a0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', link: 'https://coeuracoeur.crayonsite.net/', sourceNote: '公式サイトを2026-08-25確認'
+  },
+  {
+    id: 'school-dance-sanuki-sstudio', listingType: 'school', name: 'S★Dance Studio／S★Ballet School 志度本校',
+    description: 'さぬき市志度にあるダンス・バレエ教室。1歳からのリズムベビー、クラシックバレエ、キッズダンスなど年齢別クラスがあります。',
+    category: 'Dance', city: 'さぬき市', area: '志度駅・市役所周辺', access: 'さぬき市志度348、JR志度駅・ことでん志度駅から徒歩約5分',
+    genres: ['Dance', 'Ballet', 'Kids', 'Rhythmic'], learningNeeds: ['kids_lessons', 'dance_learning'], decisionFactors: ['age_fit', 'station_access', 'trial_available'],
+    fitSummary: '幼児期からダンスやクラシックバレエを始めたい家庭向け', checkpoints: ['年齢別クラス', 'タイムテーブル', '月謝・諸費用'],
+    pricing: { system: 'クラス別', minPrice: 0, note: '料金は公式コース案内で確認' },
+    features: { parking: false, beginnerFriendly: '◎', kidsClass: true, adultClass: false }, trial: '見学・無料体験受付あり',
+    imageUrl: 'https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', link: 'https://s-studio.jp/', sourceNote: '公式サイトを2026-08-25確認'
+  },
+  {
+    id: 'school-ballet-higashikagawa-sstudio', listingType: 'school', name: 'S★Ballet School 東かがわ市交流プラザ教室',
+    description: '東かがわ市交流プラザで開講するバレエ教室。志度本校と共通の教室案内から問い合わせできます。',
+    category: 'Dance', city: '東かがわ市', area: '湊・市役所周辺', access: '東かがわ市湊1806-2 東かがわ市交流プラザ',
+    genres: ['Ballet', 'Dance', 'Kids'], learningNeeds: ['kids_lessons', 'dance_learning'], decisionFactors: ['age_fit', 'schedule_fit', 'teacher_fit'],
+    fitSummary: '東かがわ市内で子どものバレエ教室を探している家庭向け', checkpoints: ['対象年齢', '開講曜日', '料金・体験条件'],
+    pricing: { system: 'クラス別', minPrice: 0, note: '料金は公式サイトへ問い合わせ' },
+    features: { parking: true, beginnerFriendly: '◎', kidsClass: true, adultClass: false }, trial: '見学・体験は公式サイトへ問い合わせ',
+    imageUrl: 'https://images.unsplash.com/photo-1518834107812-67b0b7c58434?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', link: 'https://s-studio.jp/', sourceNote: '公式サイトを2026-08-25確認'
+  },
+  {
+    id: 'school-piano-kanonji-piamore', listingType: 'school', name: 'ピアモーレピアノ教室',
+    description: '観音寺市大野原町にある音楽知育・ピアノ教室。2歳児から大人まで、プレピアノ、個人ピアノ、大人向けコースがあります。',
+    category: 'Piano', city: '観音寺市', area: '大野原町', access: '観音寺市大野原町大野原3816-1、大野原ICから約1分',
+    genres: ['Piano', 'Music Education', 'Kids', 'Adult'], learningNeeds: ['kids_lessons', 'adult_lessons', 'music_learning'], decisionFactors: ['age_fit', 'parking', 'trial_available'],
+    fitSummary: '幼児の音楽知育から大人の学び直しまで個人ピアノを探す人向け', checkpoints: ['コース別月謝', '設備費・教材費', '家庭練習'],
+    pricing: { system: '月謝制', minPrice: 5000, note: '公式掲載：隔週大人5,000円〜。コース・設備費等は要確認' },
+    features: { parking: true, parkingCapacity: 'standard', beginnerFriendly: '◎', kidsClass: true, adultClass: true }, trial: '体験レッスン45分1,000円の案内あり',
+    imageUrl: 'https://images.unsplash.com/photo-1520523839897-bd0b52f945a0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', link: 'https://www.piamore-piano.com/', sourceNote: '公式サイトを2026-08-25確認'
+  },
+  {
+    id: 'school-music-kanonji-oosakaya', listingType: 'school', name: '大阪屋 観音寺本店 音楽教室',
+    description: '観音寺市観音寺町の楽器店併設音楽教室。子どもから大人まで学べるコースがあり、ヤマハ音楽教室の無料体験も案内しています。',
+    category: 'Piano', city: '観音寺市', area: '観音寺町・観音寺駅周辺', access: '観音寺市観音寺町甲3082-3',
+    genres: ['Piano', 'Electone', 'Music', 'Kids', 'Adult'], learningNeeds: ['kids_lessons', 'adult_lessons', 'music_learning'], decisionFactors: ['genre_fit', 'trial_available', 'teacher_fit'],
+    fitSummary: '楽器選びも相談しながら音楽レッスンを始めたい子ども・大人向け', checkpoints: ['開講コース', '対象年齢', '月謝・教材費'],
+    pricing: { system: 'コース別', minPrice: 0, note: 'コース別料金は公式サイトへ問い合わせ' },
+    features: { parking: false, beginnerFriendly: '◎', kidsClass: true, adultClass: true }, trial: '無料体験レッスン案内あり',
+    imageUrl: 'https://images.unsplash.com/photo-1520523839897-bd0b52f945a0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', link: 'https://www.oosakaya-music.com/', sourceNote: '公式サイトを2026-08-25確認'
+  },
+  {
+    id: 'school-dance-mitoyo-mayo', listingType: 'school', name: 'Mayo Ballet School／MAYO DANCE STUDIO',
+    description: '三豊市高瀬町にあるバレエ・ダンス教室。子どもの集中力やマナーも大切にしながらレッスンを行っています。',
+    category: 'Dance', city: '三豊市', area: '高瀬町', access: '三豊市高瀬町比地中1485',
+    genres: ['Ballet', 'Dance', 'Kids'], learningNeeds: ['kids_lessons', 'dance_learning'], decisionFactors: ['age_fit', 'genre_fit', 'teacher_fit'],
+    fitSummary: '三豊市高瀬町で子どものバレエ・ダンスを探している家庭向け', checkpoints: ['対象年齢', 'クラス内容', '料金・体験条件'],
+    pricing: { system: 'クラス別', minPrice: 0, note: '料金は公式サイトへ問い合わせ' },
+    features: { parking: false, beginnerFriendly: '◎', kidsClass: true, adultClass: false }, trial: '見学・体験条件は公式サイトへ問い合わせ',
+    imageUrl: 'https://images.unsplash.com/photo-1518834107812-67b0b7c58434?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', link: 'https://mayo-school.com/', sourceNote: '公式サイトを2026-08-25確認'
   }
 ];
 
