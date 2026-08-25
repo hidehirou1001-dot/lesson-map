@@ -2587,7 +2587,7 @@ function initFilters() {
 
         if (areaStatusTitle && areaStatusCopy) {
             if (selectedCity === 'all') {
-                areaStatusTitle.textContent = '愛媛・香川の全候補を表示中';
+                areaStatusTitle.textContent = '掲載エリアの全候補を表示中';
                 areaStatusCopy.textContent = '都道府県を選ぶと、地域や市町まで絞れます。';
             } else if (cityRegionMap[selectedCity]) {
                 areaStatusTitle.textContent = `${selectedCity}を表示中`;
