@@ -66,6 +66,7 @@ window.affiliatePrograms = [
     bannerWidth: 300,
     bannerHeight: 250,
     trackingPixelUrl: 'https://www18.a8.net/0.gif?a8mat=4BAE5D+7289HM+321O+65U41',
+    showOnHome: false,
     asp: 'A8.net',
     programId: 's00000014262001',
     active: true

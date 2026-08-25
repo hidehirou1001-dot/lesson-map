@@ -76,14 +76,15 @@ function renderAffiliatePrograms() {
     const programs = Array.isArray(window.affiliatePrograms)
         ? window.affiliatePrograms.filter(program => program && program.active && program.affiliateUrl)
         : [];
+    const homePrograms = programs.filter(program => program.showOnHome !== false);
 
     if (section && grid) {
-        if (programs.length === 0) {
+        if (homePrograms.length === 0) {
             section.hidden = true;
             grid.replaceChildren();
         } else {
             const fragment = document.createDocumentFragment();
-            programs.forEach(program => fragment.append(createAffiliateCard(program)));
+            homePrograms.forEach(program => fragment.append(createAffiliateCard(program)));
             grid.replaceChildren(fragment);
             section.hidden = false;
         }
