@@ -42,6 +42,8 @@ document.addEventListener('DOMContentLoaded', () => {
         runSafely('initFilters', initFilters);
         runSafely('initHeroKeywordSearch', initHeroKeywordSearch);
         runSafely('initHeroQuickSearch', initHeroQuickSearch);
+        runSafely('initNearbyCitySearch', initNearbyCitySearch);
+        runSafely('initLearningDiagnosis', initLearningDiagnosis);
         runSafely('initModal', initModal);
         runSafely('renderCompareMemo', renderCompareMemo);
         runSafely('renderFavorites', renderFavorites);
@@ -2871,6 +2873,82 @@ function initHeroQuickSearch() {
         if (categoryButton) categoryButton.click();
         if (cityButton) cityButton.click();
 
+        syncHeroQuickSearchControls();
+        applyFilters();
+        window.requestAnimationFrame(scrollToResultsZone);
+    });
+}
+
+const searchableCityCoordinates = {
+    '松山市': [33.8392, 132.7657], '松前町': [33.7875, 132.7113], '東温市': [33.7908, 132.8717], '伊予市': [33.7575, 132.7039],
+    '今治市': [34.0662, 132.9978], '新居浜市': [33.9603, 133.2834], '西条市': [33.9195, 133.1812], '四国中央市': [33.9808, 133.5492], '宇和島市': [33.2233, 132.5606],
+    '高松市': [34.3428, 134.0466], '丸亀市': [34.2894, 133.7977], '坂出市': [34.3163, 133.8605], '宇多津町': [34.3104, 133.8255], '観音寺市': [34.1277, 133.6613], '三豊市': [34.1825, 133.7151], 'さぬき市': [34.3252, 134.1722], '東かがわ市': [34.2430, 134.3586],
+    '徳島市': [34.0703, 134.5548], '鳴門市': [34.1726, 134.6089], '阿南市': [33.9218, 134.6595], '藍住町': [34.1266, 134.4958], '北島町': [34.1255, 134.5469], '松茂町': [34.1338, 134.5801]
+};
+
+function getCoordinateDistanceSquared(latitude, longitude, coordinates) {
+    const latitudeDelta = latitude - coordinates[0];
+    const longitudeScale = Math.cos(latitude * Math.PI / 180);
+    const longitudeDelta = (longitude - coordinates[1]) * longitudeScale;
+    return latitudeDelta * latitudeDelta + longitudeDelta * longitudeDelta;
+}
+
+function initNearbyCitySearch() {
+    const button = document.getElementById('hero-nearby-btn');
+    const status = document.getElementById('hero-nearby-status');
+    const citySelect = document.getElementById('hero-quick-city');
+    if (!button || !status || !citySelect) return;
+
+    button.addEventListener('click', () => {
+        if (!navigator.geolocation) {
+            status.textContent = 'この端末では現在地を利用できません。市町を選んで検索してください。';
+            return;
+        }
+
+        button.disabled = true;
+        status.textContent = '現在地を確認しています…';
+        navigator.geolocation.getCurrentPosition(position => {
+            const { latitude, longitude } = position.coords;
+            const nearestCity = Object.entries(searchableCityCoordinates).reduce((nearest, entry) => {
+                const distance = getCoordinateDistanceSquared(latitude, longitude, entry[1]);
+                return !nearest || distance < nearest.distance ? { city: entry[0], distance } : nearest;
+            }, null)?.city;
+
+            if (nearestCity && Array.from(citySelect.options).some(option => option.value === nearestCity)) {
+                citySelect.value = nearestCity;
+                status.textContent = `${nearestCity}を選びました。ジャンルや対象を選んで検索できます。`;
+            }
+            button.disabled = false;
+        }, () => {
+            status.textContent = '現在地を取得できませんでした。端末の位置情報設定を確認するか、市町を選んでください。';
+            button.disabled = false;
+        }, { enableHighAccuracy: false, timeout: 10000, maximumAge: 300000 });
+    });
+}
+
+function initLearningDiagnosis() {
+    const toggle = document.getElementById('learning-diagnosis-toggle');
+    const form = document.getElementById('learning-diagnosis-form');
+    if (!toggle || !form) return;
+
+    toggle.addEventListener('click', () => {
+        const expanded = form.hidden;
+        form.hidden = !expanded;
+        toggle.setAttribute('aria-expanded', String(expanded));
+        toggle.textContent = expanded ? '診断を閉じる' : '簡易診断をはじめる';
+    });
+
+    form.addEventListener('submit', event => {
+        event.preventDefault();
+        const audience = document.getElementById('diagnosis-audience')?.value || 'all';
+        const category = document.getElementById('diagnosis-category')?.value || 'all';
+        const priority = document.getElementById('diagnosis-priority')?.value || 'all';
+        const diagnosisPriorityFilters = ['free_trial', 'beginner', 'parking', 'weekend'];
+        const preservedFilters = currentFilterState.quickFilters.filter(filterKey => !audienceQuickFilters.has(filterKey) && !diagnosisPriorityFilters.includes(filterKey));
+        currentFilterState.quickFilters = audience === 'all' ? preservedFilters : [...preservedFilters, audience];
+        if (priority !== 'all') currentFilterState.quickFilters.push(priority);
+        currentFilterState.category = category;
+        currentFilterState.city = document.getElementById('hero-quick-city')?.value || 'all';
         syncHeroQuickSearchControls();
         applyFilters();
         window.requestAnimationFrame(scrollToResultsZone);

@@ -8114,6 +8114,45 @@ p {
   border-radius: 14px;
 }
 
+.home-nearby-btn {
+  justify-self: start;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--clr-primary);
+  font: inherit;
+  font-size: 0.78rem;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.home-nearby-btn:disabled { opacity: 0.55; cursor: wait; }
+.home-nearby-status { min-height: 1.2em; color: var(--clr-text-muted); font-size: 0.72rem; line-height: 1.45; }
+
+.learning-diagnosis {
+  margin-top: 0.35rem;
+  padding: 1rem;
+  border: 1px solid rgba(201, 42, 42, 0.14);
+  border-radius: 18px;
+  background: linear-gradient(135deg, rgba(201, 42, 42, 0.055), rgba(255, 255, 255, 0.94));
+}
+
+.learning-diagnosis-intro { display: flex; align-items: center; justify-content: space-between; gap: 1rem; text-align: left; }
+.learning-diagnosis-intro > div { display: grid; gap: 0.2rem; }
+.learning-diagnosis-intro strong { font-size: 0.98rem; line-height: 1.45; }
+.learning-diagnosis-toggle { flex: 0 0 auto; min-height: 42px; }
+.learning-diagnosis-form { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0.7rem; margin-top: 1rem; text-align: left; }
+.learning-diagnosis-form:not([hidden]) { display: grid; }
+.learning-diagnosis-form label { display: grid; gap: 0.35rem; color: var(--clr-text-main); font-size: 0.78rem; font-weight: 800; }
+.learning-diagnosis-form select { width: 100%; min-height: 46px; padding: 0.65rem; border: 1px solid rgba(34, 34, 34, 0.12); border-radius: 12px; background: #fff; color: var(--clr-text-main); font: inherit; }
+.learning-diagnosis-form .btn { grid-column: 1 / -1; min-height: 48px; }
+
+@media (max-width: 768px) {
+  .learning-diagnosis-intro { align-items: stretch; flex-direction: column; }
+  .learning-diagnosis-toggle { width: 100%; }
+  .learning-diagnosis-form:not([hidden]) { grid-template-columns: 1fr; }
+}
+
 .home-hero-quick-row {
   display: flex;
   flex-wrap: wrap;

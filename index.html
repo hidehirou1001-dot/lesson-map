@@ -14,18 +14,18 @@
 
     gtag('config', 'G-SLRR6VG7QH');
   </script>
-  <title>愛媛・香川の習い事・スクール比較｜地域・料金・体験で探す | LessonMap</title>
-  <meta name="description" content="学びとの出会いが、人生を動かす。LessonMapは、愛媛県・香川県の習い事を地域、料金、対象、体験から比較し、自分に合った学びと出会えるプラットフォームです。">
+  <title>四国の習い事・スクール比較｜地域・料金・体験で探す | LessonMap</title>
+  <meta name="description" content="学びとの出会いが、人生を動かす。LessonMapは、四国の習い事を地域、料金、対象、体験から比較し、自分に合った学びと出会えるプラットフォームです。">
   <link rel="canonical" href="https://www.lesson-map.com/">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="愛媛・香川の習い事・スクール比較｜地域・料金・体験で探す | LessonMap">
+  <meta property="og:title" content="四国の習い事・スクール比較｜地域・料金・体験で探す | LessonMap">
   <meta property="og:description" content="学びとの出会いが、人生を動かす。次の「できた。」へ進む学びを、愛媛・香川から探せます。">
   <meta property="og:url" content="https://www.lesson-map.com/">
   <meta property="og:site_name" content="LessonMap">
   <meta property="og:locale" content="ja_JP">
   <meta property="og:image" content="https://www.lesson-map.com/assets/og/home.svg">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="愛媛・香川の習い事・スクール比較｜地域・料金・体験で探す | LessonMap">
+  <meta name="twitter:title" content="四国の習い事・スクール比較｜地域・料金・体験で探す | LessonMap">
   <meta name="twitter:description" content="学びとの出会いが、人生を動かす。次の「できた。」へ進む学びを探せます。">
   <meta name="twitter:image" content="https://www.lesson-map.com/assets/og/home.svg">
   <script type="application/ld+json">
@@ -65,7 +65,7 @@
       ]
     }
   </script>
-  <link rel="stylesheet" href="/css/style.css?v=44">
+  <link rel="stylesheet" href="/css/style.css?v=46">
 </head>
 
 <body>
@@ -146,10 +146,11 @@
               <label class="home-hero-quick-field" for="hero-quick-city">
                 <span class="home-hero-search-kicker">エリア</span>
                 <select class="home-hero-quick-select" id="hero-quick-city">
-                  <option value="all">愛媛・香川すべて</option>
+                  <option value="all">四国の掲載エリアすべて</option>
                   <optgroup label="都道府県">
                     <option value="愛媛県">愛媛県全域</option>
                     <option value="香川県">香川県全域</option>
+                    <option value="徳島県">徳島県全域</option>
                   </optgroup>
                   <optgroup label="中予">
                     <option value="中予">中予全域</option>
@@ -172,8 +173,24 @@
                   <optgroup label="香川県">
                     <option value="高松市">高松市</option>
                     <option value="丸亀市">丸亀市</option>
+                    <option value="坂出市">坂出市</option>
+                    <option value="宇多津町">宇多津町</option>
+                    <option value="観音寺市">観音寺市</option>
+                    <option value="三豊市">三豊市</option>
+                    <option value="さぬき市">さぬき市</option>
+                    <option value="東かがわ市">東かがわ市</option>
+                  </optgroup>
+                  <optgroup label="徳島県">
+                    <option value="徳島市">徳島市</option>
+                    <option value="鳴門市">鳴門市</option>
+                    <option value="阿南市">阿南市</option>
+                    <option value="藍住町">藍住町</option>
+                    <option value="北島町">北島町</option>
+                    <option value="松茂町">松茂町</option>
                   </optgroup>
                 </select>
+                <button class="home-nearby-btn" id="hero-nearby-btn" type="button"><span aria-hidden="true">◎</span> 現在地に近い市町を選ぶ</button>
+                <span class="home-nearby-status" id="hero-nearby-status" aria-live="polite"></span>
               </label>
               <label class="home-hero-quick-field" for="hero-quick-category">
                 <span class="home-hero-search-kicker">ジャンル</span>
@@ -230,6 +247,18 @@
             <a href="/?audience=adult#results-zone" class="home-hero-chip">大人向けから見る</a>
             <a href="/?audience=kids#results-zone" class="home-hero-chip">子ども向けから見る</a>
           </div>
+          <section class="learning-diagnosis" id="learning-diagnosis" aria-labelledby="learning-diagnosis-title">
+            <div class="learning-diagnosis-intro">
+              <div><span class="home-hero-search-kicker">まだ決まっていない方</span><strong id="learning-diagnosis-title">3つの質問から、学びの入口を見つける</strong></div>
+              <button class="btn btn-outline learning-diagnosis-toggle" id="learning-diagnosis-toggle" type="button" aria-expanded="false" aria-controls="learning-diagnosis-form">簡易診断をはじめる</button>
+            </div>
+            <form class="learning-diagnosis-form" id="learning-diagnosis-form" hidden>
+              <label><span>1. だれの学びですか？</span><select id="diagnosis-audience"><option value="kids">子ども</option><option value="adult">大人</option><option value="all">まだ決めていない</option></select></label>
+              <label><span>2. どんな「できた」を増やしたいですか？</span><select id="diagnosis-category"><option value="English">英語で伝えたい</option><option value="Programming">デジタル・ITを学びたい</option><option value="Piano">音楽を楽しみたい</option><option value="Dance">楽しく身体を動かしたい</option><option value="Art">表現・ものづくりを楽しみたい</option><option value="all">候補を広く見たい</option></select></label>
+              <label><span>3. 最初に重視することは？</span><select id="diagnosis-priority"><option value="free_trial">体験してから決めたい</option><option value="beginner">初心者でも始めやすい</option><option value="parking">車で通いやすい</option><option value="weekend">週末に通いたい</option><option value="all">特に決めていない</option></select></label>
+              <button class="btn btn-primary" type="submit">診断結果を見る</button>
+            </form>
+          </section>
         </div>
 
         <div class="home-hero-assurance" aria-labelledby="home-assurance-title">
@@ -898,7 +927,7 @@
   <!-- Scripts -->
   <script src="/data/studios.js?v=23"></script>
   <script src="/data/affiliate-programs.js?v=3"></script>
-  <script src="/js/app.js?v=53"></script>
+  <script src="/js/app.js?v=54"></script>
 </body>
 
 </html>
