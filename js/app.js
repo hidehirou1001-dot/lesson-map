@@ -50,20 +50,27 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function initHomeSectionOrder() {
+    const hero = document.querySelector('.home-hero');
+    const finderSection = document.querySelector('.home-section');
     const resultsZone = document.getElementById('results-zone');
-    if (!resultsZone) return;
+    if (!hero || !finderSection || !resultsZone) return;
 
-    const sectionsAfterResults = [
-        document.querySelector('.affiliate-learning-section'),
-        document.querySelector('.top-outcome-section'),
+    const portalSections = [
+        finderSection,
+        resultsZone,
+        document.querySelector('.top-category-section'),
+        document.querySelector('.top-area-section'),
         document.querySelector('.top-popular-section'),
         document.querySelector('.top-featured-section'),
-        document.querySelector('.top-category-section'),
-        document.querySelector('.top-area-section')
+        document.querySelector('.top-guides-section'),
+        document.querySelector('.top-outcome-section'),
+        document.querySelector('.affiliate-learning-section'),
+        document.querySelector('.top-cta-section'),
+        document.querySelector('.school-owner-home-cta')
     ].filter(Boolean);
 
-    let insertionPoint = resultsZone;
-    sectionsAfterResults.forEach(section => {
+    let insertionPoint = hero;
+    portalSections.forEach(section => {
         insertionPoint.insertAdjacentElement('afterend', section);
         insertionPoint = section;
     });
@@ -3011,6 +3018,7 @@ function sortStudios(data, sortKey) {
 }
 
 function updateResultsMeta(filtered) {
+    const resultsZone = document.getElementById('results-zone');
     const summary = document.getElementById('results-summary');
     const chipContainer = document.getElementById('active-filter-chips');
     const filterBar = document.getElementById('active-filter-bar');
@@ -3035,6 +3043,11 @@ function updateResultsMeta(filtered) {
         activeChips.push(filterLabelMap[filterKey] || filterKey);
     });
     if (currentFilterState.searchQuery) activeChips.push(`"${currentFilterState.searchQuery}"`);
+
+    const isUsingSearch = activeChips.length > 0 || currentFilterState.searchQuery.length > 0;
+    if (resultsZone) {
+        resultsZone.hidden = !isUsingSearch;
+    }
 
     if (summary) {
         const scopeParts = [];
@@ -3143,7 +3156,6 @@ function updateResultsMeta(filtered) {
     }
 
     if (startPathPanel) {
-        const isUsingSearch = activeChips.length > 0 || currentFilterState.searchQuery.length > 0;
         const shouldShowStartPath = !isUsingSearch || filtered.length <= 2;
         startPathPanel.hidden = !shouldShowStartPath;
     }
