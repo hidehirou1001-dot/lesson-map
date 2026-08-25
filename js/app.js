@@ -781,7 +781,8 @@ const cityRegionMap = {
     東予: ['今治市', '新居浜市', '西条市', '四国中央市'],
     南予: ['宇和島市'],
     愛媛県: ['松山市', '松前町', '東温市', '伊予市', '今治市', '新居浜市', '西条市', '四国中央市', '宇和島市'],
-    香川県: ['高松市', '丸亀市']
+    香川県: ['高松市', '丸亀市', '坂出市', '宇多津町', '観音寺市', '三豊市', 'さぬき市', '東かがわ市'],
+    徳島県: ['徳島市']
 };
 const resultsPanelState = {
     guide: false,
@@ -3056,7 +3057,7 @@ function updateResultsMeta(filtered) {
         if (currentFilterState.category !== 'all') {
             scopeParts.push(filterLabelMap[currentFilterState.category] || currentFilterState.category);
         }
-        const scopeText = scopeParts.length > 0 ? scopeParts.join(' / ') : '愛媛県・香川県';
+        const scopeText = scopeParts.length > 0 ? scopeParts.join(' / ') : '四国の掲載地域';
         const lowCountHint = filtered.length > 0 && filtered.length <= 2
             ? ' 少ないときは条件を広げると見つけやすくなります。'
             : '';
@@ -3164,6 +3165,13 @@ function updateResultsMeta(filtered) {
 }
 
 function getRecommendedGuides() {
+    if (['徳島県', '徳島市'].includes(currentFilterState.city)) {
+        return [{
+            href: '/recommendations/tokushima-lessons/',
+            title: '徳島県の習い事ガイド',
+            description: '徳島市の英会話、ピアノ、ダンス、プログラミングから探せます。'
+        }];
+    }
     const isKagawaScope = ['香川県', '高松市', '丸亀市', '坂出市', '宇多津町'].includes(currentFilterState.city);
     if (isKagawaScope) {
         if (currentFilterState.city === '香川県') {
