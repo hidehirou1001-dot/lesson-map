@@ -2,4 +2,16 @@ User-agent: *
 Allow: /
 Disallow: /thanks/
 
+User-agent: OAI-SearchBot
+Allow: /
+Disallow: /thanks/
+
+User-agent: ChatGPT-User
+Allow: /
+Disallow: /thanks/
+
+User-agent: GPTBot
+Allow: /
+Disallow: /thanks/
+
 Sitemap: https://www.lesson-map.com/sitemap.xml

@@ -31,17 +31,38 @@
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "WebSite",
-      "name": "LessonMap",
-      "url": "https://www.lesson-map.com/",
-      "description": "誰もが、自分に合った学びと出会える社会をつくるための学びの比較・発見プラットフォーム",
-      "dateModified": "2026-08-20",
-      "inLanguage": "ja",
-      "publisher": {
-        "@type": "Organization",
-        "name": "LessonMap",
-        "url": "https://www.lesson-map.com/"
-      }
+      "@graph": [
+        {
+          "@type": "WebSite",
+          "@id": "https://www.lesson-map.com/#website",
+          "name": "LessonMap",
+          "url": "https://www.lesson-map.com/",
+          "description": "誰もが、自分に合った学びと出会える社会をつくるための学びの比較・発見プラットフォーム",
+          "dateModified": "2026-08-25",
+          "inLanguage": "ja",
+          "publisher": { "@id": "https://www.lesson-map.com/#organization" }
+        },
+        {
+          "@type": "Organization",
+          "@id": "https://www.lesson-map.com/#organization",
+          "name": "LessonMap",
+          "alternateName": "Filver",
+          "url": "https://www.lesson-map.com/",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://www.lesson-map.com/apple-touch-icon.png"
+          },
+          "slogan": "次の「できた。」へ。",
+          "description": "学びたい人と、その人に合う教室・講座をつなぐ学びの比較・発見プラットフォーム",
+          "areaServed": ["愛媛県", "香川県"],
+          "contactPoint": {
+            "@type": "ContactPoint",
+            "url": "https://www.lesson-map.com/contact/",
+            "contactType": "customer support",
+            "availableLanguage": "Japanese"
+          }
+        }
+      ]
     }
   </script>
   <link rel="stylesheet" href="/css/style.css?v=43">
@@ -846,6 +867,7 @@
       <a href="/" class="logo " style="font-size: 1.25rem;">LessonMap</a>
       <div style="margin-top: var(--space-md); display: flex; gap: var(--space-md); justify-content: center; flex-wrap: wrap;">
         <a href="/about/" style="font-size: 0.875rem; text-decoration: underline;">運営者情報</a>
+        <a href="/editorial-policy/" style="font-size: 0.875rem; text-decoration: underline;">編集・情報確認方針</a>
         <a href="/privacy/" style="font-size: 0.875rem; text-decoration: underline;">プライバシーポリシー</a>
         <a href="/terms/" style="font-size: 0.875rem; text-decoration: underline;">利用規約</a>
         <a href="/for-schools/" style="font-size: 0.875rem; text-decoration: underline;">教室運営者の方へ</a>

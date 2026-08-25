@@ -1,0 +1,27 @@
+# LessonMap
+
+> LessonMapは、学びたい人と教室・講座をつなぐ、日本語の学び発見プラットフォームです。現在は愛媛県・香川県の習い事教室と、全国から利用できるオンライン学習・リスキリング講座を掲載しています。
+
+## 主要ページ
+
+- [学びを探す](https://www.lesson-map.com/): 地域、ジャンル、対象、料金、体験の有無から教室を検索
+- [習い事特集一覧](https://www.lesson-map.com/recommendations/): 地域別・目的別・カテゴリ別のガイド
+- [香川県の習い事](https://www.lesson-map.com/recommendations/kagawa-lessons/): 高松市、丸亀市、坂出市、宇多津町の地域ハブ
+- [英会話・語学](https://www.lesson-map.com/recommendations/english-guides/): 通学・オンラインを含む語学ガイド
+- [IT・AI](https://www.lesson-map.com/recommendations/it-ai-guides/): プログラミング、生成AI、IT学習ガイド
+- [資格・学び直し](https://www.lesson-map.com/recommendations/qualification-relearning-guides/): 資格取得、通信講座、リスキリングガイド
+- [オンライン学習](https://www.lesson-map.com/recommendations/online-learning-guides/): オンライン講座の比較・選び方
+
+## 運営・方針
+
+- [運営者情報](https://www.lesson-map.com/about/): 運営主体、ブランド、対象地域
+- [編集・情報確認方針](https://www.lesson-map.com/editorial-policy/): 情報源、確認日、更新、訂正、広告の扱い
+- [教室運営者の方へ](https://www.lesson-map.com/for-schools/): 無料掲載の案内
+- [お問い合わせ](https://www.lesson-map.com/contact/): 訂正依頼・掲載相談
+
+## 情報の扱い
+
+- 教室情報は各教室・運営会社・自治体・業界団体などの公開情報を確認して整理します。
+- 料金、営業時間、募集状況は変更されるため、申込み前にリンク先の公式情報をご確認ください。
+- 公開されていない料金や条件は推測せず「要確認」と記載します。
+- 広告・アフィリエイトの有無にかかわらず、掲載内容の正確性と読者の判断材料を優先します。
