@@ -2853,6 +2853,80 @@ const studios = [
     fitSummary: '無理のない運動で健康づくりと仲間づくりをしたい大人向け', checkpoints: ['開催日時', '参加条件', '会費・体験'],
     pricing: { system: '問い合わせ', minPrice: 0, note: '会費は協会へ問い合わせ' }, features: { parking: false, beginnerFriendly: '◎', kidsClass: false, adultClass: true }, scheduleNote: '火曜13:00〜15:00', trial: '見学・体験条件は協会へ確認',
     imageUrl: 'https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', link: 'https://tokushima-taijiquan.com/schools/%E6%9D%BE%E8%8C%82%E6%95%99%E5%AE%A4-2/', sourceNote: '徳島県太極拳協会公式ページを2026-08-25確認'
+  },
+
+  // ================= 高知県高知市 =================
+  {
+    id: 'school-english-kochi-sky', listingType: 'school', name: 'Sky英会話',
+    description: '高知市葛島にある幼児から大人向けの英会話教室。外国人・日本人講師から英会話、4技能、英検など目的に合わせて学べます。',
+    category: 'English', city: '高知市', area: '葛島・西高須周辺', access: '高知市葛島2丁目5-14-2F、西高須駅から約150m',
+    genres: ['English', 'Kids', 'Adult', 'Exam'], learningNeeds: ['kids_lessons', 'adult_lessons', 'english_learning'], decisionFactors: ['age_fit', 'trial_available', 'parking'],
+    fitSummary: '幼児から大人まで無料体験から英会話を始めたい人向け', checkpoints: ['年齢別クラス', '曜日', '教材費を含む総額'],
+    pricing: { system: '月謝制', minPrice: 6600, note: '公式掲載：幼児・小学生・一般英会話45分 月6,600円〜' }, features: { parking: true, parkingCapacity: 'standard', weekendOpen: true, beginnerFriendly: '◎', kidsClass: true, adultClass: true }, trial: '無料体験サンプルレッスン・親子見学あり',
+    imageUrl: 'https://images.unsplash.com/photo-1509062522246-3755977927d7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', link: 'https://www.sky-kochi.com/', sourceNote: '公式サイトを2026-08-25確認'
+  },
+  {
+    id: 'school-english-kochi-enjoy', listingType: 'school', name: 'エンジョイ英会話教室',
+    description: '高知市北部環状線沿いにある1歳から大人向けの英会話教室。カナダ人講師による少人数・プライベートレッスンがあります。',
+    category: 'English', city: '高知市', area: '高知市北部', access: '高知市北部環状線沿い、詳細所在地は公式サイトで確認',
+    genres: ['English', 'Kids', 'Adult', 'Online'], learningNeeds: ['kids_lessons', 'adult_lessons', 'english_learning'], decisionFactors: ['age_fit', 'parking', 'schedule_fit'],
+    fitSummary: '1歳から大人まで少人数で自然な英語を学びたい人向け', checkpoints: ['クラス区分', '月謝', '振替・オンライン条件'],
+    pricing: { system: '月謝制', minPrice: 0, note: '入会金0円 / クラス別料金は公式サイトで確認' }, features: { parking: true, parkingCapacity: 'standard', beginnerFriendly: '◎', kidsClass: true, adultClass: true }, trial: '体験レッスン案内あり',
+    imageUrl: 'https://images.unsplash.com/photo-1509062522246-3755977927d7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', link: 'https://enjoy-eikaiwa.com/', sourceNote: '公式サイトを2026-08-25確認'
+  },
+  {
+    id: 'school-english-kochi-aok', listingType: 'school', name: 'A-Ok English 英会話教室',
+    description: '高知市中万々にある子ども・大人向け英会話教室。子どもの体験レッスンや大人向けフリートークなどを開催しています。',
+    category: 'English', city: '高知市', area: '中万々周辺', access: '高知市中万々57-56 コーポかけみず2F西',
+    genres: ['English', 'Kids', 'Adult', 'Conversation'], learningNeeds: ['kids_lessons', 'adult_lessons', 'english_learning'], decisionFactors: ['teacher_fit', 'trial_available', 'schedule_fit'],
+    fitSummary: '地域密着の教室で子ども・大人の会話力を伸ばしたい人向け', checkpoints: ['対象クラス', '開催日時', '料金・体験'],
+    pricing: { system: 'クラス別', minPrice: 0, note: '料金は公式サイトで確認' }, features: { parking: false, beginnerFriendly: '◎', kidsClass: true, adultClass: true }, trial: '子ども英会話体験の開催案内あり',
+    imageUrl: 'https://images.unsplash.com/photo-1543269865-cbf427effbad?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', link: 'https://www.a-ok-english.com/', sourceNote: '公式サイトを2026-08-25確認'
+  },
+  {
+    id: 'school-piano-kochi-yamaha-honmachi', listingType: 'school', name: 'ヤマハミュージックスクール 本町センター',
+    description: '高知市本町にある音楽教室。1歳から小学生の総合音楽教育と、小学生から大人向けの楽器・歌のレッスンを選べます。',
+    category: 'Piano', city: '高知市', area: '本町周辺', access: '高知市本町2-2-3',
+    genres: ['Piano', 'Music', 'Kids', 'Adult'], learningNeeds: ['kids_lessons', 'adult_lessons', 'music_learning'], decisionFactors: ['age_fit', 'trial_available', 'commute_fit'],
+    fitSummary: '幼児の総合音楽教育から大人の楽器まで相談したい人向け', checkpoints: ['募集中コース', '開講曜日', '授業料・施設費'],
+    pricing: { system: 'コース別', minPrice: 0, note: 'コース別料金は公式サイトで確認' }, features: { parking: true, parkingCapacity: 'paid', beginnerFriendly: '◎', kidsClass: true, adultClass: true }, trial: '無料体験・レッスン見学案内あり',
+    imageUrl: 'https://images.unsplash.com/photo-1520523839897-bd0b52f945a0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', link: 'https://school.jp.yamaha.com/music/venue/detail/?category=all&courseClsCd=27&id=210001R01', sourceNote: 'ヤマハ公式教室ページを2026-08-25確認'
+  },
+  {
+    id: 'school-piano-kochi-kawai-honmachi', listingType: 'school', name: 'カワイ音楽教室 本町センター',
+    description: '高知市本町にある音楽教室。子どものピアノ・リトミックから、大人のピアノ、バイオリン、ギターなどを検討できます。',
+    category: 'Piano', city: '高知市', area: '本町・大橋通周辺', access: '高知市本町3-6-40 アルファガーデン本町2F、大橋通電停・バス停から徒歩約5分',
+    genres: ['Piano', 'Music', 'Kids', 'Adult'], learningNeeds: ['kids_lessons', 'adult_lessons', 'music_learning'], decisionFactors: ['station_access', 'age_fit', 'trial_available'],
+    fitSummary: '中心部で子ども・大人の音楽レッスンを比較したい人向け', checkpoints: ['対象コース', '体験日程', '授業料・管理費'],
+    pricing: { system: 'コース別', minPrice: 0, note: 'コース別料金は公式サイトで確認' }, features: { parking: false, beginnerFriendly: '◎', kidsClass: true, adultClass: true }, trial: '体験・おためしコースは公式サイトで確認',
+    imageUrl: 'https://images.unsplash.com/photo-1520523839897-bd0b52f945a0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', link: 'https://music.kawai.jp/search/area/39/%E9%AB%98%E7%9F%A5%E5%B8%82', sourceNote: 'カワイ公式高知市教室一覧を2026-08-25確認'
+  },
+  {
+    id: 'school-programming-kochi-qureo-takasu', listingType: 'school', name: 'QUREOプログラミング教室 明光義塾 高知高須教室',
+    description: '高知市高須にある小学2〜6年生向けプログラミング教室。ゲーム型教材から基礎を学び、プログラミング能力検定にも対応しています。',
+    category: 'Programming', city: '高知市', area: '高須周辺', access: '高知市高須2-6-64 アーバンビル青山2F',
+    genres: ['Programming', 'Kids', 'Game', 'Exam'], learningNeeds: ['kids_lessons', 'it_learning'], decisionFactors: ['age_fit', 'parking', 'trial_available'],
+    fitSummary: '小学生がゲーム教材からプログラミングを始めたい家庭向け', checkpoints: ['対象学年', '授業曜日', '授業料・体験期間'],
+    pricing: { system: '月謝制', minPrice: 0, note: '授業料は公式教室ページから問い合わせ' }, features: { parking: true, parkingCapacity: 'small', weekendOpen: true, beginnerFriendly: '◎', kidsClass: true, adultClass: false }, trial: '期間限定無料体験案内あり・最新条件は公式サイトで確認',
+    imageUrl: 'https://images.unsplash.com/photo-1515879218367-8466d910aaa4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', link: 'https://qureo.jp/class/meikogijuku_kochitakasu', sourceNote: 'QUREO公式教室ページを2026-08-25確認'
+  },
+  {
+    id: 'school-programming-kochi-seiwalab', listingType: 'school', name: '高知市の小学生向けプログラミング教室 清和ラボ',
+    description: '高知市南万々にある小学生向けプログラミング教室。遊び感覚の教材からITスキルと順序立てて考える力を育てます。',
+    category: 'Programming', city: '高知市', area: '南万々周辺', access: '高知市南万々110-2',
+    genres: ['Programming', 'Kids', 'Creative'], learningNeeds: ['kids_lessons', 'it_learning'], decisionFactors: ['trial_available', 'teacher_fit', 'beginner_friendly'],
+    fitSummary: '遊びと制作を通して考える力とITスキルを伸ばしたい小学生向け', checkpoints: ['対象学年', 'コース内容', '月謝・曜日'],
+    pricing: { system: 'コース別', minPrice: 0, note: '料金は公式サイトで確認' }, features: { parking: false, beginnerFriendly: '◎', kidsClass: true, adultClass: false }, trial: '無料体験あり',
+    imageUrl: 'https://images.unsplash.com/photo-1515879218367-8466d910aaa4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', link: 'https://seiwalab.com/', sourceNote: '公式サイトを2026-08-25確認'
+  },
+  {
+    id: 'school-dance-kochi-saki', listingType: 'school', name: 'saki dance academy',
+    description: '高知市桜井町などで開講するダンスアカデミー。バレエを基礎に、モダン・コンテンポラリーを取り入れて身体と表現を磨きます。',
+    category: 'Dance', city: '高知市', area: '桜井町・春野町', access: 'studio DANSEUR：高知市桜井町1丁目12-12ほか',
+    genres: ['Dance', 'Ballet', 'Contemporary'], learningNeeds: ['kids_lessons', 'adult_lessons', 'dance_learning'], decisionFactors: ['genre_fit', 'trial_available', 'teacher_fit'],
+    fitSummary: 'バレエを基礎に舞台表現やコンテンポラリーを学びたい人向け', checkpoints: ['対象年齢', 'レッスン会場', '料金・体験日程'],
+    pricing: { system: 'クラス別', minPrice: 0, note: '料金は公式サイトへ問い合わせ' }, features: { parking: false, beginnerFriendly: '◎', kidsClass: true, adultClass: true }, trial: '見学・体験レッスン受付案内あり',
+    imageUrl: 'https://images.unsplash.com/photo-1518834107812-67b0b7c58434?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', link: 'https://www.sakidanceacademy.com/', sourceNote: '公式サイトを2026-08-25確認'
   }
 ];
 
