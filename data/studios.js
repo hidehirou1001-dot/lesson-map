@@ -2721,6 +2721,60 @@ const studios = [
   {
     id: 'class-dance-tokushima-city-sports', listingType: 'class', name: '徳島市体育振興公社 ダンス教室', description: '徳島市の公共体育施設で開催される2026年度のダンス講座。幼児・小学生向けダンスやチア、大人向けリズムダンスなどから選べます。',
     category: 'Dance', city: '徳島市', area: '徳島市内公共体育施設', access: 'とくぎんトモニアリーナ等。講座ごとの会場は公式サイトで確認', genres: ['Dance', 'Kids', 'Adult', 'Cheer'], learningNeeds: ['kids_lessons', 'adult_lessons', 'dance_learning'], decisionFactors: ['age_fit', 'schedule_fit', 'price_clarity'], fitSummary: '公共施設の期間講座でダンスを試したい子ども・大人向け', checkpoints: ['対象年齢', '会場', '募集期間・空き'], pricing: { system: '期間講座', minPrice: 0, note: '講座別の受講料は公式サイトで確認' }, features: { parking: true, beginnerFriendly: '◎', kidsClass: true, adultClass: true }, trial: 'おためし受講案内あり', imageUrl: 'https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', link: 'https://www.tokushimacity-sports.or.jp/genre/item4/', sourceNote: '徳島市体育振興公社公式サイトの2026年度講座を2026-08-25確認'
+  },
+  {
+    id: 'school-english-naruto-continental', listingType: 'school', name: 'コンチネンタル英会話',
+    description: '鳴門市撫養町の地域密着型英会話スクール。子どもから大人まで、英会話、英検、TOEICなど目的に合わせて学べます。',
+    category: 'English', city: '鳴門市', area: '撫養町黒崎', access: '鳴門市撫養町黒崎字松島6-15 黒崎ショッピングセンター内',
+    genres: ['English', 'Kids', 'Adult', 'Exam'], learningNeeds: ['kids_lessons', 'adult_lessons', 'english_learning'], decisionFactors: ['parking', 'trial_available', 'goal_fit'],
+    fitSummary: '鳴門市で会話から検定まで月謝制で学びたい子ども・大人向け', checkpoints: ['クラス形式', '月謝', '開講時間'],
+    pricing: { system: '月謝制', minPrice: 0, note: '料金は公式サイトで確認' }, features: { parking: true, beginnerFriendly: '◎', kidsClass: true, adultClass: true }, trial: '無料体験レッスンあり',
+    imageUrl: 'https://images.unsplash.com/photo-1509062522246-3755977927d7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', link: 'https://www.continental-eikaiwa.com/', sourceNote: '公式サイトを2026-08-25確認'
+  },
+  {
+    id: 'school-english-naruto-yamaha', listingType: 'school', name: 'ヤマハ英語教室 鳴門センター',
+    description: 'JR鳴門駅から徒歩約10分の子ども向け英語教室。年齢に応じたコースを開講し、無料体験・見学を受け付けています。',
+    category: 'English', city: '鳴門市', area: '撫養町斉田・鳴門駅周辺', access: '鳴門市撫養町斉田字北浜64-2、JR鳴門駅から徒歩約10分',
+    genres: ['English', 'Kids'], learningNeeds: ['kids_lessons', 'english_learning'], decisionFactors: ['station_access', 'parking', 'trial_available'],
+    fitSummary: '鳴門駅周辺で年齢別の子ども英語を始めたい家庭向け', checkpoints: ['募集コース', '曜日', '教材費・月謝'],
+    pricing: { system: 'コース別', minPrice: 0, note: '料金は公式教室ページで確認' }, features: { parking: true, parkingCapacity: 'large', beginnerFriendly: '◎', kidsClass: true, adultClass: false }, trial: '無料体験・見学受付あり',
+    imageUrl: 'https://images.unsplash.com/photo-1509062522246-3755977927d7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', link: 'https://school.jp.yamaha.com/english_school/room/detail.php?shopcode=20800300&venuecode=P14', sourceNote: 'ヤマハ英語教室公式ページを2026-08-25確認'
+  },
+  {
+    id: 'school-piano-naruto-yuki', listingType: 'school', name: 'YUKIピアノ教室',
+    description: '鳴門市にある幼児から大人向けのピアノ教室。クラシックからポピュラーまで、年齢や希望に合わせて学べます。',
+    category: 'Piano', city: '鳴門市', area: '鳴門市内', access: '鳴門市内、詳細は公式サイトへ問い合わせ',
+    genres: ['Piano', 'Kids', 'Adult'], learningNeeds: ['kids_lessons', 'adult_lessons', 'music_learning'], decisionFactors: ['age_fit', 'genre_fit', 'teacher_fit'],
+    fitSummary: '幼児から大人まで好きなジャンルのピアノを学びたい人向け', checkpoints: ['教室所在地', '空き曜日', '料金・体験'],
+    pricing: { system: '問い合わせ', minPrice: 0, note: '料金は教室へ問い合わせ' }, features: { parking: false, beginnerFriendly: '◎', kidsClass: true, adultClass: true }, trial: '体験条件は公式サイトへ問い合わせ',
+    imageUrl: 'https://images.unsplash.com/photo-1520523839897-bd0b52f945a0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', link: 'https://yukipianonaruto.jimdofree.com/', sourceNote: '公式サイトを2026-08-25確認'
+  },
+  {
+    id: 'school-english-anan-sprouts', listingType: 'school', name: '英会話スクール SPROUTS',
+    description: '阿南駅から徒歩3分の1歳から大人向け英会話教室。年齢別クラス、個別指導、振替制度があり、無料体験を受け付けています。',
+    category: 'English', city: '阿南市', area: '富岡町・阿南駅周辺', access: '阿南市富岡町今福寺49-10 ミラビル2F、阿南駅から徒歩約3分',
+    genres: ['English', 'Kids', 'Adult', 'Exam'], learningNeeds: ['kids_lessons', 'adult_lessons', 'english_learning'], decisionFactors: ['station_access', 'parking', 'trial_available'],
+    fitSummary: '幼児から大人まで阿南駅近くで英会話を続けたい人向け', checkpoints: ['年齢別クラス', '振替条件', '教材費'],
+    pricing: { system: '月謝制', minPrice: 8000, note: '公式掲載：グループ月8,000円〜、個別月16,000円〜' }, features: { parking: true, beginnerFriendly: '◎', kidsClass: true, adultClass: true }, trial: '無料体験レッスン受付あり',
+    imageUrl: 'https://images.unsplash.com/photo-1509062522246-3755977927d7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', link: 'https://mirai-languagehouse.com/top', sourceNote: '公式サイトを2026-08-25確認'
+  },
+  {
+    id: 'school-english-anan-crescent', listingType: 'school', name: 'クレセントランゲージスクール 阿南教室',
+    description: '阿南市で英会話や翻訳・通訳サービスを提供する地域密着型スクール。家庭的な雰囲気で英語を学べます。',
+    category: 'English', city: '阿南市', area: '阿南市内', access: '阿南市内、詳細所在地は公式サイトで確認',
+    genres: ['English', 'Kids', 'Adult'], learningNeeds: ['kids_lessons', 'adult_lessons', 'english_learning'], decisionFactors: ['teacher_fit', 'goal_fit', 'beginner_friendly'],
+    fitSummary: '阿南市で地域密着の英会話教室を探している子ども・大人向け', checkpoints: ['所在地', '対象クラス', '料金・体験'],
+    pricing: { system: '問い合わせ', minPrice: 0, note: '料金は公式サイトへ問い合わせ' }, features: { parking: false, beginnerFriendly: '◎', kidsClass: true, adultClass: true }, trial: '体験条件は公式サイトへ問い合わせ',
+    imageUrl: 'https://images.unsplash.com/photo-1509062522246-3755977927d7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', link: 'https://www.crescent-eikaiwa.com/about.php', sourceNote: '公式サイトを2026-08-25確認'
+  },
+  {
+    id: 'school-piano-anan-kurosaki', listingType: 'school', name: '黒崎楽器 阿南センター ピアノ個人レッスン',
+    description: '阿南市富岡町にある楽器店運営のピアノ個人レッスン。開講状況を確認して体験・見学を申し込めます。',
+    category: 'Piano', city: '阿南市', area: '富岡町', access: '阿南市富岡町木松10-3',
+    genres: ['Piano', 'Kids', 'Adult', 'Music'], learningNeeds: ['kids_lessons', 'adult_lessons', 'music_learning'], decisionFactors: ['trial_available', 'teacher_fit', 'genre_fit'],
+    fitSummary: '楽器店の教室で個人ピアノレッスンを始めたい子ども・大人向け', checkpoints: ['対象年齢', '開講曜日', '月謝・教材費'],
+    pricing: { system: 'コース別', minPrice: 0, note: '料金は公式サイトで確認' }, features: { parking: false, beginnerFriendly: '◎', kidsClass: true, adultClass: true }, trial: '体験・見学は教室へ問い合わせ',
+    imageUrl: 'https://images.unsplash.com/photo-1520523839897-bd0b52f945a0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', link: 'https://www.kurosaki-gakki.jp/lesson_info/lesson_info_index/original/piano_kojin/', sourceNote: '黒崎楽器公式サイトを2026-08-25確認'
   }
 ];
 
