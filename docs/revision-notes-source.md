@@ -2,8 +2,8 @@
 
 サイト改善の依頼・優先度・対応状況は、次のGoogleスプレッドシートを一次参照先として扱う。
 
-- [Codex 修正メモ](https://docs.google.com/spreadsheets/d/1lSfolkEgW8b2PpHzBE7EilE0jCb3SatnCdzOkTr2_i8/edit?gid=1758935672#gid=1758935672)
-- 対象タブ: `修正メモ`（sheetId: `1758935672`）
+- [Lesson Map 管理シート](https://docs.google.com/spreadsheets/d/1W5j3yOAjrV92mSU4TBb738DVmwXU5DPjitaUEmaWaAs/edit?gid=1844953924#gid=1844953924)
+- 対象タブ: `修正メモ`（sheetId: `1844953924`）
 
 ## 反映時の確認
 
