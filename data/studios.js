@@ -3001,6 +3001,69 @@ const studios = [
     fitSummary: '複数のダンスジャンルから初心者向けクラスを探したい人向け', checkpoints: ['対象年齢', 'ジャンル・クラス', '月謝・体験日程'],
     pricing: { system: 'クラス別', minPrice: 0, note: '料金は公式サイトで確認' }, features: { parking: false, beginnerFriendly: '◎', kidsClass: true, adultClass: true }, trial: '体験レッスン案内あり',
     imageUrl: 'https://images.unsplash.com/photo-1518834107812-67b0b7c58434?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', link: 'https://d-s-l.net/', sourceNote: '公式サイトを2026-08-25確認'
+  },
+  {
+    id: 'school-soroban-okayama-miraijuku', listingType: 'school', name: '未来塾 そろばん教室',
+    description: '岡山市北区伊福町にあるそろばん教室。楽しみながら学び、計算力と集中力を身につけたい子どもの候補として検討できます。',
+    category: 'Soroban', city: '岡山市', area: '北区・伊福町周辺', access: '岡山市北区伊福町3-25-18 TAXビル2F',
+    genres: ['Soroban', 'Kids'], learningNeeds: ['kids_lessons'], decisionFactors: ['commute_fit', 'teacher_fit', 'beginner_friendly'],
+    fitSummary: '岡山駅西側で子どもの計算力と集中力を育てたい家庭向け', checkpoints: ['対象年齢', '開講曜日', '月謝・教材費'],
+    pricing: { system: '月謝制', minPrice: 0, note: '料金は公式サイトで確認' }, features: { parking: false, beginnerFriendly: '◎', kidsClass: true, adultClass: false }, trial: '体験条件は公式サイトで確認',
+    imageUrl: 'https://images.unsplash.com/photo-1509228468518-180dd4864904?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', link: 'https://miraijukusoroban.wixsite.com/website', sourceNote: '公式サイトを2026-08-25確認'
+  },
+  {
+    id: 'school-calligraphy-okayama-hakuhousha', listingType: 'school', name: '書道研究 柏朋社',
+    description: '岡山市で未就学児から大人まで学べる書道教室。硬筆・毛筆、実用書、師範取得や公募展への出品など目的に合わせて学べます。',
+    category: 'Calligraphy', city: '岡山市', area: '岡山市内', access: '岡山市内の教室所在地・開講日は公式サイトで確認',
+    genres: ['Calligraphy', 'Kids', 'Adult'], learningNeeds: ['kids_lessons', 'adult_lessons'], decisionFactors: ['age_fit', 'goal_fit', 'schedule_fit'],
+    fitSummary: '子どもの書写から大人の実用書・専門的な書道まで学びたい人向け', checkpoints: ['教室所在地', '対象クラス', '月謝・手本代'],
+    pricing: { system: 'クラス別', minPrice: 0, note: '料金は公式サイトで確認' }, features: { parking: false, beginnerFriendly: '◎', kidsClass: true, adultClass: true }, trial: '見学・体験条件は公式サイトで確認',
+    imageUrl: 'https://images.unsplash.com/photo-1455390582262-044cdead277a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', link: 'https://okayama-shodo.com/', sourceNote: '公式サイトを2026-08-25確認'
+  },
+  {
+    id: 'school-yoga-okayama-ruta', listingType: 'school', name: 'ヨガスタジオ RUTA',
+    description: '岡山市北区田町にあるヨガスタジオ。カウンセリングを含む体験レッスンがあり、初心者も無理のない動きから始められます。',
+    category: 'Yoga', city: '岡山市', area: '北区・田町周辺', access: '岡山市北区田町1-10-28',
+    genres: ['Yoga', 'Adult', 'Beginner'], learningNeeds: ['adult_lessons'], decisionFactors: ['trial_available', 'beginner_friendly', 'schedule_fit'],
+    fitSummary: '岡山市中心部で体験からヨガを始めたい初心者向け', checkpoints: ['体験料金', 'クラス強度', '月会費・回数券'],
+    pricing: { system: 'プラン別', minPrice: 0, note: '料金は公式サイトで確認' }, features: { parking: false, beginnerFriendly: '◎', kidsClass: false, adultClass: true }, trial: '体験ヨガレッスンあり',
+    imageUrl: 'https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', link: 'https://ruta2017.com/beginner.php', sourceNote: '公式サイトを2026-08-25確認'
+  },
+  {
+    id: 'school-yoga-okayama-plusbody', listingType: 'school', name: 'PLUS BODY',
+    description: '岡山市北区問屋町にあるヨガ・ピラティス・骨盤調整の専門スタジオ。初心者から経験者まで参加できるプログラムを提供しています。',
+    category: 'Yoga', city: '岡山市', area: '北区・問屋町周辺', access: '岡山市北区問屋町11-105 supleビル2F',
+    genres: ['Yoga', 'Pilates', 'Adult'], learningNeeds: ['adult_lessons'], decisionFactors: ['parking', 'schedule_fit', 'beginner_friendly'],
+    fitSummary: '駐車場のあるスタジオでヨガとピラティスを比較したい人向け', checkpoints: ['体験・キャンペーン条件', 'プログラム内容', '月会費・回数券'],
+    pricing: { system: 'プラン別', minPrice: 0, note: '料金は公式サイトで確認' }, features: { parking: true, parkingCapacity: 'shared', beginnerFriendly: '◎', kidsClass: false, adultClass: true }, trial: '体験・入会キャンペーンの最新条件は公式サイトで確認',
+    imageUrl: 'https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', link: 'https://plusbody.jp/', sourceNote: '公式サイトを2026-08-25確認'
+  },
+  {
+    id: 'school-art-okayama-whitepallet', listingType: 'school', name: 'ARTSTUDIO WhitePallet',
+    description: '岡山市にある絵画教室。趣味の制作から芸大・美大受験、デザイン・イラストまで目的に合わせて学べ、オンライン教室もあります。',
+    category: 'Art', city: '岡山市', area: '東区・益野周辺', access: '益野中バス停から徒歩約3分、所在地詳細は公式サイトで確認',
+    genres: ['Art', 'Drawing', 'Online', 'Exam'], learningNeeds: ['kids_lessons', 'adult_lessons'], decisionFactors: ['goal_fit', 'trial_available', 'parking'],
+    fitSummary: '趣味の絵画から美大受験・オンライン制作まで目的を持って学びたい人向け', checkpoints: ['対象コース', '受講回数', '料金・画材費'],
+    pricing: { system: '回数別', minPrice: 0, note: '料金は公式サイトで確認' }, features: { parking: true, parkingCapacity: 'small', weekendOpen: true, beginnerFriendly: '◎', kidsClass: true, adultClass: true }, trial: '1カ月の体験教室案内あり',
+    imageUrl: 'https://images.unsplash.com/photo-1549490349-8643362247b5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', link: 'https://www.whitepallet.com/', sourceNote: '公式サイトを2026-08-25確認'
+  },
+  {
+    id: 'school-art-okayama-artzemi', listingType: 'school', name: 'アートゼミこども絵画教室',
+    description: '岡山市中区円山にある2歳から社会人向けの絵画教室。子どもの感性を育てる制作から、大人の創作活動まで幅広く学べます。',
+    category: 'Art', city: '岡山市', area: '中区・円山周辺', access: '岡山市中区円山339-1',
+    genres: ['Art', 'Kids', 'Adult', 'Creative'], learningNeeds: ['kids_lessons', 'adult_lessons'], decisionFactors: ['age_fit', 'teacher_fit', 'genre_fit'],
+    fitSummary: '幼児から大人まで年代に合う絵画・造形を学びたい人向け', checkpoints: ['年齢別クラス', '開講曜日', '月謝・画材費'],
+    pricing: { system: 'クラス別', minPrice: 0, note: '料金は公式サイトで確認' }, features: { parking: false, beginnerFriendly: '◎', kidsClass: true, adultClass: true }, trial: '見学・体験条件は公式サイトで確認',
+    imageUrl: 'https://images.unsplash.com/photo-1549490349-8643362247b5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', link: 'https://www.artzemi.com/', sourceNote: '公式サイトを2026-08-25確認'
+  },
+  {
+    id: 'school-cooking-okayama-diletto', listingType: 'school', name: 'COOKING LABO DILETTO',
+    description: '岡山市中区門田屋敷にある料理教室。作った料理を試食しながら学べるクラスや、男性向けの料理教室も案内しています。',
+    category: 'Cooking', city: '岡山市', area: '中区・門田屋敷周辺', access: '岡山市中区門田屋敷1-9-30',
+    genres: ['Cooking', 'Adult'], learningNeeds: ['adult_lessons'], decisionFactors: ['class_content', 'schedule_fit', 'beginner_friendly'],
+    fitSummary: '実際に作って試食しながら料理の幅を広げたい大人向け', checkpoints: ['レッスン内容', '開催日', '受講料・材料費'],
+    pricing: { system: 'レッスン別', minPrice: 0, note: '料金は公式サイトで確認' }, features: { parking: false, beginnerFriendly: '◎', kidsClass: false, adultClass: true }, trial: '単発参加・申込条件は公式サイトで確認',
+    imageUrl: 'https://images.unsplash.com/photo-1556910103-1c02745aae4d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', link: 'https://cl-diletto.com/class/', sourceNote: '公式サイトを2026-08-25確認'
   }
 ];
 
