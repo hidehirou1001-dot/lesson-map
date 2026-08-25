@@ -126,13 +126,34 @@ function createAffiliateCard(program) {
     description.textContent = program.description || '';
 
     const link = document.createElement('a');
-    link.className = 'btn btn-primary affiliate-learning-link';
+    link.className = program.bannerImageUrl ? 'affiliate-learning-banner-link' : 'btn btn-primary affiliate-learning-link';
     link.href = program.affiliateUrl;
     link.target = '_blank';
-    link.rel = 'sponsored noopener noreferrer';
-    link.textContent = program.ctaLabel || '公式サイトで確認する';
+    link.rel = 'sponsored nofollow noopener noreferrer';
+    if (program.bannerImageUrl) {
+        const banner = document.createElement('img');
+        banner.className = 'affiliate-learning-banner';
+        banner.src = program.bannerImageUrl;
+        banner.width = Number(program.bannerWidth) || 300;
+        banner.height = Number(program.bannerHeight) || 250;
+        banner.alt = `${program.name}の講座を確認する`;
+        banner.loading = 'lazy';
+        link.append(banner);
+    } else {
+        link.textContent = program.ctaLabel || '公式サイトで確認する';
+    }
 
     card.append(meta, title, audience, description, link);
+    if (program.trackingPixelUrl) {
+        const trackingPixel = document.createElement('img');
+        trackingPixel.src = program.trackingPixelUrl;
+        trackingPixel.width = 1;
+        trackingPixel.height = 1;
+        trackingPixel.alt = '';
+        trackingPixel.setAttribute('aria-hidden', 'true');
+        trackingPixel.className = 'affiliate-tracking-pixel';
+        card.append(trackingPixel);
+    }
     return card;
 }
 

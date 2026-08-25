@@ -53,5 +53,21 @@ window.affiliatePrograms = [
     asp: 'A8.net',
     programId: 's00000027398001',
     active: false
+  },
+  {
+    id: 'formie-qualification',
+    name: 'スマホで資格のサブスク formie（フォーミー）',
+    category: '資格・通信講座',
+    audience: '食・美容・心理・子育てなど、生活や趣味に生かせる民間資格をスマホで学びたい方',
+    description: '40種類以上の資格講座から選べます。サブスクは月額制のポイントプランで、講座の受講、本試験、認定証にそれぞれポイントが必要になる場合があります。申込み前に希望講座の総額と資格の活用先を確認してください。',
+    ctaLabel: 'formieの講座を確認する',
+    affiliateUrl: 'https://px.a8.net/svt/ejp?a8mat=4BAE5D+7289HM+321O+65U41',
+    bannerImageUrl: 'https://www21.a8.net/svt/bgt?aid=260825377427&wid=008&eno=01&mid=s00000014262001035000&mc=1',
+    bannerWidth: 300,
+    bannerHeight: 250,
+    trackingPixelUrl: 'https://www18.a8.net/0.gif?a8mat=4BAE5D+7289HM+321O+65U41',
+    asp: 'A8.net',
+    programId: 's00000014262001',
+    active: true
   }
 ];
