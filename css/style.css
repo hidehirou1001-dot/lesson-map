@@ -8479,55 +8479,62 @@ p {
   margin-top: 1rem;
 }
 
-.school-listing-google-form {
+.school-listing-google-form-cta {
   display: grid;
-  gap: 1rem;
+  justify-items: center;
+  gap: 0.85rem;
   width: 100%;
-  padding: clamp(0.4rem, 2vw, 1rem);
+  padding: clamp(1.5rem, 4vw, 2.5rem);
   border: 1px solid rgba(201, 42, 42, 0.12);
   border-radius: 24px;
-  background: #f8f5f2;
+  background: linear-gradient(135deg, #fff, rgba(255, 240, 236, 0.86));
+  text-align: center;
 }
 
-.school-listing-google-form iframe {
-  display: block;
-  width: 100%;
-  min-height: 1280px;
-  border: 0;
-  border-radius: 18px;
-  background: #fff;
+.school-listing-google-form-cta-label {
+  padding: 0.35rem 0.7rem;
+  border-radius: 999px;
+  background: rgba(201, 42, 42, 0.08);
+  color: var(--clr-primary-dark);
+  font-size: 0.78rem;
+  font-weight: 800;
 }
 
-.school-listing-google-form-fallback {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-  padding: 0.8rem 1rem;
-}
-
-.school-listing-google-form-fallback p {
+.school-listing-google-form-cta h3,
+.school-listing-google-form-cta p {
   margin: 0;
+}
+
+.school-listing-google-form-cta h3 {
+  font-size: clamp(1.25rem, 3vw, 1.65rem);
+}
+
+.school-listing-google-form-cta p {
+  max-width: 620px;
   color: var(--clr-text-muted);
-  font-size: 0.86rem;
+  line-height: 1.75;
+}
+
+.school-listing-google-form-button {
+  min-width: min(100%, 320px);
+  justify-content: center;
+  padding-block: 0.95rem;
+}
+
+.school-listing-google-form-cta small {
+  color: var(--clr-text-muted);
+  font-size: 0.75rem;
 }
 
 @media (max-width: 768px) {
-  .school-listing-google-form {
-    padding: 0;
-    overflow: hidden;
+  .school-listing-google-form-cta {
+    padding: 1.35rem 1rem;
     border-radius: 18px;
   }
 
-  .school-listing-google-form iframe {
-    min-height: 1420px;
-    border-radius: 0;
-  }
-
-  .school-listing-google-form-fallback {
-    flex-direction: column;
-    align-items: stretch;
-    text-align: center;
+  .school-listing-google-form-button {
+    width: 100%;
+    min-width: 0;
   }
 }
 
