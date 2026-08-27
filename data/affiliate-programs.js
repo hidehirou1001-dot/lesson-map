@@ -70,5 +70,19 @@ window.affiliatePrograms = [
     asp: 'A8.net',
     programId: 's00000014262001',
     active: true
+  },
+  {
+    id: 'coconala-skill-market',
+    name: 'スキルマーケット ココナラ',
+    category: '個別相談・オンラインレッスン',
+    audience: 'スクールへ入る前に、専門家への単発相談や個別レッスンを試したい方',
+    description: '語学、IT、デザイン、資格などの相談・レッスンを出品者ごとに探せるスキルマーケットです。料金、提供内容、評価、本人確認、キャンセル条件を確認してから利用してください。',
+    ctaLabel: 'ココナラに無料登録して探す',
+    affiliateUrl: 'https://px.a8.net/svt/ejp?a8mat=4BAEXD+C8KXU2+2PEO+O8CBM',
+    trackingPixelUrl: 'https://www14.a8.net/0.gif?a8mat=4BAEXD+C8KXU2+2PEO+O8CBM',
+    showOnHome: false,
+    asp: 'A8.net',
+    programId: 's00000012624004',
+    active: true
   }
 ];
