@@ -502,7 +502,7 @@ function renderStudios(data) {
     grid.innerHTML = ''; // Clear existing
 
     if (data.length === 0) {
-        grid.innerHTML = getNoResultsMarkup();
+        grid.innerHTML = getNoResultsMarkup(getSparseAreaContext(data.length));
         const resetBtn = grid.querySelector('[data-empty-reset]');
         if (resetBtn) {
             resetBtn.addEventListener('click', () => {
@@ -511,6 +511,11 @@ function renderStudios(data) {
             });
         }
         return;
+    }
+
+    const sparseAreaContext = getSparseAreaContext(data.length);
+    if (sparseAreaContext?.count <= 2) {
+        grid.insertAdjacentHTML('beforeend', getSparseAreaNoticeMarkup(sparseAreaContext));
     }
 
     let renderedCount = 0;
@@ -598,7 +603,50 @@ function renderStudios(data) {
     }
 }
 
-function getNoResultsMarkup() {
+function getParentPrefecture(city) {
+    return Object.entries(cityRegionMap)
+        .find(([region, cities]) => region.endsWith('県') && cities.includes(city))?.[0] || '';
+}
+
+function getBroadenedAreaHref(prefecture) {
+    const params = new URLSearchParams();
+    if (prefecture) params.set('city', prefecture);
+    if (currentFilterState.category !== 'all') params.set('category', currentFilterState.category);
+    const query = params.toString();
+    return query ? `/?${query}#results-zone` : '/#finder';
+}
+
+function getSparseAreaContext(count) {
+    const city = currentFilterState.city;
+    const isExactCity = city !== 'all' && !cityRegionMap[city];
+    if (!isExactCity || count > 2) return null;
+
+    const prefecture = getParentPrefecture(city);
+    return {
+        city,
+        count,
+        prefecture,
+        broadenedHref: getBroadenedAreaHref(prefecture)
+    };
+}
+
+function getSparseAreaNoticeMarkup(context) {
+    const countLabel = context.count === 1 ? '1件' : '2件';
+    const destination = context.prefecture || '近隣エリア';
+
+    return `
+        <aside class="sparse-area-notice" style="grid-column: 1/-1;" aria-label="${context.city}の掲載状況">
+            <span class="sparse-area-notice-kicker">市内の掲載 ${countLabel}</span>
+            <div class="sparse-area-notice-copy">
+                <strong>${context.city}内で条件に合う教室を${countLabel}表示しています。</strong>
+                <p>下の候補は${context.city}内の教室です。比較先を増やしたい場合は、${destination}まで範囲を広げて探せます。</p>
+            </div>
+            <a class="btn btn-outline sparse-area-notice-action" href="${context.broadenedHref}">${destination}の候補も見る</a>
+        </aside>
+    `;
+}
+
+function getNoResultsMarkup(sparseAreaContext = null) {
     const guides = getRecommendedGuides();
     const guideMarkup = guides.length > 0 ? `
         <div class="empty-state-guides">
@@ -611,11 +659,22 @@ function getNoResultsMarkup() {
         </div>
     ` : '';
 
+    const title = sparseAreaContext
+        ? `${sparseAreaContext.city}内に条件に合う掲載教室はまだありません。`
+        : '条件に一致する教室が見つかりませんでした。';
+    const description = sparseAreaContext
+        ? `市外の教室を${sparseAreaContext.city}内の候補として表示せず、${sparseAreaContext.prefecture || '近隣エリア'}へ広げる入口をご案内します。`
+        : 'カテゴリやエリアを少し広げると見つかりやすくなります。';
+    const broadenAction = sparseAreaContext ? `
+        <a class="btn btn-primary" href="${sparseAreaContext.broadenedHref}">${sparseAreaContext.prefecture || '近隣エリア'}の候補を見る</a>
+    ` : '';
+
     return `
         <div class="empty-state empty-state-extended" style="grid-column: 1/-1;">
-            <strong>条件に一致する教室が見つかりませんでした。</strong>
-            <p>カテゴリやエリアを少し広げると見つかりやすくなります。</p>
+            <strong>${title}</strong>
+            <p>${description}</p>
             <div class="empty-state-actions">
+                ${broadenAction}
                 <button class="btn btn-outline" type="button" data-empty-reset>条件をリセット</button>
                 <a class="btn btn-text" href="/recommendations/">特集一覧を見る</a>
             </div>

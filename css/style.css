@@ -3074,6 +3074,66 @@ p {
   line-height: 1.5;
 }
 
+.sparse-area-notice {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 1.1rem;
+  border: 1px solid rgba(201, 38, 38, 0.16);
+  border-radius: 18px;
+  background: linear-gradient(135deg, rgba(255, 247, 245, 0.98), rgba(255, 255, 255, 0.96));
+}
+
+.sparse-area-notice-kicker {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2rem;
+  padding: 0.35rem 0.7rem;
+  border-radius: 999px;
+  background: rgba(201, 38, 38, 0.1);
+  color: var(--clr-primary-dark);
+  font-size: 0.78rem;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.sparse-area-notice-copy {
+  min-width: 0;
+}
+
+.sparse-area-notice-copy strong {
+  display: block;
+  color: var(--clr-text-main);
+  font-size: 0.96rem;
+}
+
+.sparse-area-notice-copy p {
+  margin-top: 0.25rem;
+  color: var(--clr-text-muted);
+  font-size: 0.84rem;
+  line-height: 1.6;
+}
+
+.sparse-area-notice-action {
+  white-space: nowrap;
+}
+
+@media (max-width: 760px) {
+  .sparse-area-notice {
+    grid-template-columns: 1fr;
+    align-items: start;
+  }
+
+  .sparse-area-notice-kicker {
+    justify-self: start;
+  }
+
+  .sparse-area-notice-action {
+    width: 100%;
+  }
+}
+
 .card-meta-chips {
   display: flex;
   flex-wrap: wrap;
