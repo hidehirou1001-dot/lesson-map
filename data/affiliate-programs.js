@@ -48,11 +48,13 @@ window.affiliatePrograms = [
     category: '生成AI・リスキリング',
     audience: '生成AIを仕事で活用したい社会人',
     description: 'ChatGPTなどの生成AIを、資料作成やマーケティング、営業、開発などで活用する方法を学びたい方向けのオンライン学習サービスです。',
-    ctaLabel: '無料セミナーの内容を確認する',
-    affiliateUrl: '',
+    ctaLabel: 'DMM 生成AI CAMP 学び放題を確認する',
+    affiliateUrl: 'https://px.a8.net/svt/ejp?a8mat=4BACLD+7T0RPM+5VEK+5YRHE',
+    trackingPixelUrl: 'https://www10.a8.net/0.gif?a8mat=4BACLD+7T0RPM+5VEK+5YRHE',
+    showOnHome: false,
     asp: 'A8.net',
     programId: 's00000027398001',
-    active: false
+    active: true
   },
   {
     id: 'formie-qualification',
