@@ -849,7 +849,7 @@ function getCuratorLabelMarkup(studio, className = 'curator-label-row') {
     `;
 }
 
-const SITE_REVIEW_DATE = '2026-08-25';
+const SITE_REVIEW_DATE = '2026-08-28';
 const COMPARE_MEMO_KEY = 'lessonmap_compare_memo';
 const COMPARE_MEMO_LIMIT = 3;
 const RECENT_GUIDES_KEY = 'lessonmap_recent_guides';
@@ -883,10 +883,21 @@ function getPricingCheckStatus(studio) {
     return '料金情報の掲載なし';
 }
 
+function getStudioReviewDate(studio) {
+    const sourceNote = typeof studio?.sourceNote === 'string' ? studio.sourceNote : '';
+    const dateMatch = sourceNote.match(/20\d{2}-\d{2}-\d{2}/);
+    return dateMatch ? dateMatch[0] : SITE_REVIEW_DATE;
+}
+
+function getStudioSourceLabel(studio) {
+    if (studio?.link) return '教室・サービスの公式サイト';
+    return 'Lesson Map掲載情報';
+}
+
 function getVerificationItems(studio) {
     return [
-        { label: '掲載確認日', value: SITE_REVIEW_DATE },
-        { label: '公式情報', value: '公式サイト確認済み' },
+        { label: '最終確認日', value: getStudioReviewDate(studio) },
+        { label: '情報源', value: getStudioSourceLabel(studio) },
         { label: '料金確認', value: getPricingCheckStatus(studio) }
     ];
 }
