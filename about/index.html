@@ -27,34 +27,46 @@
     <script type="application/ld+json">
         {
           "@context": "https://schema.org",
-          "@type": "AboutPage",
-          "name": "運営者情報｜全国へ広がる学び探し LessonMap",
-          "url": "https://www.lesson-map.com/about/",
-          "description": "全国へ掲載地域を順次広げるLessonMapの運営者情報と掲載方針です。",
-          "inLanguage": "ja"
-        }
-    </script>
-    <script type="application/ld+json">
-        {
-          "@context": "https://schema.org",
-          "@type": "Organization",
-          "@id": "https://www.lesson-map.com/#organization",
-          "name": "LessonMap",
-          "url": "https://www.lesson-map.com/",
-          "alternateName": "Filver",
-          "logo": "https://www.lesson-map.com/apple-touch-icon.png",
-          "description": "誰もが、自分に合った学びと出会える社会をつくる学びの発見プラットフォーム",
-          "slogan": "次の「できた。」へ。",
-          "founder": {
-            "@type": "Organization",
-            "name": "Filver"
-          },
-          "contactPoint": {
-            "@type": "ContactPoint",
-            "url": "https://www.lesson-map.com/contact/",
-            "contactType": "customer support",
-            "availableLanguage": "Japanese"
-          }
+          "@graph": [
+            {
+              "@type": "AboutPage",
+              "@id": "https://www.lesson-map.com/about/#webpage",
+              "name": "運営者情報｜全国へ広がる学び探し LessonMap",
+              "url": "https://www.lesson-map.com/about/",
+              "description": "全国へ掲載地域を順次広げるLessonMapの運営者情報と掲載方針です。",
+              "inLanguage": "ja",
+              "isPartOf": { "@id": "https://www.lesson-map.com/#website" },
+              "about": { "@id": "https://www.lesson-map.com/#organization" }
+            },
+            {
+              "@type": "Organization",
+              "@id": "https://www.lesson-map.com/#organization",
+              "name": "LessonMap",
+              "url": "https://www.lesson-map.com/",
+              "alternateName": "Filver",
+              "logo": {
+                "@type": "ImageObject",
+                "url": "https://www.lesson-map.com/apple-touch-icon.png"
+              },
+              "description": "誰もが、自分に合った学びと出会える社会をつくる学びの発見プラットフォーム",
+              "slogan": "次の「できた。」へ。",
+              "areaServed": { "@type": "Country", "name": "日本" },
+              "contactPoint": {
+                "@type": "ContactPoint",
+                "url": "https://www.lesson-map.com/contact/",
+                "contactType": "customer support",
+                "availableLanguage": "Japanese"
+              }
+            },
+            {
+              "@type": "WebSite",
+              "@id": "https://www.lesson-map.com/#website",
+              "name": "LessonMap",
+              "url": "https://www.lesson-map.com/",
+              "inLanguage": "ja",
+              "publisher": { "@id": "https://www.lesson-map.com/#organization" }
+            }
+          ]
         }
     </script>
     <script type="application/ld+json">
