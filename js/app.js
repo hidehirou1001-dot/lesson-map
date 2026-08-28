@@ -503,6 +503,7 @@ function renderStudios(data) {
 
     if (data.length === 0) {
         grid.innerHTML = getNoResultsMarkup(getSparseAreaContext(data.length));
+        bindSparseAreaActions(grid);
         const resetBtn = grid.querySelector('[data-empty-reset]');
         if (resetBtn) {
             resetBtn.addEventListener('click', () => {
@@ -516,6 +517,7 @@ function renderStudios(data) {
     const sparseAreaContext = getSparseAreaContext(data.length);
     if (sparseAreaContext?.count <= 2) {
         grid.insertAdjacentHTML('beforeend', getSparseAreaNoticeMarkup(sparseAreaContext));
+        bindSparseAreaActions(grid);
     }
 
     let renderedCount = 0;
@@ -616,6 +618,24 @@ function getBroadenedAreaHref(prefecture) {
     return query ? `/?${query}#results-zone` : '/#finder';
 }
 
+function bindSparseAreaActions(scope) {
+    scope.querySelectorAll('[data-broaden-area]').forEach(button => {
+        button.addEventListener('click', () => {
+            const destination = button.getAttribute('data-broaden-area');
+            if (!destination) return;
+
+            const destinationButton = document.querySelector(`.city-btn[data-city="${destination}"]:not(.city-detail-btn)`);
+            if (destinationButton) {
+                destinationButton.click();
+                window.requestAnimationFrame(scrollToResultsZone);
+                return;
+            }
+
+            window.location.href = getBroadenedAreaHref(destination);
+        });
+    });
+}
+
 function getSparseAreaContext(count) {
     const city = currentFilterState.city;
     const isExactCity = city !== 'all' && !cityRegionMap[city];
@@ -641,7 +661,7 @@ function getSparseAreaNoticeMarkup(context) {
                 <strong>${context.city}内で条件に合う教室を${countLabel}表示しています。</strong>
                 <p>下の候補は${context.city}内の教室です。比較先を増やしたい場合は、${destination}まで範囲を広げて探せます。</p>
             </div>
-            <a class="btn btn-outline sparse-area-notice-action" href="${context.broadenedHref}">${destination}の候補も見る</a>
+            <button class="btn btn-outline sparse-area-notice-action" type="button" data-broaden-area="${context.prefecture}">${destination}の候補も見る</button>
         </aside>
     `;
 }
@@ -666,7 +686,7 @@ function getNoResultsMarkup(sparseAreaContext = null) {
         ? `市外の教室を${sparseAreaContext.city}内の候補として表示せず、${sparseAreaContext.prefecture || '近隣エリア'}へ広げる入口をご案内します。`
         : 'カテゴリやエリアを少し広げると見つかりやすくなります。';
     const broadenAction = sparseAreaContext ? `
-        <a class="btn btn-primary" href="${sparseAreaContext.broadenedHref}">${sparseAreaContext.prefecture || '近隣エリア'}の候補を見る</a>
+        <button class="btn btn-primary" type="button" data-broaden-area="${sparseAreaContext.prefecture}">${sparseAreaContext.prefecture || '近隣エリア'}の候補を見る</button>
     ` : '';
 
     return `
