@@ -3064,6 +3064,33 @@ const studios = [
     fitSummary: '実際に作って試食しながら料理の幅を広げたい大人向け', checkpoints: ['レッスン内容', '開催日', '受講料・材料費'],
     pricing: { system: 'レッスン別', minPrice: 0, note: '料金は公式サイトで確認' }, features: { parking: false, beginnerFriendly: '◎', kidsClass: false, adultClass: true }, trial: '単発参加・申込条件は公式サイトで確認',
     imageUrl: 'https://images.unsplash.com/photo-1556910103-1c02745aae4d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', link: 'https://cl-diletto.com/class/', sourceNote: '公式サイトを2026-08-25確認'
+  },
+  {
+    id: 'school-programming-okayama-kidsprolab-dolphin', listingType: 'school', name: 'Kidsプログラミングラボ 岡山ドルフィン教室',
+    description: '岡山市南区でScratchのゲーム制作からPython、Web制作、Unityまで段階的に学べる子ども向けプログラミング教室です。',
+    category: 'Programming', city: '岡山市', area: '南区・甲浦周辺', access: '岡山市南区甲浦小学校近く、パソコン教室ドルフィン内',
+    genres: ['Programming', 'Kids', 'Scratch', 'Python', 'Unity'], learningNeeds: ['kids_lessons', 'it_learning'], decisionFactors: ['level_fit', 'trial_available', 'goal_fit'],
+    fitSummary: 'Scratchから本格的な言語へ段階的に進みたい子ども向け', checkpoints: ['対象コース', '開講日時', '月謝・教材費'],
+    pricing: { system: 'コース別', minPrice: 0, note: '料金は公式教室ページで確認' }, features: { parking: false, beginnerFriendly: '◎', kidsClass: true, adultClass: false }, trial: '無料体験会あり・日程は公式サイトで確認',
+    imageUrl: 'https://images.unsplash.com/photo-1515879218367-8466d910aaa4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', link: 'https://kids-prolab.com/location/te140/', sourceNote: '公式教室ページを2026-08-28確認'
+  },
+  {
+    id: 'school-programming-okayama-pitagoramin', listingType: 'school', name: 'ピタゴラミン岡山校',
+    description: 'Scratch Jr、Scratch、マイクラ×Python、3D制作など、年齢と興味に合わせてコースを選べる岡山市のプログラミング教室です。',
+    category: 'Programming', city: '岡山市', area: '岡山市内', access: '所在地・アクセスは公式サイトで確認',
+    genres: ['Programming', 'Kids', 'Minecraft', 'Python', '3D'], learningNeeds: ['kids_lessons', 'it_learning'], decisionFactors: ['age_fit', 'genre_fit', 'trial_available'],
+    fitSummary: 'マイクラやゲーム制作からPython・3Dへ進みたい子ども向け', checkpoints: ['推奨年齢', '希望コース', '曜日・月額料金'],
+    pricing: { system: '月謝制', minPrice: 6600, note: 'コースにより月額6,600円または7,700円など。最新料金は公式サイトで確認' }, features: { parking: false, weekendOpen: true, beginnerFriendly: '◎', kidsClass: true, adultClass: false }, trial: '無料体験案内あり',
+    imageUrl: 'https://images.unsplash.com/photo-1515879218367-8466d910aaa4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', link: 'https://pitagoramin.com/okayama/', sourceNote: '公式サイトを2026-08-28確認'
+  },
+  {
+    id: 'school-programming-okayama-shinji', listingType: 'school', name: 'しんじ先生のプログラミング／ロボット教室',
+    description: '岡山市北区・中区に複数教室を展開し、プログラミング、ロボット、マインクラフト、Roblox、情報Ⅰを年齢別に学べます。',
+    category: 'Programming', city: '岡山市', area: '北区・中区', access: '問屋町・豊成・伊島・原尾島の各教室',
+    genres: ['Programming', 'Robot', 'Minecraft', 'Roblox', 'Exam'], learningNeeds: ['kids_lessons', 'it_learning'], decisionFactors: ['age_fit', 'commute_fit', 'trial_available'],
+    fitSummary: '近隣教室でロボットやマイクラ・Robloxを学びたい小中学生向け', checkpoints: ['教室・曜日', '対象学年', '授業料・体験日程'],
+    pricing: { system: 'コース別', minPrice: 0, note: '授業料は公式サイトまたは教室へ確認' }, features: { parking: false, weekendOpen: true, beginnerFriendly: '◎', kidsClass: true, adultClass: false }, trial: '無料体験授業を随時受付',
+    imageUrl: 'https://images.unsplash.com/photo-1515879218367-8466d910aaa4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', link: 'https://www.shinjipc.com/school/', sourceNote: '公式教室一覧を2026-08-28確認'
   }
 ];
 
