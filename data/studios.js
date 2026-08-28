@@ -2932,93 +2932,103 @@ const studios = [
   // ================= 岡山県岡山市 =================
   {
     id: 'school-english-okayama-cornerstone', listingType: 'school', name: 'Cornerstone English School',
+    entityType: 'EducationalOrganization', entityId: 'https://www.lesson-map.com/#school-english-okayama-cornerstone', prefecture: '岡山県', addressLocality: '岡山市', officialUrl: 'https://cse-school.jp/',
     description: '岡山市で未就学児から大人まで学べる英会話教室。少人数クラスを中心に、年代や目的に合うコースを相談できます。',
     category: 'English', city: '岡山市', area: '岡山市内', access: '所在地・アクセスは公式サイトで確認',
     genres: ['English', 'Kids', 'Adult', 'Conversation'], learningNeeds: ['kids_lessons', 'adult_lessons', 'english_learning'], decisionFactors: ['age_fit', 'class_size', 'trial_available'],
     fitSummary: '少人数で子どもから大人まで英会話を続けたい人向け', checkpoints: ['校舎・通学経路', '対象クラス', '月謝・教材費'],
     pricing: { system: '月謝制', minPrice: 0, note: 'コース別料金は公式サイトで確認' }, features: { parking: false, beginnerFriendly: '◎', kidsClass: true, adultClass: true }, trial: '体験・見学条件は公式サイトで確認',
-    imageUrl: 'https://images.unsplash.com/photo-1509062522246-3755977927d7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', link: 'https://cse-school.jp/', sourceNote: '公式サイトを2026-08-25確認'
+    imageUrl: 'https://images.unsplash.com/photo-1509062522246-3755977927d7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', link: 'https://cse-school.jp/', sourceNote: '公式サイトを2026-08-28確認'
   },
   {
     id: 'school-english-okayama-thompson', listingType: 'school', name: 'Thompson Academy',
+    entityType: 'EducationalOrganization', entityId: 'https://www.lesson-map.com/#school-english-okayama-thompson', prefecture: '岡山県', addressLocality: '岡山市', officialUrl: 'https://www.thompson-academy.com/',
     description: '岡山市東区城東台東にある子どもから大人向けの英語スクール。英会話に加え、資格・試験対策や大人向けクラスを検討できます。',
     category: 'English', city: '岡山市', area: '東区・城東台周辺', access: '岡山市東区城東台東2-10-17',
     genres: ['English', 'Kids', 'Adult', 'Exam'], learningNeeds: ['kids_lessons', 'adult_lessons', 'english_learning'], decisionFactors: ['age_fit', 'teacher_fit', 'schedule_fit'],
     fitSummary: '会話から試験対策まで目的に合わせて英語を学びたい人向け', checkpoints: ['対象クラス', '開講曜日', '料金・体験'],
     pricing: { system: 'コース別', minPrice: 0, note: '料金は公式サイトで確認' }, features: { parking: false, beginnerFriendly: '◎', kidsClass: true, adultClass: true }, trial: '体験条件は公式サイトで確認',
-    imageUrl: 'https://images.unsplash.com/photo-1543269865-cbf427effbad?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', link: 'https://www.thompson-academy.com/', sourceNote: '公式サイトを2026-08-25確認'
+    imageUrl: 'https://images.unsplash.com/photo-1543269865-cbf427effbad?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', link: 'https://www.thompson-academy.com/', sourceNote: '公式サイトを2026-08-28確認'
   },
   {
     id: 'school-english-okayama-neo', listingType: 'school', name: 'English NEO',
+    entityType: 'EducationalOrganization', entityId: 'https://www.lesson-map.com/#school-english-okayama-neo', prefecture: '岡山県', addressLocality: '岡山市', officialUrl: 'https://www.eikaiwa-neo.com/',
     description: '岡山市内にある子ども・大人向け英会話教室。初心者から上級者まで、レベルや目的に合わせたレッスンを検討できます。',
     category: 'English', city: '岡山市', area: '岡山市中心部南側', access: '詳しい所在地・アクセスは公式サイトで確認',
     genres: ['English', 'Kids', 'Adult', 'Conversation'], learningNeeds: ['kids_lessons', 'adult_lessons', 'english_learning'], decisionFactors: ['level_fit', 'trial_available', 'schedule_fit'],
     fitSummary: '自分のレベルに合う英会話を体験から確かめたい人向け', checkpoints: ['対象・レベル', 'レッスン形式', '月謝・教材費'],
     pricing: { system: 'コース別', minPrice: 0, note: '料金は公式サイトで確認' }, features: { parking: false, beginnerFriendly: '◎', kidsClass: true, adultClass: true }, trial: '体験レッスン案内あり',
-    imageUrl: 'https://images.unsplash.com/photo-1509062522246-3755977927d7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', link: 'https://www.eikaiwa-neo.com/', sourceNote: '公式サイトを2026-08-25確認'
+    imageUrl: 'https://images.unsplash.com/photo-1509062522246-3755977927d7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', link: 'https://www.eikaiwa-neo.com/', sourceNote: '公式サイトを2026-08-28確認'
   },
   {
     id: 'school-piano-okayama-yamaha-music-avenue', listingType: 'school', name: 'ヤマハミュージックスクール ミュージックアベニュー岡山',
+    entityType: 'EducationalOrganization', entityId: 'https://www.lesson-map.com/#school-piano-okayama-yamaha-music-avenue', prefecture: '岡山県', addressLocality: '岡山市', officialUrl: 'https://school.jp.yamaha.com/music/venue/detail/?category=all&courseClsCd=32&id=212001E01',
     description: 'JR岡山駅近くの音楽教室。幼児・小学生の総合音楽教育から、小学生・大人向けの楽器や歌のレッスンまで選べます。',
     category: 'Piano', city: '岡山市', area: '北区・岡山駅前', access: '岡山市北区駅前町1-1-1 ビックカメラ4F、JR岡山駅から徒歩約1分',
     genres: ['Piano', 'Music', 'Kids', 'Adult'], learningNeeds: ['kids_lessons', 'adult_lessons', 'music_learning'], decisionFactors: ['station_access', 'age_fit', 'trial_available'],
     fitSummary: '岡山駅近くで子ども・大人の音楽コースを比較したい人向け', checkpoints: ['募集中コース', '開講曜日', '授業料・施設費'],
     pricing: { system: 'コース別', minPrice: 0, note: 'コース別料金は公式サイトで確認' }, features: { parking: true, parkingCapacity: 'paid', beginnerFriendly: '◎', kidsClass: true, adultClass: true }, trial: '無料体験・レッスン見学案内あり',
-    imageUrl: 'https://images.unsplash.com/photo-1520523839897-bd0b52f945a0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', link: 'https://school.jp.yamaha.com/music/venue/detail/?category=all&courseClsCd=32&id=212001E01', sourceNote: 'ヤマハ公式教室ページを2026-08-25確認'
+    imageUrl: 'https://images.unsplash.com/photo-1520523839897-bd0b52f945a0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', link: 'https://school.jp.yamaha.com/music/venue/detail/?category=all&courseClsCd=32&id=212001E01', sourceNote: 'ヤマハ公式教室ページを2026-08-28確認'
   },
   {
     id: 'school-piano-okayama-kawai-omoto', listingType: 'school', name: 'カワイ音楽教室 大元駅前',
+    entityType: 'EducationalOrganization', entityId: 'https://www.lesson-map.com/#school-piano-okayama-kawai-omoto', prefecture: '岡山県', addressLocality: '岡山市', officialUrl: 'https://music.kawai.jp/search/course/00L602/34459',
     description: '岡山市北区の大元駅周辺にあるカワイ音楽教室。子ども・大人向けの開講コースや体験日程を公式ページから確認できます。',
     category: 'Piano', city: '岡山市', area: '北区・大元駅周辺', access: '大元駅周辺、詳しい所在地は公式教室ページで確認',
     genres: ['Piano', 'Music', 'Kids', 'Adult'], learningNeeds: ['kids_lessons', 'adult_lessons', 'music_learning'], decisionFactors: ['station_access', 'age_fit', 'trial_available'],
     fitSummary: '大元駅周辺で年齢に合う音楽レッスンを探したい人向け', checkpoints: ['募集中コース', '対象年齢', '授業料・管理費'],
     pricing: { system: 'コース別', minPrice: 0, note: 'コース別料金は公式サイトで確認' }, features: { parking: false, beginnerFriendly: '◎', kidsClass: true, adultClass: true }, trial: '体験・おためしコースは公式サイトで確認',
-    imageUrl: 'https://images.unsplash.com/photo-1520523839897-bd0b52f945a0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', link: 'https://music.kawai.jp/search/course/00L602/34459', sourceNote: 'カワイ公式教室ページを2026-08-25確認'
+    imageUrl: 'https://images.unsplash.com/photo-1520523839897-bd0b52f945a0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', link: 'https://music.kawai.jp/search/course/00L602/34459', sourceNote: 'カワイ公式教室ページを2026-08-28確認'
   },
   {
     id: 'school-programming-okayama-qureo-nagomi', listingType: 'school', name: 'QUREOプログラミング教室 なごみパソコン教室',
+    entityType: 'EducationalOrganization', entityId: 'https://www.lesson-map.com/#school-programming-okayama-qureo-nagomi', prefecture: '岡山県', addressLocality: '岡山市', officialUrl: 'https://qureo.jp/class/nagomipasokonkyoshitsu',
     description: '岡山市中区兼基にある小学2〜6年生向けプログラミング教室。ゲーム型教材から基礎を学び、無料体験から相性を確認できます。',
     category: 'Programming', city: '岡山市', area: '中区・兼基周辺', access: '岡山市中区兼基223',
     genres: ['Programming', 'Kids', 'Game'], learningNeeds: ['kids_lessons', 'it_learning'], decisionFactors: ['age_fit', 'parking', 'trial_available'],
     fitSummary: '小学生が通いやすい曜日でプログラミングを始めたい家庭向け', checkpoints: ['対象学年', '授業曜日', '授業料・教材費'],
     pricing: { system: '月謝制', minPrice: 0, note: '授業料は公式教室ページから問い合わせ' }, features: { parking: true, parkingCapacity: 'large', weekendOpen: true, beginnerFriendly: '◎', kidsClass: true, adultClass: false }, scheduleNote: '火・水・金・土曜開講（最新時間は公式サイトで確認）', trial: '無料体験あり',
-    imageUrl: 'https://images.unsplash.com/photo-1515879218367-8466d910aaa4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', link: 'https://qureo.jp/class/nagomipasokonkyoshitsu', sourceNote: 'QUREO公式教室ページを2026-08-25確認'
+    imageUrl: 'https://images.unsplash.com/photo-1515879218367-8466d910aaa4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', link: 'https://qureo.jp/class/nagomipasokonkyoshitsu', sourceNote: 'QUREO公式教室ページを2026-08-28確認'
   },
   {
     id: 'school-programming-okayama-qureo-fukuhama', listingType: 'school', name: 'QUREOプログラミング教室 ベスト個別 福浜教室',
+    entityType: 'EducationalOrganization', entityId: 'https://www.lesson-map.com/#school-programming-okayama-qureo-fukuhama', prefecture: '岡山県', addressLocality: '岡山市', officialUrl: 'https://qureo.jp/class/besutokobetsu_fukuhama',
     description: '岡山市南区三浜町にある小学3〜6年生向けプログラミング教室。ゲーム型教材を使い、基礎から段階的に学べます。',
     category: 'Programming', city: '岡山市', area: '南区・福浜周辺', access: '岡山市南区三浜町2-1-2',
     genres: ['Programming', 'Kids', 'Game'], learningNeeds: ['kids_lessons', 'it_learning'], decisionFactors: ['age_fit', 'parking', 'trial_available'],
     fitSummary: '南区で小学生向けプログラミングを体験から検討したい家庭向け', checkpoints: ['対象学年', '授業曜日', '授業料・体験条件'],
     pricing: { system: '月謝制', minPrice: 0, note: '授業料は公式教室ページから問い合わせ' }, features: { parking: true, parkingCapacity: 'standard', beginnerFriendly: '◎', kidsClass: true, adultClass: false }, scheduleNote: '火〜金曜開講（最新時間は公式サイトで確認）', trial: '期間限定体験案内あり・最新条件は公式サイトで確認',
-    imageUrl: 'https://images.unsplash.com/photo-1515879218367-8466d910aaa4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', link: 'https://qureo.jp/class/besutokobetsu_fukuhama', sourceNote: 'QUREO公式教室ページを2026-08-25確認'
+    imageUrl: 'https://images.unsplash.com/photo-1515879218367-8466d910aaa4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', link: 'https://qureo.jp/class/besutokobetsu_fukuhama', sourceNote: 'QUREO公式教室ページを2026-08-28確認'
   },
   {
     id: 'school-dance-okayama-line', listingType: 'school', name: 'Dance Studio Line',
+    entityType: 'EducationalOrganization', entityId: 'https://www.lesson-map.com/#school-dance-okayama-line', prefecture: '岡山県', addressLocality: '岡山市', officialUrl: 'https://d-s-l.net/',
     description: '岡山市北区厚生町にあるダンススタジオ。ジャズ、バレエ、タップなどを開講し、初心者向けクラスや体験を案内しています。',
     category: 'Dance', city: '岡山市', area: '北区・厚生町周辺', access: '岡山市北区厚生町2-1-5 健康空間4F',
     genres: ['Dance', 'Jazz', 'Ballet', 'Tap'], learningNeeds: ['kids_lessons', 'adult_lessons', 'dance_learning'], decisionFactors: ['genre_fit', 'trial_available', 'beginner_friendly'],
     fitSummary: '複数のダンスジャンルから初心者向けクラスを探したい人向け', checkpoints: ['対象年齢', 'ジャンル・クラス', '月謝・体験日程'],
     pricing: { system: 'クラス別', minPrice: 0, note: '料金は公式サイトで確認' }, features: { parking: false, beginnerFriendly: '◎', kidsClass: true, adultClass: true }, trial: '体験レッスン案内あり',
-    imageUrl: 'https://images.unsplash.com/photo-1518834107812-67b0b7c58434?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', link: 'https://d-s-l.net/', sourceNote: '公式サイトを2026-08-25確認'
+    imageUrl: 'https://images.unsplash.com/photo-1518834107812-67b0b7c58434?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', link: 'https://d-s-l.net/', sourceNote: '公式サイトを2026-08-28確認'
   },
   {
     id: 'school-soroban-okayama-miraijuku', listingType: 'school', name: '未来塾 そろばん教室',
+    entityType: 'EducationalOrganization', entityId: 'https://www.lesson-map.com/#school-soroban-okayama-miraijuku', prefecture: '岡山県', addressLocality: '岡山市', officialUrl: 'https://miraijukusoroban.wixsite.com/website',
     description: '岡山市北区伊福町にあるそろばん教室。楽しみながら学び、計算力と集中力を身につけたい子どもの候補として検討できます。',
     category: 'Soroban', city: '岡山市', area: '北区・伊福町周辺', access: '岡山市北区伊福町3-25-18 TAXビル2F',
     genres: ['Soroban', 'Kids'], learningNeeds: ['kids_lessons'], decisionFactors: ['commute_fit', 'teacher_fit', 'beginner_friendly'],
     fitSummary: '岡山駅西側で子どもの計算力と集中力を育てたい家庭向け', checkpoints: ['対象年齢', '開講曜日', '月謝・教材費'],
     pricing: { system: '月謝制', minPrice: 0, note: '料金は公式サイトで確認' }, features: { parking: false, beginnerFriendly: '◎', kidsClass: true, adultClass: false }, trial: '体験条件は公式サイトで確認',
-    imageUrl: 'https://images.unsplash.com/photo-1509228468518-180dd4864904?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', link: 'https://miraijukusoroban.wixsite.com/website', sourceNote: '公式サイトを2026-08-25確認'
+    imageUrl: 'https://images.unsplash.com/photo-1509228468518-180dd4864904?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', link: 'https://miraijukusoroban.wixsite.com/website', sourceNote: '公式サイトを2026-08-28確認'
   },
   {
     id: 'school-calligraphy-okayama-hakuhousha', listingType: 'school', name: '書道研究 柏朋社',
+    entityType: 'EducationalOrganization', entityId: 'https://www.lesson-map.com/#school-calligraphy-okayama-hakuhousha', prefecture: '岡山県', addressLocality: '岡山市', officialUrl: 'https://okayama-shodo.com/',
     description: '岡山市で未就学児から大人まで学べる書道教室。硬筆・毛筆、実用書、師範取得や公募展への出品など目的に合わせて学べます。',
     category: 'Calligraphy', city: '岡山市', area: '岡山市内', access: '岡山市内の教室所在地・開講日は公式サイトで確認',
     genres: ['Calligraphy', 'Kids', 'Adult'], learningNeeds: ['kids_lessons', 'adult_lessons'], decisionFactors: ['age_fit', 'goal_fit', 'schedule_fit'],
     fitSummary: '子どもの書写から大人の実用書・専門的な書道まで学びたい人向け', checkpoints: ['教室所在地', '対象クラス', '月謝・手本代'],
     pricing: { system: 'クラス別', minPrice: 0, note: '料金は公式サイトで確認' }, features: { parking: false, beginnerFriendly: '◎', kidsClass: true, adultClass: true }, trial: '見学・体験条件は公式サイトで確認',
-    imageUrl: 'https://images.unsplash.com/photo-1455390582262-044cdead277a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', link: 'https://okayama-shodo.com/', sourceNote: '公式サイトを2026-08-25確認'
+    imageUrl: 'https://images.unsplash.com/photo-1455390582262-044cdead277a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', link: 'https://okayama-shodo.com/', sourceNote: '公式サイトを2026-08-28確認'
   },
   {
     id: 'school-yoga-okayama-ruta', listingType: 'school', name: 'ヨガスタジオ RUTA',
