@@ -615,7 +615,7 @@ function getBroadenedAreaHref(prefecture) {
     if (prefecture) params.set('city', prefecture);
     if (currentFilterState.category !== 'all') params.set('category', currentFilterState.category);
     const query = params.toString();
-    return query ? `/?${query}#results-zone` : '/#finder';
+    return query ? `/?${query}#results-zone` : '/#finder-panel';
 }
 
 function bindSparseAreaActions(scope) {
