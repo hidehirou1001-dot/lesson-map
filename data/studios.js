@@ -3091,6 +3091,33 @@ const studios = [
     fitSummary: '近隣教室でロボットやマイクラ・Robloxを学びたい小中学生向け', checkpoints: ['教室・曜日', '対象学年', '授業料・体験日程'],
     pricing: { system: 'コース別', minPrice: 0, note: '授業料は公式サイトまたは教室へ確認' }, features: { parking: false, weekendOpen: true, beginnerFriendly: '◎', kidsClass: true, adultClass: false }, trial: '無料体験授業を随時受付',
     imageUrl: 'https://images.unsplash.com/photo-1515879218367-8466d910aaa4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', link: 'https://www.shinjipc.com/school/', sourceNote: '公式教室一覧を2026-08-28確認'
+  },
+  {
+    id: 'school-piano-okayama-soleil', listingType: 'school', name: 'ソレイユピアノ教室',
+    description: '岡山市北区伊福町にある幼児から大人向けの個人ピアノ教室。初心者、再開、音高・音大受験まで目的に合わせて相談できます。',
+    category: 'Piano', city: '岡山市', area: '北区・伊福町', access: '岡山市北区伊福町',
+    genres: ['Piano', 'Kids', 'Adult', 'Exam'], learningNeeds: ['kids_lessons', 'adult_lessons', 'music_learning'], decisionFactors: ['teacher_fit', 'trial_available', 'goal_fit'],
+    fitSummary: '無料体験で個人指導との相性を確かめたい幼児・大人向け', checkpoints: ['対象・目的', 'レッスン回数', '教材費'],
+    pricing: { system: '月謝制', minPrice: 5000, note: '大人月2回5,000円、初級月4回6,000円など。教材費別' }, features: { parking: false, weekendOpen: true, beginnerFriendly: '◎', kidsClass: true, adultClass: true }, trial: '無料体験レッスンあり',
+    imageUrl: 'https://images.unsplash.com/photo-1520523839897-bd0b52f945a0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', link: 'https://www.soleil-pianoschool.com/', sourceNote: '公式サイトを2026-08-28確認'
+  },
+  {
+    id: 'school-piano-okayama-kishimoto', listingType: 'school', name: 'Music Place KISHIMOTO',
+    description: '岡山市中区四御神にある子ども・大人向けの個人ピアノ教室。歌、読譜、リズムも含めて学び、オンラインへの切替相談もできます。',
+    category: 'Piano', city: '岡山市', area: '中区・四御神', access: '岡山市中区四御神264-6、竜の口小学校徒歩2分',
+    genres: ['Piano', 'Kids', 'Adult', 'Online'], learningNeeds: ['kids_lessons', 'adult_lessons', 'music_learning'], decisionFactors: ['age_fit', 'schedule_fit', 'trial_available'],
+    fitSummary: '個人レッスンで音楽の基礎と表現を学びたい子ども・大人向け', checkpoints: ['空き時間', '受講時間', '入会金・月謝'],
+    pricing: { system: '月謝制', minPrice: 6500, note: '大人月3回30分6,500円、個人年間40回30分7,500円など' }, features: { parking: false, beginnerFriendly: '◎', kidsClass: true, adultClass: true }, trial: '体験レッスンは公式LINEから相談',
+    imageUrl: 'https://images.unsplash.com/photo-1520523839897-bd0b52f945a0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', link: 'https://musicplace.jp/', sourceNote: '公式サイトを2026-08-28確認'
+  },
+  {
+    id: 'school-piano-okayama-taki', listingType: 'school', name: 'Taki音楽教室',
+    description: '岡山市北区のピアノ・ボーカル教室。小さな子どもから大人、シニアまで、生活や目的に合わせた音楽レッスンを相談できます。',
+    category: 'Piano', city: '岡山市', area: '北区', access: '教室所在地・アクセスは公式サイトで確認',
+    genres: ['Piano', 'Vocal', 'Kids', 'Adult', 'Senior'], learningNeeds: ['kids_lessons', 'adult_lessons', 'music_learning'], decisionFactors: ['age_fit', 'goal_fit', 'teacher_fit'],
+    fitSummary: 'ピアノと歌を含め、年代に合う音楽の楽しみ方を相談したい人向け', checkpoints: ['教室所在地', '対象コース', '料金・体験日程'],
+    pricing: { system: 'コース別', minPrice: 0, note: '料金は公式サイトで確認' }, features: { parking: false, beginnerFriendly: '◎', kidsClass: true, adultClass: true }, trial: '体験・問い合わせ案内あり',
+    imageUrl: 'https://images.unsplash.com/photo-1520523839897-bd0b52f945a0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', link: 'https://taki-music.com/', sourceNote: '公式サイトを2026-08-28確認'
   }
 ];
 
