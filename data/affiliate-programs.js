@@ -74,6 +74,32 @@ window.affiliatePrograms = [
     active: true
   },
   {
+    id: 'medical-aroma-instructor',
+    name: 'メディカルアロマ検定＆メディカルアロマインストラクター資格取得講座',
+    category: 'アロマ・資格取得',
+    audience: 'アロマを体系的に学び、暮らしや活動に生かしたい方',
+    description: '精油学に加えて、メディカルハーブ、基礎医学、心理学、カウンセリング学などをオンラインで学ぶ民間資格講座です。受講期間、教材、試験・認定条件、資格取得後の活用範囲を公式サイトで確認してから検討してください。',
+    ctaLabel: '講座内容と資格条件を確認する',
+    affiliateUrl: 'https://px.a8.net/svt/ejp?a8mat=4BAH9J+ECSF9M+4N8K+5YZ77',
+    showOnHome: false,
+    asp: 'A8.net',
+    programId: 's00000021674001',
+    active: true
+  },
+  {
+    id: 'food-education-nutrition-advisor',
+    name: '食育栄養アドバイザー講座',
+    category: '食育・栄養・資格取得',
+    audience: '日々の食事や栄養について体系的に学びたい方',
+    description: '料理の実技だけでなく、毎日の食事、食育、栄養について順序立てて学びたい方向けの資格取得講座です。申込み前に、カリキュラム、受講期間、教材、試験・認定条件、追加費用、資格取得後の活用範囲を公式サイトで確認してください。',
+    ctaLabel: '講座内容と資格条件を確認する',
+    affiliateUrl: 'https://px.a8.net/svt/ejp?a8mat=4BAI1K+2KACY2+4N8K+15ORS2',
+    showOnHome: false,
+    asp: 'A8.net',
+    programId: 's00000021674007',
+    active: true
+  },
+  {
     id: 'coconala-skill-market',
     name: 'スキルマーケット ココナラ',
     category: '個別相談・オンラインレッスン',

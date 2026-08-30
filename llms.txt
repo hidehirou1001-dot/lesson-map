@@ -10,6 +10,7 @@
 - [英会話・語学](https://www.lesson-map.com/recommendations/english-guides/): 通学・オンラインを含む語学ガイド
 - [IT・AI](https://www.lesson-map.com/recommendations/it-ai-guides/): プログラミング、生成AI、IT学習ガイド
 - [資格・学び直し](https://www.lesson-map.com/recommendations/qualification-relearning-guides/): 資格取得、通信講座、リスキリングガイド
+- [アロマを学びたい人へ](https://www.lesson-map.com/recommendations/aroma-learning-guide/): 独学、趣味講座、オンライン資格講座の違い
 - [オンライン学習](https://www.lesson-map.com/recommendations/online-learning-guides/): オンライン講座の比較・選び方
 
 ## 運営・方針

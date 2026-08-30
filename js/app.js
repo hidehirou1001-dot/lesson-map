@@ -3385,7 +3385,7 @@ function getRecommendedGuides() {
         '新居浜市': { href: '/recommendations/niihama-lessons/', title: '新居浜の習い事おすすめ3選', description: '新居浜エリアでまず候補を広く見たい方向けです。' },
         '松前町': { href: '/recommendations/masaki-lessons/', title: '松前町の習い事おすすめ3選', description: '松前町で探し始める人向けの地域特集です。' },
         '東温市': { href: '/recommendations/toon-english/', title: '東温市の英会話教室おすすめ1選', description: '東温市でまず見やすい地域特化記事です。' },
-        '伊予市': { href: '/recommendations/iyo-programming/', title: '伊予市のプログラミング教室おすすめ1選', description: '伊予市で始めやすい候補を先に見られます。' },
+        '伊予市': { href: '/recommendations/iyo-programming/', title: '伊予市の子ども向けプログラミング教室比較', description: '対象、教材、時間、アクセスから2教室を比較できます。' },
         '四国中央市': { href: '/recommendations/shikokuchuo-english/', title: '四国中央市の英会話教室おすすめ2選', description: '四国中央市の地域特化記事へ進めます。' },
         '西条市': { href: '/recommendations/saijo-dance/', title: '西条市のダンス教室おすすめ1選', description: '西条市で初心者にも見やすい地域記事です。' },
         '宇和島市': { href: '/recommendations/uwajima-swimming/', title: '宇和島市のスイミングスクールおすすめ1選', description: '宇和島市の地域特化記事へ進めます。' }
@@ -3504,7 +3504,7 @@ function getRecommendedGuidesForStudio(studio) {
         '新居浜市': { href: '/recommendations/niihama-lessons/', title: '新居浜の習い事おすすめ3選', description: '新居浜エリアでまず候補を広く見たい方向けです。' },
         '松前町': { href: '/recommendations/masaki-lessons/', title: '松前町の習い事おすすめ3選', description: '松前町で探し始める人向けの地域特集です。' },
         '東温市': { href: '/recommendations/toon-english/', title: '東温市の英会話教室おすすめ1選', description: '東温市でまず見やすい地域特化記事です。' },
-        '伊予市': { href: '/recommendations/iyo-programming/', title: '伊予市のプログラミング教室おすすめ1選', description: '伊予市で始めやすい候補を先に見られます。' },
+        '伊予市': { href: '/recommendations/iyo-programming/', title: '伊予市の子ども向けプログラミング教室比較', description: '対象、教材、時間、アクセスから2教室を比較できます。' },
         '四国中央市': { href: '/recommendations/shikokuchuo-english/', title: '四国中央市の英会話教室おすすめ2選', description: '四国中央市の地域特化記事へ進めます。' },
         '西条市': { href: '/recommendations/saijo-dance/', title: '西条市のダンス教室おすすめ1選', description: '西条市で比較しやすい地域特集です。' },
         '宇和島市': { href: '/recommendations/uwajima-swimming/', title: '宇和島市のスイミングスクールおすすめ1選', description: '宇和島市の地域特化記事へ進めます。' }
