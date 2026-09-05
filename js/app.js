@@ -48,6 +48,7 @@ document.addEventListener('DOMContentLoaded', () => {
         runSafely('renderCompareMemo', renderCompareMemo);
         runSafely('renderFavorites', renderFavorites);
         runSafely('applyFilters', applyFilters); // Apply initial filters
+        runSafely('openLinkedStudio', openLinkedStudio);
     }
 });
 
@@ -3637,6 +3638,16 @@ function openModal(studioId) {
     const compareButtonLabel = isComparedStudio(studio.id) ? '比較メモから外す' : '比較メモに入れる';
     const compareButtonDisabled = !isComparedStudio(studio.id) && compareMemoIds.length >= COMPARE_MEMO_LIMIT ? 'disabled' : '';
     const favoriteButtonLabel = isFavoriteStudio(studio.id) ? '保存を外す' : 'あとで見返す';
+    const reviewSubmissionUrl = getReviewSubmissionUrl(studio).replace(/&/g, '&amp;');
+    const reviewCtaMarkup = listingType === 'school' ? `
+            <aside class="modal-review-cta" aria-labelledby="modal-review-title-${studio.id}">
+                <div>
+                    <strong id="modal-review-title-${studio.id}">この教室に通ったことがありますか？</strong>
+                    <p>実際に利用した方の口コミを募集しています。投稿は確認後に掲載します。</p>
+                </div>
+                <a class="btn btn-outline modal-review-cta-button" href="${reviewSubmissionUrl}">口コミを投稿する</a>
+            </aside>
+    ` : '';
     const relatedGuideMarkup = relatedGuides.length > 0 ? `
             <details class="modal-detail-toggle modal-guide-toggle">
                 <summary>近い特集も見る</summary>
@@ -3743,6 +3754,7 @@ function openModal(studioId) {
             </details>
             ${experienceReportMarkup}
             ${reviewTrendMarkup}
+            ${reviewCtaMarkup}
             ${relatedGuideMarkup}
         </div>
     `;
@@ -3760,4 +3772,24 @@ function openModal(studioId) {
     initImageFallbacks(modalBody);
 
     overlay.classList.add('active');
+}
+
+function getStudioPageUrl(studio) {
+    const url = new URL('/', window.location.origin);
+    url.searchParams.set('school', studio.id);
+    return url.toString();
+}
+
+function getReviewSubmissionUrl(studio) {
+    const url = new URL('/reviews/new/', window.location.origin);
+    url.searchParams.set('school_id', studio.id);
+    url.searchParams.set('school_name', studio.name);
+    url.searchParams.set('school_url', getStudioPageUrl(studio));
+    return `${url.pathname}${url.search}`;
+}
+
+function openLinkedStudio() {
+    const studioId = new URLSearchParams(window.location.search).get('school');
+    if (!studioId || !window.studiosData?.some(studio => studio.id === studioId)) return;
+    openModal(studioId);
 }

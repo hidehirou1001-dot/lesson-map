@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><link rel="icon" href="/favicon.png" type="image/png">
+  <title>教室の口コミを投稿する | LessonMap</title>
+  <meta name="description" content="LessonMap掲載教室を実際に利用した方の口コミ投稿フォームです。個人情報を入力せずに投稿できます。">
+  <meta name="robots" content="noindex,follow"><link rel="canonical" href="https://www.lesson-map.com/reviews/new/">
+  <link rel="stylesheet" href="/css/style.css?v=48">
+</head>
+<body>
+  <header class="header"><div class="container" style="display:flex;justify-content:space-between;align-items:center"><a href="/" class="logo">LessonMap</a><a href="/" class="btn btn-outline">教室一覧へ戻る</a></div></header>
+  <main class="review-page">
+    <div class="review-form-card">
+      <p class="brand-tagline">実際の体験を教室選びの参考に</p>
+      <h1 class="h1" style="font-size:clamp(1.8rem,5vw,2.5rem)">教室の口コミを投稿する</h1>
+      <p class="review-form-note">氏名・メールアドレスなどの入力は不要です。投稿内容は運営者が確認し、承認した口コミのみ掲載します。</p>
+      <div class="review-school-box"><span>投稿する教室</span><strong id="review-school-name">教室を確認しています…</strong><p id="review-school-error" class="review-form-note" hidden>教室詳細画面から開き直してください。</p></div>
+
+      <form id="review-form" novalidate>
+        <input type="hidden" name="school_id"><input type="hidden" name="school_name"><input type="hidden" name="school_url">
+        <div class="review-honeypot" aria-hidden="true"><label>ウェブサイト<input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
+
+        <fieldset class="review-fieldset"><legend>利用状況 <span class="review-required">必須</span></legend><div class="review-choice-grid"><label class="review-choice"><input type="radio" name="usage_status" value="現在通っている" required><span>現在通っている</span></label><label class="review-choice"><input type="radio" name="usage_status" value="過去に通っていた"><span>過去に通っていた</span></label><label class="review-choice"><input type="radio" name="usage_status" value="体験レッスンのみ"><span>体験レッスンのみ</span></label></div></fieldset>
+        <fieldset class="review-fieldset"><legend>利用者 <span class="review-required">必須</span></legend><div class="review-choice-grid" style="grid-template-columns:repeat(2,minmax(0,1fr))"><label class="review-choice"><input type="radio" name="user_type" value="本人" required><span>本人</span></label><label class="review-choice"><input type="radio" name="user_type" value="子ども"><span>子ども</span></label></div></fieldset>
+
+        <fieldset class="review-fieldset"><legend>総合評価 <span class="review-required">必須</span></legend><div class="review-stars" role="radiogroup" aria-label="総合評価"><label class="review-star"><input type="radio" name="overall_rating" value="1" required><span aria-label="星1">★</span></label><label class="review-star"><input type="radio" name="overall_rating" value="2"><span aria-label="星2">★</span></label><label class="review-star"><input type="radio" name="overall_rating" value="3"><span aria-label="星3">★</span></label><label class="review-star"><input type="radio" name="overall_rating" value="4"><span aria-label="星4">★</span></label><label class="review-star"><input type="radio" name="overall_rating" value="5"><span aria-label="星5">★</span></label></div><span class="review-field-hint">1：合わなかった〜5：とても満足</span></fieldset>
+
+        <fieldset class="review-fieldset"><legend>先生・スタッフの対応 <span class="review-optional">任意</span></legend><div class="review-stars" role="radiogroup" aria-label="先生・スタッフの対応"><label class="review-star"><input type="radio" name="staff_rating" value="1"><span aria-label="星1">★</span></label><label class="review-star"><input type="radio" name="staff_rating" value="2"><span aria-label="星2">★</span></label><label class="review-star"><input type="radio" name="staff_rating" value="3"><span aria-label="星3">★</span></label><label class="review-star"><input type="radio" name="staff_rating" value="4"><span aria-label="星4">★</span></label><label class="review-star"><input type="radio" name="staff_rating" value="5"><span aria-label="星5">★</span></label></div></fieldset>
+        <fieldset class="review-fieldset"><legend>教室の雰囲気 <span class="review-optional">任意</span></legend><div class="review-stars" role="radiogroup" aria-label="教室の雰囲気"><label class="review-star"><input type="radio" name="atmosphere_rating" value="1"><span aria-label="星1">★</span></label><label class="review-star"><input type="radio" name="atmosphere_rating" value="2"><span aria-label="星2">★</span></label><label class="review-star"><input type="radio" name="atmosphere_rating" value="3"><span aria-label="星3">★</span></label><label class="review-star"><input type="radio" name="atmosphere_rating" value="4"><span aria-label="星4">★</span></label><label class="review-star"><input type="radio" name="atmosphere_rating" value="5"><span aria-label="星5">★</span></label></div></fieldset>
+        <fieldset class="review-fieldset"><legend>料金の納得感 <span class="review-optional">任意</span></legend><div class="review-stars" role="radiogroup" aria-label="料金の納得感"><label class="review-star"><input type="radio" name="value_rating" value="1"><span aria-label="星1">★</span></label><label class="review-star"><input type="radio" name="value_rating" value="2"><span aria-label="星2">★</span></label><label class="review-star"><input type="radio" name="value_rating" value="3"><span aria-label="星3">★</span></label><label class="review-star"><input type="radio" name="value_rating" value="4"><span aria-label="星4">★</span></label><label class="review-star"><input type="radio" name="value_rating" value="5"><span aria-label="星5">★</span></label></div></fieldset>
+
+        <label class="review-field"><span>年代 <span class="review-optional">任意</span></span><select name="age_group"><option value="回答しない">回答しない</option><option value="10代">10代</option><option value="20代">20代</option><option value="30代">30代</option><option value="40代">40代</option><option value="50代">50代</option><option value="60代以上">60代以上</option></select></label>
+        <label class="review-field" for="review-body"><span>口コミ本文 <span class="review-required">必須</span></span><textarea id="review-body" name="review_body" minlength="40" maxlength="1200" required placeholder="通った期間、良かった点、入会前に知りたかった点などを、実際の体験に基づいてお書きください。"></textarea><span class="review-character-count" id="review-character-count">0 / 1200文字</span></label>
+        <div class="review-form-note"><strong>入力前にご確認ください</strong><br>個人を特定できる情報（氏名・電話番号・メールアドレス等）は入力しないでください。実際の利用・体験に基づき、誹謗中傷や教室スタッフ等の個人名は避けてください。詳しくは<a href="/review-guidelines/" target="_blank" rel="noopener">口コミ掲載ガイドライン</a>をご覧ください。</div>
+        <label class="review-consent"><input type="checkbox" name="guideline_consent" required><span><a href="/review-guidelines/" target="_blank" rel="noopener">口コミ掲載ガイドライン</a>に同意して投稿する <span class="review-required">必須</span></span></label>
+        <button class="btn btn-primary review-submit" id="review-submit" type="submit">口コミを投稿する</button>
+        <div class="review-status" id="review-status" aria-live="polite"></div>
+      </form>
+
+      <section class="review-complete" id="review-complete" tabindex="-1" hidden><h2 class="h2">口コミをご投稿いただきありがとうございます。</h2><p>投稿内容をLesson Map運営側で確認後、掲載させていただきます。</p><p>すべての口コミが掲載されるとは限りませんので、あらかじめご了承ください。</p><a href="/" class="btn btn-outline">教室一覧へ戻る</a></section>
+    </div>
+  </main>
+  <footer class="footer"><div class="container"><a href="/" class="logo">LessonMap</a><p style="margin-top:var(--space-lg);font-size:.875rem">&copy; 2026 LessonMap All rights reserved.</p></div></footer>
+  <script src="/data/studios.js?v=32"></script><script src="/js/review-config.js?v=1"></script><script src="/js/review-form.js?v=1"></script>
+</body>
+</html>
