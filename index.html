@@ -36,7 +36,7 @@
           "name": "LessonMap",
           "url": "https://www.lesson-map.com/",
           "description": "自分に合う学びと出会える、習い事・スクール発見プラットフォーム",
-          "dateModified": "2026-08-26",
+          "dateModified": "2026-09-05",
           "inLanguage": "ja",
           "publisher": { "@id": "https://www.lesson-map.com/#organization" }
         },
@@ -151,6 +151,7 @@
                     <option value="徳島県">徳島県全域</option>
                     <option value="高知県">高知県全域</option>
                     <option value="岡山県">岡山県全域</option>
+                    <option value="神奈川県">神奈川県全域</option>
                   </optgroup>
                   <optgroup label="中予">
                     <option value="中予">中予全域</option>
@@ -193,6 +194,9 @@
                   </optgroup>
                   <optgroup label="岡山県">
                     <option value="岡山市">岡山市</option>
+                  </optgroup>
+                  <optgroup label="神奈川県">
+                    <option value="横浜市青葉区">横浜市青葉区</option>
                   </optgroup>
                 </select>
                 <button class="home-nearby-btn" id="hero-nearby-btn" type="button"><span aria-hidden="true">◎</span> 現在地に近い市町を選ぶ</button>
@@ -551,6 +555,7 @@
             <button class="filter-btn city-btn" data-city="徳島県">徳島県</button>
             <button class="filter-btn city-btn" data-city="高知県">高知県</button>
             <button class="filter-btn city-btn" data-city="岡山県">岡山県</button>
+            <button class="filter-btn city-btn" data-city="神奈川県">神奈川県</button>
           </div>
           <div class="area-city-panel" id="area-city-panel" hidden>
             <div class="area-city-panel-head" id="area-city-panel-head" hidden>
@@ -623,6 +628,12 @@
               <span class="area-city-label">岡山県の市</span>
               <div class="filters scrollable-filters city-filter-row">
                 <button class="filter-btn city-btn city-detail-btn" data-city="岡山市">📍 岡山市</button>
+              </div>
+            </div>
+            <div class="area-city-group" data-region-cities="神奈川県" hidden>
+              <span class="area-city-label">神奈川県の市区</span>
+              <div class="filters scrollable-filters city-filter-row">
+                <button class="filter-btn city-btn city-detail-btn" data-city="横浜市青葉区">📍 横浜市青葉区</button>
               </div>
             </div>
             <div class="area-local-panel" id="area-local-panel" hidden>
@@ -946,9 +957,9 @@
   </footer>
 
   <!-- Scripts -->
-  <script src="/data/studios.js?v=29"></script>
+  <script src="/data/studios.js?v=30"></script>
   <script src="/data/affiliate-programs.js?v=3"></script>
-  <script src="/js/app.js?v=61"></script>
+  <script src="/js/app.js?v=62"></script>
 </body>
 
 </html>
