@@ -153,6 +153,7 @@
                     <option value="岡山県">岡山県全域</option>
                     <option value="神奈川県">神奈川県全域</option>
                     <option value="東京都">東京都全域</option>
+                    <option value="新潟県">新潟県全域</option>
                   </optgroup>
                   <optgroup label="中予">
                     <option value="中予">中予全域</option>
@@ -202,6 +203,9 @@
                   <optgroup label="東京都">
                     <option value="文京区">文京区</option>
                   </optgroup>
+                  <optgroup label="新潟県">
+                    <option value="長岡市">長岡市</option>
+                  </optgroup>
                 </select>
                 <button class="home-nearby-btn" id="hero-nearby-btn" type="button"><span aria-hidden="true">◎</span> 現在地に近い市町を選ぶ</button>
                 <span class="home-nearby-status" id="hero-nearby-status" aria-live="polite"></span>
@@ -218,6 +222,7 @@
                   <option value="Gymnastics">体操</option>
                   <option value="Fitness">スポーツジム</option>
                   <option value="Boxing">ボクシング</option>
+                  <option value="Kendo">剣道</option>
                   <option value="Yoga">ヨガ・ピラティス</option>
                   <option value="Cooking">料理教室</option>
                   <option value="CramSchool">学習塾</option>
@@ -482,6 +487,7 @@
             <button class="filter-btn category-btn category-btn-extra" data-category="Gymnastics">🤸‍♂️ 体操</button>
             <button class="filter-btn category-btn category-btn-extra" data-category="Fitness">🏋️‍♀️ スポーツジム</button>
             <button class="filter-btn category-btn category-btn-extra" data-category="Boxing">🥊 ボクシング</button>
+            <button class="filter-btn category-btn category-btn-extra" data-category="Kendo">🥋 剣道</button>
             <button class="filter-btn category-btn category-btn-extra" data-category="Yoga">🧘‍♀️ ヨガ・ピラティス</button>
             <button class="filter-btn category-btn category-btn-extra" data-category="Cooking">🍳 料理教室</button>
             <button class="filter-btn category-btn category-btn-extra" data-category="CramSchool">📚 学習塾</button>
@@ -561,6 +567,7 @@
             <button class="filter-btn city-btn" data-city="岡山県">岡山県</button>
             <button class="filter-btn city-btn" data-city="神奈川県">神奈川県</button>
             <button class="filter-btn city-btn" data-city="東京都">東京都</button>
+            <button class="filter-btn city-btn" data-city="新潟県">新潟県</button>
           </div>
           <div class="area-city-panel" id="area-city-panel" hidden>
             <div class="area-city-panel-head" id="area-city-panel-head" hidden>
@@ -645,6 +652,12 @@
               <span class="area-city-label">東京都の区</span>
               <div class="filters scrollable-filters city-filter-row">
                 <button class="filter-btn city-btn city-detail-btn" data-city="文京区">📍 文京区</button>
+              </div>
+            </div>
+            <div class="area-city-group" data-region-cities="新潟県" hidden>
+              <span class="area-city-label">新潟県の市</span>
+              <div class="filters scrollable-filters city-filter-row">
+                <button class="filter-btn city-btn city-detail-btn" data-city="長岡市">📍 長岡市</button>
               </div>
             </div>
             <div class="area-local-panel" id="area-local-panel" hidden>
@@ -968,9 +981,9 @@
   </footer>
 
   <!-- Scripts -->
-  <script src="/data/studios.js?v=31"></script>
+  <script src="/data/studios.js?v=32"></script>
   <script src="/data/affiliate-programs.js?v=3"></script>
-  <script src="/js/app.js?v=63"></script>
+  <script src="/js/app.js?v=64"></script>
 </body>
 
 </html>

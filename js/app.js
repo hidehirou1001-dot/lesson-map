@@ -867,7 +867,8 @@ const cityRegionMap = {
     高知県: ['高知市'],
     岡山県: ['岡山市'],
     神奈川県: ['横浜市青葉区'],
-    東京都: ['文京区']
+    東京都: ['文京区'],
+    新潟県: ['長岡市']
 };
 const resultsPanelState = {
     guide: false,
@@ -1493,7 +1494,9 @@ function renderCompareMemo() {
           ${verificationMarkup}
           <div class="compare-memo-actions">
             <button class="btn btn-primary compare-memo-detail-btn" type="button" data-open-compare-id="${studio.id}">比較ポイントを見る</button>
-            <a class="compare-memo-link" href="${studio.link}" target="_blank" rel="noopener noreferrer">公式サイトで確認する</a>
+            ${studio.link
+                ? `<a class="compare-memo-link" href="${studio.link}" target="_blank" rel="noopener noreferrer">公式サイトで確認する</a>`
+                : '<span class="compare-memo-link" aria-disabled="true">問い合わせ先は準備中</span>'}
           </div>
         </article>
         `;
@@ -1841,6 +1844,7 @@ function getCategoryLabel(category) {
         Swimming: '水泳',
         Fitness: 'スポーツジム',
         Boxing: 'ボクシング',
+        Kendo: '剣道',
         Yoga: 'ヨガ・ピラティス',
         Cooking: '料理教室',
         English: '英会話',
@@ -2231,6 +2235,7 @@ const filterLabelMap = {
     Swimming: '水泳',
     Fitness: 'スポーツジム',
     Boxing: 'ボクシング',
+    Kendo: '剣道',
     Yoga: 'ヨガ・ピラティス',
     Cooking: '料理教室',
     English: '英会話',
@@ -2981,7 +2986,8 @@ const searchableCityCoordinates = {
     '高知市': [33.5597, 133.5311],
     '岡山市': [34.6551, 133.9195],
     '横浜市青葉区': [35.5608, 139.5372],
-    '文京区': [35.7081, 139.7522]
+    '文京区': [35.7081, 139.7522],
+    '長岡市': [37.4463, 138.8513]
 };
 
 function getCoordinateDistanceSquared(latitude, longitude, coordinates) {
@@ -3706,7 +3712,9 @@ function openModal(studioId) {
             <div class="card-meta-chips modal-feature-chips">${featureSummary}</div>
 
             <div class="modal-action-row">
-                <a href="${studio.link}" target="_blank" rel="noopener noreferrer" class="btn btn-primary modal-primary-btn">${getOfficialActionLabel(studio)}</a>
+                ${studio.link
+                    ? `<a href="${studio.link}" target="_blank" rel="noopener noreferrer" class="btn btn-primary modal-primary-btn">${getOfficialActionLabel(studio)}</a>`
+                    : '<span class="btn btn-primary modal-primary-btn" aria-disabled="true">問い合わせ先は準備中</span>'}
                 <div class="modal-secondary-actions">
                     <button class="btn btn-outline modal-favorite-btn" type="button" data-modal-favorite-id="${studio.id}">${favoriteButtonLabel}</button>
                     <button class="btn btn-outline modal-compare-btn" type="button" data-modal-studio-id="${studio.id}" ${compareButtonDisabled}>${compareButtonLabel}</button>
