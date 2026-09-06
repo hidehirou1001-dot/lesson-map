@@ -154,5 +154,18 @@ window.affiliatePrograms = [
     asp: 'A8.net',
     programId: 's00000001671069',
     active: true
+  },
+  {
+    id: 'avalon-music-school',
+    name: 'アバロンミュージックスクール',
+    category: 'ボイストレーニング・音楽制作',
+    audience: 'ボーカル、弾き語り、作曲・DTMをマンツーマンやオンラインで学びたい方',
+    description: 'ボーカル、作曲・DTM、ギター・ピアノ弾き語りなどを学べる音楽スクールです。対面校舎がない地域からはオンライン受講も検討できます。希望コースの対応校、レッスン時間、月額、入学金、振替・繰越条件を確認してから申し込んでください。',
+    ctaLabel: 'アバロンの無料体験・コースを確認する',
+    affiliateUrl: 'https://px.a8.net/svt/ejp?a8mat=4BC4QR+1U3ABU+4FRO+5YRHE',
+    trackingPixelUrl: 'https://www18.a8.net/0.gif?a8mat=4BC4QR+1U3ABU+4FRO+5YRHE',
+    showOnHome: false,
+    asp: 'A8.net',
+    active: true
   }
 ];
