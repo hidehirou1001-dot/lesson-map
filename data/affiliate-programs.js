@@ -138,6 +138,7 @@ window.affiliatePrograms = [
     trackingPixelUrl: 'https://www13.a8.net/0.gif?a8mat=4BAE5D+AVRE8A+5LPE+5YJRM',
     showOnHome: false,
     asp: 'A8.net',
+    programId: 's00000026141001',
     active: true
   }
 ];
