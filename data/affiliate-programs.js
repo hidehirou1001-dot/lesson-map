@@ -126,5 +126,18 @@ window.affiliatePrograms = [
     asp: 'A8.net',
     programId: 's00000022705001',
     active: true
+  },
+  {
+    id: 'espi-esports-english',
+    name: 'ゲームの世界で学ぶオンライン英会話 eスポーツ英会話 eスピ！',
+    category: '子ども向けオンライン英会話',
+    audience: 'ゲームへの興味を英語で話すきっかけにつなげたい子ども・家庭',
+    description: '日英バイリンガルコーチとオンラインゲームをしながら、英語でコミュニケーションを取るオンライン英会話です。申込み前に対象年齢、対応ゲーム、クラス形式、受講時間、必要な機器・ソフト、募集状況を確認してください。',
+    ctaLabel: 'eスピ！のレッスンと申込条件を確認する',
+    affiliateUrl: 'https://px.a8.net/svt/ejp?a8mat=4BAE5D+AVRE8A+5LPE+5YJRM',
+    trackingPixelUrl: 'https://www13.a8.net/0.gif?a8mat=4BAE5D+AVRE8A+5LPE+5YJRM',
+    showOnHome: false,
+    asp: 'A8.net',
+    active: true
   }
 ];
