@@ -140,5 +140,19 @@ window.affiliatePrograms = [
     asp: 'A8.net',
     programId: 's00000026141001',
     active: true
+  },
+  {
+    id: 'rizap-golf',
+    name: 'RIZAP GOLF（ライザップゴルフ）',
+    category: 'ゴルフスクール',
+    audience: '目標スコアに向けたマンツーマン指導を検討したい大人',
+    description: '専属トレーナーによるマンツーマン指導と自主練習のサポートを組み合わせたインドアゴルフスクールです。料金は一般的なグループレッスンより高額になり得るため、通える店舗、総額、練習頻度、返金条件を確認してから検討してください。',
+    ctaLabel: 'RIZAP GOLFの体験・料金条件を確認する',
+    affiliateUrl: 'https://px.a8.net/svt/ejp?a8mat=4BC4QR+1BMUKQ+CW6+BF23HE',
+    trackingPixelUrl: 'https://www17.a8.net/0.gif?a8mat=4BC4QR+1BMUKQ+CW6+BF23HE',
+    showOnHome: false,
+    asp: 'A8.net',
+    programId: 's00000001671069',
+    active: true
   }
 ];
