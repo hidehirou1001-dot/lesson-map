@@ -112,5 +112,19 @@ window.affiliatePrograms = [
     asp: 'A8.net',
     programId: 's00000012624004',
     active: true
+  },
+  {
+    id: 'anycrew-freelance',
+    name: 'フリーランス・副業マッチングサービス Anycrew（エニィクルー）',
+    category: '副業・フリーランス案件',
+    audience: '実務経験やスキルを生かして業務委託案件を探したい方',
+    description: 'マーケティング、営業、財務、人事、エンジニア、デザイナーなどの業務委託案件を探せるマッチングサービスです。講座ではないため、登録前に希望職種の案件、必要な経験、稼働時間、報酬・契約条件を確認してください。',
+    ctaLabel: 'Anycrewの案件と登録条件を確認する',
+    affiliateUrl: 'https://px.a8.net/svt/ejp?a8mat=4BAI1L+2DWLM+4V6Y+5YRHE',
+    trackingPixelUrl: 'https://www14.a8.net/0.gif?a8mat=4BAI1L+2DWLM+4V6Y+5YRHE',
+    showOnHome: false,
+    asp: 'A8.net',
+    programId: 's00000022705001',
+    active: true
   }
 ];
