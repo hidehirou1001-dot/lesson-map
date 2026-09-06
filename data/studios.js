@@ -3207,6 +3207,105 @@ const studios = [
     fitSummary: 'ピアノと歌を含め、年代に合う音楽の楽しみ方を相談したい人向け', checkpoints: ['教室所在地', '対象コース', '料金・体験日程'],
     pricing: { system: 'コース別', minPrice: 0, note: '料金は公式サイトで確認' }, features: { parking: false, beginnerFriendly: '◎', kidsClass: true, adultClass: true }, trial: '体験・問い合わせ案内あり',
     imageUrl: 'https://images.unsplash.com/photo-1520523839897-bd0b52f945a0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', link: 'https://taki-music.com/', sourceNote: '公式サイトを2026-08-28確認'
+  },
+  {
+    id: 'school-programming-okayama-mb', listingType: 'school', name: '子ども習い事ひろば MB教室',
+    description: '岡山市で子ども向けのプログラミングや音楽などを提供する習い事教室です。無料体験から、希望する分野と通い方を相談できます。',
+    category: 'Programming', city: '岡山市', area: '岡山市内', access: '教室所在地・アクセスは公式サイトで確認',
+    genres: ['Programming', 'Music', 'Kids'], learningNeeds: ['kids_lessons', 'digital_learning'], decisionFactors: ['trial_available', 'age_fit', 'schedule_fit'],
+    fitSummary: 'プログラミングを中心に、子どもの興味に合う習い事を体験から探したい家庭向け', checkpoints: ['対象年齢', '開講場所・曜日', '受講料金'],
+    pricing: { system: 'コース別', minPrice: 0, note: '無料体験1回あり / 料金は公式サイトで確認' }, features: { beginnerFriendly: '◎', kidsClass: true, adultClass: false }, trial: '無料体験1回あり',
+    imageUrl: 'https://images.unsplash.com/photo-1515879218367-8466d910aaa4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', link: 'https://xn--pckr7a0h4a2k.jp/', sourceNote: '公式サイトを2026-08-28確認'
+  },
+  {
+    id: 'class-dance-kochi-palette-seiwa', listingType: 'class', name: 'パレット清和 ダンス教室',
+    description: '高知市で子どもを対象に開催されるダンス教室です。月3回程度のレッスンで、初めての子どもも体験から参加を検討できます。',
+    category: 'Dance', city: '高知市', area: '高知市内', access: '開催場所・アクセスは公式サイトで確認',
+    genres: ['Dance', 'Kids'], learningNeeds: ['kids_lessons', 'sports_learning'], decisionFactors: ['trial_available', 'price_clarity', 'schedule_fit'],
+    fitSummary: '高知市で無理のない回数と料金からダンスを始めたい子ども向け', checkpoints: ['対象年齢', '開催日', '体験日程'],
+    pricing: { system: '月謝制', minPrice: 3300, note: '月額3,300円 / 月3回程度 / 入会金1,100円' }, features: { beginnerFriendly: '◎', kidsClass: true, adultClass: false }, trial: '体験案内あり',
+    imageUrl: 'https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', link: 'https://palette-seiwa.jp/dance/', sourceNote: '学校法人せいわのわ公式サイトを2026-08-28確認'
+  },
+  {
+    id: 'school-english-kurashiki-beneesse-harmony', listingType: 'school', name: 'ベネッセの英語教室 ビースタジオ はあもにい倉敷教室',
+    description: '倉敷市の子ども向け英語教室です。年齢や学年に合うコースを、体験レッスンから確認できます。',
+    category: 'English', city: '倉敷市', area: '倉敷市内', access: '教室所在地・アクセスは公式サイトで確認',
+    genres: ['English', 'Kids'], learningNeeds: ['kids_lessons', 'language_learning'], decisionFactors: ['age_fit', 'trial_available', 'price_clarity'],
+    fitSummary: '倉敷市で年齢に合う子ども英語を体験から選びたい家庭向け', checkpoints: ['対象コース', '開講曜日', '教材費を含む総額'],
+    pricing: { system: '月謝制', minPrice: 7700, note: '月謝7,700円〜 / コースにより異なる' }, features: { beginnerFriendly: '◎', kidsClass: true, adultClass: false }, trial: '体験案内あり',
+    imageUrl: 'https://images.unsplash.com/photo-1543269865-cbf427effbad?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', link: 'https://www.harmony-k.jp/english/', sourceNote: '公式教室サイトを2026-08-28確認'
+  },
+  {
+    id: 'school-piano-kurashiki-yoneyama', listingType: 'school', name: '米山楽器店 本店センター',
+    description: '倉敷市にある音楽教室です。子どもから大人まで、年齢と目的に合う音楽コースを相談できます。',
+    category: 'Piano', city: '倉敷市', area: '倉敷市内', access: '教室所在地・アクセスは公式サイトで確認',
+    genres: ['Piano', 'Music', 'Kids', 'Adult'], learningNeeds: ['kids_lessons', 'adult_lessons', 'music_learning'], decisionFactors: ['age_fit', 'trial_available', 'schedule_fit'],
+    fitSummary: '倉敷市で子ども・大人向けの音楽レッスンを比較したい人向け', checkpoints: ['募集中コース', '開講曜日', '月謝・施設費'],
+    pricing: { system: 'コース別', minPrice: 0, note: 'コース別料金は公式サイトで確認' }, features: { beginnerFriendly: '◎', kidsClass: true, adultClass: true }, trial: '体験案内あり',
+    imageUrl: 'https://images.unsplash.com/photo-1520523839897-bd0b52f945a0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', link: 'https://www.yoneyamagakki.com/', sourceNote: '米山楽器店公式サイトを2026-08-28確認'
+  },
+  {
+    id: 'school-english-kochi-coinglish', listingType: 'school', name: 'CoIngLish（コイングリッシュ）',
+    description: '高知市梅ノ辻の子ども向け英会話教室です。無料体験を利用し、レッスン内容や教室との相性を確認できます。',
+    category: 'English', city: '高知市', area: '梅ノ辻周辺', access: '高知市梅ノ辻／詳細は公式サイトで確認',
+    genres: ['English', 'Kids'], learningNeeds: ['kids_lessons', 'language_learning'], decisionFactors: ['trial_available', 'age_fit', 'schedule_fit'],
+    fitSummary: '梅ノ辻周辺で子ども英会話を無料体験から検討したい家庭向け', checkpoints: ['対象年齢', '開講曜日', '継続時の料金'],
+    pricing: { system: '体験・コース別', minPrice: 0, note: '無料体験1回 / 2回目以降3,000円' }, features: { beginnerFriendly: '◎', kidsClass: true, adultClass: false }, trial: '無料体験1回あり',
+    imageUrl: 'https://images.unsplash.com/photo-1543269865-cbf427effbad?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', link: 'https://coinglish.com/trial/', sourceNote: '公式サイトを2026-08-28確認'
+  },
+  {
+    id: 'school-english-kochi-global-education-lab', listingType: 'school', name: 'Global Education Lab KOCHI School.edu C',
+    description: '高知市はりまや町にある子ども向け英語教室です。学校英語を含むコースについて、対象や学習内容を相談できます。',
+    category: 'English', city: '高知市', area: 'はりまや町周辺', access: '高知市はりまや町／詳細は公式サイトで確認',
+    genres: ['English', 'Kids', 'School English'], learningNeeds: ['kids_lessons', 'language_learning'], decisionFactors: ['age_fit', 'price_clarity', 'schedule_fit'],
+    fitSummary: 'はりまや町周辺で学校英語も含めて学びたい子ども向け', checkpoints: ['対象学年', '授業内容', '教材費を含む総額'],
+    pricing: { system: '月謝制', minPrice: 9500, note: 'School English 月額9,500円' }, features: { beginnerFriendly: '◎', kidsClass: true, adultClass: false }, trial: '体験案内あり',
+    imageUrl: 'https://images.unsplash.com/photo-1543269865-cbf427effbad?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', link: 'https://npo-kochi-english.org/', sourceNote: 'NPO公式サイトを2026-08-28確認'
+  },
+  {
+    id: 'school-english-kochi-aeon', listingType: 'school', name: '英会話イーオン 高知校',
+    description: '高知市で子どもから大人まで目的に合わせて学べる英会話教室です。無料体験でクラスや通い方を相談できます。',
+    category: 'English', city: '高知市', area: '高知市中心部', access: '教室所在地・アクセスは公式サイトで確認',
+    genres: ['English', 'Kids', 'Adult', 'Conversation'], learningNeeds: ['kids_lessons', 'adult_lessons', 'language_learning'], decisionFactors: ['trial_available', 'beginner_friendly', 'schedule_fit'],
+    fitSummary: '高知市で目的別の英会話を無料体験から相談したい子ども・大人向け', checkpoints: ['対象コース', '開講時間', '教材費を含む総額'],
+    pricing: { system: 'コース別', minPrice: 0, note: '無料体験あり / 料金は公式サイトで確認' }, features: { beginnerFriendly: '◎', kidsClass: true, adultClass: true }, trial: '無料体験あり',
+    imageUrl: 'https://images.unsplash.com/photo-1543269865-cbf427effbad?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', link: 'https://www.aeonet.co.jp/school/kochi/kochi.html', sourceNote: 'イーオン公式教室ページを2026-08-28確認'
+  },
+  {
+    id: 'school-english-kochi-yamaha-kazurashima', listingType: 'school', name: 'ヤマハ英語教室 かづらしま音楽センター',
+    description: '高知市の子ども向け英語教室です。年齢に合うコースを、無料体験や見学から確認できます。',
+    category: 'English', city: '高知市', area: '葛島周辺', access: '教室所在地・アクセスは公式教室ページで確認',
+    genres: ['English', 'Kids', 'Music'], learningNeeds: ['kids_lessons', 'language_learning'], decisionFactors: ['trial_available', 'age_fit', 'schedule_fit'],
+    fitSummary: '音楽やリズムを取り入れた子ども英語を体験・見学から検討したい家庭向け', checkpoints: ['対象年齢', '開講曜日', '月謝・教材費'],
+    pricing: { system: 'コース別', minPrice: 0, note: '無料体験・見学あり / 料金は公式サイトで確認' }, features: { beginnerFriendly: '◎', kidsClass: true, adultClass: false }, trial: '無料体験・見学あり',
+    imageUrl: 'https://images.unsplash.com/photo-1543269865-cbf427effbad?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', link: 'https://school.jp.yamaha.com/english_school/room/detail.php?shopcode=21000100&venuecode=010', sourceNote: 'ヤマハ公式教室ページを2026-08-28確認'
+  },
+  {
+    id: 'school-cram-nankoku-kumon-city-hall', listingType: 'school', name: '公文式 南国市役所前教室',
+    description: '南国市役所周辺の公文式教室です。幼児から高校生まで、学年や学習状況に合わせて学ぶ教室を探している家庭向けです。',
+    category: 'CramSchool', city: '南国市', area: '南国市役所周辺', access: '教室所在地・アクセスは公式教室ページで確認',
+    genres: ['CramSchool', 'Kids', 'Study'], learningNeeds: ['kids_lessons', 'exam_preparation'], decisionFactors: ['age_fit', 'trial_available', 'commute_fit'],
+    fitSummary: '南国市役所周辺で基礎学習を継続したい幼児・小学生・中高生向け', checkpoints: ['受講教科', '学習曜日', '体験・見学日程'],
+    pricing: { system: '教科・学年別', minPrice: 7480, note: '幼児・小学生1教科7,480円 / 中学生8,580円 / 高校生以上9,680円' }, features: { beginnerFriendly: '◎', kidsClass: true, adultClass: false }, trial: '体験案内あり',
+    imageUrl: 'https://images.unsplash.com/photo-1509062522246-3755977927d7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', link: 'https://www.kumon.ne.jp/enter/search/classroom/1984910024/index.html', sourceNote: 'KUMON公式教室ページを2026-08-28確認'
+  },
+  {
+    id: 'school-cram-nankoku-kumon-osone', listingType: 'school', name: '公文式 南国大そね教室',
+    description: '南国市大そね周辺の公文式教室です。幼児から高校生まで、学年や学習状況に合わせて学べます。',
+    category: 'CramSchool', city: '南国市', area: '大そね周辺', access: '教室所在地・アクセスは公式教室ページで確認',
+    genres: ['CramSchool', 'Kids', 'Study'], learningNeeds: ['kids_lessons', 'exam_preparation'], decisionFactors: ['age_fit', 'trial_available', 'commute_fit'],
+    fitSummary: '南国市大そね周辺で基礎学習を継続したい幼児・小学生・中高生向け', checkpoints: ['受講教科', '学習曜日', '体験・見学日程'],
+    pricing: { system: '教科・学年別', minPrice: 7480, note: '幼児・小学生1教科7,480円 / 中学生8,580円 / 高校生以上9,680円' }, features: { beginnerFriendly: '◎', kidsClass: true, adultClass: false }, trial: '体験案内あり',
+    imageUrl: 'https://images.unsplash.com/photo-1509062522246-3755977927d7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', link: 'https://www.kumon.ne.jp/enter/search/classroom/1823120005/index.html', sourceNote: 'KUMON公式教室ページを2026-08-28確認'
+  },
+  {
+    id: 'school-cram-nankoku-kumon-nagaoka', listingType: 'school', name: '公文式 南国長岡教室',
+    description: '南国市長岡周辺の公文式教室です。幼児から高校生まで、学年や学習状況に合わせて学べます。',
+    category: 'CramSchool', city: '南国市', area: '長岡周辺', access: '教室所在地・アクセスは公式教室ページで確認',
+    genres: ['CramSchool', 'Kids', 'Study'], learningNeeds: ['kids_lessons', 'exam_preparation'], decisionFactors: ['age_fit', 'trial_available', 'commute_fit'],
+    fitSummary: '南国市長岡周辺で基礎学習を継続したい幼児・小学生・中高生向け', checkpoints: ['受講教科', '学習曜日', '体験・見学日程'],
+    pricing: { system: '教科・学年別', minPrice: 7480, note: '幼児・小学生1教科7,480円 / 中学生8,580円 / 高校生以上9,680円' }, features: { beginnerFriendly: '◎', kidsClass: true, adultClass: false }, trial: '体験案内あり',
+    imageUrl: 'https://images.unsplash.com/photo-1509062522246-3755977927d7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', link: 'https://www.kumon.ne.jp/enter/search/classroom/1890230023/index.html', sourceNote: 'KUMON公式教室ページを2026-08-28確認'
   }
 ];
 
@@ -3220,6 +3319,7 @@ const studioPrefectureByCity = Object.freeze({
   '宇和島市': '愛媛県',
   '横浜市青葉区': '神奈川県',
   '岡山市': '岡山県',
+  '倉敷市': '岡山県',
   '観音寺市': '香川県',
   '丸亀市': '香川県',
   '高松市': '香川県',
@@ -3231,6 +3331,7 @@ const studioPrefectureByCity = Object.freeze({
   '松山市': '愛媛県',
   '松前町': '愛媛県',
   '松茂町': '徳島県',
+  '南国市': '高知県',
   '新居浜市': '愛媛県',
   '西条市': '愛媛県',
   '大洲市': '愛媛県',
