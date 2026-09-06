@@ -3210,4 +3210,47 @@ const studios = [
   }
 ];
 
+// Keep entity fields consistent across legacy and newly added listings.
+// Explicit values on a listing always take precedence over these defaults.
+const studioPrefectureByCity = Object.freeze({
+  'さぬき市': '香川県',
+  '阿南市': '徳島県',
+  '伊予市': '愛媛県',
+  '宇多津町': '香川県',
+  '宇和島市': '愛媛県',
+  '横浜市青葉区': '神奈川県',
+  '岡山市': '岡山県',
+  '観音寺市': '香川県',
+  '丸亀市': '香川県',
+  '高松市': '香川県',
+  '高知市': '高知県',
+  '今治市': '愛媛県',
+  '坂出市': '香川県',
+  '三豊市': '香川県',
+  '四国中央市': '愛媛県',
+  '松山市': '愛媛県',
+  '松前町': '愛媛県',
+  '松茂町': '徳島県',
+  '新居浜市': '愛媛県',
+  '西条市': '愛媛県',
+  '大洲市': '愛媛県',
+  '長岡市': '新潟県',
+  '東かがわ市': '香川県',
+  '東温市': '愛媛県',
+  '徳島市': '徳島県',
+  '文京区': '東京都',
+  '北島町': '徳島県',
+  '鳴門市': '徳島県',
+  '藍住町': '徳島県'
+});
+
+studios.forEach((studio) => {
+  studio.listingType = studio.listingType || 'school';
+  studio.entityType = studio.entityType || 'EducationalOrganization';
+  studio.entityId = studio.entityId || `https://www.lesson-map.com/#${studio.id}`;
+  studio.prefecture = studio.prefecture || studioPrefectureByCity[studio.city] || '';
+  studio.addressLocality = studio.addressLocality || studio.city || '';
+  studio.officialUrl = studio.officialUrl || studio.link || '';
+});
+
 window.studiosData = studios;
