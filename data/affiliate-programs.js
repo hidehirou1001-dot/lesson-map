@@ -167,5 +167,19 @@ window.affiliatePrograms = [
     showOnHome: false,
     asp: 'A8.net',
     active: true
+  },
+  {
+    id: 'yondemy-reading',
+    name: '子ども向けオンライン読書教育 ヨンデミー',
+    category: '子ども向けオンライン読書',
+    audience: '子どもに合う本との出会いと、家庭での読書習慣づくりを支えたい保護者',
+    description: '子どもの好みや読む力に合わせた選書と、短いミニレッスンなどで読書習慣を支えるオンラインサービスです。本そのものが届くサービスではないため、利用方法、対象年齢、月額に加えて、本の用意や図書館利用を含む家庭の負担を確認してください。',
+    ctaLabel: 'ヨンデミーの無料体験と利用条件を確認する',
+    affiliateUrl: 'https://px.a8.net/svt/ejp?a8mat=4BAE5D+9WMTJE+5JTC+5YRHE',
+    trackingPixelUrl: 'https://www15.a8.net/0.gif?a8mat=4BAE5D+9WMTJE+5JTC+5YRHE',
+    showOnHome: false,
+    asp: 'A8.net',
+    programId: 's00000025896001',
+    active: true
   }
 ];
