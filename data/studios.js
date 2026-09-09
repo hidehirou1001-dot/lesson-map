@@ -3423,6 +3423,15 @@ const studios = [
     fitSummary: 'ScratchやMinecraftを少人数・個別対応で学びたい子ども向け', checkpoints: ['対象年齢', '開講日時', '月謝・教材費'],
     pricing: { system: 'コース別', minPrice: 0, note: '料金は公式ページで確認' }, features: { beginnerFriendly: '◎', kidsClass: true, adultClass: false }, trial: '無料体験受付中',
     imageUrl: 'https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=800&q=80', link: 'https://lp.db.child-leader-pro.com/p/switch-nagoya-sakae-trial', sourceNote: '公式ページを2026-09-09確認'
+  },
+  {
+    id: 'school-fitness-yokohama-tsuzuki-godai-golden-kids', listingType: 'school', name: 'GODAIゴールデンキッズ センター南',
+    description: 'センター南駅直結の1.5歳から12歳向けスポーツスクールです。走る・投げる・捕る・真似をする動作を総合的に学び、運動能力を育てます。',
+    category: 'Fitness', city: '横浜市都筑区', area: 'センター南駅', access: '横浜市都筑区茅ケ崎中央1-1 センター南駅1F、駅直結・徒歩0分',
+    genres: ['Fitness', 'Kids', 'Sports', 'Ball'], learningNeeds: ['kids_lessons', 'fitness_training'], decisionFactors: ['age_fit', 'station_access', 'trial_available'],
+    fitSummary: '幼児から小学生まで、特定競技に限定せず運動の基礎動作を身につけたい家庭向け', checkpoints: ['年齢別クラス', '開講曜日', '月会費・入会時費用'],
+    pricing: { system: '月会費制', minPrice: 0, note: '月会費はクラス別に公式サイトで確認 / 入会金6,600円・ユニフォーム代8,140円〜' }, features: { stationNearby: true, beginnerFriendly: '◎', kidsClass: true, adultClass: false }, trial: '無料体験説明会・通常レッスン体験案内あり',
+    imageUrl: 'https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=800&q=80', link: 'https://www.godai.gr.jp/gk/school/centerminami/', sourceNote: 'GODAI公式施設ページを2026-09-09確認'
   }
 ];
 
@@ -3435,6 +3444,7 @@ const studioPrefectureByCity = Object.freeze({
   '宇多津町': '香川県',
   '宇和島市': '愛媛県',
   '横浜市青葉区': '神奈川県',
+  '横浜市都筑区': '神奈川県',
   '岡山市': '岡山県',
   '倉敷市': '岡山県',
   '観音寺市': '香川県',
