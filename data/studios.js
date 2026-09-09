@@ -3414,6 +3414,15 @@ const studios = [
     fitSummary: '笹沖周辺で年齢別のダンスクラスを探す子ども・中学生以上向け', checkpoints: ['対象クラス', '開講曜日', '月会費・諸費用'],
     pricing: { system: '月会費制', minPrice: 6050, note: '月会費6,050円〜 / クラスにより異なる' }, features: { parking: true, beginnerFriendly: '◎', kidsClass: true, adultClass: true }, trial: '体験あり',
     imageUrl: 'https://images.unsplash.com/photo-1518834107812-67b0b7c58434?auto=format&fit=crop&w=800&q=80', link: 'https://www.raykura.co.jp/junior/dance/', sourceNote: '公式ダンスクラスページを2026-09-08確認'
+  },
+  {
+    id: 'school-programming-nagoya-switch-sakae', listingType: 'school', name: 'キッズプログラミングスクールSwitch 名古屋栄校',
+    description: '名古屋・栄の子ども向けプログラミング教室です。ScratchやMinecraftなどを使い、少人数で一人ひとりの興味や理解度に合わせて学べます。',
+    category: 'Programming', city: '名古屋市', area: '栄周辺', access: '名古屋・栄／所在地・アクセスは公式ページで確認',
+    genres: ['Programming', 'Kids', 'Scratch', 'Minecraft'], learningNeeds: ['kids_lessons', 'it_learning'], decisionFactors: ['teacher_fit', 'trial_available', 'interest_fit'],
+    fitSummary: 'ScratchやMinecraftを少人数・個別対応で学びたい子ども向け', checkpoints: ['対象年齢', '開講日時', '月謝・教材費'],
+    pricing: { system: 'コース別', minPrice: 0, note: '料金は公式ページで確認' }, features: { beginnerFriendly: '◎', kidsClass: true, adultClass: false }, trial: '無料体験受付中',
+    imageUrl: 'https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=800&q=80', link: 'https://lp.db.child-leader-pro.com/p/switch-nagoya-sakae-trial', sourceNote: '公式ページを2026-09-09確認'
   }
 ];
 
@@ -3439,6 +3448,7 @@ const studioPrefectureByCity = Object.freeze({
   '松山市': '愛媛県',
   '松前町': '愛媛県',
   '松茂町': '徳島県',
+  '名古屋市': '愛知県',
   '南国市': '高知県',
   '新居浜市': '愛媛県',
   '西条市': '愛媛県',
