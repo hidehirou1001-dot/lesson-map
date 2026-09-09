@@ -3306,6 +3306,114 @@ const studios = [
     fitSummary: '南国市長岡周辺で基礎学習を継続したい幼児・小学生・中高生向け', checkpoints: ['受講教科', '学習曜日', '体験・見学日程'],
     pricing: { system: '教科・学年別', minPrice: 7480, note: '幼児・小学生1教科7,480円 / 中学生8,580円 / 高校生以上9,680円' }, features: { beginnerFriendly: '◎', kidsClass: true, adultClass: false }, trial: '体験案内あり',
     imageUrl: 'https://images.unsplash.com/photo-1509062522246-3755977927d7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', link: 'https://www.kumon.ne.jp/enter/search/classroom/1890230023/index.html', sourceNote: 'KUMON公式教室ページを2026-08-28確認'
+  },
+  {
+    id: 'school-english-kurashiki-amity', listingType: 'school', name: 'アミティー 倉敷校',
+    description: '倉敷市の子ども向け英会話教室です。年齢や学年に合うコースを、無料体験から相談できます。',
+    category: 'English', city: '倉敷市', area: '倉敷駅周辺', access: 'JR倉敷駅周辺／詳細は公式教室ページで確認',
+    genres: ['English', 'Kids'], learningNeeds: ['kids_lessons', 'language_learning'], decisionFactors: ['age_fit', 'trial_available', 'commute_fit'],
+    fitSummary: '倉敷駅周辺で年齢に合う子ども英語を無料体験から選びたい家庭向け', checkpoints: ['対象コース', '開講曜日', '教材費を含む総額'],
+    pricing: { system: 'コース別', minPrice: 0, note: '料金は公式サイトで確認' }, features: { beginnerFriendly: '◎', kidsClass: true, adultClass: false }, trial: '無料体験あり',
+    imageUrl: 'https://images.unsplash.com/photo-1543269865-cbf427effbad?auto=format&fit=crop&w=800&q=80', link: 'https://www.amity.co.jp/school/chugoku/okayama/kurashiki/', sourceNote: '公式教室ページを2026-09-08確認'
+  },
+  {
+    id: 'school-english-kurashiki-nova', listingType: 'school', name: 'NOVA 倉敷校',
+    description: '倉敷駅直結の英会話教室です。子どもから大人まで、目的に合うコースを相談できます。',
+    category: 'English', city: '倉敷市', area: '倉敷駅周辺', access: '倉敷駅直結',
+    genres: ['English', 'Kids', 'Adult', 'Conversation'], learningNeeds: ['kids_lessons', 'adult_lessons', 'language_learning'], decisionFactors: ['station_access', 'age_fit', 'price_clarity'],
+    fitSummary: '倉敷駅周辺で子ども・大人向け英会話を探す人向け', checkpoints: ['対象コース', 'レッスン形式', '教材費を含む総額'],
+    pricing: { system: '月謝制', minPrice: 10000, note: '月額10,000円〜 / コースにより異なる' }, features: { beginnerFriendly: '◎', kidsClass: true, adultClass: true }, trial: '体験案内は公式サイトで確認',
+    imageUrl: 'https://images.unsplash.com/photo-1543269865-cbf427effbad?auto=format&fit=crop&w=800&q=80', link: 'https://www.nova.co.jp/schools/chugoku_shikoku/okayama/kurashiki.html', sourceNote: 'NOVA公式教室ページを2026-09-08確認'
+  },
+  {
+    id: 'school-english-kurashiki-interact', listingType: 'school', name: 'インターアクト英会話',
+    description: '倉敷市の子ども向け英会話教室です。英会話やフォニックスを学ぶクラスを検討できます。',
+    category: 'English', city: '倉敷市', area: '倉敷市内', access: '教室所在地・アクセスは公式サイトで確認',
+    genres: ['English', 'Kids', 'Phonics'], learningNeeds: ['kids_lessons', 'language_learning'], decisionFactors: ['age_fit', 'teacher_fit', 'schedule_fit'],
+    fitSummary: '子どもが英会話とフォニックスを学べる地域教室を探す家庭向け', checkpoints: ['対象年齢', '見学日程', '月謝・教材費'],
+    pricing: { system: 'コース別', minPrice: 0, note: '料金は公式サイトで確認' }, features: { beginnerFriendly: '◎', kidsClass: true, adultClass: false }, trial: '見学あり',
+    imageUrl: 'https://images.unsplash.com/photo-1543269865-cbf427effbad?auto=format&fit=crop&w=800&q=80', link: 'https://www.interact-native.com/', sourceNote: '公式サイトを2026-09-08確認'
+  },
+  {
+    id: 'school-programming-kurashiki-iteen', listingType: 'school', name: 'iTeen 倉敷駅前校',
+    description: '倉敷駅周辺の小学生から高校生向けプログラミング教室です。個別指導を無料体験から確認できます。',
+    category: 'Programming', city: '倉敷市', area: '倉敷駅周辺', access: '倉敷駅前／詳細は公式教室ページで確認',
+    genres: ['Programming', 'Kids', 'Teens'], learningNeeds: ['kids_lessons', 'it_learning'], decisionFactors: ['age_fit', 'trial_available', 'teacher_fit'],
+    fitSummary: '小学生から高校生まで個別指導でプログラミングを学びたい家庭向け', checkpoints: ['対象コース', '指導形式', '月謝・教材費'],
+    pricing: { system: 'コース別', minPrice: 0, note: '料金は公式サイトで確認' }, features: { beginnerFriendly: '◎', kidsClass: true, adultClass: false }, trial: '無料体験あり',
+    imageUrl: 'https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=800&q=80', link: 'https://iteen.jp/schools/kurashikiekimae/', sourceNote: '公式教室ページを2026-09-08確認'
+  },
+  {
+    id: 'school-programming-kurashiki-okishin', listingType: 'school', name: '沖新ゼミ マインクラフトプログラミング教室',
+    description: '倉敷市沖新町の子ども向けプログラミング教室です。マインクラフトを使った学びを検討できます。',
+    category: 'Programming', city: '倉敷市', area: '沖新町周辺', access: '倉敷市沖新町／詳細は公式サイトで確認',
+    genres: ['Programming', 'Kids', 'Minecraft'], learningNeeds: ['kids_lessons', 'it_learning'], decisionFactors: ['interest_fit', 'age_fit', 'commute_fit'],
+    fitSummary: 'マインクラフトを入口にプログラミングへ興味を広げたい子ども向け', checkpoints: ['対象学年', '授業内容', '体験・見学の可否'],
+    pricing: { system: 'コース別', minPrice: 0, note: '料金は公式サイトで確認' }, features: { beginnerFriendly: '◎', kidsClass: true, adultClass: false }, trial: '体験・見学は公式サイトで確認',
+    imageUrl: 'https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=800&q=80', link: 'https://www.okishin.com/okisin01/programming.html', sourceNote: '公式サイトを2026-09-08確認'
+  },
+  {
+    id: 'school-programming-kurashiki-qureo-nakasho', listingType: 'school', name: 'QUREOプログラミング教室 ベスト個別中庄教室',
+    description: '倉敷市中庄エリアの子ども向けプログラミング教室です。ゲーム型教材から基礎を学べます。',
+    category: 'Programming', city: '倉敷市', area: '中庄周辺', access: '中庄エリア／詳細は公式教室ページで確認',
+    genres: ['Programming', 'Kids', 'Game'], learningNeeds: ['kids_lessons', 'it_learning'], decisionFactors: ['age_fit', 'schedule_fit', 'commute_fit'],
+    fitSummary: '中庄周辺でゲーム型教材からプログラミングを始めたい家庭向け', checkpoints: ['対象学年', '授業曜日', '料金・体験条件'],
+    pricing: { system: '教室別', minPrice: 0, note: '料金は教室ごとに異なる' }, features: { beginnerFriendly: '◎', kidsClass: true, adultClass: false }, trial: '体験条件は公式サイトで確認',
+    imageUrl: 'https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=800&q=80', link: 'https://qureo.jp/class/besutokobetsu_nakasho', sourceNote: 'QUREO公式教室ページを2026-09-08確認'
+  },
+  {
+    id: 'school-music-kurashiki-shimamura', listingType: 'school', name: '島村楽器 イオンモール倉敷店 音楽教室',
+    description: 'イオンモール倉敷店内の音楽教室です。子どもから大人まで、ピアノなどのコースを検討できます。',
+    category: 'Piano', city: '倉敷市', area: 'イオンモール倉敷周辺', access: 'イオンモール倉敷店内',
+    genres: ['Piano', 'Music', 'Kids', 'Adult'], learningNeeds: ['kids_lessons', 'adult_lessons', 'music_learning'], decisionFactors: ['course_fit', 'trial_available', 'commute_fit'],
+    fitSummary: '買い物動線と合わせて子ども・大人の音楽レッスンを探す人向け', checkpoints: ['募集中コース', '開講曜日', '月謝・運営管理費'],
+    pricing: { system: 'コース別', minPrice: 0, note: 'コース別料金は公式サイトで確認' }, features: { parking: true, beginnerFriendly: '◎', kidsClass: true, adultClass: true }, trial: '体験案内あり',
+    imageUrl: 'https://images.unsplash.com/photo-1520523839897-bd0b52f945a0?auto=format&fit=crop&w=800&q=80', link: 'https://www.shimamura.co.jp/shop/kurashiki/', sourceNote: '島村楽器公式店舗・音楽教室情報を2026-09-08確認'
+  },
+  {
+    id: 'school-music-kurashiki-sheer', listingType: 'school', name: 'シアーミュージック 倉敷校',
+    description: '倉敷市の音楽スクールです。子ども・大人向けのピアノなど、目的に合うコースを相談できます。',
+    category: 'Piano', city: '倉敷市', area: '倉敷市内', access: '倉敷校の所在地・アクセスは公式校舎一覧で確認',
+    genres: ['Piano', 'Music', 'Kids', 'Adult'], learningNeeds: ['kids_lessons', 'adult_lessons', 'music_learning'], decisionFactors: ['course_fit', 'trial_available', 'schedule_fit'],
+    fitSummary: '倉敷市でピアノなどの音楽レッスンを体験から相談したい人向け', checkpoints: ['対応コース', '講師・曜日', '月謝・入会金'],
+    pricing: { system: 'コース別', minPrice: 0, note: '料金は公式サイトで確認' }, features: { beginnerFriendly: '◎', kidsClass: true, adultClass: true }, trial: '無料体験案内あり',
+    imageUrl: 'https://images.unsplash.com/photo-1520523839897-bd0b52f945a0?auto=format&fit=crop&w=800&q=80', link: 'https://sheer.jp/school/', sourceNote: '公式校舎一覧・ピアノコースを2026-09-08確認'
+  },
+  {
+    id: 'school-dance-kurashiki-shiny', listingType: 'school', name: 'SHINY DANCE ACADEMY 倉敷校',
+    description: '倉敷市の幼児・小学生・中学生向けダンス教室です。HIPHOPを中心としたクラスを無料体験から確認できます。',
+    category: 'Dance', city: '倉敷市', area: '倉敷市内', access: '倉敷校の所在地・アクセスは公式ページで確認',
+    genres: ['Dance', 'HipHop', 'Kids'], learningNeeds: ['kids_lessons', 'dance_learning'], decisionFactors: ['age_fit', 'trial_available', 'genre_fit'],
+    fitSummary: '幼児から中学生までHIPHOPを無料体験から始めたい家庭向け', checkpoints: ['対象クラス', '開講曜日', '月謝・初期費用'],
+    pricing: { system: 'クラス別', minPrice: 0, note: '料金は公式サイトで確認' }, features: { beginnerFriendly: '◎', kidsClass: true, adultClass: false }, trial: '無料体験あり',
+    imageUrl: 'https://images.unsplash.com/photo-1518834107812-67b0b7c58434?auto=format&fit=crop&w=800&q=80', link: 'https://www.shinydanceacademy.jp/17024456788438', sourceNote: '公式倉敷校ページを2026-09-08確認'
+  },
+  {
+    id: 'school-dance-kurashiki-stomp', listingType: 'school', name: 'ダンススタジオ STOMP 倉敷店',
+    description: '倉敷市老松町のダンススタジオです。キッズから大人まで、初心者を含むクラスを検討できます。',
+    category: 'Dance', city: '倉敷市', area: '老松町周辺', access: '倉敷市老松町／詳細は公式サイトで確認',
+    genres: ['Dance', 'Kids', 'Adult'], learningNeeds: ['kids_lessons', 'adult_lessons', 'dance_learning'], decisionFactors: ['beginner_friendly', 'age_fit', 'genre_fit'],
+    fitSummary: '老松町周辺で初心者から通えるダンスクラスを探す子ども・大人向け', checkpoints: ['ジャンル', '対象年齢', '料金・体験条件'],
+    pricing: { system: 'クラス別', minPrice: 0, note: '料金は公式サイトで確認' }, features: { beginnerFriendly: '◎', kidsClass: true, adultClass: true }, trial: '体験条件は公式サイトで確認',
+    imageUrl: 'https://images.unsplash.com/photo-1518834107812-67b0b7c58434?auto=format&fit=crop&w=800&q=80', link: 'https://dance-kurashiki.jp/', sourceNote: '公式サイトを2026-09-08確認'
+  },
+  {
+    id: 'school-dance-kurashiki-reiz', listingType: 'school', name: 'STUDIO REIZ',
+    description: '倉敷市中庄の3歳から大人まで通えるダンススタジオです。HIPHOP・JAZZ・キッズクラスを体験から検討できます。',
+    category: 'Dance', city: '倉敷市', area: '中庄周辺', access: '倉敷市中庄／詳細は公式サイトで確認',
+    genres: ['Dance', 'HipHop', 'Jazz', 'Kids', 'Adult'], learningNeeds: ['kids_lessons', 'adult_lessons', 'dance_learning'], decisionFactors: ['age_fit', 'trial_available', 'genre_fit'],
+    fitSummary: '中庄周辺で年齢とジャンルに合うダンスクラスを体験したい人向け', checkpoints: ['対象クラス', 'ジャンル', '月謝・体験日程'],
+    pricing: { system: 'クラス別', minPrice: 0, note: '料金は公式サイトで確認' }, features: { beginnerFriendly: '◎', kidsClass: true, adultClass: true }, trial: '体験あり',
+    imageUrl: 'https://images.unsplash.com/photo-1518834107812-67b0b7c58434?auto=format&fit=crop&w=800&q=80', link: 'https://www.studioreiz.com/', sourceNote: '公式サイトを2026-09-08確認'
+  },
+  {
+    id: 'school-dance-kurashiki-ray', listingType: 'school', name: 'レイスポーツクラブ倉敷 ダンスクラス',
+    description: '倉敷市笹沖のスポーツクラブ内ダンスクラスです。4歳から小学生、中学生以上のクラスを検討できます。',
+    category: 'Dance', city: '倉敷市', area: '笹沖周辺', access: '倉敷市笹沖／詳細は公式サイトで確認',
+    genres: ['Dance', 'Kids', 'Teens'], learningNeeds: ['kids_lessons', 'dance_learning'], decisionFactors: ['age_fit', 'price_clarity', 'trial_available'],
+    fitSummary: '笹沖周辺で年齢別のダンスクラスを探す子ども・中学生以上向け', checkpoints: ['対象クラス', '開講曜日', '月会費・諸費用'],
+    pricing: { system: '月会費制', minPrice: 6050, note: '月会費6,050円〜 / クラスにより異なる' }, features: { parking: true, beginnerFriendly: '◎', kidsClass: true, adultClass: true }, trial: '体験あり',
+    imageUrl: 'https://images.unsplash.com/photo-1518834107812-67b0b7c58434?auto=format&fit=crop&w=800&q=80', link: 'https://www.raykura.co.jp/junior/dance/', sourceNote: '公式ダンスクラスページを2026-09-08確認'
   }
 ];
 
