@@ -2469,7 +2469,10 @@ function initFilters() {
     const entryAudience = entryParams.get('audience');
     const entryFeature = entryParams.get('feature');
     const entrySort = entryParams.get('sort');
-    const availableCities = new Set(Array.from(cityBtns).map(button => button.getAttribute('data-city')));
+    const availableCities = new Set([
+        ...Array.from(cityBtns).map(button => button.getAttribute('data-city')),
+        ...(window.studiosData || []).map(studio => studio.city)
+    ]);
     const availableCategories = new Set(Array.from(categoryBtns).map(button => button.getAttribute('data-category')));
 
     if (entryCity && availableCities.has(entryCity)) {
