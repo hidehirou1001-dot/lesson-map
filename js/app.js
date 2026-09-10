@@ -48,6 +48,7 @@ document.addEventListener('DOMContentLoaded', () => {
         runSafely('renderCompareMemo', renderCompareMemo);
         runSafely('renderFavorites', renderFavorites);
         runSafely('applyFilters', applyFilters); // Apply initial filters
+        runSafely('openDirectStudio', openDirectStudio);
     }
 });
 
@@ -860,15 +861,16 @@ let favoriteIds = [];
 const cityRegionMap = {
     中予: ['松山市', '松前町', '東温市', '伊予市'],
     東予: ['今治市', '新居浜市', '西条市', '四国中央市'],
-    南予: ['宇和島市'],
-    愛媛県: ['松山市', '松前町', '東温市', '伊予市', '今治市', '新居浜市', '西条市', '四国中央市', '宇和島市'],
+    南予: ['宇和島市', '大洲市'],
+    愛媛県: ['松山市', '松前町', '東温市', '伊予市', '今治市', '新居浜市', '西条市', '四国中央市', '宇和島市', '大洲市'],
     香川県: ['高松市', '丸亀市', '坂出市', '宇多津町', '観音寺市', '三豊市', 'さぬき市', '東かがわ市'],
     徳島県: ['徳島市', '鳴門市', '阿南市', '藍住町', '北島町', '松茂町'],
     高知県: ['高知市', '南国市'],
     岡山県: ['岡山市', '倉敷市'],
-    神奈川県: ['横浜市青葉区'],
+    神奈川県: ['横浜市青葉区', '横浜市都筑区'],
     東京都: ['文京区'],
-    新潟県: ['長岡市']
+    新潟県: ['長岡市'],
+    愛知県: ['名古屋市']
 };
 const resultsPanelState = {
     guide: false,
@@ -2469,6 +2471,7 @@ function initFilters() {
     const entryAudience = entryParams.get('audience');
     const entryFeature = entryParams.get('feature');
     const entrySort = entryParams.get('sort');
+    const entryStudio = window.studiosData.find(studio => studio.id === entryParams.get('school'));
     const availableCities = new Set([
         ...Array.from(cityBtns).map(button => button.getAttribute('data-city')),
         ...(window.studiosData || []).map(studio => studio.city)
@@ -2480,6 +2483,10 @@ function initFilters() {
     }
     if (entryCategory && availableCategories.has(entryCategory)) {
         currentFilterState.category = entryCategory;
+    }
+    if (entryStudio) {
+        currentFilterState.city = entryStudio.city;
+        currentFilterState.category = entryStudio.category;
     }
     if (entryAudience && audienceQuickFilters.has(entryAudience)) {
         currentFilterState.quickFilters = [
@@ -3596,6 +3603,40 @@ function initModal() {
     }
 }
 
+function getStudioShareUrl(studioId) {
+    const url = new URL(window.location.origin + window.location.pathname);
+    url.searchParams.set('school', studioId);
+    url.hash = 'results-zone';
+    return url.toString();
+}
+
+function openDirectStudio() {
+    const studioId = new URLSearchParams(window.location.search).get('school');
+    if (!studioId || !window.studiosData.some(studio => studio.id === studioId)) return;
+    openModal(studioId);
+}
+
+async function copyStudioShareUrl(studioId, button) {
+    const shareUrl = getStudioShareUrl(studioId);
+    try {
+        await navigator.clipboard.writeText(shareUrl);
+    } catch (error) {
+        const input = document.createElement('textarea');
+        input.value = shareUrl;
+        input.setAttribute('readonly', '');
+        input.style.position = 'fixed';
+        input.style.opacity = '0';
+        document.body.appendChild(input);
+        input.select();
+        document.execCommand('copy');
+        input.remove();
+    }
+    button.textContent = '教室URLをコピーしました';
+    window.setTimeout(() => {
+        button.textContent = 'この教室のURLをコピー';
+    }, 2400);
+}
+
 function openModal(studioId) {
     const studio = window.studiosData.find(s => s.id === studioId);
     if (!studio) return;
@@ -3719,6 +3760,7 @@ function openModal(studioId) {
                     ? `<a href="${studio.link}" target="_blank" rel="noopener noreferrer" class="btn btn-primary modal-primary-btn">${getOfficialActionLabel(studio)}</a>`
                     : '<span class="btn btn-primary modal-primary-btn" aria-disabled="true">問い合わせ先は準備中</span>'}
                 <div class="modal-secondary-actions">
+                    <button class="btn btn-outline modal-share-btn" type="button" data-modal-share-id="${studio.id}">この教室のURLをコピー</button>
                     <button class="btn btn-outline modal-favorite-btn" type="button" data-modal-favorite-id="${studio.id}">${favoriteButtonLabel}</button>
                     <button class="btn btn-outline modal-compare-btn" type="button" data-modal-studio-id="${studio.id}" ${compareButtonDisabled}>${compareButtonLabel}</button>
                 </div>
@@ -3758,6 +3800,11 @@ function openModal(studioId) {
     const modalFavoriteBtn = modalBody.querySelector('.modal-favorite-btn');
     if (modalFavoriteBtn) {
         modalFavoriteBtn.addEventListener('click', () => toggleFavorite(studio.id));
+    }
+
+    const modalShareBtn = modalBody.querySelector('.modal-share-btn');
+    if (modalShareBtn) {
+        modalShareBtn.addEventListener('click', () => copyStudioShareUrl(studio.id, modalShareBtn));
     }
 
     initImageFallbacks(modalBody);
