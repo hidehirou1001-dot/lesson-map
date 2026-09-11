@@ -3459,6 +3459,33 @@ const studios = [
     fitSummary: '今治市でマンツーマンのピアノレッスンを、体験と発表機会から検討したい子ども・大人向け', checkpoints: ['空き時間', '自宅練習', '発表会・教材費'],
     pricing: { system: '月謝制', minPrice: 7700, note: '未就学児7,700円 / 小学生以上8,250円 / 入会金5,500円' }, features: { beginnerFriendly: '◎', kidsClass: true, adultClass: true }, trial: '体験レッスンあり',
     imageUrl: 'https://images.unsplash.com/photo-1520523839897-bd0b52f945a0?auto=format&fit=crop&w=800&q=80', link: 'https://mikapiano.com/', sourceNote: '公式サイト・料金ページを2026-09-11確認'
+  },
+  {
+    id: 'school-music-niihama-yamaha-center', listingType: 'school', name: 'ヤマハミュージック 新居浜センター',
+    description: 'JR新居浜駅前の音楽教室です。子どものピアノ・エレクトーンから、大人のピアノやギター、ドラム、管楽器、ボーカルまで複数のコースを検討できます。',
+    category: 'Piano', city: '新居浜市', area: '新居浜駅周辺', access: '新居浜市坂井町2-4-23 マルニテナントビル2F／JR新居浜駅徒歩2分',
+    genres: ['Piano', 'Music', 'Kids', 'Adult', 'Instrument'], learningNeeds: ['kids_lessons', 'adult_lessons', 'music_learning'], decisionFactors: ['station_access', 'course_fit', 'trial_available'],
+    fitSummary: '新居浜駅周辺で、子ども・大人のピアノや複数の楽器コースを比較したい人向け', checkpoints: ['募集中コース', '開講曜日', '月謝・施設費'],
+    pricing: { system: 'コース別', minPrice: 0, note: '料金はコースごとに公式サイトで確認' }, features: { parking: true, stationNearby: true, beginnerFriendly: '◎', kidsClass: true, adultClass: true }, trial: '無料体験レッスン案内あり',
+    imageUrl: 'https://images.unsplash.com/photo-1520523839897-bd0b52f945a0?auto=format&fit=crop&w=800&q=80', link: 'https://retailing.jp.yamaha.com/lesson/niihama_center', sourceNote: 'ヤマハミュージック公式教室ページを2026-09-11確認'
+  },
+  {
+    id: 'school-piano-niihama-nagayasu', listingType: 'school', name: 'ながやすピアノ教室',
+    description: '新居浜市松神子の個人ピアノ教室です。3・4歳頃の子どもから高齢の方まで、初心者、経験者、再開したい方を対象に基礎から指導しています。',
+    category: 'Piano', city: '新居浜市', area: '松神子周辺', access: '新居浜市松神子／詳しい住所は体験申込完了後に案内',
+    genres: ['Piano', 'Kids', 'Adult'], learningNeeds: ['kids_lessons', 'adult_lessons', 'music_learning'], decisionFactors: ['teacher_fit', 'trial_available', 'age_fit'],
+    fitSummary: '子どもの導入から大人の再開まで、個人のペースに合うピアノ指導を体験から確認したい人向け', checkpoints: ['対象年齢', '空き曜日・時間', '月謝・教材費'],
+    pricing: { system: '教室確認', minPrice: 0, note: '料金は公式サイトへ問い合わせ' }, features: { beginnerFriendly: '◎', kidsClass: true, adultClass: true }, trial: '体験レッスン申込あり',
+    imageUrl: 'https://images.unsplash.com/photo-1520523839897-bd0b52f945a0?auto=format&fit=crop&w=800&q=80', link: 'https://nkpiano.net/', sourceNote: '公式サイトを2026-09-11確認'
+  },
+  {
+    id: 'school-piano-niihama-masae', listingType: 'school', name: '政枝音楽教室',
+    description: '新居浜市政枝町のピアノを中心とする音楽教室です。大人も歓迎し、定期レッスンと単発レッスンから予定に合う学び方を相談できます。',
+    category: 'Piano', city: '新居浜市', area: '政枝町周辺', access: '新居浜市政枝町／JR新居浜駅から車で4分',
+    genres: ['Piano', 'Music', 'Adult', 'Private'], learningNeeds: ['adult_lessons', 'music_learning'], decisionFactors: ['price_clarity', 'schedule_fit', 'trial_available'],
+    fitSummary: '新居浜市で日中を中心に、定期または単発の個人ピアノレッスンを探す大人向け', checkpoints: ['レッスン可能時間', '定期・単発', '体験料金'],
+    pricing: { system: '月謝・単発', minPrice: 5000, note: '定期レッスン月5,000円〜 / 単発45分3,000円〜' }, features: { parking: true, beginnerFriendly: '◎', kidsClass: false, adultClass: true }, trial: '体験40分1,000円（日中の時間限定無料案内あり）',
+    imageUrl: 'https://images.unsplash.com/photo-1520523839897-bd0b52f945a0?auto=format&fit=crop&w=800&q=80', link: 'https://web.lesson-time.com/niihama-music-school', sourceNote: '教室公式ページを2026-09-11確認'
   }
 ];
 
