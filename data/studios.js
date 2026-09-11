@@ -3432,6 +3432,33 @@ const studios = [
     fitSummary: '幼児から小学生まで、特定競技に限定せず運動の基礎動作を身につけたい家庭向け', checkpoints: ['年齢別クラス', '開講曜日', '月会費・入会時費用'],
     pricing: { system: '月会費制', minPrice: 0, note: '月会費はクラス別に公式サイトで確認 / 入会金6,600円・ユニフォーム代8,140円〜' }, features: { stationNearby: true, beginnerFriendly: '◎', kidsClass: true, adultClass: false }, trial: '無料体験説明会・通常レッスン体験案内あり',
     imageUrl: 'https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=800&q=80', link: 'https://www.godai.gr.jp/gk/school/centerminami/', sourceNote: 'GODAI公式施設ページを2026-09-09確認'
+  },
+  {
+    id: 'school-piano-imabari-k-yuki', listingType: 'school', name: 'K.Yukiピアノ教室',
+    description: '今治市しまなみヒルズにあるピアノ教室です。4歳から大人までを対象に、基礎からのピアノや保育士を目指す方向けのレッスンを行っています。',
+    category: 'Piano', city: '今治市', area: 'しまなみヒルズ周辺', access: '今治市しまなみヒルズ／詳細は公式サイトで確認',
+    genres: ['Piano', 'Kids', 'Adult'], learningNeeds: ['kids_lessons', 'adult_lessons', 'music_learning'], decisionFactors: ['age_fit', 'price_clarity', 'schedule_fit'],
+    fitSummary: '今治市で4歳から大人まで、生活予定に合う回数・時間のピアノレッスンを相談したい人向け', checkpoints: ['空き曜日・時間', '年間回数', '体験対象コース'],
+    pricing: { system: '月謝制', minPrice: 4500, note: '月謝4,500円〜 / 回数・時間により異なる / 入会金2,000円' }, features: { beginnerFriendly: '◎', kidsClass: true, adultClass: true }, trial: '体験案内あり（空き枠・コース条件あり）',
+    imageUrl: 'https://images.unsplash.com/photo-1520523839897-bd0b52f945a0?auto=format&fit=crop&w=800&q=80', link: 'https://my-website-7765.jimdosite.com/', sourceNote: '公式サイト・公式ブログを2026-09-11確認'
+  },
+  {
+    id: 'school-piano-imabari-music-garden', listingType: 'school', name: 'MUSIC GARDEN（S-Music Lab）',
+    description: '今治市延喜のピアノ・エレクトーン教室です。3歳から大人までの個人レッスンに対応しています。現在は新規募集を一時停止しており、問い合わせは受け付けています。',
+    category: 'Piano', city: '今治市', area: '延喜周辺', access: '今治市延喜甲287-13 S-Music Studio内',
+    genres: ['Piano', 'Electone', 'Kids', 'Adult', 'Online'], learningNeeds: ['kids_lessons', 'adult_lessons', 'music_learning'], decisionFactors: ['age_fit', 'price_clarity', 'availability_check'],
+    fitSummary: 'ピアノ・エレクトーンの個人レッスンを検討し、募集再開時期を問い合わせたい子ども・大人向け', checkpoints: ['新規募集の再開状況', '希望楽器', 'レッスン時間'],
+    pricing: { system: '月謝制', minPrice: 6000, note: '月3回30分6,000円〜 / 入会金1,000円 / 体験1,000円' }, features: { parking: true, beginnerFriendly: '◎', kidsClass: true, adultClass: true, online: true }, trial: '新規募集を一時停止中（問い合わせ受付あり）',
+    imageUrl: 'https://images.unsplash.com/photo-1520523839897-bd0b52f945a0?auto=format&fit=crop&w=800&q=80', link: 'https://satomi-music-garden.com/piano_lesson.html', sourceNote: '公式レッスンページを2026-09-11確認'
+  },
+  {
+    id: 'school-piano-imabari-mika', listingType: 'school', name: '美香ピアノ教室',
+    description: '今治市東鳥生町のマンツーマン型ピアノ教室です。3歳から大人までを対象に、読譜やリズムの基礎から発表会・アンサンブルまで学べます。',
+    category: 'Piano', city: '今治市', area: '東鳥生町周辺', access: '今治市東鳥生町2丁目2-23',
+    genres: ['Piano', 'Kids', 'Adult', 'Rhythm'], learningNeeds: ['kids_lessons', 'adult_lessons', 'music_learning'], decisionFactors: ['teacher_fit', 'price_clarity', 'trial_available'],
+    fitSummary: '今治市でマンツーマンのピアノレッスンを、体験と発表機会から検討したい子ども・大人向け', checkpoints: ['空き時間', '自宅練習', '発表会・教材費'],
+    pricing: { system: '月謝制', minPrice: 7700, note: '未就学児7,700円 / 小学生以上8,250円 / 入会金5,500円' }, features: { beginnerFriendly: '◎', kidsClass: true, adultClass: true }, trial: '体験レッスンあり',
+    imageUrl: 'https://images.unsplash.com/photo-1520523839897-bd0b52f945a0?auto=format&fit=crop&w=800&q=80', link: 'https://mikapiano.com/', sourceNote: '公式サイト・料金ページを2026-09-11確認'
   }
 ];
 
