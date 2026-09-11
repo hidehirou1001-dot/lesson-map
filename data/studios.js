@@ -3486,6 +3486,33 @@ const studios = [
     fitSummary: '新居浜市で日中を中心に、定期または単発の個人ピアノレッスンを探す大人向け', checkpoints: ['レッスン可能時間', '定期・単発', '体験料金'],
     pricing: { system: '月謝・単発', minPrice: 5000, note: '定期レッスン月5,000円〜 / 単発45分3,000円〜' }, features: { parking: true, beginnerFriendly: '◎', kidsClass: false, adultClass: true }, trial: '体験40分1,000円（日中の時間限定無料案内あり）',
     imageUrl: 'https://images.unsplash.com/photo-1520523839897-bd0b52f945a0?auto=format&fit=crop&w=800&q=80', link: 'https://web.lesson-time.com/niihama-music-school', sourceNote: '教室公式ページを2026-09-11確認'
+  },
+  {
+    id: 'school-dance-niihama-fitta-kids', listingType: 'school', name: 'フィッタ キッズスクール新居浜 ダンス',
+    description: '新居浜市新須賀町の子ども向けダンススクールです。HIPHOPのステップを段階的に学ぶ進級制度があり、音楽に合わせて踊りながらリズム感や表現力を育てます。',
+    category: 'Dance', city: '新居浜市', area: '新須賀町周辺', access: '新居浜市新須賀町1-8-21／敷地内駐車場約90台',
+    genres: ['Dance', 'HipHop', 'Kids'], learningNeeds: ['kids_lessons', 'dance_learning'], decisionFactors: ['age_fit', 'price_clarity', 'parking'],
+    fitSummary: '新居浜市で、進級制度のあるHIPHOPダンスを継続して学びたい子ども向け', checkpoints: ['対象年齢・クラス', '週間スケジュール', '月会費・指定用品'],
+    pricing: { system: '月会費制', minPrice: 7700, note: '週1回7,700円〜 / 会員登録料・更新手数料・指定用品代が別途必要' }, features: { parking: true, beginnerFriendly: '◎', kidsClass: true, adultClass: false }, trial: '体験開催日・申込条件は公式サイトで確認',
+    imageUrl: 'https://images.unsplash.com/photo-1518834107812-67b0b7c58434?auto=format&fit=crop&w=800&q=80', link: 'https://www.fitta.jp/kids/niihama/dance.html', sourceNote: 'フィッタ公式ダンススクールページを2026-09-11確認'
+  },
+  {
+    id: 'school-dance-niihama-glisten', listingType: 'school', name: 'Glisten DANCE STUDIO',
+    description: '新居浜市宮西町のダンス教室です。4歳の幼児から小中高生・大人までを対象に、未経験者向けの入門クラスからレベルアップ・強化クラスまで用意しています。',
+    category: 'Dance', city: '新居浜市', area: '宮西町周辺', access: '新居浜市宮西町5-10 株式会社伊東会計サービスビル2階',
+    genres: ['Dance', 'HipHop', 'Kids', 'Adult'], learningNeeds: ['kids_lessons', 'adult_lessons', 'dance_learning'], decisionFactors: ['age_fit', 'trial_available', 'genre_fit'],
+    fitSummary: '未経験から始めたい幼児・子どもや、目標に合うレベル別クラスを探す人向け', checkpoints: ['年齢・レベル別クラス', '最新スケジュール', '月謝・兄弟姉妹割引'],
+    pricing: { system: '月謝制', minPrice: 4400, note: '幼児クラス月4回4,400円〜 / 入会金3,000円' }, features: { parking: true, beginnerFriendly: '◎', kidsClass: true, adultClass: true }, trial: '1回500円',
+    imageUrl: 'https://images.unsplash.com/photo-1518834107812-67b0b7c58434?auto=format&fit=crop&w=800&q=80', link: 'https://niihama.mypl.net/shop/00000348983/', sourceNote: '店舗掲載ページおよび新居浜市公開情報を2026-09-11確認'
+  },
+  {
+    id: 'school-dance-niihama-studio-n', listingType: 'school', name: 'Studio N',
+    description: '新居浜市港町の少人数制フィットネススタジオです。ベリーダンス、バレトン、ヨガ、バーオソルフロアなど、身体づくりや美容を目的としたプログラムを都度払い・回数券で受講できます。',
+    category: 'Dance', city: '新居浜市', area: '港町周辺', access: '新居浜市港町3-13',
+    genres: ['Dance', 'BellyDance', 'Fitness', 'Yoga', 'Adult'], learningNeeds: ['adult_lessons', 'dance_learning', 'fitness_training'], decisionFactors: ['price_clarity', 'schedule_fit', 'program_fit'],
+    fitSummary: 'ベリーダンスやバレトンなどを、入会金なしの都度払いから試したい大人向け', checkpoints: ['最新プログラム', '予約方法', '回数券の利用条件'],
+    pricing: { system: '都度払い・回数券', minPrice: 1500, note: '1レッスン1,500円 / 4回券5,000円〜 / 入会金・年会費なし' }, features: { beginnerFriendly: '◎', kidsClass: false, adultClass: true }, trial: '1レッスン単位で受講可。最新日程は公式サイトへ問い合わせ',
+    imageUrl: 'https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?auto=format&fit=crop&w=800&q=80', link: 'https://2-20happywedding.wixsite.com/studion', sourceNote: '公式サイトを2026-09-11確認'
   }
 ];
 
