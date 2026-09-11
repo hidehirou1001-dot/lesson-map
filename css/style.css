@@ -7843,6 +7843,11 @@ p {
   text-align: left;
 }
 
+#hero-quick-search,
+#finder-panel {
+  scroll-margin-top: 96px;
+}
+
 .home-hero-goal-heading,
 .home-hero-assurance-heading {
   display: grid;
