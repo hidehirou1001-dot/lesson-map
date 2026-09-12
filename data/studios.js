@@ -3423,7 +3423,14 @@ const studios = [
     fitSummary: 'ScratchやMinecraftを、最大3名の少人数環境で自分のペースに合わせて学びたい年中〜中学生向け', checkpoints: ['土日の希望時間帯', '月2回・月4回', '入会金免除キャンペーンの適用条件'],
     target: '年中〜中学生', schedule: '土・日曜日／10:30〜12:00、13:00〜14:30、15:15〜16:45', phone: '052-990-6876',
     pricing: { system: '月謝制', minPrice: 11000, note: 'プログラミング90分：月2回11,000円・月4回16,800円 / プログラミング＋学習120分：月2回19,800円・月4回33,000円 / プライベート月2回19,800円〜 / 入会金16,500円（条件付き免除キャンペーンあり）' }, features: { beginnerFriendly: '◎', kidsClass: true, adultClass: false, weekendOpen: true }, trial: '無料体験レッスンあり',
-    imageUrl: 'https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=800&q=80', link: 'https://lp.db.child-leader-pro.com/p/switch-nagoya-sakae-trial', sourceNote: '公式ページを2026-09-09確認。対象・日時・料金・電話番号・教室特徴は教室提供情報を2026-09-12反映'
+    imageUrl: '/assets/schools/switch-nagoya-sakae/classroom.png', imageAlt: 'Switch名古屋栄校の教室全景',
+    gallery: [
+      { src: '/assets/schools/switch-nagoya-sakae/lesson-01.png', alt: 'Switch名古屋栄校で教材とパソコンを使って学ぶ授業風景' },
+      { src: '/assets/schools/switch-nagoya-sakae/lesson-02.png', alt: 'Switch名古屋栄校でMinecraftを使って学ぶ授業風景' },
+      { src: '/assets/schools/switch-nagoya-sakae/lesson-03.png', alt: 'Switch名古屋栄校の少人数制レッスンの様子' },
+      { src: '/assets/schools/switch-nagoya-sakae/lesson-04.png', alt: 'Switch名古屋栄校で生徒がパソコンに取り組む授業風景' }
+    ],
+    link: 'https://lp.db.child-leader-pro.com/p/switch-nagoya-sakae-trial', sourceNote: '公式ページを2026-09-09確認。対象・日時・料金・電話番号・教室特徴・提供写真5点は教室提供情報を2026-09-12反映'
   },
   {
     id: 'school-fitness-yokohama-tsuzuki-godai-golden-kids', listingType: 'school', name: 'GODAIゴールデンキッズ センター南',

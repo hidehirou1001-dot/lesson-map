@@ -3681,6 +3681,15 @@ function openModal(studioId) {
     const compareButtonLabel = isComparedStudio(studio.id) ? '比較メモから外す' : '比較メモに入れる';
     const compareButtonDisabled = !isComparedStudio(studio.id) && compareMemoIds.length >= COMPARE_MEMO_LIMIT ? 'disabled' : '';
     const favoriteButtonLabel = isFavoriteStudio(studio.id) ? '保存を外す' : 'あとで見返す';
+    const galleryMarkup = Array.isArray(studio.gallery) && studio.gallery.length > 0 ? `
+        <div class="modal-gallery" aria-label="${studio.name}の教室・授業風景">
+            ${studio.gallery.map(image => `
+                <figure class="modal-gallery-item">
+                    <img src="${image.src}" alt="${image.alt || `${studio.name}の授業風景`}" loading="lazy" decoding="async">
+                </figure>
+            `).join('')}
+        </div>
+    ` : '';
     const relatedGuideMarkup = relatedGuides.length > 0 ? `
             <details class="modal-detail-toggle modal-guide-toggle">
                 <summary>近い特集も見る</summary>
@@ -3699,7 +3708,8 @@ function openModal(studioId) {
 
     modalBody.innerHTML = `
         <div>
-          <img src="${studio.imageUrl}" alt="${studio.name}" class="modal-img">
+          <img src="${studio.imageUrl}" alt="${studio.imageAlt || studio.name}" class="modal-img">
+          ${galleryMarkup}
         </div>
         <div class="modal-body">
             <div class="modal-head">
