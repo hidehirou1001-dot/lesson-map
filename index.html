@@ -13,7 +13,7 @@
     gtag('js', new Date());
   </script>
   <title>自分に合う習い事・スクールを探す｜学びと出会う LessonMap</title>
-  <meta name="description" content="自分に合う学びと出会える、習い事・スクール発見サイト。地域、年齢、目的、料金、体験から教室やオンライン講座を探せます。掲載エリアは全国へ順次拡大中です。">
+  <meta name="description" content="全国の習い事・教室・スクールを探せるLessonMap。地域、年齢、目的、料金、体験の有無から、自分や家族に合う学びを比較できます。掲載エリアは全国へ順次拡大中です。">
   <link rel="canonical" href="https://www.lesson-map.com/">
   <meta property="og:type" content="website">
   <meta property="og:title" content="自分に合う学びと出会える｜LessonMap">
@@ -36,7 +36,7 @@
           "name": "LessonMap",
           "url": "https://www.lesson-map.com/",
           "description": "自分に合う学びと出会える、習い事・スクール発見プラットフォーム",
-          "dateModified": "2026-09-05",
+          "dateModified": "2026-09-12",
           "inLanguage": "ja",
           "publisher": { "@id": "https://www.lesson-map.com/#organization" }
         },
@@ -108,7 +108,7 @@
           <div class="home-hero-message">
             <p class="brand-tagline">次の「できた。」へ。</p>
             <h1 class="h1">学びとの出会いが、<br>人生を動かす。</h1>
-            <p class="home-hero-lead">自分や家族に合う学びを、ここから見つけよう。</p>
+            <p class="home-hero-lead">全国の教室・スクールから、自分や家族に合う学びを見つけよう。</p>
             <a class="btn btn-primary home-hero-stage-cta" href="#hero-quick-search">条件から学びを探す</a>
           </div>
         </div>
@@ -135,7 +135,7 @@
           <form class="home-hero-keyword-search" id="hero-keyword-search" aria-label="地域名や学びを検索">
             <label class="home-hero-keyword-field" for="hero-keyword-input">
               <span class="home-hero-search-kicker">探したいものが決まっている方</span>
-              <input type="search" id="hero-keyword-input" class="home-hero-keyword-input" placeholder="地域名や学びを検索 例：松山 英会話 / 高松 ピアノ" aria-label="地域名や学びを検索">
+              <input type="search" id="hero-keyword-input" class="home-hero-keyword-input" placeholder="地域名や学びを検索 例：名古屋 プログラミング / 横浜 英会話" aria-label="地域名や学びを検索">
             </label>
             <button class="btn btn-primary home-hero-keyword-submit" type="submit">学びを探す</button>
           </form>
@@ -269,8 +269,8 @@
             <button class="btn btn-primary home-hero-quick-submit" type="submit">この条件で学びを見つける</button>
           </form>
           <div class="home-hero-quick-row" aria-label="人気の入口">
-            <a href="/recommendations/matsuyama-lessons/" class="home-hero-chip">松山から見る</a>
-            <a href="/?city=高松市#results-zone" class="home-hero-chip">高松から見る</a>
+            <a href="/areas/" class="home-hero-chip">全国の掲載エリア</a>
+            <a href="/?city=名古屋市#results-zone" class="home-hero-chip">名古屋から見る</a>
             <a href="/?audience=adult#results-zone" class="home-hero-chip">大人向けから見る</a>
             <a href="/?audience=kids#results-zone" class="home-hero-chip">子ども向けから見る</a>
           </div>
@@ -320,7 +320,7 @@
               <strong id="hero-total-count">-</strong>
             </div>
             <div class="hero-stat">
-              <span class="hero-stat-label">主要エリア</span>
+              <span class="hero-stat-label">掲載市区町村</span>
               <strong id="hero-city-count">-</strong>
             </div>
           </div>
@@ -385,7 +385,7 @@
     </div>
     <div class="top-category-grid">
       <a class="top-category-card" href="/recommendations/dance-sports-guides/"><span class="top-category-icon">💃</span><strong>ダンス・スポーツ</strong><span>キッズ / 初心者 / 体験</span></a>
-      <a class="top-category-card" href="/recommendations/matsuyama-fitness/"><span class="top-category-icon">🏋️</span><strong>松山のジム</strong><span>24時間 / 駐車場 / 設備</span></a>
+      <a class="top-category-card" href="/?category=Fitness#results-zone"><span class="top-category-icon">🏋️</span><strong>スポーツ・フィットネス</strong><span>ジム / 駐車場 / 設備</span></a>
       <a class="top-category-card" href="/recommendations/it-ai-guides/"><span class="top-category-icon">💻</span><strong>プログラミング・AI</strong><span>子ども / 社会人</span></a>
       <a class="top-category-card" href="/recommendations/english-guides/"><span class="top-category-icon">🗣️</span><strong>英会話・語学</strong><span>子ども / 学び直し</span></a>
       <a class="top-category-card" href="/recommendations/music-guides/"><span class="top-category-icon">🎹</span><strong>ピアノ・音楽</strong><span>子ども / 大人の再開</span></a>
@@ -395,43 +395,43 @@
 
   <section class="section container reveal top-featured-section">
     <div class="top-section-heading">
-      <h2 class="h2">まず読みたい学び選びガイド</h2>
-      <p>料金や体験、対象など、始める前に確認したい情報をジャンル別にまとめています。</p>
+      <h2 class="h2">全国から探せるジャンル別ガイド</h2>
+      <p>地域を限定せず、通学とオンラインの選択肢をジャンル別にまとめています。</p>
     </div>
     <div class="top-featured-grid">
-      <a class="top-featured-card" href="/recommendations/matsuyama-english/">
-        <img src="/assets/hero/recommendations-matsuyama-english.png" alt="松山の英会話教室比較ガイド">
+      <a class="top-featured-card" href="/recommendations/english-guides/">
+        <img src="/assets/og/recommendations.svg" alt="英会話・語学の特集ガイド">
         <div class="top-featured-copy">
-          <strong>松山の英会話教室比較ガイド</strong>
-          <p>子ども向けから大人の学び直しまで、続けやすさで見比べられます。</p>
-          <div class="top-featured-tags"><span>初心者OK</span><span>体験あり</span></div>
+          <strong>英会話・語学の特集ガイド</strong>
+          <p>子ども向け、大人の学び直し、オンラインなど、目的に合う入口を探せます。</p>
+          <div class="top-featured-tags"><span>通学</span><span>オンライン</span></div>
           <span class="top-featured-cta">特集を見る</span>
         </div>
       </a>
-      <a class="top-featured-card" href="/recommendations/matsuyama-piano/">
-        <img src="/assets/hero/recommendations-matsuyama-piano.png" alt="松山のピアノ教室比較ガイド">
+      <a class="top-featured-card" href="/recommendations/music-guides/">
+        <img src="/assets/og/recommendations.svg" alt="ピアノ・音楽の特集ガイド">
         <div class="top-featured-copy">
-          <strong>松山のピアノ教室比較ガイド</strong>
-          <p>子どもの導入から大人の再開まで、自分に合う入口を整理できます。</p>
+          <strong>ピアノ・音楽の特集ガイド</strong>
+          <p>子どもの導入から大人の再開、オンラインレッスンまで整理できます。</p>
           <div class="top-featured-tags"><span>子ども向け</span><span>大人向け</span></div>
           <span class="top-featured-cta">特集を見る</span>
         </div>
       </a>
-      <a class="top-featured-card" href="/recommendations/matsuyama-dance/">
-        <img src="/assets/hero/recommendations-matsuyama-dance.png" alt="松山のダンス教室比較ガイド">
+      <a class="top-featured-card" href="/recommendations/dance-sports-guides/">
+        <img src="/assets/og/recommendations.svg" alt="ダンス・スポーツの特集ガイド">
         <div class="top-featured-copy">
-          <strong>松山のダンス教室比較ガイド</strong>
-          <p>キッズ、初心者、体験など、気になる入口から比較しやすい構成です。</p>
+          <strong>ダンス・スポーツの特集ガイド</strong>
+          <p>キッズ、初心者、体験など、目的を明確にして候補を探せます。</p>
           <div class="top-featured-tags"><span>キッズ</span><span>初心者OK</span></div>
           <span class="top-featured-cta">特集を見る</span>
         </div>
       </a>
-      <a class="top-featured-card" href="/recommendations/matsuyama-programming/">
-        <img src="/assets/hero/recommendations-matsuyama-programming.png" alt="松山のプログラミング教室比較ガイド">
+      <a class="top-featured-card" href="/recommendations/it-ai-guides/">
+        <img src="/assets/og/recommendations.svg" alt="プログラミング・AIの特集ガイド">
         <div class="top-featured-copy">
-          <strong>松山のプログラミング教室比較ガイド</strong>
-          <p>教材や年齢の違いを見ながら、自分に合う学び方を探せます。</p>
-          <div class="top-featured-tags"><span>マイクラ</span><span>ロボット</span></div>
+          <strong>プログラミング・AIの特集ガイド</strong>
+          <p>子どものプログラミングから社会人のAI学習まで、目的別に探せます。</p>
+          <div class="top-featured-tags"><span>子ども</span><span>社会人</span></div>
           <span class="top-featured-cta">特集を見る</span>
         </div>
       </a>
@@ -441,26 +441,29 @@
   <section class="section container reveal top-area-section" id="top-areas">
     <div class="top-section-heading">
       <h2 class="h2">エリアから探す</h2>
-      <p>家や学校、職場の近くから探したいときに使いやすい入口です。</p>
+      <p>現在掲載中の都道府県から探せます。掲載地域は全国へ順次拡大しています。</p>
     </div>
     <p><a href="/areas/" class="btn btn-outline">掲載エリア一覧を見る</a></p>
     <div class="top-area-rail">
-      <a class="top-area-card" href="/recommendations/ehime-local-lessons/"><strong>愛媛全体から探す</strong><span>中予・東予・南予を広く見る</span></a>
-      <a class="top-area-card" href="/recommendations/matsuyama-lessons/"><strong>松山で探す</strong><span>主力4ジャンルから入りたい</span></a>
-      <a class="top-area-card" href="/recommendations/kagawa-lessons/"><strong>香川から探す</strong><span>高松・丸亀・坂出・宇多津から探す</span></a>
-      <a class="top-area-card" href="/recommendations/tokushima-lessons/"><strong>徳島から探す</strong><span>徳島・鳴門・阿南の掲載教室から探す</span></a>
-      <a class="top-area-card" href="/recommendations/imabari-lessons/"><strong>今治で探す</strong><span>生活圏や初心者向けダンス入口を見る</span></a>
-      <a class="top-area-card" href="/recommendations/niihama-lessons/"><strong>新居浜で探す</strong><span>子ども向けや初心者向けダンスを整理する</span></a>
-      <a class="top-area-card" href="/recommendations/uwajima-lessons/"><strong>宇和島で探す</strong><span>最初の1本や初心者向けダンスを見たいときに</span></a>
+      <a class="top-area-card" href="/recommendations/ehime-local-lessons/"><strong>愛媛県から探す</strong><span>中予・東予・南予の教室を見る</span></a>
+      <a class="top-area-card" href="/recommendations/kagawa-lessons/"><strong>香川県から探す</strong><span>高松・丸亀などの教室を見る</span></a>
+      <a class="top-area-card" href="/recommendations/tokushima-lessons/"><strong>徳島県から探す</strong><span>徳島・鳴門・阿南などから探す</span></a>
+      <a class="top-area-card" href="/recommendations/kochi-lessons/"><strong>高知県から探す</strong><span>高知市・南国市の教室を見る</span></a>
+      <a class="top-area-card" href="/recommendations/okayama-lessons/"><strong>岡山県から探す</strong><span>岡山市・倉敷市の教室を見る</span></a>
+      <a class="top-area-card" href="/?city=愛知県#results-zone"><strong>愛知県から探す</strong><span>名古屋市の掲載教室を見る</span></a>
+      <a class="top-area-card" href="/?city=神奈川県#results-zone"><strong>神奈川県から探す</strong><span>横浜市内の掲載教室を見る</span></a>
+      <a class="top-area-card" href="/?city=東京都#results-zone"><strong>東京都から探す</strong><span>都内の掲載教室を見る</span></a>
     </div>
     <div class="top-section-heading top-subsection-heading">
-      <h3 class="h3">初心者向けダンスを地域で見る</h3>
-      <p>未経験から始めやすい教室を、地域ごとの入口から見比べられます。</p>
+      <h3 class="h3">掲載中の都市から探す</h3>
+      <p>教室が増えている都市や地域別ガイドから、身近な候補を見つけられます。</p>
     </div>
     <div class="top-area-rail">
-      <a class="top-area-card" href="/recommendations/imabari-dance-beginner/"><strong>今治の初心者向けダンス</strong><span>子どもも大人も始めやすい入口を見る</span></a>
-      <a class="top-area-card" href="/recommendations/niihama-dance-beginner/"><strong>新居浜の初心者向けダンス</strong><span>未経験から通いやすい教室を探す</span></a>
-      <a class="top-area-card" href="/recommendations/uwajima-dance-beginner/"><strong>宇和島の初心者向けダンス</strong><span>最初の1本を無理なく選びたいときに</span></a>
+      <a class="top-area-card" href="/?city=名古屋市#results-zone"><strong>名古屋市</strong><span>市内の掲載教室から探す</span></a>
+      <a class="top-area-card" href="/recommendations/kurashiki-lessons/"><strong>倉敷市</strong><span>地域別の教室ガイドを見る</span></a>
+      <a class="top-area-card" href="/recommendations/takamatsu-lessons/"><strong>高松市</strong><span>ジャンル別の教室ガイドを見る</span></a>
+      <a class="top-area-card" href="/recommendations/matsuyama-lessons/"><strong>松山市</strong><span>ジャンル別の教室ガイドを見る</span></a>
+      <a class="top-area-card" href="/?city=横浜市都筑区#results-zone"><strong>横浜市都筑区</strong><span>区内の掲載教室から探す</span></a>
     </div>
   </section>
 
@@ -928,28 +931,28 @@
         </div>
       </div>
       <div class="issue-path-grid" data-carousel-track>
-        <a class="issue-path-card" href="/recommendations/ehime-kids-lessons/">
-          <span class="issue-path-kicker">子ども向け</span>
-          <strong>何を基準に選べばいいか分からない</strong>
+        <a class="issue-path-card" href="/recommendations/best-time-to-start-lessons/">
+          <span class="issue-path-kicker">始める時期</span>
+          <strong>習い事を始めるタイミングを整理したい</strong>
           <div class="start-path-tags">
             <span class="start-path-tag">年齢</span>
-            <span class="start-path-tag">始めやすさ</span>
+            <span class="start-path-tag">タイミング</span>
           </div>
         </a>
-        <a class="issue-path-card" href="/recommendations/ehime-adult-lessons/">
-          <span class="issue-path-kicker">大人向け</span>
-          <strong>大人でも無理なく始められる入口から見たい</strong>
+        <a class="issue-path-card" href="/recommendations/correspondence-course-vs-self-study/">
+          <span class="issue-path-kicker">学び方</span>
+          <strong>通信講座と独学のどちらが合うか知りたい</strong>
           <div class="start-path-tags">
             <span class="start-path-tag">学び直し</span>
-            <span class="start-path-tag">続けやすさ</span>
+            <span class="start-path-tag">比較</span>
           </div>
         </a>
-        <a class="issue-path-card" href="/recommendations/ehime-trial-lessons/">
-          <span class="issue-path-kicker">失敗を減らす</span>
-          <strong>まずは体験しやすい候補から見たい</strong>
+        <a class="issue-path-card" href="/recommendations/online-learning-guides/">
+          <span class="issue-path-kicker">全国から学べる</span>
+          <strong>場所に縛られず始められる学びを探したい</strong>
           <div class="start-path-tags">
-            <span class="start-path-tag">体験</span>
-            <span class="start-path-tag">比較しやすい</span>
+            <span class="start-path-tag">オンライン</span>
+            <span class="start-path-tag">自宅学習</span>
           </div>
         </a>
       </div>
