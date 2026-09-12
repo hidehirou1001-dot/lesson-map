@@ -7222,27 +7222,70 @@ p {
   object-fit: cover;
 }
 
-.modal-gallery {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 0.5rem;
-  padding: 0.5rem;
-  background: rgba(34, 34, 34, 0.035);
-}
-
-.modal-gallery-item {
-  aspect-ratio: 4 / 3;
-  margin: 0;
+.modal-photo-slider {
+  position: relative;
   overflow: hidden;
-  border-radius: 10px;
-  background: var(--clr-surface);
+  background: rgba(34, 34, 34, 0.05);
 }
 
-.modal-gallery-item img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+.modal-photo-track {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  overscroll-behavior-x: contain;
+  touch-action: pan-x pan-y;
+}
+
+.modal-photo-track::-webkit-scrollbar {
+  display: none;
+}
+
+.modal-photo-slide {
+  flex: 0 0 100%;
+  margin: 0;
+  scroll-snap-align: start;
+}
+
+.modal-photo-nav {
+  position: absolute;
+  top: 50%;
+  width: 42px;
+  height: 42px;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.92);
+  color: var(--clr-text-main);
+  box-shadow: var(--shadow-sm);
+  font-size: 2rem;
+  line-height: 1;
+  cursor: pointer;
+  transform: translateY(-50%);
+}
+
+.modal-photo-nav:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+
+.modal-photo-prev {
+  left: 0.75rem;
+}
+
+.modal-photo-next {
+  right: 0.75rem;
+}
+
+.modal-photo-counter {
+  position: absolute;
+  right: 0.75rem;
+  bottom: 0.75rem;
+  padding: 0.3rem 0.6rem;
+  border-radius: 999px;
+  background: rgba(34, 34, 34, 0.72);
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: 700;
 }
 
 .modal-body {
