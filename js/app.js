@@ -3775,6 +3775,21 @@ function openModal(studioId) {
                             <span class="modal-info-label">料金</span>
                             <span>${modalPricingDetail}</span>
                         </li>
+                        ${studio.target ? `
+                        <li class="modal-info-item">
+                            <span class="modal-info-label">対象年齢</span>
+                            <span>${studio.target}</span>
+                        </li>` : ''}
+                        ${studio.schedule ? `
+                        <li class="modal-info-item">
+                            <span class="modal-info-label">レッスン日時</span>
+                            <span>${studio.schedule}</span>
+                        </li>` : ''}
+                        ${studio.phone ? `
+                        <li class="modal-info-item">
+                            <span class="modal-info-label">電話番号</span>
+                            <span><a href="tel:${studio.phone}">${studio.phone}</a></span>
+                        </li>` : ''}
                         <li class="modal-info-item">
                             <span class="modal-info-label">アクセス</span>
                             <span>${studio.access}</span>
