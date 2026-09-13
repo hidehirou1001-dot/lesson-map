@@ -870,7 +870,8 @@ const cityRegionMap = {
     神奈川県: ['横浜市青葉区', '横浜市都筑区'],
     東京都: ['文京区'],
     新潟県: ['長岡市'],
-    愛知県: ['名古屋市']
+    愛知県: ['名古屋市'],
+    埼玉県: ['春日部市']
 };
 const resultsPanelState = {
     guide: false,

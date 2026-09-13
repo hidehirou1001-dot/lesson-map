@@ -3521,6 +3521,17 @@ const studios = [
     fitSummary: 'ベリーダンスやバレトンなどを、入会金なしの都度払いから試したい大人向け', checkpoints: ['最新プログラム', '予約方法', '回数券の利用条件'],
     pricing: { system: '都度払い・回数券', minPrice: 1500, note: '1レッスン1,500円 / 4回券5,000円〜 / 入会金・年会費なし' }, features: { beginnerFriendly: '◎', kidsClass: false, adultClass: true }, trial: '1レッスン単位で受講可。最新日程は公式サイトへ問い合わせ',
     imageUrl: 'https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?auto=format&fit=crop&w=800&q=80', link: 'https://2-20happywedding.wixsite.com/studion', sourceNote: '公式サイトを2026-09-11確認'
+  },
+  {
+    id: 'school-fitness-kasukabe-hper', listingType: 'school', name: 'プライベートジムHPER春日部店',
+    description: '春日部市南にあるダイエット専門のパーソナルジムです。専属トレーナーによるマンツーマントレーニングに、定期カウンセリングと食事改善サポートを組み合わせ、自分の体力や生活に合うペースで取り組めます。',
+    category: 'Fitness', city: '春日部市', area: '春日部市南・一ノ割駅周辺', access: '埼玉県春日部市南4丁目9-10 大池ビル2階／東武伊勢崎線 一ノ割駅から徒歩10分',
+    genres: ['Fitness', 'PersonalTraining', 'Diet', 'Adult'], learningNeeds: ['adult_lessons', 'fitness_training'], decisionFactors: ['trainer_fit', 'price_clarity', 'trial_available'],
+    fitSummary: '運動習慣やダイエットを、専属トレーナーの個別指導と食事サポートで始めたい大人向け', checkpoints: ['希望する通う頻度', 'コース料金と入会金', '無料カウンセリングと体験の違い'],
+    schedule: '月〜日（不定休）9:00〜23:00', phone: '070-3189-3288',
+    pricing: { system: 'コース制', minPrice: 46200, note: '週1回・全8回46,200円（税込）〜 / スタンダード2か月全16回85,800円（税込） / 入会金11,000円（税込）' },
+    features: { parking: true, beginnerFriendly: '◎', kidsClass: false, adultClass: true, weekendOpen: true }, trial: '無料カウンセリング・1日体験コース案内あり',
+    imageUrl: 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=800&q=80', link: 'https://hper-gym.com/location/kasukabe/', sourceNote: 'HPER春日部店公式ページを2026-09-13確認'
   }
 ];
 
@@ -3542,6 +3553,7 @@ const studioPrefectureByCity = Object.freeze({
   '高知市': '高知県',
   '今治市': '愛媛県',
   '坂出市': '香川県',
+  '春日部市': '埼玉県',
   '三豊市': '香川県',
   '四国中央市': '愛媛県',
   '松山市': '愛媛県',

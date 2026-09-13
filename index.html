@@ -155,6 +155,7 @@
                     <option value="東京都">東京都全域</option>
                     <option value="新潟県">新潟県全域</option>
                     <option value="愛知県">愛知県全域</option>
+                    <option value="埼玉県">埼玉県全域</option>
                   </optgroup>
                   <optgroup label="中予">
                     <option value="中予">中予全域</option>
@@ -213,6 +214,9 @@
                   </optgroup>
                   <optgroup label="愛知県">
                     <option value="名古屋市">名古屋市</option>
+                  </optgroup>
+                  <optgroup label="埼玉県">
+                    <option value="春日部市">春日部市</option>
                   </optgroup>
                 </select>
                 <button class="home-nearby-btn" id="hero-nearby-btn" type="button"><span aria-hidden="true">◎</span> 現在地に近い市町を選ぶ</button>
@@ -453,6 +457,7 @@
       <a class="top-area-card" href="/?city=愛知県#results-zone"><strong>愛知県から探す</strong><span>名古屋市の掲載教室を見る</span></a>
       <a class="top-area-card" href="/?city=神奈川県#results-zone"><strong>神奈川県から探す</strong><span>横浜市内の掲載教室を見る</span></a>
       <a class="top-area-card" href="/?city=東京都#results-zone"><strong>東京都から探す</strong><span>都内の掲載教室を見る</span></a>
+      <a class="top-area-card" href="/?city=埼玉県#results-zone"><strong>埼玉県から探す</strong><span>春日部市の掲載教室を見る</span></a>
     </div>
     <div class="top-section-heading top-subsection-heading">
       <h3 class="h3">掲載中の都市から探す</h3>
@@ -576,6 +581,7 @@
             <button class="filter-btn city-btn" data-city="東京都">東京都</button>
             <button class="filter-btn city-btn" data-city="新潟県">新潟県</button>
             <button class="filter-btn city-btn" data-city="愛知県">愛知県</button>
+            <button class="filter-btn city-btn" data-city="埼玉県">埼玉県</button>
           </div>
           <div class="area-city-panel" id="area-city-panel" hidden>
             <div class="area-city-panel-head" id="area-city-panel-head" hidden>
@@ -676,6 +682,12 @@
               <span class="area-city-label">愛知県の市</span>
               <div class="filters scrollable-filters city-filter-row">
                 <button class="filter-btn city-btn city-detail-btn" data-city="名古屋市">📍 名古屋市</button>
+              </div>
+            </div>
+            <div class="area-city-group" data-region-cities="埼玉県" hidden>
+              <span class="area-city-label">埼玉県の市</span>
+              <div class="filters scrollable-filters city-filter-row">
+                <button class="filter-btn city-btn city-detail-btn" data-city="春日部市">📍 春日部市</button>
               </div>
             </div>
             <div class="area-local-panel" id="area-local-panel" hidden>
@@ -999,9 +1011,9 @@
   </footer>
 
   <!-- Scripts -->
-  <script src="/data/studios.js?v=34"></script>
+  <script src="/data/studios.js?v=35"></script>
   <script src="/data/affiliate-programs.js?v=3"></script>
-  <script src="/js/app.js?v=69"></script>
+  <script src="/js/app.js?v=70"></script>
 </body>
 
 </html>
