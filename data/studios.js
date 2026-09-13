@@ -1964,6 +1964,27 @@ const studios = [
 
   // ================= 香川県高松市 =================
   {
+    id: 'school-yoga-takamatsu-lava',
+    listingType: 'school',
+    name: 'ホットヨガスタジオLAVA 高松店',
+    description: '高松市室新町にある女性専用スタジオ。ホットヨガと暗闇キックボクシングに対応し、初心者向けの体験レッスンも案内されています。',
+    category: 'Yoga',
+    city: '高松市',
+    area: '室新町・栗林公園周辺',
+    access: '高松市室新町1025-1 ハローズ栗林公園店1F、ことでん栗林公園駅から徒歩11分',
+    genres: ['Yoga', 'HotYoga', 'Fitness', 'Adult'],
+    learningNeeds: ['adult_lessons', 'fitness_training'],
+    decisionFactors: ['beginner_friendly', 'trial_available', 'parking', 'schedule_fit'],
+    fitSummary: '女性専用の環境で、ホットヨガや暗闇キックボクシングを始めたい人向け',
+    checkpoints: ['体験対象条件', '希望時間のレッスン', '入会時費用を含む総額', 'キャッシュレス決済'],
+    pricing: { system: '月謝制', minPrice: 8800, note: '月4回プランの公開料金 / 入会金・登録金・施設使用料などは条件を確認' },
+    features: { parking: true, beginnerFriendly: '◎', kidsClass: false, adultClass: true },
+    trial: '体験レッスンあり（料金・適用条件は公式サイトで確認）',
+    imageUrl: 'https://images.unsplash.com/photo-1599447292180-45fd84092ef4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+    link: 'https://yoga-lava.com/shop/kagawa/takamatsu/',
+    sourceNote: 'LAVA公式高松店ページで所在地・対象・設備・料金・体験・駐車場を2026-09-13確認'
+  },
+  {
     id: 'school-english-takamatsu-aeon',
     listingType: 'school',
     name: '英会話イーオン 高松校',
