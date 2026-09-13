@@ -1985,6 +1985,27 @@ const studios = [
     sourceNote: 'LAVA公式高松店ページで所在地・対象・設備・料金・体験・駐車場を2026-09-13確認'
   },
   {
+    id: 'school-yoga-takamatsu-loive-aeon',
+    listingType: 'school',
+    name: 'ホットヨガスタジオ loIve イオンモール高松店',
+    description: 'イオンモール高松3階にある女性専用ホットヨガスタジオ。ヨガに加えてピラティス、エクササイズ、ダンス系のプログラムも案内されています。',
+    category: 'Yoga',
+    city: '高松市',
+    area: '香西本町・イオンモール高松',
+    access: '高松市香西本町1-1 イオンモール高松3F',
+    genres: ['Yoga', 'HotYoga', 'Pilates', 'Fitness', 'Adult'],
+    learningNeeds: ['adult_lessons', 'fitness_training'],
+    decisionFactors: ['beginner_friendly', 'trial_available', 'parking', 'schedule_fit'],
+    fitSummary: '買い物と合わせて、女性専用の環境でヨガやピラティスを続けたい人向け',
+    checkpoints: ['体験料金と対象条件', '希望プログラムの時間割', '月会費以外の費用', '駐車場の利用条件'],
+    pricing: { system: '月謝制', minPrice: 0, note: 'プラン別料金は公式サイトで確認' },
+    features: { parking: true, beginnerFriendly: '◎', kidsClass: false, adultClass: true },
+    trial: '手ぶら体験レッスンあり（料金・実施条件は公式サイトで確認）',
+    imageUrl: 'https://images.unsplash.com/photo-1575052814086-f385e2e2ad1b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+    link: 'https://www.hotyoga-loive.com/studio/aeon-takamatsu/',
+    sourceNote: 'loIve公式イオンモール高松店ページで所在地・女性専用・内容・設備・体験を2026-09-13確認'
+  },
+  {
     id: 'school-english-takamatsu-aeon',
     listingType: 'school',
     name: '英会話イーオン 高松校',
