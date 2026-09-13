@@ -9276,11 +9276,49 @@ p {
   }
 
   .top-featured-card img {
-    min-height: 160px;
-    max-height: 180px;
+    width: 100%;
+    height: auto;
+    min-height: 0;
+    max-height: none;
+    aspect-ratio: 3 / 2;
+    object-fit: cover;
   }
 
   .top-guides-section .issue-path-grid {
-    grid-auto-columns: 88%;
+    grid-auto-flow: row;
+    grid-auto-columns: auto;
+    grid-template-columns: 1fr;
+    overflow-x: visible;
+    scroll-snap-type: none;
+  }
+
+  .top-area-rail {
+    grid-auto-flow: row;
+    grid-auto-columns: auto;
+    grid-template-columns: 1fr;
+    overflow-x: visible;
+  }
+
+  .top-area-card {
+    min-height: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .home-hero-quick-tabs {
+    grid-template-columns: 1fr;
+  }
+
+  .home-hero-quick-tab > span {
+    min-height: 56px;
+  }
+
+  .top-featured-card,
+  .top-outcome-card,
+  .finder-panel,
+  .home-hero-search-card,
+  .home-hero-goal-panel {
+    min-width: 0;
+    max-width: 100%;
   }
 }
