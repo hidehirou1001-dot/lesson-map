@@ -769,7 +769,8 @@ function hasTrialInfo(studio) {
     const text = [
         studio.description || '',
         studio.pricing?.note || '',
-        studio.access || ''
+        studio.access || '',
+        studio.trial || ''
     ].join(' ');
 
     return /無料体験|体験|見学/.test(text);
@@ -781,7 +782,8 @@ function getTrialStatus(studio) {
     const text = [
         studio.description || '',
         studio.pricing?.note || '',
-        studio.access || ''
+        studio.access || '',
+        studio.trial || ''
     ].join(' ');
 
     if (/無料体験/.test(text)) return '無料体験あり';
@@ -791,12 +793,13 @@ function getTrialStatus(studio) {
 
 function getQuickStatusItems(studio) {
     const weekendOpen = hasWeekendOpen(studio);
+    const trialStatus = getTrialStatus(studio);
     return [
         {
             key: 'trial',
             label: '体験',
-            value: hasTrialInfo(studio) ? '案内あり' : '体験案内の記載なし',
-            tone: hasTrialInfo(studio) ? 'good' : 'neutral'
+            value: trialStatus,
+            tone: trialStatus !== '体験案内の記載なし' ? 'good' : 'neutral'
         },
         {
             key: 'schedule',
