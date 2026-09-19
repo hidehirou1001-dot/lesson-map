@@ -3574,6 +3574,90 @@ const studios = [
     pricing: { system: 'コース制', minPrice: 46200, note: '週1回・全8回46,200円（税込）〜 / スタンダード2か月全16回85,800円（税込） / 入会金11,000円（税込）' },
     features: { parking: true, beginnerFriendly: '◎', kidsClass: false, adultClass: true, weekendOpen: true }, trial: '無料カウンセリング・1日体験コース案内あり',
     imageUrl: 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=800&q=80', link: 'https://hper-gym.com/location/kasukabe/', sourceNote: 'HPER春日部店公式ページを2026-09-13確認'
+  },
+  {
+    id: 'school-dance-tokyo-shibuya-fantasy-tribe-sasazuka', listingType: 'school', name: 'FANTASY TRIBE 笹塚ダンススクール',
+    description: '渋谷区笹塚で小学生を対象に、HIPHOPの基礎から学べる超入門キッズダンススクールです。未経験から音楽に合わせて体を動かす楽しさと、少しずつできる経験を重ねられます。',
+    category: 'Dance', city: '渋谷区', area: '笹塚・幡ヶ谷・代田橋周辺', access: '東京都渋谷区笹塚3-9-3 ケイオービルB1F 笹塚メゾットCst.／笹塚駅から徒歩7分',
+    genres: ['Dance', 'HipHop', 'Kids', 'Beginner'], learningNeeds: ['kids_lessons', 'dance_learning'], decisionFactors: ['age_fit', 'price_clarity', 'trial_available'],
+    fitSummary: '笹塚周辺で、ダンス未経験の小学生が基礎からHIPHOPを始めたい家庭向け', checkpoints: ['体験可能日', '会場変更の有無', '家族割・兄弟割の条件'],
+    schedule: '毎週月曜日16:10〜16:55（5〜15分程度変動する場合あり）', pricing: { system: '月会費制', minPrice: 4980, note: '月会費4,980円。家族割・兄弟割あり' },
+    features: { stationNearby: true, beginnerFriendly: '◎', kidsClass: true, adultClass: false }, trial: '無料体験レッスンあり。公式LINEから予約',
+    imageUrl: 'https://images.unsplash.com/photo-1547153760-18fc86324498?auto=format&fit=crop&w=800&q=80', link: 'https://www.fantasy-tirbe.com/schoollist/sasazuka', sourceNote: '掲載依頼および公式教室ページを2026-09-19確認'
+  },
+  {
+    id: 'school-dance-tokyo-fussa-fantasy-tribe', listingType: 'school', name: 'FANTASY TRIBE 福生校',
+    description: '福生市民会館を中心に活動する、初心者向けのダンススクールです。小学生の超入門キッズダンスと、中学生から大人向けのHIPHOP・KPOPクラスを基礎から学べます。',
+    category: 'Dance', city: '福生市', area: '福生市民会館周辺', access: '東京都福生市福生2455 福生市民会館／施設状況により会場が異なる場合あり',
+    genres: ['Dance', 'HipHop', 'KPop', 'Kids', 'Adult'], learningNeeds: ['kids_lessons', 'adult_lessons', 'dance_learning'], decisionFactors: ['age_fit', 'price_clarity', 'trial_available'],
+    fitSummary: '福生市で、子どもから大人まで初心者向けのダンスを低負担で始めたい人向け', checkpoints: ['対象クラス', '当日の活動会場', '家族割・兄弟割の条件'],
+    schedule: '毎週火曜日／小学生17:40〜18:30、中学生〜大人18:40〜19:30', pricing: { system: '月会費制', minPrice: 4980, note: '月会費4,980円。家族割・兄弟割あり' },
+    features: { beginnerFriendly: '◎', kidsClass: true, adultClass: true }, trial: '無料体験レッスンあり。公式LINEから予約',
+    imageUrl: 'https://images.unsplash.com/photo-1547153760-18fc86324498?auto=format&fit=crop&w=800&q=80', link: 'https://www.fantasy-tirbe.com/schoollist/fussa', sourceNote: '掲載依頼および公式教室ページを2026-09-19確認'
+  },
+  {
+    id: 'school-kimono-osaka-kishiwada-nonchan', listingType: 'school', name: 'のんちゃんの着付け屋さん 着物教室',
+    description: '岸和田市天神山町で、自分で着物や浴衣を着られるようになりたい初心者や、苦手な部分だけ復習したい人向けの気軽な着物教室です。入会金・月謝・回数の縛りはありません。',
+    category: 'Art', city: '岸和田市', area: '天神山町', access: '大阪府岸和田市天神山町／詳しい来店場所は予約確定後に案内',
+    genres: ['Kimono', 'JapaneseCulture', 'Adult', 'Beginner'], learningNeeds: ['adult_lessons', 'culture_learning'], decisionFactors: ['beginner_friendly', 'schedule_fit', 'price_clarity'],
+    fitSummary: '月謝制ではなく、必要な内容を必要な時だけ相談して着付けを習いたい初心者向け', checkpoints: ['希望する着物・復習内容', '予約可能日時', '教室料金'],
+    schedule: '平日10:00〜15:00・完全予約制（祝日は要相談）', pricing: { system: '都度予約', minPrice: 0, note: '着物教室の料金は公式サイトへ問い合わせ。入会金・月謝・回数の縛りなし' },
+    features: { beginnerFriendly: '◎', kidsClass: false, adultClass: true }, trial: '一度だけの相談・受講も可能。公式サイトの相談フォームから問い合わせ',
+    imageUrl: 'https://images.unsplash.com/photo-1528360983277-13d401cdc186?auto=format&fit=crop&w=800&q=80', link: 'https://nonchan-kitsuke.com/kimono-lesson', sourceNote: '掲載依頼および公式サイトを2026-09-19確認。資格表記と未定の教室料金は非掲載'
+  },
+  {
+    id: 'school-fitness-kuki-hper', listingType: 'school', name: 'プライベートジムHPER久喜店',
+    description: '久喜市本町にあるダイエット専門のパーソナルジムです。専属トレーナーによるマンツーマントレーニング、定期カウンセリング、食事改善サポートを組み合わせて取り組めます。',
+    category: 'Fitness', city: '久喜市', area: '本町・久喜駅周辺', access: '埼玉県久喜市本町8丁目5-47 ポエム88／JR久喜駅から徒歩15分',
+    genres: ['Fitness', 'PersonalTraining', 'Diet', 'Adult'], learningNeeds: ['adult_lessons', 'fitness_training'], decisionFactors: ['trainer_fit', 'price_clarity', 'trial_available'],
+    fitSummary: '久喜市で、個別指導と食事サポートを組み合わせてダイエットに取り組みたい大人向け', checkpoints: ['通う頻度', 'コース料金と入会金', '体験内容'], schedule: '月〜日（不定休）9:00〜23:00', phone: '080-3536-3361',
+    pricing: { system: 'コース制', minPrice: 46200, note: '週1回・全8回46,200円（税込）〜／スタンダード2か月全16回85,800円（税込）／入会金11,000円（税込）' }, features: { parking: true, beginnerFriendly: '◎', kidsClass: false, adultClass: true, weekendOpen: true }, trial: '無料カウンセリング・1日体験コース案内あり',
+    imageUrl: 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=800&q=80', link: 'https://hper-gym.com/location/kuki/', sourceNote: '掲載依頼およびHPER久喜店公式ページを2026-09-19確認'
+  },
+  {
+    id: 'school-fitness-ageo-hper', listingType: 'school', name: 'プライベートジムHPER上尾店',
+    description: '上尾駅近くのダイエット専門パーソナルジムです。専属トレーナーが体力や生活に合わせたマンツーマントレーニングと食事改善を継続的にサポートします。',
+    category: 'Fitness', city: '上尾市', area: '宮本町・上尾駅周辺', access: '埼玉県上尾市宮本町9-8 村田ビル207／JR上尾駅から徒歩3分',
+    genres: ['Fitness', 'PersonalTraining', 'Diet', 'Adult'], learningNeeds: ['adult_lessons', 'fitness_training'], decisionFactors: ['station_access', 'trainer_fit', 'trial_available'],
+    fitSummary: '上尾駅近くで、運動経験に合わせた個別指導と食事サポートを受けたい大人向け', checkpoints: ['通う頻度', 'コース料金と入会金', '体験内容'], schedule: '月〜日（不定休）9:00〜23:00', phone: '080-3212-3046',
+    pricing: { system: 'コース制', minPrice: 46200, note: '週1回・全8回46,200円（税込）〜／スタンダード2か月全16回85,800円（税込）／入会金11,000円（税込）' }, features: { parking: true, stationNearby: true, beginnerFriendly: '◎', kidsClass: false, adultClass: true, weekendOpen: true }, trial: '無料カウンセリング・1日体験コース案内あり',
+    imageUrl: 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=800&q=80', link: 'https://hper-gym.com/location/ageo/', sourceNote: '掲載依頼およびHPER上尾店公式ページを2026-09-19確認'
+  },
+  {
+    id: 'school-fitness-fujimino-hper', listingType: 'school', name: 'プライベートジムHPERふじみ野店',
+    description: 'ふじみ野市福岡武蔵野にあるダイエット専門パーソナルジムです。専属トレーナーによる個別トレーニングと、無理なく続けるための食事改善サポートを受けられます。',
+    category: 'Fitness', city: 'ふじみ野市', area: '福岡武蔵野・上福岡駅周辺', access: '埼玉県ふじみ野市福岡武蔵野1-6 サンハイツ101号／上福岡駅から徒歩10分',
+    genres: ['Fitness', 'PersonalTraining', 'Diet', 'Adult'], learningNeeds: ['adult_lessons', 'fitness_training'], decisionFactors: ['trainer_fit', 'parking', 'trial_available'],
+    fitSummary: 'ふじみ野市で、車でも通いやすい個別指導ジムを探す大人向け', checkpoints: ['通う頻度', 'コース料金と入会金', '体験内容'], schedule: '月〜日（不定休）9:00〜23:00', phone: '090-5339-3079',
+    pricing: { system: 'コース制', minPrice: 46200, note: '週1回・全8回46,200円（税込）〜／スタンダード2か月全16回85,800円（税込）／入会金11,000円（税込）' }, features: { parking: true, beginnerFriendly: '◎', kidsClass: false, adultClass: true, weekendOpen: true }, trial: '無料カウンセリング・1日体験コース案内あり',
+    imageUrl: 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=800&q=80', link: 'https://hper-gym.com/location/fujimino/', sourceNote: '掲載依頼およびHPERふじみ野店公式ページを2026-09-19確認'
+  },
+  {
+    id: 'school-fitness-koshigaya-hper', listingType: 'school', name: 'プライベートジムHPER越谷店',
+    description: '越谷駅近くにあるダイエット専門パーソナルジムです。専属トレーナーのマンツーマン指導と食事改善サポートで、運動初心者も生活に合わせて取り組めます。',
+    category: 'Fitness', city: '越谷市', area: '弥生町・越谷駅周辺', access: '埼玉県越谷市弥生町1-14 TAS越谷ビルディング201／東武伊勢崎線 越谷駅から徒歩1分',
+    genres: ['Fitness', 'PersonalTraining', 'Diet', 'Adult'], learningNeeds: ['adult_lessons', 'fitness_training'], decisionFactors: ['station_access', 'trainer_fit', 'trial_available'],
+    fitSummary: '越谷駅近くで、個別トレーニングと食事改善を無理なく続けたい大人向け', checkpoints: ['通う頻度', 'コース料金と入会金', '体験内容'], schedule: '月〜日（不定休）9:00〜23:00', phone: '080-3034-2329',
+    pricing: { system: 'コース制', minPrice: 46200, note: '週1回・全8回46,200円（税込）〜／スタンダード2か月全16回85,800円（税込）／入会金11,000円（税込）' }, features: { parking: true, stationNearby: true, beginnerFriendly: '◎', kidsClass: false, adultClass: true, weekendOpen: true }, trial: '無料カウンセリング・1日体験コース案内あり',
+    imageUrl: 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=800&q=80', link: 'https://hper-gym.com/location/koshigaya/', sourceNote: '掲載依頼およびHPER越谷店公式ページを2026-09-19確認'
+  },
+  {
+    id: 'school-fitness-kawaguchi-higashiurawa-hper', listingType: 'school', name: 'プライベートジムHPER東浦和店',
+    description: '川口市北園町にあるダイエット専門パーソナルジムです。体力や目標に合わせたマンツーマントレーニングと食事改善サポートを、専属トレーナーから受けられます。',
+    category: 'Fitness', city: '川口市', area: '北園町・東浦和駅周辺', access: '埼玉県川口市北園町46-15 藤原ビル105／JR武蔵野線 東浦和駅から徒歩14分',
+    genres: ['Fitness', 'PersonalTraining', 'Diet', 'Adult'], learningNeeds: ['adult_lessons', 'fitness_training'], decisionFactors: ['trainer_fit', 'parking', 'trial_available'],
+    fitSummary: '東浦和周辺で、初心者向けの個別トレーニングと食事相談を受けたい大人向け', checkpoints: ['通う頻度', 'コース料金と入会金', '体験内容'], schedule: '月〜日（不定休）9:00〜23:00', phone: '090-2013-1331',
+    pricing: { system: 'コース制', minPrice: 46200, note: '週1回・全8回46,200円（税込）〜／スタンダード2か月全16回85,800円（税込）／入会金11,000円（税込）' }, features: { parking: true, beginnerFriendly: '◎', kidsClass: false, adultClass: true, weekendOpen: true }, trial: '無料カウンセリング・1日体験コース案内あり',
+    imageUrl: 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=800&q=80', link: 'https://hper-gym.com/location/higashiurawa/', sourceNote: '掲載依頼およびHPER東浦和店公式ページを2026-09-19確認'
+  },
+  {
+    id: 'school-fitness-kashiwa-edogawadai-hper', listingType: 'school', name: 'プライベートジムHPER江戸川台店',
+    description: '柏市西原にあるダイエット専門パーソナルジムです。専属トレーナーによるマンツーマン指導、定期カウンセリング、食事改善サポートを組み合わせて体づくりに取り組めます。',
+    category: 'Fitness', city: '柏市', area: '西原・江戸川台駅周辺', access: '千葉県柏市西原1丁目5-1／東武野田線 江戸川台駅から徒歩9分',
+    genres: ['Fitness', 'PersonalTraining', 'Diet', 'Adult'], learningNeeds: ['adult_lessons', 'fitness_training'], decisionFactors: ['trainer_fit', 'parking', 'trial_available'],
+    fitSummary: '柏市・江戸川台周辺で、個別指導と食事改善を継続して学びたい大人向け', checkpoints: ['通う頻度', 'コース料金と入会金', '体験内容'], schedule: '月〜日（不定休）9:00〜23:00', phone: '070-1545-5182',
+    pricing: { system: 'コース制', minPrice: 46200, note: '週1回・全8回46,200円（税込）〜／スタンダード2か月全16回85,800円（税込）／入会金11,000円（税込）' }, features: { parking: true, beginnerFriendly: '◎', kidsClass: false, adultClass: true, weekendOpen: true }, trial: '無料カウンセリング・1日体験コース案内あり',
+    imageUrl: 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=800&q=80', link: 'https://hper-gym.com/location/edogawadai/', sourceNote: '掲載依頼およびHPER江戸川台店公式ページを2026-09-19確認'
   }
 ];
 
@@ -3587,6 +3671,7 @@ const studioPrefectureByCity = Object.freeze({
   '宇和島市': '愛媛県',
   '横浜市青葉区': '神奈川県',
   '横浜市都筑区': '神奈川県',
+  '岸和田市': '大阪府',
   '岡山市': '岡山県',
   '倉敷市': '岡山県',
   '観音寺市': '香川県',
@@ -3596,6 +3681,11 @@ const studioPrefectureByCity = Object.freeze({
   '今治市': '愛媛県',
   '坂出市': '香川県',
   '春日部市': '埼玉県',
+  '上尾市': '埼玉県',
+  '川口市': '埼玉県',
+  '久喜市': '埼玉県',
+  '越谷市': '埼玉県',
+  'ふじみ野市': '埼玉県',
   '三豊市': '香川県',
   '四国中央市': '愛媛県',
   '松山市': '愛媛県',
@@ -3611,6 +3701,9 @@ const studioPrefectureByCity = Object.freeze({
   '東温市': '愛媛県',
   '徳島市': '徳島県',
   '文京区': '東京都',
+  '渋谷区': '東京都',
+  '福生市': '東京都',
+  '柏市': '千葉県',
   '北島町': '徳島県',
   '鳴門市': '徳島県',
   '藍住町': '徳島県'
