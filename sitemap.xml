@@ -20,13 +20,13 @@
   </url>
   <url>
     <loc>https://www.lesson-map.com/recommendations/ehime-local-lessons/</loc>
-    <lastmod>2026-08-30</lastmod>
+    <lastmod>2026-09-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.lesson-map.com/recommendations/ehime-kids-lessons/</loc>
-    <lastmod>2026-08-30</lastmod>
+    <lastmod>2026-09-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -56,7 +56,7 @@
   </url>
   <url>
     <loc>https://www.lesson-map.com/recommendations/ehime-beginner-lessons/</loc>
-    <lastmod>2026-08-30</lastmod>
+    <lastmod>2026-09-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -152,7 +152,7 @@
   </url>
   <url>
     <loc>https://www.lesson-map.com/recommendations/matsuyama-lessons/</loc>
-    <lastmod>2026-09-20</lastmod>
+    <lastmod>2026-09-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -272,7 +272,7 @@
   </url>
   <url>
     <loc>https://www.lesson-map.com/recommendations/matsuyama-programming/</loc>
-    <lastmod>2026-08-30</lastmod>
+    <lastmod>2026-09-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -284,7 +284,7 @@
   </url>
   <url>
     <loc>https://www.lesson-map.com/recommendations/matsuyama-piano/</loc>
-    <lastmod>2026-06-21</lastmod>
+    <lastmod>2026-09-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -308,7 +308,7 @@
   </url>
   <url>
     <loc>https://www.lesson-map.com/recommendations/ehime-trial-lessons/</loc>
-    <lastmod>2026-03-22</lastmod>
+    <lastmod>2026-09-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -627,6 +627,12 @@
   <url>
     <loc>https://www.lesson-map.com/recommendations/adult-lessons-guide/</loc>
     <lastmod>2026-09-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.lesson-map.com/recommendations/ehime-price-lessons/</loc>
+    <lastmod>2026-09-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
