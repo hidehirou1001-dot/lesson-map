@@ -4679,6 +4679,7 @@ p {
 }
 
 .school-listing-free-note strong { color: var(--clr-primary-dark); }
+.school-listing-hero-guidance { color: var(--clr-text-muted); font-size: .78rem; }
 .school-listing-section { padding-top: clamp(3rem, 7vw, 5rem); }
 .school-listing-heading { display: grid; gap: 0.5rem; max-width: 760px; margin-bottom: 1.4rem; }
 .school-listing-heading .h2, .school-listing-heading p { margin: 0; }
@@ -4753,9 +4754,84 @@ p {
 .school-listing-benefit-grid h3 { margin: 0.45rem 0; font-size: 1.08rem; }
 .school-listing-benefit-grid p { margin: 0; color: var(--clr-text-muted); line-height: 1.7; }
 
+.school-listing-policy-grid,
+.school-listing-information-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.school-listing-policy-grid article {
+  display: flex;
+  align-items: flex-start;
+  gap: .85rem;
+  padding: 1.25rem;
+  border: 1px solid rgba(201, 42, 42, .12);
+  border-radius: 22px;
+  background: #fff;
+}
+
+.school-listing-policy-grid article > span {
+  display: grid;
+  flex: 0 0 30px;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: rgba(201, 42, 42, .08);
+  color: var(--clr-primary);
+  font-weight: 900;
+}
+
+.school-listing-policy-grid h3,
+.school-listing-information-grid h3 { margin: 0; font-size: 1.05rem; line-height: 1.55; }
+.school-listing-policy-grid p { margin: .4rem 0 0; color: var(--clr-text-muted); line-height: 1.7; }
+
+.school-listing-notice {
+  margin-top: 1.25rem;
+  padding: clamp(1.25rem, 4vw, 1.75rem);
+  border: 1px solid rgba(201, 42, 42, .12);
+  border-radius: 24px;
+  background: linear-gradient(135deg, rgba(255, 247, 244, .95), rgba(255, 252, 248, .95));
+}
+
+.school-listing-notice > span { color: var(--clr-primary); font-size: .72rem; font-weight: 900; letter-spacing: .12em; }
+.school-listing-notice h3 { margin: .35rem 0 .65rem; font-size: 1.12rem; }
+.school-listing-notice p { margin: .45rem 0 0; color: var(--clr-text-muted); line-height: 1.75; }
+
+.school-listing-information-grid article {
+  padding: 1.3rem;
+  border: 1px solid var(--clr-border);
+  border-radius: 22px;
+  background: #fff;
+}
+
+.school-listing-information-title { display: flex; align-items: center; justify-content: space-between; gap: .75rem; }
+.school-listing-required,
+.school-listing-optional { padding: .3rem .6rem; border-radius: 999px; font-size: .7rem; font-weight: 800; white-space: nowrap; }
+.school-listing-required { background: rgba(201, 42, 42, .08); color: var(--clr-primary-dark); }
+.school-listing-optional { background: rgba(34, 34, 34, .06); color: var(--clr-text-muted); }
+.school-listing-information-grid ul { display: grid; gap: .45rem; margin: .9rem 0 0; padding: 0; list-style: none; color: var(--clr-text-muted); }
+.school-listing-information-grid li { position: relative; padding-left: 1.1rem; line-height: 1.55; }
+.school-listing-information-grid li::before { content: "•"; position: absolute; left: .1rem; color: var(--clr-primary); font-weight: 900; }
+
+.school-listing-mid-cta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.25rem;
+  margin-top: 1.25rem;
+  padding: 1.25rem 1.4rem;
+  border-radius: 22px;
+  background: rgba(201, 42, 42, .055);
+}
+
+.school-listing-mid-cta p { margin: 0; line-height: 1.7; }
+.school-listing-mid-cta .btn { flex: 0 0 auto; }
+
 .school-listing-flow ol {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 1rem;
   padding: 0;
   list-style: none;
@@ -4765,6 +4841,7 @@ p {
 .school-listing-flow li { display: grid; gap: 0.4rem; padding: 1.2rem; border-radius: 20px; background: rgba(201,42,42,.055); counter-increment: listing-step; }
 .school-listing-flow li::before { content: "STEP " counter(listing-step); color: var(--clr-primary); font-size: .72rem; font-weight: 900; letter-spacing: .1em; }
 .school-listing-flow li span { color: var(--clr-text-muted); font-size: .9rem; line-height: 1.65; }
+.school-listing-flow-note { margin: .8rem 0 0; color: var(--clr-text-muted); font-size: .78rem; line-height: 1.65; }
 .school-listing-form { padding: clamp(1rem, 4vw, 2rem); }
 .school-listing-form-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 1rem; }
 .school-listing-form-wide { grid-column: 1 / -1; }
@@ -4794,7 +4871,10 @@ p {
   .school-listing-hero { padding: 2rem 1rem; border-radius: 24px; }
   .school-listing-hero-actions, .school-listing-hero-actions .btn { width: 100%; }
   .school-listing-hero-actions .btn { justify-content: center; }
-  .school-listing-benefit-grid, .school-listing-flow ol, .school-listing-form-grid { grid-template-columns: 1fr; }
+  .school-listing-benefit-grid, .school-listing-policy-grid, .school-listing-information-grid, .school-listing-flow ol, .school-listing-form-grid { grid-template-columns: 1fr; }
+  .school-listing-information-title { align-items: flex-start; flex-direction: column; }
+  .school-listing-mid-cta { align-items: stretch; flex-direction: column; }
+  .school-listing-mid-cta .btn { justify-content: center; }
   .school-owner-challenge-list article { grid-template-columns: 1fr; gap: .65rem; }
   .school-owner-challenge-arrow { transform: rotate(90deg); }
   .school-listing-form-wide { grid-column: auto; }
