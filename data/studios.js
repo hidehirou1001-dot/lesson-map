@@ -3658,6 +3658,17 @@ const studios = [
     fitSummary: '柏市・江戸川台周辺で、個別指導と食事改善を継続して学びたい大人向け', checkpoints: ['通う頻度', 'コース料金と入会金', '体験内容'], schedule: '月〜日（不定休）9:00〜23:00', phone: '070-1545-5182',
     pricing: { system: 'コース制', minPrice: 46200, note: '週1回・全8回46,200円（税込）〜／スタンダード2か月全16回85,800円（税込）／入会金11,000円（税込）' }, features: { parking: true, beginnerFriendly: '◎', kidsClass: false, adultClass: true, weekendOpen: true }, trial: '無料カウンセリング・1日体験コース案内あり',
     imageUrl: 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=800&q=80', link: 'https://hper-gym.com/location/edogawadai/', sourceNote: '掲載依頼およびHPER江戸川台店公式ページを2026-09-19確認'
+  },
+  {
+    id: 'school-piano-matsuyama-sakamoto-rhythmic', listingType: 'school', name: 'さかもとピアノ・リトミック教室',
+    description: '松山市北条地区の北条辻・磯河内にある音楽教室です。幼児からシニアまで、一人ひとりの目標に合わせてピアノ、リトミック、エレクトーンを学べます。',
+    category: 'Piano', city: '松山市', area: '北条辻・磯河内', access: '北条辻教室：伊予北条駅から徒歩5分／磯河内教室：光洋台駅から徒歩10分',
+    genres: ['Piano', 'Rhythmic', 'Electone', 'Kids', 'Adult', 'Senior'], learningNeeds: ['kids_lessons', 'adult_lessons', 'music_learning'], decisionFactors: ['age_fit', 'price_clarity', 'trial_available'],
+    fitSummary: '北条地区で、子どもの導入から大人・シニアの趣味まで目標に合わせた音楽レッスンを受けたい人向け', checkpoints: ['希望教室と空き時間', '月謝制・ワンレッスン制の選択', '体験レッスンの日時'],
+    schedule: '月〜金16:00〜21:00、土10:00〜12:00・16:00〜21:00、日16:00〜21:00（△の日程・空き時間は公式サイトへ確認）',
+    pricing: { system: '月謝制・ワンレッスン', minPrice: 2000, note: '初級：月3回30分6,000円／中級：月3回30分7,000円／上級：月3回45分8,000円／平日ワンレッスン30分2,000円' },
+    features: { parking: true, parkingCapacity: 'standard', stationNearby: true, beginnerFriendly: '◎', kidsClass: true, adultClass: true, weekendOpen: true }, trial: '無料体験レッスン受付中。公式サイトのお問い合わせフォームから相談',
+    imageUrl: 'https://images.unsplash.com/photo-1520523839897-bd0b52f945a0?auto=format&fit=crop&w=800&q=80', link: 'https://shiorinpiano.crayonsite.info/', sourceNote: '掲載依頼および公式サイトの教室概要・月謝・講師紹介を2026-09-22確認'
   }
 ];
 
