@@ -1859,7 +1859,8 @@ function getCategoryLabel(category) {
         CramSchool: '学習塾',
         Calligraphy: '書道',
         Soroban: 'そろばん',
-        Art: 'アート・絵画'
+        Art: 'アート・絵画',
+        Finance: '金融・投資'
     };
     return labels[category] || category;
 }
@@ -2009,6 +2010,7 @@ function buildDefaultReviewTendencies(studio) {
         Boxing: '運動習慣',
         Yoga: 'レッスン',
         CramSchool: '学習サポート',
+        Finance: 'マンツーマンレッスン',
         Calligraphy: '教室の進め方',
         Soroban: '学習ペース'
     };
@@ -2251,6 +2253,7 @@ const filterLabelMap = {
     Calligraphy: '書道',
     Soroban: 'そろばん',
     Art: 'アート・絵画',
+    Finance: '金融・投資',
     Kids: 'キッズ対応',
     parking: '駐車場あり',
     Minecraft: 'マイクラ',

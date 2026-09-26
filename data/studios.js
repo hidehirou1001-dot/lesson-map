@@ -3681,6 +3681,18 @@ const studios = [
     features: { beginnerFriendly: '◎', kidsClass: false, adultClass: true, online: true }, trial: '入会特典としてマンツーマン初回レッスン無料',
     imageUrl: 'https://images.unsplash.com/photo-1543269865-cbf427effbad?auto=format&fit=crop&w=800&q=80', link: 'https://eigoplaza.com/', sourceNote: '掲載依頼および公式サイトの特徴・練習スタイル・料金・運営者情報を2026-09-26確認',
     prefecture: '', addressLocality: 'オンライン'
+  },
+  {
+    id: 'online-finance-trade-up', listingType: 'online-course', name: 'TRADE UP（トレードアップ）',
+    description: 'Zoomで全国から受講できる、月謝制のマンツーマンFXスクールです。初心者は基礎やチャートの見方から、経験者は自身の取引を振り返りながら分析方法と判断の考え方を学べます。',
+    category: 'Finance', city: 'オンライン', area: '全国対応', access: 'Zoomによる完全オンライン（事業者所在地：東京都渋谷区）',
+    genres: ['Finance', 'FX', 'InvestmentLearning', 'Online', 'Adult'], learningNeeds: ['adult_lessons', 'finance_learning', 'online_learning'], decisionFactors: ['teacher_fit', 'price_clarity', 'trial_available', 'online_available'],
+    fitSummary: 'FXの基礎や自身の取引課題を、講師とのマンツーマンで整理しながら学びたい大人向け', checkpoints: ['FX取引の損失リスク', '投資助言・売買指示を行わない教育サービスであること', '月会費・入会金・退会期限'],
+    schedule: '月2回・各45分のマンツーマンレッスン（日程は個別調整）',
+    pricing: { system: '入会金・月謝制', minPrice: 16500, note: '入会金33,000円（税込）／月会費16,500円（税込）。月2回・各45分のマンツーマンレッスン' },
+    features: { beginnerFriendly: '◎', kidsClass: false, adultClass: true, online: true }, trial: '30分以内の無料体験・個別カウンセリング（1人1回、Zoom）',
+    imageUrl: 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&w=800&q=80', link: 'https://tradeup-school.com/', sourceNote: '掲載依頼および公式サイトのレッスン・料金・無料体験・特商法表記・注意事項を2026-09-26確認。利益保証なし、投資助言・売買指示を行わない教育サービスとして掲載',
+    prefecture: '', addressLocality: 'オンライン'
   }
 ];
 
