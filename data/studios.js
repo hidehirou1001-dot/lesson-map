@@ -3669,6 +3669,18 @@ const studios = [
     pricing: { system: '月謝制・ワンレッスン', minPrice: 2000, note: '初級：月3回30分6,000円／中級：月3回30分7,000円／上級：月3回45分8,000円／平日ワンレッスン30分2,000円' },
     features: { parking: true, parkingCapacity: 'standard', stationNearby: true, beginnerFriendly: '◎', kidsClass: true, adultClass: true, weekendOpen: true }, trial: '無料体験レッスン受付中。公式サイトのお問い合わせフォームから相談',
     imageUrl: 'https://images.unsplash.com/photo-1520523839897-bd0b52f945a0?auto=format&fit=crop&w=800&q=80', link: 'https://shiorinpiano.crayonsite.info/', sourceNote: '掲載依頼および公式サイトの教室概要・月謝・講師紹介を2026-09-22確認'
+  },
+  {
+    id: 'online-english-eigo-plaza', listingType: 'online-course', name: 'エプラ｜EIGO PLAZA',
+    description: '全国から利用できる大人向けのオンライン英語トレーニングサービスです。コアコース、ライブレッスン、AIサーキット、マンツーマンを、その日の時間や目的に合わせて組み合わせられます。',
+    category: 'English', city: 'オンライン', area: '全国対応', access: '完全オンライン（実店舗でのレッスンなし）',
+    genres: ['English', 'Conversation', 'Online', 'Adult', 'AI'], learningNeeds: ['adult_lessons', 'english_learning', 'online_learning'], decisionFactors: ['online_available', 'price_clarity', 'schedule_fit', 'beginner_friendly'],
+    fitSummary: '決まった通学時間に縛られず、短時間の反復や会話練習を組み合わせて英語を続けたい大人向け', checkpoints: ['現在公開中のコース', 'ライブレッスンの日程', 'マンツーマンの追加条件'],
+    schedule: 'オンラインで利用（ライブレッスンの日程は公式サイト内で確認）',
+    pricing: { system: '月額制', minPrice: 1200, note: '第2期メンバー月額1,200円（税込）。コアコース・ライブレッスン・AIサーキットを利用可能' },
+    features: { beginnerFriendly: '◎', kidsClass: false, adultClass: true, online: true }, trial: '入会特典としてマンツーマン初回レッスン無料',
+    imageUrl: 'https://images.unsplash.com/photo-1543269865-cbf427effbad?auto=format&fit=crop&w=800&q=80', link: 'https://eigoplaza.com/', sourceNote: '掲載依頼および公式サイトの特徴・練習スタイル・料金・運営者情報を2026-09-26確認',
+    prefecture: '', addressLocality: 'オンライン'
   }
 ];
 
