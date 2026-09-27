@@ -3458,6 +3458,39 @@ const studios = [
     imageUrl: 'https://images.unsplash.com/photo-1518834107812-67b0b7c58434?auto=format&fit=crop&w=800&q=80', link: 'https://www.raykura.co.jp/junior/dance/', sourceNote: '公式ダンスクラスページを2026-09-08確認'
   },
   {
+    id: 'school-music-okayama-nayutas', listingType: 'school', name: 'NAYUTAS 岡山校',
+    entityType: 'EducationalOrganization', entityId: 'https://www.lesson-map.com/#school-music-okayama-nayutas', prefecture: '岡山県', addressLocality: '岡山市', officialUrl: 'https://nayutas.net/school/okayama/',
+    description: '岡山駅から徒歩3分のマンツーマンスクールです。ボイストレーニングを中心に、ダンスやピアノ・ギターなどの楽器コースを、キッズ・ジュニアから大人まで目的に合わせて学べます。',
+    category: 'Piano', city: '岡山市', area: '北区・岡山駅周辺', access: '岡山市北区本町10-22 本町ビル2F、岡山駅から徒歩3分',
+    genres: ['Vocal', 'Music', 'Piano', 'Dance', 'Kids', 'Adult'], learningNeeds: ['kids_lessons', 'adult_lessons', 'music_learning', 'dance_learning'], decisionFactors: ['station_access', 'teacher_fit', 'trial_available'],
+    fitSummary: '岡山駅近くで、歌・ダンス・楽器をマンツーマンで学びたい子ども・大人向け', checkpoints: ['希望コースの担当講師', '予約できる曜日・時間', '月謝・入会時費用'],
+    scheduleNote: '営業時間10:00〜22:00／定休日なし（年末年始などを除く）',
+    pricing: { system: 'コース・回数別', minPrice: 0, note: '料金は公式サイトで確認' }, features: { stationNearby: true, beginnerFriendly: '◎', kidsClass: true, adultClass: true }, trial: '無料体験レッスンあり',
+    imageUrl: 'https://images.unsplash.com/photo-1520523839897-bd0b52f945a0?auto=format&fit=crop&w=800&q=80', link: 'https://nayutas.net/school/okayama/', sourceNote: 'NAYUTAS公式岡山校ページを2026-09-27確認'
+  },
+  {
+    id: 'school-music-kurashiki-nayutas', listingType: 'school', name: 'NAYUTAS 倉敷駅前校',
+    entityType: 'EducationalOrganization', entityId: 'https://www.lesson-map.com/#school-music-kurashiki-nayutas', prefecture: '岡山県', addressLocality: '倉敷市', officialUrl: 'https://nayutas.net/school/kurashiki/',
+    description: '倉敷駅南口から徒歩1分のマンツーマンスクールです。ボイストレーニング、ダンス、ピアノ・ギター・ベースやDTMなどを、キッズ・ジュニアから大人まで目的に合わせて学べます。',
+    category: 'Piano', city: '倉敷市', area: '倉敷駅周辺', access: '倉敷市阿知2丁目1-17 津加佐ビル4F、倉敷駅南口から徒歩1分',
+    genres: ['Vocal', 'Music', 'Piano', 'Dance', 'DTM', 'Kids', 'Adult'], learningNeeds: ['kids_lessons', 'adult_lessons', 'music_learning', 'dance_learning'], decisionFactors: ['station_access', 'teacher_fit', 'trial_available'],
+    fitSummary: '倉敷駅前で、歌・ダンス・楽器をマンツーマンで学びたい子ども・大人向け', checkpoints: ['希望コースの担当講師', '予約できる曜日・時間', '月謝・入会時費用'],
+    scheduleNote: '営業時間10:00〜22:00／定休日なし（年末年始などを除く）',
+    pricing: { system: 'コース・回数別', minPrice: 0, note: '料金は公式サイトで確認' }, features: { stationNearby: true, beginnerFriendly: '◎', kidsClass: true, adultClass: true }, trial: '無料体験レッスンあり',
+    imageUrl: 'https://images.unsplash.com/photo-1520523839897-bd0b52f945a0?auto=format&fit=crop&w=800&q=80', link: 'https://nayutas.net/school/kurashiki/', sourceNote: 'NAYUTAS公式倉敷駅前校ページを2026-09-27確認'
+  },
+  {
+    id: 'school-music-himeji-nayutas', listingType: 'school', name: 'NAYUTAS 姫路校',
+    entityType: 'EducationalOrganization', entityId: 'https://www.lesson-map.com/#school-music-himeji-nayutas', prefecture: '兵庫県', addressLocality: '姫路市', officialUrl: 'https://nayutas.net/school/himeji/',
+    description: '姫路駅から徒歩3分のマンツーマンスクールです。ボイストレーニング、ダンス、ピアノ・ギターなどを、キッズ・ジュニアから大人・シニアまで目標に合わせて学べます。',
+    category: 'Piano', city: '姫路市', area: '姫路駅周辺', access: '姫路市駅前町341 福富ビル6F、姫路駅から徒歩3分',
+    genres: ['Vocal', 'Music', 'Piano', 'Dance', 'Kids', 'Adult'], learningNeeds: ['kids_lessons', 'adult_lessons', 'music_learning', 'dance_learning'], decisionFactors: ['station_access', 'teacher_fit', 'trial_available'],
+    fitSummary: '姫路駅近くで、歌・ダンス・楽器をマンツーマンで学びたい子ども・大人向け', checkpoints: ['希望コースの担当講師', '予約できる曜日・時間', '月謝・入会時費用'],
+    scheduleNote: '営業時間10:00〜22:00／定休日なし（年末年始などを除く）',
+    pricing: { system: 'コース・回数別', minPrice: 0, note: '料金は公式サイトで確認' }, features: { stationNearby: true, beginnerFriendly: '◎', kidsClass: true, adultClass: true }, trial: '無料体験レッスンあり',
+    imageUrl: 'https://images.unsplash.com/photo-1520523839897-bd0b52f945a0?auto=format&fit=crop&w=800&q=80', link: 'https://nayutas.net/school/himeji/', sourceNote: 'NAYUTAS公式姫路校ページを2026-09-27確認'
+  },
+  {
     id: 'school-programming-nagoya-switch-sakae', listingType: 'school', name: 'キッズプログラミングスクールSwitch 名古屋栄校',
     description: '名古屋・栄の年中から中学生までを対象とするプログラミング教室です。ScratchやMinecraftなどを使い、通常レッスンは講師1名に生徒最大3名の少人数制で、一人ひとりの興味・理解度・ペースに合わせて学べます。毎回タイピングにも取り組み、発達特性のあるお子さまについても相談できます。',
     category: 'Programming', city: '名古屋市', area: '栄周辺', access: '名古屋・栄／所在地・アクセスは公式ページで確認',
