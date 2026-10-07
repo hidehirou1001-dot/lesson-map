@@ -3726,6 +3726,17 @@ const studios = [
     features: { beginnerFriendly: '◎', kidsClass: false, adultClass: true, online: true }, trial: '30分以内の無料体験・個別カウンセリング（1人1回、Zoom）',
     imageUrl: 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&w=800&q=80', link: 'https://tradeup-school.com/', sourceNote: '掲載依頼および公式サイトのレッスン・料金・無料体験・特商法表記・注意事項を2026-09-26確認。利益保証なし、投資助言・売買指示を行わない教育サービスとして掲載',
     prefecture: '', addressLocality: 'オンライン'
+  },
+  {
+    id: 'school-cram-awhi', listingType: 'school', name: 'awhi（アフィ）｜時事問題・記述特化学習塾',
+    description: '身近なニュースを題材に、知識を覚えるだけでなく、考え、対話し、自分の言葉で表現する力を育てる学習塾です。中学受験の時事問題・社会科や、作文・記述問題につながる学びを扱い、オンラインでも受講できます。',
+    category: 'CramSchool', city: 'オンライン', area: '全国対応・対面受講あり', access: 'オンライン対応／対面会場の詳しい住所は申込者へ案内',
+    genres: ['CurrentAffairs', 'Writing', 'Exam', 'Online', 'Kids'], learningNeeds: ['kids_lessons', 'exam_preparation', 'online_learning'], decisionFactors: ['online_available', 'class_content', 'schedule_fit'],
+    fitSummary: 'ニュースの背景を理解し、中学受験の時事問題や作文・記述で自分の考えを表現する力を伸ばしたい家庭向け', checkpoints: ['対象学年・受講条件', 'オンライン・対面の開催日', 'クラスごとの料金'],
+    schedule: '開講日は公式サイトのクラス案内で確認', pricing: { system: 'クラス別', minPrice: 0, note: '料金は公式サイトの「クラス開講日・料金について」で確認' },
+    features: { beginnerFriendly: '◎', kidsClass: true, adultClass: false, online: true }, trial: '申込・相談方法は公式サイトのお問い合わせページで確認',
+    imageUrl: 'https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=800&q=80', link: 'https://sites.google.com/awhi-jp.com/awhi', sourceNote: '掲載依頼および公式サイトの講座内容・クラス案内を2026-10-07確認。対面会場の詳細住所は防犯上、申込者のみに案内',
+    prefecture: '', addressLocality: 'オンライン'
   }
 ];
 
