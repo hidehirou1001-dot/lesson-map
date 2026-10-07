@@ -3761,6 +3761,18 @@ const studios = [
     features: { stationNearby: true, beginnerFriendly: '〇', kidsClass: true, adultClass: false, studyRoom: true }, trial: '入塾前面談あり（入塾テストなし）。無料体験の最新日程は公式サイトで確認',
     imageUrl: 'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=800&q=80', link: 'https://i-nest2020.com/', sourceNote: '掲載依頼および公式サイトの授業案内・2026年度入塾基準・料金・所在地を2026-10-07確認',
     prefecture: '広島県', addressLocality: '広島市中区'
+  },
+  {
+    id: 'class-beauty-osaka-vi5-school', listingType: 'class', name: 'Vi5 SCHOOL',
+    description: '大阪・北浜の実店舗サロンを拠点に、美容師・アイリスト・サロンオーナーなどへ実務に生かせる美容技術を伝える講習です。まつげエクステ、メイク、増毛技術など、目的と経験に応じた講習を案内しています。',
+    category: 'Art', city: '大阪市北区', area: '西天満・北浜周辺', access: '大阪府大阪市北区西天満1-2-25 スクエア北浜3階／対面講習はVi5北浜を中心に開催',
+    genres: ['Beauty', 'Makeup', 'Eyelash', 'Professional', 'Adult'], learningNeeds: ['adult_lessons', 'professional_skills', 'beauty_learning'], decisionFactors: ['qualification_check', 'course_fit', 'price_clarity', 'schedule_fit'],
+    fitSummary: '美容技術を新たに身につけたい美容師・アイリスト・サロン運営者や、似合わせメイクを学びたい一般の方向け', checkpoints: ['講習ごとの美容師免許要件', '最新の開催地・日程', '教材・モデル同伴などの受講準備'],
+    schedule: '固定の開催曜日・日付なし。最新の開催予定と申込枠は公式講習ページで確認',
+    pricing: { system: '講習別', minPrice: 25000, note: 'メイク講習3時間25,000円（1〜4名同価格・資格不要）／まつげ完全初心者3日間250,000円（教材付き・美容師免許必須）／まつげレベルアップ5時間55,000円（経験者向け・美容師免許必須）' },
+    features: { beginnerFriendly: '〇', kidsClass: false, adultClass: true }, trial: '入会金・体験レッスンの設定なし。講習ごとの条件・申込は公式ページで確認',
+    imageUrl: 'https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=800&q=80', link: 'https://vi5-salon.vercel.app/#school', sourceNote: '掲載依頼および公式講習ページの所在地・講習内容・料金・資格条件を2026-10-07確認。未設定の開催日・入会金・体験は補完せず掲載',
+    prefecture: '大阪府', addressLocality: '大阪市北区'
   }
 ];
 
