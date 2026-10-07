@@ -3737,6 +3737,18 @@ const studios = [
     features: { beginnerFriendly: '◎', kidsClass: true, adultClass: false, online: true }, trial: '申込・相談方法は公式サイトのお問い合わせページで確認',
     imageUrl: 'https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=800&q=80', link: 'https://sites.google.com/awhi-jp.com/awhi', sourceNote: '掲載依頼および公式サイトの講座内容・クラス案内を2026-10-07確認。対面会場の詳細住所は防犯上、申込者のみに案内',
     prefecture: '', addressLocality: 'オンライン'
+  },
+  {
+    id: 'school-piano-hamamatsu-yamanaka', listingType: 'school', name: '山中ピアノ教室',
+    description: '浜松市中央区西都台町にある個人レッスンのピアノ教室です。3歳頃の幼児から小中高生、大人まで、初心者・経験者それぞれの目的とペースに合わせて基礎から学べます。',
+    category: 'Piano', city: '浜松市中央区', area: '西都台町', access: '静岡県浜松市中央区西都台町9-10／駐車場あり',
+    genres: ['Piano', 'Kids', 'Adult', 'Private'], learningNeeds: ['kids_lessons', 'adult_lessons', 'music_learning'], decisionFactors: ['teacher_fit', 'price_clarity', 'trial_available', 'parking'],
+    fitSummary: '浜松市中央区で、幼児の導入から大人・経験者まで個人のペースに合うピアノ指導を受けたい人向け', checkpoints: ['最新の空き時間', 'レッスン回数・振替条件', '体験後の入会判断'],
+    schedule: '月〜土9:00〜22:00／日曜休み（空き状況は要確認）', phone: '053-440-0832',
+    pricing: { system: '月謝制', minPrice: 8000, note: '初級30分×月4回8,000円／中級45分×月4回11,000円／上級・大人60分×月4回14,000円／入会金なし' },
+    features: { parking: true, beginnerFriendly: '◎', kidsClass: true, adultClass: true, weekendOpen: true }, trial: '体験レッスン2,000円。入会時は初回レッスンで返金',
+    imageUrl: 'https://images.unsplash.com/photo-1520523839897-bd0b52f945a0?auto=format&fit=crop&w=800&q=80', link: 'https://www.klavier-ymnk.com/', sourceNote: '掲載依頼および公式サイトのレッスン・料金・時間・アクセス・体験情報を2026-10-07確認',
+    prefecture: '静岡県', addressLocality: '浜松市中央区'
   }
 ];
 
