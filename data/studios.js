@@ -3749,6 +3749,18 @@ const studios = [
     features: { parking: true, beginnerFriendly: '◎', kidsClass: true, adultClass: true, weekendOpen: true }, trial: '体験レッスン2,000円。入会時は初回レッスンで返金',
     imageUrl: 'https://images.unsplash.com/photo-1520523839897-bd0b52f945a0?auto=format&fit=crop&w=800&q=80', link: 'https://www.klavier-ymnk.com/', sourceNote: '掲載依頼および公式サイトのレッスン・料金・時間・アクセス・体験情報を2026-10-07確認',
     prefecture: '静岡県', addressLocality: '浜松市中央区'
+  },
+  {
+    id: 'school-cram-hiroshima-inest', listingType: 'school', name: '大学受験i-NEST（アイネスト）',
+    description: '広島市中区東千田町にある中学生・高校生向けの学習塾です。少人数の生授業、レベル別の映像授業、個別質問対応と学習計画を組み合わせ、高校入試・大学入試や定期テスト、英検対策を支援しています。',
+    category: 'CramSchool', city: '広島市中区', area: '東千田町・広電本社前周辺', access: '広島県広島市中区東千田町2丁目3-17 沖田ビル3F／広電本社前電停から徒歩約1分',
+    genres: ['CramSchool', 'HighSchoolExam', 'UniversityExam', 'Eiken', 'JuniorHigh', 'HighSchool'], learningNeeds: ['exam_preparation', 'school_study', 'english_learning'], decisionFactors: ['class_size', 'price_clarity', 'study_environment', 'station_access'],
+    fitSummary: '広島市中区で、高校・大学入試に必要な複数科目を少人数授業と自習環境の両方で学びたい中高生向け', checkpoints: ['学年・在籍校ごとの入塾基準', '2026年度の時間割と空き状況', '月謝・教材費・講習代'],
+    schedule: '学年別の指定時間割制。電話受付15:00〜22:00（日・祝除く）', phone: '082-548-8910',
+    pricing: { system: '月謝制', minPrice: 11000, note: '2026年度：公立中1特進 月11,000円〜／高校生 月24,200円〜／入塾金11,000円。教材費・講習代は別途' },
+    features: { stationNearby: true, beginnerFriendly: '〇', kidsClass: true, adultClass: false, studyRoom: true }, trial: '入塾前面談あり（入塾テストなし）。無料体験の最新日程は公式サイトで確認',
+    imageUrl: 'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=800&q=80', link: 'https://i-nest2020.com/', sourceNote: '掲載依頼および公式サイトの授業案内・2026年度入塾基準・料金・所在地を2026-10-07確認',
+    prefecture: '広島県', addressLocality: '広島市中区'
   }
 ];
 
