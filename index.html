@@ -63,7 +63,7 @@
       ]
     }
   </script>
-  <link rel="stylesheet" href="/css/style.css?v=53">
+  <link rel="stylesheet" href="/css/style.css?v=54">
 </head>
 
 <body>
@@ -578,18 +578,9 @@
             <span class="finder-section-note" id="finder-area-note">ジャンルを選んだあとに地域を絞ると見やすくなります。</span>
           </div>
         </div>
-          <div class="finder-area-flow" aria-label="エリア選択の流れ">
-            <span class="finder-area-flow-step is-active" id="finder-area-step-region">1. まず広域を選ぶ</span>
-            <span class="finder-area-flow-step" id="finder-area-step-city">2. 必要なら市町まで絞る</span>
-            <span class="finder-area-flow-step" id="finder-area-step-near">3. 家の近くまで絞る</span>
-          </div>
           <div class="finder-area-status" id="finder-area-status" aria-live="polite">
-            <strong class="finder-area-status-title" id="finder-area-status-title">掲載エリアの候補を表示中</strong>
-            <span class="finder-area-status-copy" id="finder-area-status-copy">都道府県を選ぶと、地域や市町まで絞れます。</span>
-          </div>
-          <div class="area-choice-heading">
-            <span class="area-choice-number">1</span>
-            <div><strong>都道府県を選ぶ</strong><span>ボタン内の数字は掲載教室数です</span></div>
+            <strong class="finder-area-status-title" id="finder-area-status-title">すべてのエリア</strong>
+            <span class="finder-area-status-copy" id="finder-area-status-copy">都道府県を1つ選んでください。</span>
           </div>
           <div class="area-map-selector">
             <figure class="area-map-figure">
@@ -597,29 +588,26 @@
                 alt="都道府県の区分が分かる日本地図" loading="lazy" width="2000" height="2000">
               <figcaption><a href="https://github.com/lalamalink/japan-map-svg" target="_blank" rel="noopener noreferrer">日本地図SVG：lalamalink（CC0）</a></figcaption>
             </figure>
-            <div class="area-map-groups" aria-label="地方別に掲載都道府県を選ぶ">
-              <section class="area-map-group"><strong>四国</strong><div><button class="filter-btn city-btn" data-city="愛媛県">愛媛県</button><button class="filter-btn city-btn" data-city="香川県">香川県</button><button class="filter-btn city-btn" data-city="徳島県">徳島県</button><button class="filter-btn city-btn" data-city="高知県">高知県</button></div></section>
-              <section class="area-map-group"><strong>中国</strong><div><button class="filter-btn city-btn" data-city="岡山県">岡山県</button></div></section>
-              <section class="area-map-group"><strong>関東</strong><div><button class="filter-btn city-btn" data-city="東京都">東京都</button><button class="filter-btn city-btn" data-city="神奈川県">神奈川県</button><button class="filter-btn city-btn" data-city="埼玉県">埼玉県</button><button class="filter-btn city-btn" data-city="千葉県">千葉県</button></div></section>
-              <section class="area-map-group"><strong>中部</strong><div><button class="filter-btn city-btn" data-city="新潟県">新潟県</button><button class="filter-btn city-btn" data-city="愛知県">愛知県</button></div></section>
-              <section class="area-map-group"><strong>関西</strong><div><button class="filter-btn city-btn" data-city="大阪府">大阪府</button></div></section>
+            <div class="area-map-options">
+              <div class="area-choice-heading">
+                <div><strong>都道府県を選ぶ</strong><span>数字は掲載教室数</span></div>
+              </div>
+              <div class="filters area-region-row" aria-label="掲載中の都道府県">
+                <button class="filter-btn city-btn active" data-city="all">すべて</button>
+                <button class="filter-btn city-btn" data-city="愛媛県">愛媛県</button>
+                <button class="filter-btn city-btn" data-city="香川県">香川県</button>
+                <button class="filter-btn city-btn" data-city="徳島県">徳島県</button>
+                <button class="filter-btn city-btn" data-city="高知県">高知県</button>
+                <button class="filter-btn city-btn" data-city="岡山県">岡山県</button>
+                <button class="filter-btn city-btn" data-city="神奈川県">神奈川県</button>
+                <button class="filter-btn city-btn" data-city="東京都">東京都</button>
+                <button class="filter-btn city-btn" data-city="新潟県">新潟県</button>
+                <button class="filter-btn city-btn" data-city="愛知県">愛知県</button>
+                <button class="filter-btn city-btn" data-city="埼玉県">埼玉県</button>
+                <button class="filter-btn city-btn" data-city="千葉県">千葉県</button>
+                <button class="filter-btn city-btn" data-city="大阪府">大阪府</button>
+              </div>
             </div>
-          </div>
-          <p class="area-list-label">都道府県を一覧から選ぶ</p>
-          <div class="filters scrollable-filters area-region-row">
-            <button class="filter-btn city-btn active" data-city="all">すべて</button>
-            <button class="filter-btn city-btn" data-city="愛媛県">愛媛県</button>
-            <button class="filter-btn city-btn" data-city="香川県">香川県</button>
-            <button class="filter-btn city-btn" data-city="徳島県">徳島県</button>
-            <button class="filter-btn city-btn" data-city="高知県">高知県</button>
-            <button class="filter-btn city-btn" data-city="岡山県">岡山県</button>
-            <button class="filter-btn city-btn" data-city="神奈川県">神奈川県</button>
-            <button class="filter-btn city-btn" data-city="東京都">東京都</button>
-            <button class="filter-btn city-btn" data-city="新潟県">新潟県</button>
-            <button class="filter-btn city-btn" data-city="愛知県">愛知県</button>
-            <button class="filter-btn city-btn" data-city="埼玉県">埼玉県</button>
-            <button class="filter-btn city-btn" data-city="千葉県">千葉県</button>
-            <button class="filter-btn city-btn" data-city="大阪府">大阪府</button>
           </div>
           <div class="area-city-panel" id="area-city-panel" hidden>
             <div class="area-city-panel-head" id="area-city-panel-head" hidden>
@@ -1070,7 +1058,7 @@
   <!-- Scripts -->
   <script src="/data/studios.js?v=39"></script>
   <script src="/data/affiliate-programs.js?v=3"></script>
-  <script src="/js/app.js?v=74"></script>
+  <script src="/js/app.js?v=75"></script>
 </body>
 
 </html>

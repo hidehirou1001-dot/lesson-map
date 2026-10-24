@@ -2724,14 +2724,14 @@ function initFilters() {
 
         if (areaStatusTitle && areaStatusCopy) {
             if (selectedCity === 'all') {
-                areaStatusTitle.textContent = '掲載エリアの全候補を表示中';
-                areaStatusCopy.textContent = '都道府県を選ぶと、地域や市町まで絞れます。';
+                areaStatusTitle.textContent = 'すべてのエリア';
+                areaStatusCopy.textContent = '都道府県を1つ選んでください。';
             } else if (cityRegionMap[selectedCity]) {
-                areaStatusTitle.textContent = `${selectedCity}を表示中`;
-                areaStatusCopy.textContent = `このまま${selectedCity}で比較できます。さらに近いところから見たいなら下の市町を選んでください。`;
+                areaStatusTitle.textContent = `選択中：${selectedCity}`;
+                areaStatusCopy.textContent = `このまま検索できます。さらに絞る場合は、下の市町を選んでください。`;
             } else {
-                areaStatusTitle.textContent = `${selectedCity}を表示中`;
-                areaStatusCopy.textContent = `${activeRegion}からさらに絞った状態です。家の近くから探したいなら、この下の周辺エリアまで絞れます。`;
+                areaStatusTitle.textContent = `選択中：${selectedCity}`;
+                areaStatusCopy.textContent = `このエリアの教室を表示します。`;
             }
         }
 

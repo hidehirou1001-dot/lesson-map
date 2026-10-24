@@ -2089,6 +2089,16 @@ p {
   gap: 0.55rem;
 }
 
+.area-map-options {
+  display: grid;
+  align-content: center;
+  gap: 0.25rem;
+}
+
+.area-map-options .area-choice-heading {
+  margin-top: 0;
+}
+
 .area-map-group {
   display: grid;
   grid-template-columns: 3.5rem minmax(0, 1fr);
@@ -2236,7 +2246,7 @@ p {
   }
 
   .area-map-figure img {
-    width: min(100%, 210px);
+    width: min(100%, 150px);
   }
 
   .area-map-group {
