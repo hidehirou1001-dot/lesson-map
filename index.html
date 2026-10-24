@@ -63,7 +63,7 @@
       ]
     }
   </script>
-  <link rel="stylesheet" href="/css/style.css?v=54">
+  <link rel="stylesheet" href="/css/style.css?v=58">
 </head>
 
 <body>
@@ -139,7 +139,7 @@
           </form>
           <form class="home-hero-quick-search" id="hero-quick-search" aria-label="条件を選んで学びを検索">
             <div class="home-hero-quick-fields">
-              <label class="home-hero-quick-field" for="hero-quick-city">
+              <label class="home-hero-quick-field home-hero-quick-field-area" for="hero-quick-city">
                 <span class="home-hero-search-kicker">エリア</span>
                 <select class="home-hero-quick-select" id="hero-quick-city">
                   <option value="all">掲載エリアすべて</option>
@@ -235,7 +235,7 @@
                 <button class="home-nearby-btn" id="hero-nearby-btn" type="button"><span aria-hidden="true">◎</span> 現在地に近い市町を選ぶ</button>
                 <span class="home-nearby-status" id="hero-nearby-status" aria-live="polite"></span>
               </label>
-              <label class="home-hero-quick-field" for="hero-quick-category">
+              <label class="home-hero-quick-field home-hero-quick-field-category" for="hero-quick-category">
                 <span class="home-hero-search-kicker">ジャンル</span>
                 <select class="home-hero-quick-select" id="hero-quick-category">
                   <option value="all">すべてのジャンル</option>
@@ -257,7 +257,7 @@
                   <option value="Finance">金融・投資</option>
                 </select>
               </label>
-              <fieldset class="home-hero-quick-audience">
+              <fieldset class="home-hero-quick-audience home-hero-quick-field-audience">
                 <legend class="home-hero-search-kicker">だれの学びを探しますか？</legend>
                 <div class="home-hero-quick-tabs">
                   <label class="home-hero-quick-tab">
@@ -475,17 +475,6 @@
       <a class="top-area-card" href="/?city=千葉県#results-zone"><strong>千葉県から探す</strong><span>柏市の掲載教室を見る</span></a>
       <a class="top-area-card" href="/?city=大阪府#results-zone"><strong>大阪府から探す</strong><span>岸和田市の掲載教室を見る</span></a>
     </div>
-    <div class="top-section-heading top-subsection-heading">
-      <h3 class="h3">掲載中の都市から探す</h3>
-      <p>教室が増えている都市や地域別ガイドから、身近な候補を見つけられます。</p>
-    </div>
-    <div class="top-area-rail">
-      <a class="top-area-card" href="/?city=名古屋市#results-zone"><strong>名古屋市</strong><span>市内の掲載教室から探す</span></a>
-      <a class="top-area-card" href="/recommendations/kurashiki-lessons/"><strong>倉敷市</strong><span>地域別の教室ガイドを見る</span></a>
-      <a class="top-area-card" href="/recommendations/takamatsu-lessons/"><strong>高松市</strong><span>ジャンル別の教室ガイドを見る</span></a>
-      <a class="top-area-card" href="/recommendations/matsuyama-lessons/"><strong>松山市</strong><span>ジャンル別の教室ガイドを見る</span></a>
-      <a class="top-area-card" href="/?city=横浜市都筑区#results-zone"><strong>横浜市都筑区</strong><span>区内の掲載教室から探す</span></a>
-    </div>
   </section>
 
   <section class="section container reveal home-section">
@@ -497,10 +486,25 @@
         </div>
       </div>
 
+      <div class="finder-section finder-audience-section" aria-labelledby="finder-audience-title">
+        <div class="finder-section-head">
+          <span class="finder-step">STEP 1</span>
+          <div>
+            <strong id="finder-audience-title">対象を選ぶ</strong>
+            <span class="finder-section-note">だれの学びを探すか選んでください。</span>
+          </div>
+        </div>
+        <div class="finder-audience-options" role="group" aria-label="学びの対象">
+          <button class="finder-audience-btn active" type="button" data-audience="all" aria-pressed="true"><strong>指定なし</strong><span>すべての対象</span></button>
+          <button class="finder-audience-btn" type="button" data-audience="kids" aria-pressed="false"><strong>子ども</strong><span>幼児・小学生など</span></button>
+          <button class="finder-audience-btn" type="button" data-audience="adult" aria-pressed="false"><strong>大人</strong><span>趣味・学び直しなど</span></button>
+        </div>
+      </div>
+
       <div class="finder-duo-grid">
         <div class="finder-section">
           <div class="finder-section-head">
-          <span class="finder-step">STEP 1</span>
+          <span class="finder-step">STEP 2</span>
           <div>
             <strong>ジャンルを選ぶ</strong>
           </div>
@@ -572,7 +576,7 @@
 
         <div class="finder-section finder-section-secondary" id="finder-area-section">
           <div class="finder-section-head">
-          <span class="finder-step">STEP 2</span>
+          <span class="finder-step">STEP 3</span>
           <div>
             <strong>エリアで絞る</strong>
             <span class="finder-section-note" id="finder-area-note">ジャンルを選んだあとに地域を絞ると見やすくなります。</span>
@@ -582,12 +586,7 @@
             <strong class="finder-area-status-title" id="finder-area-status-title">すべてのエリア</strong>
             <span class="finder-area-status-copy" id="finder-area-status-copy">都道府県を1つ選んでください。</span>
           </div>
-          <div class="area-map-selector">
-            <figure class="area-map-figure">
-              <img src="https://raw.githubusercontent.com/lalamalink/japan-map-svg/main/svg/deformed-japan-prefecture-map.svg"
-                alt="都道府県の区分が分かる日本地図" loading="lazy" width="2000" height="2000">
-              <figcaption><a href="https://github.com/lalamalink/japan-map-svg" target="_blank" rel="noopener noreferrer">日本地図SVG：lalamalink（CC0）</a></figcaption>
-            </figure>
+          <div class="area-prefecture-selector">
             <div class="area-map-options">
               <div class="area-choice-heading">
                 <div><strong>都道府県を選ぶ</strong><span>数字は掲載教室数</span></div>
@@ -599,14 +598,19 @@
                 <button class="filter-btn city-btn" data-city="徳島県">徳島県</button>
                 <button class="filter-btn city-btn" data-city="高知県">高知県</button>
                 <button class="filter-btn city-btn" data-city="岡山県">岡山県</button>
-                <button class="filter-btn city-btn" data-city="神奈川県">神奈川県</button>
-                <button class="filter-btn city-btn" data-city="東京都">東京都</button>
-                <button class="filter-btn city-btn" data-city="新潟県">新潟県</button>
-                <button class="filter-btn city-btn" data-city="愛知県">愛知県</button>
-                <button class="filter-btn city-btn" data-city="埼玉県">埼玉県</button>
-                <button class="filter-btn city-btn" data-city="千葉県">千葉県</button>
-                <button class="filter-btn city-btn" data-city="大阪府">大阪府</button>
               </div>
+              <details class="area-other-prefectures" id="area-other-prefectures">
+                <summary>その他の都道府県を見る</summary>
+                <div class="filters area-region-row" aria-label="その他の掲載都道府県">
+                  <button class="filter-btn city-btn" data-city="神奈川県">神奈川県</button>
+                  <button class="filter-btn city-btn" data-city="東京都">東京都</button>
+                  <button class="filter-btn city-btn" data-city="新潟県">新潟県</button>
+                  <button class="filter-btn city-btn" data-city="愛知県">愛知県</button>
+                  <button class="filter-btn city-btn" data-city="埼玉県">埼玉県</button>
+                  <button class="filter-btn city-btn" data-city="千葉県">千葉県</button>
+                  <button class="filter-btn city-btn" data-city="大阪府">大阪府</button>
+                </div>
+              </details>
             </div>
           </div>
           <div class="area-city-panel" id="area-city-panel" hidden>
@@ -749,15 +753,18 @@
         </div>
       </div>
 
-      <div class="finder-section finder-advanced-section" aria-labelledby="finder-advanced-title">
-        <div class="finder-section-head">
-          <span class="finder-step">STEP 3</span>
-          <div>
-            <strong id="finder-advanced-title">こだわり条件で絞る</strong>
-            <span class="finder-section-note">複数選択できます。件数が多いときに、料金・体験・通いやすさから一気に絞れます。</span>
+      <details class="finder-details" id="finder-details">
+        <summary class="finder-details-summary">
+          <span><strong>詳細条件を追加する</strong><small>料金・体験・通いやすさなど</small></span>
+        </summary>
+        <div class="finder-section finder-advanced-section" aria-labelledby="finder-advanced-title">
+          <div class="finder-section-head">
+            <div>
+              <strong id="finder-advanced-title">こだわり条件で絞る</strong>
+              <span class="finder-section-note">複数選択できます。掲載データがある条件だけを表示します。</span>
+            </div>
           </div>
-        </div>
-        <div class="advanced-filter-grid" id="advanced-filter-grid" aria-label="こだわり条件">
+          <div class="advanced-filter-grid" id="advanced-filter-grid" aria-label="こだわり条件">
           <button class="advanced-filter-btn" type="button" data-quick-filter="price_under_5000">
             <span>料金</span>
             <strong>5,000円以下</strong>
@@ -793,8 +800,9 @@
             <strong>女性講師</strong>
             <small>記載がある教室のみ</small>
           </button>
+          </div>
         </div>
-      </div>
+      </details>
 
       <details class="compact-accordion-item finder-keyword-accordion">
         <summary class="compact-accordion-trigger">
@@ -826,8 +834,8 @@
       </details>
 
       <div class="finder-results-cta" id="finder-results-cta" hidden>
-        <span class="finder-results-cta-kicker">NEXT</span>
-        <button class="btn btn-primary finder-results-cta-btn" id="finder-results-cta-btn" type="button">結果を見る</button>
+        <span class="finder-results-count" id="finder-results-count" aria-live="polite">該当する教室 0件</span>
+        <button class="btn btn-primary finder-results-cta-btn" id="finder-results-cta-btn" type="button">検索結果を見る</button>
       </div>
     </div>
   </section>
@@ -1058,7 +1066,7 @@
   <!-- Scripts -->
   <script src="/data/studios.js?v=39"></script>
   <script src="/data/affiliate-programs.js?v=3"></script>
-  <script src="/js/app.js?v=75"></script>
+  <script src="/js/app.js?v=78"></script>
 </body>
 
 </html>

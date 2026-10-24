@@ -527,7 +527,7 @@ function renderStudios(data) {
     data.forEach((studio) => {
         try {
             const pricingSummary = formatPricingSummary(studio.pricing);
-            const commuteSummary = getCommuteSummary(studio);
+            const trialStatus = getTrialStatus(studio);
             const cardAccessSummary = getCardAccessSummary(studio.access);
             const categoryLabel = getCategoryLabel(studio.category);
             const listingType = getListingType(studio);
@@ -555,7 +555,7 @@ function renderStudios(data) {
           <p class="card-location">${cardAccessSummary}</p>
         </div>
         <div class="card-stat-grid">
-          <div class="card-stat card-stat-primary">
+          <div class="card-stat">
             <span class="card-stat-label">対象</span>
             <strong>${getAudienceSummary(studio.features)}</strong>
           </div>
@@ -564,8 +564,8 @@ function renderStudios(data) {
             <strong>${pricingSummary}</strong>
           </div>
           <div class="card-stat">
-            <span class="card-stat-label">通いやすさ</span>
-            <strong>${commuteSummary}</strong>
+            <span class="card-stat-label">体験</span>
+            <strong>${trialStatus}</strong>
           </div>
         </div>
         ${quickStatusMarkup}
@@ -794,13 +794,13 @@ function getTrialStatus(studio) {
 
 function getQuickStatusItems(studio) {
     const weekendOpen = hasWeekendOpen(studio);
-    const trialStatus = getTrialStatus(studio);
+    const commuteSummary = getCommuteSummary(studio);
     return [
         {
-            key: 'trial',
-            label: '体験',
-            value: trialStatus,
-            tone: trialStatus !== '体験案内の記載なし' ? 'good' : 'neutral'
+            key: 'access',
+            label: '通いやすさ',
+            value: commuteSummary,
+            tone: commuteSummary !== 'アクセス要確認' ? 'good' : 'neutral'
         },
         {
             key: 'schedule',
@@ -1447,10 +1447,9 @@ function renderCompareMemo() {
         const diffLabels = {
             audience: '対象',
             pricing: '料金',
-            commute: '通学',
-            status_price: '料金公開',
-            status_trial: '体験案内',
-            status_access: '通いやすさ'
+            trial: '体験',
+            status_access: '通いやすさ',
+            status_schedule: '曜日'
         };
         diffSummary.hidden = false;
         diffSummary.innerHTML = `
@@ -1471,7 +1470,7 @@ function renderCompareMemo() {
         const summaryRows = [
             { key: 'audience', label: '対象', value: getAudienceSummary(studio.features) },
             { key: 'pricing', label: '料金', value: formatPricingSummary(studio.pricing) },
-            { key: 'commute', label: '通学', value: getCommuteSummary(studio) }
+            { key: 'trial', label: '体験', value: getTrialStatus(studio) }
         ].sort((a, b) => Number(diffMap[b.key]) - Number(diffMap[a.key]));
         return `
         <article class="compare-memo-item">
@@ -1526,11 +1525,9 @@ function getCompareMemoDiffMap(items) {
     const values = {
         audience: items.map(studio => getAudienceSummary(studio.features)),
         pricing: items.map(studio => formatPricingSummary(studio.pricing)),
-        commute: items.map(studio => getCommuteSummary(studio)),
-        status_price: items.map(studio => getQuickStatusItems(studio)[0]?.value || ''),
-        status_trial: items.map(studio => getQuickStatusItems(studio)[1]?.value || ''),
-        status_access: items.map(studio => getQuickStatusItems(studio)[2]?.value || ''),
-        status_schedule: items.map(studio => getQuickStatusItems(studio)[3]?.value || '')
+        trial: items.map(studio => getTrialStatus(studio)),
+        status_access: items.map(studio => getQuickStatusItems(studio).find(item => item.key === 'access')?.value || ''),
+        status_schedule: items.map(studio => getQuickStatusItems(studio).find(item => item.key === 'schedule')?.value || '')
     };
 
     return Object.fromEntries(
@@ -2463,7 +2460,10 @@ function initFilters() {
     const categoryBtns = document.querySelectorAll('.category-btn');
     const subBtns = document.querySelectorAll('.sub-btn');
     const cityBtns = document.querySelectorAll('.city-btn');
+    const audienceBtns = document.querySelectorAll('.finder-audience-btn');
     const advancedFilterBtns = document.querySelectorAll('.advanced-filter-btn');
+    const finderDetails = document.getElementById('finder-details');
+    const areaOtherPrefectures = document.getElementById('area-other-prefectures');
     const categoryFilterRow = document.getElementById('category-filter-row');
     const categoryExpandBtn = document.getElementById('category-expand-btn');
     const danceSubfilterExpandBtn = document.getElementById('dance-subfilter-expand-btn');
@@ -2574,6 +2574,10 @@ function initFilters() {
             button.setAttribute('aria-disabled', String(!available));
             button.setAttribute('aria-pressed', String(active));
         });
+        if (finderDetails && advancedFilterBtns.length > 0) {
+            const hasSelectedDetail = Array.from(advancedFilterBtns).some(button => button.classList.contains('active'));
+            if (hasSelectedDetail) finderDetails.open = true;
+        }
     }
 
     function syncAreaLocalPanel(selectedCity) {
@@ -2739,13 +2743,36 @@ function initFilters() {
             const buttonCity = button.getAttribute('data-city');
             const isDetailButton = button.classList.contains('city-detail-btn');
             if (isDetailButton) {
-                button.classList.toggle('active', buttonCity === selectedCity);
+                const isActive = buttonCity === selectedCity;
+                button.classList.toggle('active', isActive);
+                button.setAttribute('aria-pressed', String(isActive));
             } else {
-                button.classList.toggle('active', buttonCity === selectedCity || (selectedCity !== 'all' && buttonCity === activeRegion));
+                const isActive = buttonCity === selectedCity || (selectedCity !== 'all' && buttonCity === activeRegion);
+                button.classList.toggle('active', isActive);
+                button.setAttribute('aria-pressed', String(isActive));
             }
         });
 
+        if (areaOtherPrefectures) {
+            const selectedOtherPrefecture = areaOtherPrefectures.querySelector(`.city-btn[data-city="${selectedCity}"]`);
+            if (selectedOtherPrefecture) areaOtherPrefectures.open = true;
+        }
+
         syncAreaLocalPanel(selectedCity);
+    }
+
+    function syncAudienceButtons() {
+        const selectedAudience = currentFilterState.quickFilters.includes('kids')
+            ? 'kids'
+            : currentFilterState.quickFilters.includes('adult')
+                ? 'adult'
+                : 'all';
+
+        audienceBtns.forEach(button => {
+            const active = button.getAttribute('data-audience') === selectedAudience;
+            button.classList.toggle('active', active);
+            button.setAttribute('aria-pressed', String(active));
+        });
     }
 
     if (categoryExpandBtn && categoryFilterRow) {
@@ -2770,11 +2797,29 @@ function initFilters() {
         });
     }
 
+    audienceBtns.forEach(button => {
+        button.addEventListener('click', () => {
+            const audience = button.getAttribute('data-audience') || 'all';
+            const preservedFilters = currentFilterState.quickFilters.filter(filterKey => !audienceQuickFilters.has(filterKey));
+            currentFilterState.quickFilters = audience === 'all'
+                ? preservedFilters
+                : [...preservedFilters, audience];
+            syncAudienceButtons();
+            syncHeroQuickSearchControls();
+            applyFilters();
+        });
+    });
+
     // 1. Category Buttons
     categoryBtns.forEach(btn => {
+        btn.setAttribute('aria-pressed', String(btn.getAttribute('data-category') === currentFilterState.category));
         btn.addEventListener('click', () => {
-            categoryBtns.forEach(b => b.classList.remove('active'));
+            categoryBtns.forEach(b => {
+                b.classList.remove('active');
+                b.setAttribute('aria-pressed', 'false');
+            });
             btn.classList.add('active');
+            btn.setAttribute('aria-pressed', 'true');
 
             if (btn.classList.contains('category-btn-extra') && categoryFilterRow && categoryExpandBtn) {
                 categoryFilterRow.classList.add('is-expanded');
@@ -2785,6 +2830,7 @@ function initFilters() {
             const cat = btn.getAttribute('data-category');
             currentFilterState.category = cat;
             syncHeroQuickSearchControls();
+            syncAudienceButtons();
             syncCategoryStatus(cat);
             syncSubfilterStatus(cat);
 
@@ -2840,12 +2886,17 @@ function initFilters() {
 
     // 2. Sub-category Buttons (HIPHOP, Kids, Parking)
     subBtns.forEach(btn => {
+        btn.setAttribute('aria-pressed', String(btn.classList.contains('active')));
         btn.addEventListener('click', () => {
             const parent = btn.closest('.filters');
             if (parent) {
-                parent.querySelectorAll('.sub-btn').forEach(button => button.classList.remove('active'));
+                parent.querySelectorAll('.sub-btn').forEach(button => {
+                    button.classList.remove('active');
+                    button.setAttribute('aria-pressed', 'false');
+                });
             }
             btn.classList.add('active');
+            btn.setAttribute('aria-pressed', 'true');
 
             currentFilterState.subFilter = btn.getAttribute('data-filter');
             syncAreaSelection(currentFilterState.city);
@@ -2907,19 +2958,26 @@ function initFilters() {
             syncSearchInputs('');
             if (sortSelect) sortSelect.value = 'recommended';
             syncHeroQuickSearchControls();
+            syncAudienceButtons();
 
             categoryBtns.forEach(button => {
-                button.classList.toggle('active', button.getAttribute('data-category') === 'all');
+                const active = button.getAttribute('data-category') === 'all';
+                button.classList.toggle('active', active);
+                button.setAttribute('aria-pressed', String(active));
             });
 
             cityBtns.forEach(button => {
-                button.classList.toggle('active', button.getAttribute('data-city') === 'all');
+                const active = button.getAttribute('data-city') === 'all';
+                button.classList.toggle('active', active);
+                button.setAttribute('aria-pressed', String(active));
             });
 
             subFilterGroups.forEach(group => {
                 group.style.display = 'none';
                 group.querySelectorAll('.sub-btn').forEach(button => {
-                    button.classList.toggle('active', button.getAttribute('data-filter') === 'all');
+                    const active = button.getAttribute('data-filter') === 'all';
+                    button.classList.toggle('active', active);
+                    button.setAttribute('aria-pressed', String(active));
                 });
             });
 
@@ -2932,11 +2990,14 @@ function initFilters() {
     }
 
     categoryBtns.forEach(button => {
-        button.classList.toggle('active', button.getAttribute('data-category') === currentFilterState.category);
+        const active = button.getAttribute('data-category') === currentFilterState.category;
+        button.classList.toggle('active', active);
+        button.setAttribute('aria-pressed', String(active));
     });
     syncCategoryStatus(currentFilterState.category);
     syncSubfilterStatus(currentFilterState.category);
     syncAdvancedFilterButtons();
+    syncAudienceButtons();
     syncAreaSelection(currentFilterState.city);
 
     if (areaLocalButtons) {
@@ -2969,6 +3030,12 @@ function syncHeroQuickSearchControls() {
 
     const audienceInput = document.querySelector(`input[name="hero-quick-audience"][value="${audience}"]`);
     if (audienceInput) audienceInput.checked = true;
+
+    document.querySelectorAll('.finder-audience-btn').forEach(button => {
+        const active = button.getAttribute('data-audience') === audience;
+        button.classList.toggle('active', active);
+        button.setAttribute('aria-pressed', String(active));
+    });
 }
 
 function initHeroKeywordSearch() {
@@ -3248,6 +3315,7 @@ function updateResultsMeta(filtered) {
     const clearFiltersBtn = document.getElementById('clear-filters-btn');
     const finderResultsCta = document.getElementById('finder-results-cta');
     const finderResultsCtaBtn = document.getElementById('finder-results-cta-btn');
+    const finderResultsCount = document.getElementById('finder-results-count');
     const guidePanel = document.getElementById('results-guide-panel');
     const guideTitle = document.getElementById('results-guide-title');
     const guideLinks = document.getElementById('results-guide-links');
@@ -3369,11 +3437,10 @@ function updateResultsMeta(filtered) {
         const shouldShow = activeChips.length > 0 || currentFilterState.searchQuery.length > 0;
         finderResultsCta.hidden = !shouldShow;
         if (shouldShow) {
-            const categoryLabel = currentFilterState.category === 'all'
-                ? '候補'
-                : (filterLabelMap[currentFilterState.category] || currentFilterState.category);
-            finderResultsCtaBtn.textContent = `${categoryLabel}の${filtered.length}件を見る`;
+            if (finderResultsCount) finderResultsCount.textContent = `該当する教室 ${filtered.length}件`;
+            finderResultsCtaBtn.textContent = '検索結果を見る';
         } else {
+            if (finderResultsCount) finderResultsCount.textContent = '該当する教室 0件';
             finderResultsCtaBtn.textContent = '検索結果を見る';
         }
     }
