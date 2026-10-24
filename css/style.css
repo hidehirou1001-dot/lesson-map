@@ -2013,6 +2013,80 @@ p {
   color: var(--clr-text-muted);
 }
 
+.area-choice-heading {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  margin: 0.25rem 0 0.65rem;
+}
+
+.area-choice-heading > div {
+  display: grid;
+  gap: 0.05rem;
+}
+
+.area-choice-heading strong {
+  font-size: 0.94rem;
+}
+
+.area-choice-heading > div > span {
+  color: var(--clr-text-muted);
+  font-size: 0.76rem;
+}
+
+.area-choice-number {
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  flex: 0 0 28px;
+  border-radius: 50%;
+  background: var(--clr-primary);
+  color: #fff;
+  font-size: 0.78rem;
+  font-weight: 900;
+}
+
+.area-region-row,
+.area-city-group .city-filter-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(118px, 1fr));
+  gap: 0.55rem;
+  overflow: visible;
+  padding-bottom: 0;
+}
+
+.area-region-row .city-btn,
+.area-city-group .city-btn {
+  width: 100%;
+  min-height: 46px;
+  justify-content: space-between;
+  gap: 0.45rem;
+  border-radius: 14px;
+  padding: 0.62rem 0.72rem;
+  text-align: left;
+}
+
+.area-count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 2.65rem;
+  padding: 0.16rem 0.42rem;
+  border-radius: var(--radius-full);
+  background: rgba(34, 34, 34, 0.06);
+  color: var(--clr-text-muted);
+  font-size: 0.7rem;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.area-region-row .city-btn.active .area-count,
+.area-city-group .city-btn.active .area-count {
+  background: rgba(255, 255, 255, 0.22);
+  color: inherit;
+}
+
 .area-city-panel {
   display: grid;
   gap: 0.85rem;
@@ -2073,6 +2147,19 @@ p {
   border-radius: 20px;
   border: 1px solid rgba(34, 34, 34, 0.08);
   background: rgba(255, 255, 255, 0.8);
+}
+
+@media (max-width: 560px) {
+  .area-region-row,
+  .area-city-group .city-filter-row {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .area-region-row .city-btn,
+  .area-city-group .city-btn {
+    min-width: 0;
+    font-size: 0.82rem;
+  }
 }
 
 .area-city-label {

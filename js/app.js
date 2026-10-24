@@ -37,6 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (studiosGrid && window.studiosData) {
         runSafely('initHeroStats', () => initHeroStats(window.studiosData));
         runSafely('initCategoryCounts', () => initCategoryCounts(window.studiosData));
+        runSafely('initAreaCounts', () => initAreaCounts(window.studiosData));
         runSafely('renderStudios', () => renderStudios(window.studiosData));
         runSafely('initSearch', initSearch);
         runSafely('initFilters', initFilters);
@@ -2345,6 +2346,26 @@ function initCategoryCounts(data) {
         button.classList.toggle('is-unavailable', count === 0);
         button.toggleAttribute('disabled', count === 0);
         button.setAttribute('aria-disabled', String(count === 0));
+    });
+}
+
+function initAreaCounts(data) {
+    document.querySelectorAll('.city-btn[data-city]').forEach(button => {
+        const key = button.getAttribute('data-city');
+        const targetCities = cityRegionMap[key];
+        const count = key === 'all'
+            ? data.length
+            : data.filter(studio => targetCities ? targetCities.includes(studio.city) : studio.city === key).length;
+
+        let countBadge = button.querySelector('.area-count');
+        if (!countBadge) {
+            countBadge = document.createElement('span');
+            countBadge.className = 'area-count';
+            countBadge.setAttribute('aria-hidden', 'true');
+            button.appendChild(countBadge);
+        }
+        countBadge.textContent = `${count}件`;
+        button.setAttribute('aria-label', `${key === 'all' ? 'すべてのエリア' : key}、掲載${count}件`);
     });
 }
 
