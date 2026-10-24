@@ -36,7 +36,7 @@
           "name": "LessonMap",
           "url": "https://www.lesson-map.com/",
           "description": "自分に合う学びと出会える、習い事・スクール発見プラットフォーム",
-          "dateModified": "2026-09-12",
+          "dateModified": "2026-10-24",
           "inLanguage": "ja",
           "publisher": { "@id": "https://www.lesson-map.com/#organization" }
         },
@@ -107,7 +107,7 @@
           </figure>
           <div class="home-hero-message">
             <p class="brand-tagline">次の「できた。」へ。</p>
-            <h1 class="h1">学びとの出会いが、<br>人生を動かす。</h1>
+            <h1 class="h1">自分に合う習い事・教室を探す</h1>
             <p class="home-hero-lead">全国の教室・スクールから、自分や家族に合う学びを見つけよう。</p>
             <a class="btn btn-primary home-hero-stage-cta" href="#hero-quick-search">条件から学びを探す</a>
           </div>
@@ -119,12 +119,10 @@
             <p>今の気持ちに近いものから、学びの入口を選べます。</p>
           </div>
           <div class="home-hero-goal-grid" id="home-hero-goal-list">
-            <a href="/recommendations/english-guides/"><span>🗣️</span><strong>英語で話したい</strong></a>
-            <a href="/recommendations/#genre-zone"><span>🌱</span><strong>新しい趣味を始めたい</strong></a>
-            <a href="/recommendations/qualification-relearning-guides/"><span>📘</span><strong>仕事に役立てたい</strong></a>
-            <a href="/recommendations/dance-sports-guides/"><span>🏃</span><strong>楽しく身体を動かしたい</strong></a>
-            <a href="/?audience=kids#results-zone"><span>✨</span><strong>子どもの得意を伸ばしたい</strong></a>
-            <a href="/recommendations/#recommendation-category-filter"><span>🧭</span><strong>まだ決まっていない</strong></a>
+            <a href="/?audience=kids#results-zone"><span>✨</span><strong>子どもの得意を伸ばす</strong></a>
+            <a href="/recommendations/#genre-zone"><span>🌱</span><strong>趣味を楽しむ</strong></a>
+            <a href="/recommendations/qualification-relearning-guides/"><span>📘</span><strong>仕事・スキルアップ</strong></a>
+            <a href="/recommendations/dance-sports-guides/"><span>🏃</span><strong>健康・身体づくり</strong></a>
           </div>
           <button class="home-hero-goal-toggle" id="home-hero-goal-toggle" type="button" aria-expanded="false" aria-controls="home-hero-goal-list">ほかの目的を見る</button>
         </div>
@@ -384,22 +382,20 @@
     </div>
   </section>
 
-  <section class="section container reveal top-popular-section" aria-label="人気記事への近道">
+  <section class="section container reveal top-popular-section" aria-labelledby="top-data-popular-title">
     <div class="top-section-heading">
-      <h2 class="h2">今よく見られている入口</h2>
-      <p>迷ったら、表示回数が伸びている特集から見ると候補を絞りやすいです。</p>
+      <h2 class="h2" id="top-data-popular-title">掲載教室が多いジャンル</h2>
+      <p>現在掲載している教室データを集計し、候補が多い順に表示しています。</p>
     </div>
-    <div class="article-quick-actions">
-      <a class="article-quick-card" href="/recommendations/english-guides/"><span class="article-quick-label">英会話・語学</span><strong>英語学習の入口を探す</strong><span>通学・オンライン、子ども・大人から選ぶ</span></a>
-      <a class="article-quick-card" href="/recommendations/online-learning-guides/"><span class="article-quick-label">全国から学べる</span><strong>オンライン学習を探す</strong><span>英会話・資格・リスキリングを学び方から選ぶ</span></a>
-      <a class="article-quick-card" href="/recommendations/qualification-relearning-guides/"><span class="article-quick-label">資格・学び直し</span><strong>次の仕事や目標につながる学び</strong><span>資格・生成AI・リスキリングから選ぶ</span></a>
+    <div class="article-quick-actions" id="data-popular-categories" aria-live="polite">
+      <noscript>ジャンル別の掲載教室は、検索条件から確認できます。</noscript>
     </div>
   </section>
 
   <section class="section container reveal top-category-section" id="top-categories">
     <div class="top-section-heading">
-      <h2 class="h2">人気のジャンルから見る</h2>
-      <p>よく選ばれているジャンルを、短い説明つきでまとめています。</p>
+      <h2 class="h2">ジャンルから見る</h2>
+      <p>学びたい内容に近いジャンルを、短い説明つきでまとめています。</p>
     </div>
     <div class="top-category-grid">
       <a class="top-category-card" href="/recommendations/dance-sports-guides/"><span class="top-category-icon">💃</span><strong>ダンス・スポーツ</strong><span>キッズ / 初心者 / 体験</span></a>
@@ -1064,9 +1060,9 @@
   </footer>
 
   <!-- Scripts -->
-  <script src="/data/studios.js?v=39"></script>
+  <script src="/data/studios.js?v=40"></script>
   <script src="/data/affiliate-programs.js?v=3"></script>
-  <script src="/js/app.js?v=78"></script>
+  <script src="/js/app.js?v=79"></script>
 </body>
 
 </html>

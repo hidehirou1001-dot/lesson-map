@@ -36,6 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const studiosGrid = document.getElementById('studios-grid');
     if (studiosGrid && window.studiosData) {
         runSafely('initHeroStats', () => initHeroStats(window.studiosData));
+        runSafely('renderDataPopularCategories', () => renderDataPopularCategories(window.studiosData));
         runSafely('initCategoryCounts', () => initCategoryCounts(window.studiosData));
         runSafely('initAreaCounts', () => initAreaCounts(window.studiosData));
         runSafely('renderStudios', () => renderStudios(window.studiosData));
@@ -52,6 +53,38 @@ document.addEventListener('DOMContentLoaded', () => {
         runSafely('openDirectStudio', openDirectStudio);
     }
 });
+
+function renderDataPopularCategories(data) {
+    const container = document.getElementById('data-popular-categories');
+    if (!container || !Array.isArray(data)) return;
+
+    const categoryCounts = data.reduce((counts, studio) => {
+        if (!studio?.category) return counts;
+        counts.set(studio.category, (counts.get(studio.category) || 0) + 1);
+        return counts;
+    }, new Map());
+
+    const popularCategories = [...categoryCounts.entries()]
+        .sort((a, b) => b[1] - a[1] || getCategoryLabel(a[0]).localeCompare(getCategoryLabel(b[0]), 'ja'))
+        .slice(0, 3);
+
+    if (popularCategories.length === 0) {
+        container.innerHTML = '<p class="results-summary">掲載教室を集計しています。</p>';
+        return;
+    }
+
+    container.innerHTML = popularCategories.map(([category, count], index) => {
+        const label = getCategoryLabel(category);
+        const href = `/?category=${encodeURIComponent(category)}#results-zone`;
+        return `
+            <a class="article-quick-card" href="${href}">
+                <span class="article-quick-label">掲載数 ${index + 1}位</span>
+                <strong>${label}</strong>
+                <span>掲載中 ${count}件の教室を見る</span>
+            </a>
+        `;
+    }).join('');
+}
 
 function initHomeSectionOrder() {
     const hero = document.querySelector('.home-hero');

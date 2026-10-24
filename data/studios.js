@@ -3053,6 +3053,36 @@ const studios = [
     imageUrl: 'https://images.unsplash.com/photo-1518834107812-67b0b7c58434?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', link: 'https://d-s-l.net/', sourceNote: '公式サイトを2026-08-28確認'
   },
   {
+    id: 'school-dance-okayama-earthy', listingType: 'school', name: 'Studio Earthy',
+    entityType: 'EducationalOrganization', entityId: 'https://www.lesson-map.com/#school-dance-okayama-earthy', prefecture: '岡山県', addressLocality: '岡山市', officialUrl: 'https://www.studioearthy.com/',
+    description: '岡山市北区中山下にあるダンススタジオ。幼児から大人まで、HIPHOP、JAZZ FUNK、HOUSEなどを年齢・レベル別に学べます。',
+    category: 'Dance', city: '岡山市', area: '北区・中山下周辺', access: '岡山市北区中山下2-3-40 シバタビル5F',
+    genres: ['Dance', 'HipHop', 'JazzFunk', 'House', 'Kids', 'Adult'], learningNeeds: ['kids_lessons', 'adult_lessons', 'dance_learning'], decisionFactors: ['age_fit', 'beginner_friendly', 'trial_available'],
+    fitSummary: '年齢とレベルに合う入門クラスから始めたい子ども・大人向け', checkpoints: ['対象年齢・レベル', 'クラス時間', '料金・体験条件'],
+    pricing: { system: 'クラス別', minPrice: 0, note: '料金は公式サイトで確認' }, features: { parking: false, beginnerFriendly: '◎', kidsClass: true, adultClass: true }, trial: '見学・体験の問い合わせ案内あり',
+    imageUrl: 'https://images.unsplash.com/photo-1518834107812-67b0b7c58434?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', link: 'https://www.studioearthy.com/', sourceNote: '公式サイトを2026-10-24確認'
+  },
+  {
+    id: 'school-dance-okayama-bloom-one', listingType: 'school', name: 'DANCE STUDIO bloom one',
+    entityType: 'EducationalOrganization', entityId: 'https://www.lesson-map.com/#school-dance-okayama-bloom-one', prefecture: '岡山県', addressLocality: '岡山市', officialUrl: 'https://bloom-one.net/',
+    description: '岡山市北区野田屋町にあるダンススタジオ。K-POP、HIPHOP、JAZZ、BREAKIN’など多様なジャンルを、幼児から大人・シニアまで検討できます。',
+    category: 'Dance', city: '岡山市', area: '北区・野田屋町周辺', access: '岡山市北区野田屋町2-6-3 1F、岡山駅東口から徒歩圏',
+    genres: ['Dance', 'K-POP', 'HipHop', 'Jazz', 'Breaking', 'Kids', 'Adult'], learningNeeds: ['kids_lessons', 'adult_lessons', 'dance_learning'], decisionFactors: ['genre_fit', 'station_access', 'trial_available'],
+    fitSummary: '多彩なジャンルから自分に合うクラスを選びたい子ども・大人向け', checkpoints: ['対象クラス', 'ジャンル・レベル', '料金・体験日程'],
+    pricing: { system: 'クラス別', minPrice: 0, note: '料金は公式サイトで確認' }, features: { parking: false, stationNearby: true, beginnerFriendly: '◎', kidsClass: true, adultClass: true }, trial: '体験レッスン案内あり',
+    imageUrl: 'https://images.unsplash.com/photo-1518834107812-67b0b7c58434?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', link: 'https://bloom-one.net/', sourceNote: '公式サイトを2026-10-24確認'
+  },
+  {
+    id: 'school-dance-okayama-nxgn', listingType: 'school', name: 'NEXT GENERATION NEW YORK STUDIOS 岡山校',
+    entityType: 'EducationalOrganization', entityId: 'https://www.lesson-map.com/#school-dance-okayama-nxgn', prefecture: '岡山県', addressLocality: '岡山市', officialUrl: 'https://www.nxgnstudios.com/',
+    description: '岡山駅近くのストリートダンススクール。リトルキッズから一般まで幅広い年代に対応し、初心者は見学・体験から検討できます。',
+    category: 'Dance', city: '岡山市', area: '北区・幸町周辺', access: '岡山市北区幸町3-9 第二友沢ビル3F、岡山駅から徒歩圏',
+    genres: ['Dance', 'StreetDance', 'Kids', 'Adult'], learningNeeds: ['kids_lessons', 'adult_lessons', 'dance_learning'], decisionFactors: ['station_access', 'age_fit', 'trial_available'],
+    fitSummary: '岡山駅近くでストリートダンスを体験から始めたい子ども・大人向け', checkpoints: ['対象クラス', '岡山校の時間割', '料金・体験条件'],
+    pricing: { system: 'クラス別', minPrice: 0, note: '料金は公式サイトで確認' }, features: { parking: false, stationNearby: true, beginnerFriendly: '◎', kidsClass: true, adultClass: true }, trial: '見学無料・体験案内あり',
+    imageUrl: 'https://images.unsplash.com/photo-1518834107812-67b0b7c58434?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', link: 'https://www.nxgnstudios.com/', sourceNote: '公式サイトを2026-10-24確認'
+  },
+  {
     id: 'school-soroban-okayama-miraijuku', listingType: 'school', name: '未来塾 そろばん教室',
     entityType: 'EducationalOrganization', entityId: 'https://www.lesson-map.com/#school-soroban-okayama-miraijuku', prefecture: '岡山県', addressLocality: '岡山市', officialUrl: 'https://miraijukusoroban.wixsite.com/website',
     description: '岡山市北区伊福町にあるそろばん教室。楽しみながら学び、計算力と集中力を身につけたい子どもの候補として検討できます。',
