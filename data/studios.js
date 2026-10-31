@@ -3758,6 +3758,17 @@ const studios = [
     prefecture: '', addressLocality: 'オンライン'
   },
   {
+    id: 'school-piano-oita-hayashida', listingType: 'school', name: 'はやしだピアノアトリエ',
+    description: '大分市高江中央にある個人レッスンのピアノ教室です。幼児から大人、初心者・経験者、コンクールや音高・音大受験を目指す方まで、目的とレベルに合わせて学べます。',
+    category: 'Piano', city: '大分市', area: '高江中央', access: '大分県大分市高江中央1-47-3／駐車場あり',
+    genres: ['Piano', 'Kids', 'Adult', 'Private', 'Competition', 'Exam'], learningNeeds: ['kids_lessons', 'adult_lessons', 'music_learning', 'exam_preparation'], decisionFactors: ['teacher_fit', 'price_clarity', 'trial_available', 'parking'],
+    fitSummary: '大分市で、初心者の導入から趣味、再開、コンクール・音高音大受験まで個人の目標に合うピアノ指導を受けたい人向け', checkpoints: ['最新の空き曜日・時間', '設備費を含む初期費用', '体験後のコース・回数'],
+    phone: '080-3966-0494', pricing: { system: '月謝制', minPrice: 7000, note: 'スタンダード30分×月3回 月7,000円〜／入会金5,000円／設備費別' },
+    features: { parking: true, beginnerFriendly: '◎', kidsClass: true, adultClass: true }, trial: 'ピアノ体験2,000円（約30分のレッスン＋約30分の面談）／入会前相談は無料・約30分',
+    imageUrl: 'https://images.unsplash.com/photo-1520523839897-bd0b52f945a0?auto=format&fit=crop&w=800&q=80', link: 'https://hpiano.net/', sourceNote: '掲載依頼および公式サイトの所在地・対象・料金・体験・駐車場情報を2026-10-31確認。申請記載の電話番号と公式サイト現行番号が異なるため、公式サイト現行の080-3966-0494を掲載',
+    prefecture: '大分県', addressLocality: '大分市'
+  },
+  {
     id: 'school-english-suginami-petra', listingType: 'school', name: 'Petra Tutors 方南教室',
     description: '杉並区方南に拠点を置く、小学生から高校生向けの英語家庭教師・個別指導サービスです。学校英語、英検、英会話、インターナショナルスクールの学習支援など、目的や現在のレベルに合わせて対面・オンラインで相談できます。',
     category: 'English', city: '杉並区', area: '方南・笹塚周辺', access: '東京都杉並区方南1-46-17 さくらスイート笹塚B棟105室／対面レッスンはエリア・講師状況により相談',
@@ -3864,6 +3875,7 @@ const studioPrefectureByCity = Object.freeze({
   '新居浜市': '愛媛県',
   '西条市': '愛媛県',
   '大洲市': '愛媛県',
+  '大分市': '大分県',
   '長岡市': '新潟県',
   '東かがわ市': '香川県',
   '東温市': '愛媛県',

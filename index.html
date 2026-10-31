@@ -154,6 +154,7 @@
                     <option value="埼玉県">埼玉県全域</option>
                     <option value="千葉県">千葉県全域</option>
                     <option value="大阪府">大阪府全域</option>
+                    <option value="大分県">大分県全域</option>
                   </optgroup>
                   <optgroup label="中予">
                     <option value="中予">中予全域</option>
@@ -230,6 +231,9 @@
                   </optgroup>
                   <optgroup label="大阪府">
                     <option value="岸和田市">岸和田市</option>
+                  </optgroup>
+                  <optgroup label="大分県">
+                    <option value="大分市">大分市</option>
                   </optgroup>
                 </select>
                 <button class="home-nearby-btn" id="hero-nearby-btn" type="button"><span aria-hidden="true">◎</span> 現在地に近い市町を選ぶ</button>
@@ -607,6 +611,7 @@
                   <button class="filter-btn city-btn" data-city="埼玉県">埼玉県</button>
                   <button class="filter-btn city-btn" data-city="千葉県">千葉県</button>
                   <button class="filter-btn city-btn" data-city="大阪府">大阪府</button>
+                  <button class="filter-btn city-btn" data-city="大分県">大分県</button>
                 </div>
               </details>
             </div>
@@ -737,6 +742,12 @@
               <span class="area-city-label">大阪府の市</span>
               <div class="filters scrollable-filters city-filter-row">
                 <button class="filter-btn city-btn city-detail-btn" data-city="岸和田市">📍 岸和田市</button>
+              </div>
+            </div>
+            <div class="area-city-group" data-region-cities="大分県" hidden>
+              <span class="area-city-label">大分県の市</span>
+              <div class="filters scrollable-filters city-filter-row">
+                <button class="filter-btn city-btn city-detail-btn" data-city="大分市">📍 大分市</button>
               </div>
             </div>
             <div class="area-local-panel" id="area-local-panel" hidden>
@@ -1064,7 +1075,7 @@
   </footer>
 
   <!-- Scripts -->
-  <script src="/data/studios.js?v=42"></script>
+  <script src="/data/studios.js?v=43"></script>
   <script src="/data/affiliate-programs.js?v=3"></script>
   <script src="/js/app.js?v=79"></script>
 </body>
