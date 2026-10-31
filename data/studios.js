@@ -3758,6 +3758,18 @@ const studios = [
     prefecture: '', addressLocality: 'オンライン'
   },
   {
+    id: 'school-golf-nagakute-kasco-swing', listingType: 'school', name: 'キャスコスウィング',
+    description: '長久手市作田にある会員制インドアゴルフスクールです。現役プロの個別指導と室内打席での自主練習を組み合わせ、未経験者の基礎からスコアアップ、100切りを目指す練習まで相談できます。',
+    category: 'Fitness', city: '長久手市', area: '作田・藤が丘駅周辺', access: '愛知県長久手市作田2丁目1301／はなみずき通駅から徒歩約9分・藤が丘駅から徒歩約10分／駐車場あり',
+    genres: ['Golf', 'Fitness', 'Adult', 'Private', 'Indoor'], learningNeeds: ['adult_lessons', 'fitness_training', 'hobby_learning'], decisionFactors: ['teacher_fit', 'price_clarity', 'trial_available', 'parking', 'station_access'],
+    fitSummary: '長久手市や藤が丘周辺で、プロの個別指導と自主練習を組み合わせてゴルフの基礎やスコア改善に取り組みたい人向け', checkpoints: ['曜日ごとのレッスン開講枠', 'プラン別の自主練習・シミュレーター利用条件', '無料体験当日の入会金条件'],
+    schedule: '営業時間10:00〜22:00／レッスン枠は曜日により異なるため要確認', phone: '090-3422-5058',
+    pricing: { system: '月額制', minPrice: 15400, note: '自主練し放題 月15,400円／スタンダード（個別指導月4回）月18,700円／VIP 月24,200円／S・VIP 月27,500円。表示は税込。入会金通常10,000円' },
+    features: { parking: true, stationNearby: true, beginnerFriendly: '◎', kidsClass: false, adultClass: true, equipmentRental: true }, trial: '無料体験レッスンあり。レンタルクラブ無料。LINEで希望日時を相談',
+    imageUrl: 'https://images.unsplash.com/photo-1587174486073-ae5e5cff23aa?auto=format&fit=crop&w=800&q=80', link: 'https://nagakute-golf-kasco.com/', sourceNote: '掲載依頼および公式サイトの所在地・アクセス・営業時間・対象・料金・無料体験・設備情報を2026-10-31確認',
+    prefecture: '愛知県', addressLocality: '長久手市'
+  },
+  {
     id: 'school-piano-oita-hayashida', listingType: 'school', name: 'はやしだピアノアトリエ',
     description: '大分市高江中央にある個人レッスンのピアノ教室です。幼児から大人、初心者・経験者、コンクールや音高・音大受験を目指す方まで、目的とレベルに合わせて学べます。',
     category: 'Piano', city: '大分市', area: '高江中央', access: '大分県大分市高江中央1-47-3／駐車場あり',
@@ -3877,6 +3889,7 @@ const studioPrefectureByCity = Object.freeze({
   '大洲市': '愛媛県',
   '大分市': '大分県',
   '長岡市': '新潟県',
+  '長久手市': '愛知県',
   '東かがわ市': '香川県',
   '東温市': '愛媛県',
   '徳島市': '徳島県',
