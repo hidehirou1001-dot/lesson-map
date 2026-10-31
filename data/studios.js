@@ -3758,6 +3758,18 @@ const studios = [
     prefecture: '', addressLocality: 'オンライン'
   },
   {
+    id: 'school-cram-toshima-seed', listingType: 'school', name: '学習塾SEED',
+    description: '豊島区池袋にある、小学生・中学生向けの少人数・個別対応の学習塾です。学校の予習・復習を中心に、個別指導と自律学習の2コースで、一人ひとりの理解と自分で学習を進める力を支援します。',
+    category: 'CramSchool', city: '豊島区', area: '池袋4丁目', access: '東京都豊島区池袋4-12-4 内田ビル1F',
+    genres: ['CramSchool', 'Kids', 'Elementary', 'JuniorHigh', 'Private'], learningNeeds: ['kids_lessons', 'school_study', 'study_habits'], decisionFactors: ['class_size', 'price_clarity', 'trial_available', 'commute_fit'],
+    fitSummary: '豊島区池袋で、学校の予習・復習と自分で学習を進める習慣を少人数・個別対応で身につけたい小中学生向け', checkpoints: ['学年・状況に応じた対応教科', '個別指導・自律学習の組み合わせ', '最新の曜日・空き状況'],
+    schedule: '火〜金15:30〜21:10（土・日・月・祝を除く）', phone: '080-1038-2512',
+    pricing: { system: '月謝制', minPrice: 5500, note: '自律学習：小学生 月5,500円〜・中学生 月6,500円〜／個別指導：小学生 月12,000円〜・中学生 月13,000円〜／入塾金10,000円／教室管理費 月1,500円' },
+    features: { beginnerFriendly: '◎', kidsClass: true, adultClass: false }, trial: '体験・個別相談あり。費用・日程は公式サイトへ確認',
+    imageUrl: 'https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=800&q=80', link: 'https://juku-seed.com/', sourceNote: '掲載依頼および公式サイトの所在地・対象・教科・指導形態・料金・体験情報を2026-10-31確認',
+    prefecture: '東京都', addressLocality: '豊島区'
+  },
+  {
     id: 'school-cram-awhi', listingType: 'school', name: 'awhi（アフィ）｜時事問題・記述特化学習塾',
     description: '身近なニュースを題材に、知識を覚えるだけでなく、考え、対話し、自分の言葉で表現する力を育てる学習塾です。中学受験の時事問題・社会科や、作文・記述問題につながる学びを扱い、オンラインでも受講できます。',
     category: 'CramSchool', city: 'オンライン', area: '全国対応・対面受講あり', access: 'オンライン対応／対面会場の詳しい住所は申込者へ案内',
@@ -3847,6 +3859,7 @@ const studioPrefectureByCity = Object.freeze({
   '徳島市': '徳島県',
   '文京区': '東京都',
   '渋谷区': '東京都',
+  '豊島区': '東京都',
   '福生市': '東京都',
   '柏市': '千葉県',
   '北島町': '徳島県',
