@@ -3758,6 +3758,17 @@ const studios = [
     prefecture: '', addressLocality: 'オンライン'
   },
   {
+    id: 'school-english-suginami-petra', listingType: 'school', name: 'Petra Tutors 方南教室',
+    description: '杉並区方南に拠点を置く、小学生から高校生向けの英語家庭教師・個別指導サービスです。学校英語、英検、英会話、インターナショナルスクールの学習支援など、目的や現在のレベルに合わせて対面・オンラインで相談できます。',
+    category: 'English', city: '杉並区', area: '方南・笹塚周辺', access: '東京都杉並区方南1-46-17 さくらスイート笹塚B棟105室／対面レッスンはエリア・講師状況により相談',
+    genres: ['English', 'Kids', 'JuniorHigh', 'HighSchool', 'Eiken', 'Online', 'Private'], learningNeeds: ['kids_lessons', 'language_learning', 'exam_preparation', 'school_study', 'online_learning'], decisionFactors: ['teacher_fit', 'trial_available', 'online_available', 'class_content'],
+    fitSummary: '学校英語、英検、英会話、海外カリキュラムなどから、目標とレベルに合う個別の英語学習支援を受けたい小中高生向け', checkpoints: ['希望内容に対応できる講師', '対面・オンラインの受講形式', '時間・頻度ごとの最新料金'],
+    phone: '03-6822-4565', pricing: { system: 'プラン別', minPrice: 0, note: '料金はレッスン時間・内容・形式により異なるため公式料金ページで確認／入会金なし／教材費は基本的に不要' },
+    features: { beginnerFriendly: '◎', kidsClass: true, adultClass: false, online: true }, trial: '無料体験レッスンあり。LINEまたは公式フォームから相談',
+    imageUrl: 'https://images.unsplash.com/photo-1543269865-cbf427effbad?auto=format&fit=crop&w=800&q=80', link: 'https://petratutors.com/', sourceNote: '掲載依頼および公式サイトの所在地・対象・学習内容・受講形式・料金条件・無料体験情報を2026-10-31確認',
+    prefecture: '東京都', addressLocality: '杉並区'
+  },
+  {
     id: 'school-cram-toshima-seed', listingType: 'school', name: '学習塾SEED',
     description: '豊島区池袋にある、小学生・中学生向けの少人数・個別対応の学習塾です。学校の予習・復習を中心に、個別指導と自律学習の2コースで、一人ひとりの理解と自分で学習を進める力を支援します。',
     category: 'CramSchool', city: '豊島区', area: '池袋4丁目', access: '東京都豊島区池袋4-12-4 内田ビル1F',
@@ -3859,6 +3870,7 @@ const studioPrefectureByCity = Object.freeze({
   '徳島市': '徳島県',
   '文京区': '東京都',
   '渋谷区': '東京都',
+  '杉並区': '東京都',
   '豊島区': '東京都',
   '福生市': '東京都',
   '柏市': '千葉県',
